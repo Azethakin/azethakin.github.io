@@ -1,0 +1,223 @@
+/* Styles de base pour tout le site */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+}
+
+/* En-tête */
+header {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Barre de navigation */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 5px;
+}
+
+/* Style de la barre de recherche */
+nav ul li input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Section d'accueil avec image de fond */
+.hero {
+    height: 300px; /* Ajuste la hauteur si nécessaire */
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    background-image: url('../images/electronique.jpg'); /* Chemin de l'image */
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+/* Style pour les modules */
+.modules, .cv, .contact, .about {
+    background-color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.modules h2, .cv h2, .contact h2, .about h2 {
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.course-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.course-box {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.course-box h3 a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.course-box h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Formulaire de contact */
+.contact form {
+    display: inline-block;
+    text-align: left;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.contact label {
+    font-weight: 500;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contact input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Section Projets */
+.projets {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.projets h2 {
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project-box {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-box h3 {
+    margin: 15px 0;
+    color: #3498db;
+}
+
+.project-box p {
+    font-size: 16px;
+}
+
+
+/* Pied de page */
+footer {
+    background: #34495e;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Réactivité pour mobiles et tablettes */
+@media only screen and (max-width: 768px) {
+    .course-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        height: 200px;
+    }
+
+    .course-box {
+        width: 90%;
+    }
+}
