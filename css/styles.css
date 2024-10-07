@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #f4f7f6;
+    overflow-x: hidden; /* Éviter le défilement horizontal */
 }
 
 /* En-tête */
@@ -61,14 +62,13 @@ nav ul li input {
     background-position: center;
 }
 
-
-
-
-/* Style pour les modules */
+/* Styles pour les modules */
 .modules, .cv, .contact, .about {
     background-color: #ecf0f1;
     padding: 40px 20px;
     text-align: center;
+    max-height: 500px; /* Ajustement de la hauteur maximum */
+    overflow-y: auto;  /* Ajouter la barre de défilement */
 }
 
 .modules h2, .cv h2, .contact h2, .about h2 {
@@ -143,6 +143,68 @@ nav ul li input {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+/* Section CV */
+.cv-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.cv-details {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+    margin-right: 20px;
+    border-radius: 5px;
+    max-width: 35%; /* Largeur de la section de gauche */
+    max-height: 80vh; /* Hauteur maximum avec la barre de défilement */
+    overflow-y: scroll; /* Barre de défilement verticale */
+}
+
+.cv-viewer {
+    flex: 2;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    max-height: 80vh; /* Hauteur maximum avec la barre de défilement */
+}
+
+.cv-viewer img, .cv-viewer iframe {
+    width: 100%;
+    height: auto;
+    max-width: 700px; /* Limite la largeur pour ne pas déborder */
+    display: block;
+    margin: 0 auto; /* Centre l'image */
+}
+
+/* Boutons de contrôle du zoom */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.controls button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.controls button img {
+    width: 20px;
+    height: 20px;
+}
+
+.controls button:hover {
+    background-color: #2980b9;
+}
+
 /* Section Projets */
 .projets {
     background-color: #f9f9f9;
@@ -190,7 +252,6 @@ nav ul li input {
     font-size: 16px;
 }
 
-
 /* Pied de page */
 footer {
     background: #34495e;
@@ -208,7 +269,7 @@ footer p {
 
 /* Réactivité pour mobiles et tablettes */
 @media only screen and (max-width: 768px) {
-    .course-container {
+    .course-container, .project-container {
         flex-direction: column;
         align-items: center;
     }
@@ -217,7 +278,7 @@ footer p {
         height: 200px;
     }
 
-    .course-box {
+    .course-box, .project-box, .cv-viewer {
         width: 90%;
     }
 }
