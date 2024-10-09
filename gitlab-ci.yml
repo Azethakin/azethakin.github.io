@@ -1,0 +1,13 @@
+# Utilisation d'une image de base minimale (alpine est une image légère)
+image: alpine
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r * .public/
+  artifacts:
+    paths:
+      - .public
+  only:
+    - main
