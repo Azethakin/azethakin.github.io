@@ -1,57 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact - Aziz Malloul</title>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-        <!-- Google tag (gtag.js) -->
-        <!-- pour google analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-    
-            gtag('config', 'G-J24YWBKV6C');
-        </script>
-    
-    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Ajout de la librairie EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("M9PAHz9znIlnqxTIS");
+        })();
+    </script>
+</head>
 <body>
-    <header>
-        <h1>Contactez-moi</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="about.html">Qui suis-je ?</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Formulaire de Contact</h1>
+    <form id="contactForm">
+        <label for="name">Nom :</label><br>
+        <input type="text" id="name" name="name" required><br>
 
-    <section class="contact">
-        <h2>Formulaire de Contact</h2>
-        <form id="contactForm" action="#" method="post">
-            <label for="name">Nom :</label><br>
-            <input type="text" id="name" name="name" required><br>
+        <label for="prenom">Prénom :</label><br>
+        <input type="text" id="prenom" name="prenom" required><br>
 
-            <label for="email">Email :</label><br>
-            <input type="email" id="email" name="email" required><br>
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email" required><br>
 
-            <label for="message">Message :</label><br>
-            <textarea id="message" name="message" required></textarea><br>
+        <label for="telephone">Numéro de téléphone :</label><br>
+        <input type="tel" id="telephone" name="telephone" required><br>
 
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" required></textarea><br>
 
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <!-- Message de résultat -->
+    <p id="resultMessage" style="display:none;"></p>
 
     <script src="js/scripts.js"></script>
 </body>

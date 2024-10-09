@@ -1,26 +1,22 @@
-// Barre de recherche pour filtrer les cours par nom
-document.getElementById('search').addEventListener('input', function () {
-    const filter = this.value.toLowerCase();
-    const courseBoxes = document.querySelectorAll('.course-box');
+// // Barre de recherche pour filtrer les cours par nom
+// document.getElementById('search').addEventListener('input', function () {
+//     const filter = this.value.toLowerCase();
+//     const courseBoxes = document.querySelectorAll('.course-box');
 
-    courseBoxes.forEach(box => {
-        let courseName = box.querySelector('h3').textContent.toLowerCase();
-        if (courseName.includes(filter)) {
-            box.style.display = '';
-        } else {
-            box.style.display = 'none';
-        }
-    });
-});
+//     courseBoxes.forEach(box => {
+//         let courseName = box.querySelector('h3').textContent.toLowerCase();
+//         if (courseName.includes(filter)) {
+//             box.style.display = '';
+//         } else {
+//             box.style.display = 'none';
+//         }
+//     });
+// });
 
-// Affiche un message de confirmation à la soumission du formulaire de contact
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        alert("Merci de m'avoir contacté ! Je vous répondrai dès que possible.");
-    });
-}
+
+
+
+
 
 // Animation au survol des modules de cours
 const modules = document.querySelectorAll('.course-box');
@@ -34,23 +30,26 @@ modules.forEach(module => {
     });
 });
 
-// Validation des champs du formulaire de contact
-if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Empêche l'envoi du formulaire pour vérifier
 
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
 
-        // Validation des champs
-        if (name === '' || email === '' || message === '') {
-            alert("Veuillez remplir tous les champs.");
-        } else {
-            alert("Merci pour votre message, " + name + "! Nous vous répondrons bientôt.");
-        }
-    });
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Gestion de la sélection de la langue pour les textes dynamiques
 const languageSelect = document.getElementById('languageSelect');
@@ -67,32 +66,30 @@ if (languageSelect) {
     });
 }
 
-// Script pour contrôler le zoom de l'image du CV
-const zoomInButton = document.getElementById('zoom-in');
-const zoomOutButton = document.getElementById('zoom-out');
-const cvViewer = document.getElementById('cv-viewer'); // Sélection de l'élément image à zoomer
+window.addEventListener('DOMContentLoaded', () => {
+    const zoomInButton = document.getElementById('zoom-in');
+    const zoomOutButton = document.getElementById('zoom-out');
+    const cvImage = document.getElementById('cv-image');
 
-if (cvViewer) {
-    // Variables pour gérer le zoom
-    let zoomLevel = 1;
+    if (zoomInButton && zoomOutButton && cvImage) {
+        let zoomLevel = 1;
 
-    // Événement pour zoomer
-    zoomInButton.addEventListener('click', () => {
-        zoomLevel += 0.1; // Incrémente le zoom de 0.1
-        cvViewer.style.transform = `scale(${zoomLevel})`;
-        cvViewer.style.transition = 'transform 0.3s ease'; // Animation douce
-        centerImage(); // Centre l'image après le zoom
-    });
+        zoomInButton.addEventListener('click', () => {
+            zoomLevel += 0.1;
+            cvImage.style.transform = `scale(${zoomLevel})`;
+            cvImage.style.transition = 'transform 0.3s ease';
+        });
 
-    // Événement pour dézoomer
-    zoomOutButton.addEventListener('click', () => {
-        if (zoomLevel > 0.5) { // Limite de dézoom à 50%
-            zoomLevel -= 0.1;
-            cvViewer.style.transform = `scale(${zoomLevel})`;
-            cvViewer.style.transition = 'transform 0.3s ease';
-            centerImage(); // Centre l'image après le dézoom
-        }
-    });
+        zoomOutButton.addEventListener('click', () => {
+            if (zoomLevel > 0.5) {
+                zoomLevel -= 0.1;
+                cvImage.style.transform = `scale(${zoomLevel})`;
+                cvImage.style.transition = 'transform 0.3s ease';
+            }
+        });
+    }
+});
+
 
     // Fonction pour centrer l'image après un zoom
     function centerImage() {
@@ -104,8 +101,8 @@ if (cvViewer) {
         } else {
             cvViewer.style.marginLeft = `0px`;
         }
-    }
 }
+
 
 // Script pour afficher/masquer les détails du CV
 const cvButton = document.getElementById("cv-button");
@@ -119,4 +116,73 @@ if (cvButton && cvDetails) {
             cvDetails.style.display = "block";
         }
     });
+}
+
+
+
+
+
+
+
+// Initialisation d'EmailJS avec votre clé publique
+emailjs.init("M9PAHz9znIlnqxTIS");
+
+// Envoi d'email lors de la soumission du formulaire de contact
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
+
+    // Récupère les valeurs des champs du formulaire
+    const name = document.getElementById("name").value;
+    const prenom = document.getElementById("prenom").value;
+    const email = document.getElementById("email").value;
+    const telephone = document.getElementById("telephone").value;
+    const message = document.getElementById("message").value;
+
+    // Paramètres pour l'email à l'administrateur
+    const adminParams = {
+      from_name: name,
+      prenom: prenom,
+      from_email: email,
+      telephone: telephone,
+      message: message
+    };
+
+    // Paramètres pour l'email de confirmation au client
+    const confirmationParams = {
+      from_name: name,
+      prenom: prenom,
+      from_email: email, // Vérifiez que cette valeur n'est pas vide
+      message: `Bonjour ${prenom},\n\nMerci de m'avoir contacté ! J'ai bien reçu votre message. Je vous répondrai sous peu.\n\nCordialement,\nAziz Malloul`
+    };
+
+    // Envoie de l'email à l'administrateur
+    emailjs.send("service_2oherbp", "template_p17maoh", adminParams)
+      .then(function(response) {
+        console.log("Email à l'administrateur envoyé avec succès !", response.status, response.text);
+        console.log("Confirmation Params:", confirmationParams);
+
+
+        // Envoie de l'email de confirmation au client
+        emailjs.send("service_2oherbp", "template_ma4adv9", confirmationParams)
+          .then(function(response) {
+            console.log("Email de confirmation envoyé avec succès !", response.status, response.text);
+            document.getElementById("resultMessage").style.display = "block";
+            document.getElementById("resultMessage").style.color = "green";
+            document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
+          }, function(error) {
+            console.error("Erreur lors de l'envoi de l'email de confirmation.", error);
+            document.getElementById("resultMessage").style.display = "block";
+            document.getElementById("resultMessage").style.color = "red";
+            document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi de l'email de confirmation. Veuillez réessayer.";
+          });
+      }, function(error) {
+        console.error("Erreur lors de l'envoi de l'email de notification.", error);
+        document.getElementById("resultMessage").style.display = "block";
+        document.getElementById("resultMessage").style.color = "red";
+        document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
+      });
+  });
 }

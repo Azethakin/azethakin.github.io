@@ -108,40 +108,46 @@ nav ul li input {
 
 /* Formulaire de contact */
 .contact form {
-    display: inline-block;
-    text-align: left;
-    background: #ffffff;
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
-.contact label {
-    font-weight: 500;
+.contact form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.contact input, .contact textarea {
+.contact form input, .contact form textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    margin-bottom: 15px;
     border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.contact input[type="submit"] {
+.contact form input[type="submit"] {
     background-color: #3498db;
     color: white;
     border: none;
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.contact input[type="submit"]:hover {
+.contact form input[type="submit"]:hover {
     background-color: #2980b9;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
+#confirmation p {
+    color: green;
+    text-align: center;
+    font-size: 18px;
+}
+
 
 /* Section CV */
 .cv-container {
@@ -282,3 +288,8 @@ footer p {
         width: 90%;
     }
 }
+
+.cv-viewer img {
+    transition: transform 0.3s ease; /* Animation de transition pour le zoom */
+}
+
