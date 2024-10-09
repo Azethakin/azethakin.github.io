@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV de Aziz Malloul</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <!-- Google tag (gtag.js) -->
+    <!-- pour google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J24YWBKV6C');
+    </script>
+
+    <style>
+        
+
+
+        
+        /* Style personnalisé pour améliorer l'affichage */
+        .cv-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            height: 700px;
+        }
+
+        .cv-details {
+            flex: 1;
+            padding: 20px;
+            background-color: #ecf0f1;
+            margin-right: 20px;
+            border-radius: 5px;
+            max-width: 30%;
+            overflow-y: scroll; /* Barre de défilement verticale */
+        }
+
+        .cv-viewer {
+            flex: 2;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: scroll; /* Barre de défilement verticale */
+            position: relative;
+        }
+
+        .cv-viewer img {
+            width: 100%;
+            transform-origin: top left; /* Pour le zoom */
+        }
+
+        /* Boutons de contrôle */
+        .controls {
+            display: flex;
+            justify-content: center; /* Centrer les boutons */
+            margin-bottom: 10px;
+        }
+
+        .controls button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            margin: 0 5px; /* Espacement entre les boutons */
+        }
+
+        .controls button img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .controls button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CV de Aziz Malloul</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="about.html">Qui suis-je ?</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cv-container">
+        <!-- Détails sur le CV à gauche -->
+        <div class="cv-details">
+            <h2>Détails sur le CV</h2>
+            <p>Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant 
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+            </p>
+            <ul>
+                <li><strong>Expérience :</strong> Ajoutez des détails sur vos stages, projets, etc.</li>
+                <li><strong>Compétences techniques :</strong> Décrivez vos compétences en plus de ce qui est mentionné dans le CV.</li>
+                <li><strong>Projets :</strong> Élargissez les informations sur les projets listés.</li>
+            </ul>
+        </div>
+
+        <!-- Visualisation du CV à droite -->
+        <div class="cv-viewer">
+            <h2>Visualisation du CV</h2>
+            <div class="controls">
+                <button id="zoom-out">Zoom -</button>
+                <button id="zoom-in">Zoom +</button>
+            </div>
+            <img src="images/CV_Aziz_MALLOUL_Stage.jpg" id="cv-image" alt="CV de Aziz Malloul">
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+    </footer>
+
+   
+</body>
+</html>
