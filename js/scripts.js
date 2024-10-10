@@ -141,48 +141,29 @@ if (contactForm) {
     const telephone = document.getElementById("telephone").value;
     const message = document.getElementById("message").value;
 
-    // Paramètres pour l'email à l'administrateur
-    const adminParams = {
-      from_name: name,
-      prenom: prenom,
-      from_email: email,
-      telephone: telephone,
-      message: message
-    };
+    
 
     // Paramètres pour l'email de confirmation au client
     const confirmationParams = {
       from_name: name,
       prenom: prenom,
-      from_email: email, // Vérifiez que cette valeur n'est pas vide
+      from_email: email,
       message: `Bonjour ${prenom},\n\nMerci de m'avoir contacté ! J'ai bien reçu votre message. Je vous répondrai sous peu.\n\nCordialement,\nAziz Malloul`
     };
 
-    // Envoie de l'email à l'administrateur
+    // Envoi de l'email avec le fichier joint via EmailJS
     emailjs.send("service_2oherbp", "template_p17maoh", adminParams)
       .then(function(response) {
-        console.log("Email à l'administrateur envoyé avec succès !", response.status, response.text);
-        console.log("Confirmation Params:", confirmationParams);
-
-
-        // Envoie de l'email de confirmation au client
-        emailjs.send("service_2oherbp", "template_ma4adv9", confirmationParams)
-          .then(function(response) {
-            console.log("Email de confirmation envoyé avec succès !", response.status, response.text);
-            document.getElementById("resultMessage").style.display = "block";
-            document.getElementById("resultMessage").style.color = "green";
-            document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
-          }, function(error) {
-            console.error("Erreur lors de l'envoi de l'email de confirmation.", error);
-            document.getElementById("resultMessage").style.display = "block";
-            document.getElementById("resultMessage").style.color = "red";
-            document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi de l'email de confirmation. Veuillez réessayer.";
-          });
+        console.log("Email envoyé avec succès !", response.status, response.text);
+        document.getElementById("resultMessage").style.display = "block";
+        document.getElementById("resultMessage").style.color = "green";
+        document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
       }, function(error) {
-        console.error("Erreur lors de l'envoi de l'email de notification.", error);
+        console.error("Erreur lors de l'envoi de l'email.", error);
         document.getElementById("resultMessage").style.display = "block";
         document.getElementById("resultMessage").style.color = "red";
         document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
       });
   });
 }
+
