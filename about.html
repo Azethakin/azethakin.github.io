@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+    <!-- Métadonnées du document -->
     <meta charset="UTF-8">
+    <!-- Définit l'encodage des caractères en UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Assure que le site s'adapte bien aux différents appareils (ordinateurs, mobiles, etc.) -->
+    
     <title>Qui suis-je ? - Aziz Malloul</title>
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+
+    <!-- Lien vers le fichier CSS pour les styles de cette page -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Google tag (gtag.js) -->
-    <!-- pour google analytics -->
+    <!-- Google Analytics pour suivre les visiteurs du site -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-J24YWBKV6C');
     </script>
-
+    <!-- Ce script permet d'utiliser Google Analytics pour suivre le trafic sur cette page spécifique -->
 </head>
+
 <body>
+    <!-- Début du corps de la page, qui contient tout le contenu visible -->
+
+    <!-- En-tête du site avec le titre et la navigation -->
     <header>
+        <!-- Titre principal de la page -->
         <h1>À propos de moi</h1>
+
+        <!-- Barre de navigation -->
         <nav>
             <ul>
+                <!-- Lien vers la page d'accueil -->
                 <li><a href="index.html">Accueil</a></li>
+                <!-- Lien vers le CV -->
                 <li><a href="cv.html">CV</a></li>
+                <!-- Lien vers la page "Qui suis-je ?" (actuelle) -->
                 <li><a href="about.html">Qui suis-je ?</a></li>
+                <!-- Lien vers la page de contact -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Section principale qui présente les informations personnelles -->
     <section class="about">
+        <!-- Titre de la section à propos -->
         <h2>À propos de moi</h2>
+        <!-- Paragraphe décrivant ton parcours académique actuel -->
         <p>Je suis actuellement étudiant en Master 2 en Robotique, Intelligence Artificielle et Systèmes Embarqués à l'Université de Toulon.</p>
-        <p>Passionné par les nouvelles technologies et l'automatisation, j'ai développé des compétences solides en programmation, en développement de systèmes embarqués et en intelligence artificielle.</p>
+        
+        <!-- Un autre paragraphe pour introduire tes compétences et passions -->
+        <p>Passionné par les nouvelles technologies et l'automatisation, j'ai développé des compétences solides en programmation, 
+           en développement de systèmes embarqués et en intelligence artificielle.</p>
+
+        <!-- Aperçu du parcours académique avec une liste pour rendre l'information plus claire -->
         <p>Voici un aperçu de mon parcours :</p>
         <ul>
-            <li>Diplome Licence en Électronique, Électrotechnique et Automatique (Université Lyon 1)</li>
-            <li>Diplome Licence a université Mouloud Mammeri de Tizi Ouzou UMMTO</li>
+            <!-- Chaque élément de la liste représente un diplôme avec des détails -->
+            <li>Diplôme de Licence en Électronique, Énergie Électrique et Automatique (Université Lyon 1)</li>
+            <li>Diplôme de Licence en Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO)</li>
+            <!-- Ajouter d'autres diplômes ou qualifications selon les besoins -->
         </ul>
     </section>
 
+    <!-- Pied de page du site -->
     <footer>
+        <!-- Message de copyright -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     </footer>
+    
+    <!-- Inclusion du fichier JavaScript pour gérer les interactions (comme la sélection de langue) -->
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>

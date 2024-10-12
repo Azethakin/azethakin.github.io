@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+    <!-- Métadonnées du document -->
     <meta charset="UTF-8">
+    <!-- Définit l'encodage en UTF-8 pour prendre en charge les caractères spéciaux -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Permet d'adapter la page à toutes les tailles d'écrans (ordinateurs, tablettes, mobiles) -->
+
     <title>CV de Aziz Malloul</title>
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+
+    <!-- Lien vers le fichier de styles CSS pour styliser la page -->
     <link rel="stylesheet" href="css/styles.css">
 
-
-    <!-- Google tag (gtag.js) -->
-    <!-- pour google analytics -->
+    <!-- Google Analytics pour suivre les visiteurs du site -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-J24YWBKV6C');
     </script>
-
+    <!-- Script Google Analytics pour suivre les statistiques de la page -->
+    
+    <!-- Style interne pour personnaliser la mise en page du CV -->
     <style>
-        
-
-
-        
-        /* Style personnalisé pour améliorer l'affichage */
+        /* Conteneur principal qui divise la page en deux parties : les détails et la visualisation du CV */
         .cv-container {
             display: flex;
             justify-content: space-between;
@@ -31,6 +34,7 @@
             height: 700px;
         }
 
+        /* Section gauche qui contient les détails du CV */
         .cv-details {
             flex: 1;
             padding: 20px;
@@ -38,31 +42,34 @@
             margin-right: 20px;
             border-radius: 5px;
             max-width: 30%;
-            overflow-y: scroll; /* Barre de défilement verticale */
+            overflow-y: scroll; /* Permet un défilement vertical si le contenu est trop long */
         }
 
+        /* Section droite qui contient l'image du CV */
         .cv-viewer {
             flex: 2;
             padding: 10px;
             border-radius: 5px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow-y: scroll; /* Barre de défilement verticale */
+            overflow-y: scroll; /* Permet un défilement vertical pour le CV */
             position: relative;
         }
 
+        /* Image du CV affichée dans la partie droite */
         .cv-viewer img {
             width: 100%;
-            transform-origin: top left; /* Pour le zoom */
+            transform-origin: top left; /* Point de départ du zoom */
         }
 
-        /* Boutons de contrôle */
+        /* Boutons de contrôle pour zoomer sur le CV */
         .controls {
             display: flex;
-            justify-content: center; /* Centrer les boutons */
+            justify-content: center; /* Centre les boutons */
             margin-bottom: 10px;
         }
 
+        /* Style des boutons de zoom */
         .controls button {
             padding: 10px;
             border: none;
@@ -70,23 +77,31 @@
             background-color: #3498db;
             color: white;
             cursor: pointer;
-            margin: 0 5px; /* Espacement entre les boutons */
+            margin: 0 5px;
         }
 
+        /* Icônes à l'intérieur des boutons de zoom */
         .controls button img {
             width: 25px;
             height: 25px;
         }
 
+        /* Effet au survol des boutons */
         .controls button:hover {
             background-color: #2980b9;
         }
     </style>
 </head>
+
 <body>
+    <!-- Début du corps de la page -->
+
+    <!-- En-tête avec la barre de navigation -->
     <header>
+        <!-- Titre principal de la page CV -->
         <h1>CV de Aziz Malloul</h1>
         <nav>
+            <!-- Barre de navigation avec des liens vers d'autres sections -->
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="cv.html">CV</a></li>
@@ -96,22 +111,18 @@
         </nav>
     </header>
 
+    <!-- Section principale du CV qui se divise en deux colonnes -->
     <section class="cv-container">
-        <!-- Détails sur le CV à gauche -->
+        <!-- Partie gauche avec des informations détaillées sur le CV -->
         <div class="cv-details">
+            <!-- Titre de la section des détails -->
             <h2>Détails sur le CV</h2>
-            <p>Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant 
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
-                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des points clés que vous souhaitez mettre en avant.
+            <!-- Description du parcours et des compétences -->
+            <p>
+                Ajoutez ici des informations supplémentaires sur votre parcours professionnel, vos réalisations, ou des
+                points clés que vous souhaitez mettre en avant.
             </p>
+            <!-- Liste de réalisations, compétences ou projets -->
             <ul>
                 <li><strong>Expérience :</strong> Ajoutez des détails sur vos stages, projets, etc.</li>
                 <li><strong>Compétences techniques :</strong> Décrivez vos compétences en plus de ce qui est mentionné dans le CV.</li>
@@ -119,22 +130,57 @@
             </ul>
         </div>
 
-        <!-- Visualisation du CV à droite -->
+        <!-- Partie droite où le CV est visualisé (sous forme d'image) -->
         <div class="cv-viewer">
+            <!-- Titre de la section de visualisation du CV -->
             <h2>Visualisation du CV</h2>
+
+            <!-- Boutons de zoom (agrandir et réduire) -->
             <div class="controls">
+                <!-- Bouton pour réduire la taille du CV -->
                 <button id="zoom-out">Zoom -</button>
+                <!-- Bouton pour augmenter la taille du CV -->
                 <button id="zoom-in">Zoom +</button>
             </div>
+
+            <!-- Image du CV (à adapter avec le bon chemin de l'image) -->
             <img src="images/CV_Aziz_MALLOUL_Stage.jpg" id="cv-image" alt="CV de Aziz Malloul">
-            
         </div>
     </section>
 
+    <!-- Pied de page -->
     <footer>
+        <!-- Message de copyright -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     </footer>
 
-   
+    <!-- Inclusion du fichier JavaScript pour gérer le zoom sur le CV -->
+    <script src="js/scripts.js"></script>
+
+    <!-- Script pour gérer le zoom de l'image du CV -->
+    <script>
+        // Sélection des boutons et de l'image du CV
+        const zoomInButton = document.getElementById('zoom-in');
+        const zoomOutButton = document.getElementById('zoom-out');
+        const cvImage = document.getElementById('cv-image');
+        let zoomLevel = 1;
+
+        // Fonction pour zoomer (agrandir) l'image
+        zoomInButton.addEventListener('click', function() {
+            zoomLevel += 0.1;
+            cvImage.style.transform = `scale(${zoomLevel})`;  // Applique le zoom
+            cvImage.style.transition = 'transform 0.3s ease'; // Animation pour rendre le zoom fluide
+        });
+
+        // Fonction pour réduire le zoom de l'image
+        zoomOutButton.addEventListener('click', function() {
+            if (zoomLevel > 0.5) {  // Empêche un zoom trop faible
+                zoomLevel -= 0.1;
+                cvImage.style.transform = `scale(${zoomLevel})`;
+                cvImage.style.transition = 'transform 0.3s ease';
+            }
+        });
+    </script>
 </body>
+
 </html>
