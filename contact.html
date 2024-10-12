@@ -4,12 +4,8 @@
 <head>
     <!-- Metadonnées du document -->
     <meta charset="UTF-8">
-    <!-- Définit l'encodage en UTF-8 pour prendre en charge tous les caractères -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Permet de rendre le site responsive, adapté aux différentes tailles d'écrans (mobiles, tablettes, ordinateurs) -->
-
     <title>Contactez-moi - Aziz Malloul</title>
-    <!-- Titre de la page, qui s'affichera dans l'onglet du navigateur -->
 
     <!-- Lien vers le fichier de styles CSS pour styliser la page -->
     <link rel="stylesheet" href="css/styles.css">
@@ -18,29 +14,19 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("M9PAHz9znIlnqxTIS");
+            emailjs.init("M9PAHz9znIlnqxTIS");  // Initialisation d'EmailJS
         })();
     </script>
-    <!-- Ce script initialise EmailJS pour envoyer des emails sans besoin d'un backend -->
-
 </head>
 
 <body>
-    <!-- Début du corps de la page, où se trouve tout le contenu visible -->
-
-    <!-- En-tête de la page, incluant le titre et la barre de navigation -->
     <header>
         <h1>Contactez Aziz Malloul</h1>
-        <!-- Barre de navigation pour permettre aux utilisateurs de naviguer facilement entre les pages -->
         <nav>
             <ul>
-                <!-- Lien vers la page d'accueil -->
                 <li><a href="index.html">Accueil</a></li>
-                <!-- Lien vers le CV -->
                 <li><a href="cv.html">CV</a></li>
-                <!-- Lien vers la page "À propos" -->
                 <li><a href="about.html">Qui suis-je ?</a></li>
-                <!-- Lien vers la page de contact (cette page) -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -48,109 +34,42 @@
 
     <!-- Conteneur principal pour le formulaire de contact -->
     <div class="contact-container">
-        <!-- Boîte qui contient le formulaire -->
         <div class="form-box">
-            <!-- Titre du formulaire -->
             <h1>Contactez-moi</h1>
-
-            <!-- Début du formulaire de contact -->
             <form id="contactForm">
-                <!-- Chaque champ du formulaire est contenu dans un "input-group" pour les organiser -->
-                
-                <!-- Champ pour entrer le nom -->
                 <div class="input-group">
                     <label for="name">Nom :</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-                
-                <!-- Champ pour entrer le prénom -->
                 <div class="input-group">
                     <label for="prenom">Prénom :</label>
                     <input type="text" id="prenom" name="prenom" required>
                 </div>
-                
-                <!-- Champ pour entrer l'adresse email -->
                 <div class="input-group">
                     <label for="email">Email :</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                
-                <!-- Champ pour entrer le numéro de téléphone -->
                 <div class="input-group">
                     <label for="telephone">Numéro de téléphone :</label>
                     <input type="tel" id="telephone" name="telephone" required>
                 </div>
-                
-                <!-- Champ pour entrer le message -->
                 <div class="input-group">
                     <label for="message">Message :</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
 
-                <!-- Bouton pour soumettre le formulaire -->
                 <button type="submit" class="btn-submit">Envoyer</button>
-                
-                <!-- Message de confirmation ou d'erreur après soumission du formulaire -->
                 <p id="resultMessage" class="response" style="display:none;">Ici sera affiché le message de confirmation.</p>
             </form>
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
-        <!-- Texte de copyright -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     </footer>
 
-    <!-- Inclusion du fichier JavaScript pour gérer les interactions -->
+    <!-- Inclusion du fichier JavaScript global -->
     <script src="js/scripts.js"></script>
-    
-    <!-- Script pour gérer l'envoi d'emails via EmailJS -->
-    <script>
-        // Sélection du formulaire
-        const contactForm = document.getElementById('contactForm');
-
-        // Écouteur d'événement pour la soumission du formulaire
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Empêche la soumission du formulaire par défaut
-
-                // Récupère les valeurs des champs du formulaire
-                const name = document.getElementById("name").value;
-                const prenom = document.getElementById("prenom").value;
-                const email = document.getElementById("email").value;
-                const telephone = document.getElementById("telephone").value;
-                const message = document.getElementById("message").value;
-
-                // Paramètres à envoyer via EmailJS
-                const emailParams = {
-                    from_name: name,
-                    prenom: prenom,
-                    from_email: email,
-                    telephone: telephone,
-                    message: message
-                };
-
-                // Envoi de l'email via EmailJS
-                emailjs.send('service_2oherbp', 'template_p17maoh', emailParams)
-                    .then(function(response) {
-                        console.log('Email envoyé avec succès !', response.status, response.text);
-                        // Affiche un message de succès
-                        const resultMessage = document.getElementById("resultMessage");
-                        resultMessage.style.display = "block";
-                        resultMessage.style.color = "green";
-                        resultMessage.textContent = "Message bien envoyé. Merci de nous avoir contacté!";
-                    }, function(error) {
-                        console.error('Erreur lors de l\'envoi de l\'email.', error);
-                        // Affiche un message d'erreur
-                        const resultMessage = document.getElementById("resultMessage");
-                        resultMessage.style.display = "block";
-                        resultMessage.style.color = "red";
-                        resultMessage.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
-                    });
-            });
-        }
-    </script>
 </body>
 
 </html>
