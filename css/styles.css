@@ -223,6 +223,9 @@ nav ul li input {
     background: #365492; /* Couleur légèrement plus foncée lors du survol */
 }
 
+
+
+
 /* ===========================================
    Styles pour le pied de page
    =========================================== */
@@ -264,6 +267,11 @@ footer {
 .cv-viewer img {
     transition: transform 0.3s ease; /* Animation de transition pour le zoom */
 }
+
+
+
+
+
 
 /* ===========================================
    Styles pour la section projets
