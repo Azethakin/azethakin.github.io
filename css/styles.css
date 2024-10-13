@@ -329,3 +329,104 @@ footer {
     font-weight: bold; /* Optionnel : rend le texte en gras */
     margin-bottom: 40px; /* Espace en bas pour séparer le titre des boîtes de projet */
 }
+
+
+
+/* ===========================================
+   Styles pour la Section Mes Diplômes
+   =========================================== */
+/* Conteneur pour les boîtes de diplômes */
+.diplome-container {
+    display: flex; /* Utilisation de Flexbox pour aligner les boîtes de diplômes */
+    justify-content: space-around; /* Espacement uniforme autour des boîtes de diplômes */
+    flex-wrap: wrap; /* Permet aux boîtes de passer à une nouvelle ligne si l'espace est insuffisant */
+    margin-top: 40px; /* Espace au-dessus du conteneur pour séparer des autres sections */
+}
+
+/* Style de base pour chaque boîte de diplôme */
+.diplome-box {
+    background: #ffffff; /* Fond blanc pour chaque boîte */
+    border: 1px solid #ddd; /* Bordure grise claire autour des boîtes */
+    margin: 10px; /* Espace autour de chaque boîte */
+    padding: 20px; /* Espacement interne des boîtes pour respirer autour du texte */
+    width: 300px; /* Largeur fixe de chaque boîte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner un effet de profondeur */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation fluide pour le zoom et l'ombre au survol */
+    text-align: center; /* Centre le texte à l'intérieur de la boîte */
+}
+
+/* Pour centrer le titre <h2> de la section Mes Diplômes */
+.diplomes h2 {
+    text-align: center; /* Centre le texte horizontalement */
+    font-weight: bold;  /* Texte en gras */
+    margin-bottom: 40px; /* Ajoute un espace en bas pour séparer le titre du contenu */
+}
+
+
+/* Style pour le titre dans chaque boîte de diplôme */
+.diplome-box h3 {
+    color: #3498db; /* Couleur bleue pour le titre afin de le faire ressortir */
+    font-size: 18px; /* Taille du texte du titre */
+    margin-bottom: 10px; /* Espace sous le titre pour séparer du contenu suivant */
+}
+
+/* Style pour la liste des diplômes dans chaque boîte */
+.diplome-box ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime les marges internes pour la liste */
+}
+
+/* Style pour chaque élément de la liste */
+.diplome-box ul li {
+    font-size: 16px; /* Taille du texte pour chaque élément de la liste */
+    margin-bottom: 10px; /* Espace en dessous de chaque élément de la liste */
+}
+
+/* Style pour les liens autour des boîtes, permettant de les rendre entièrement cliquables */
+.diplome-box-link {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: inherit; /* Conserve la couleur du texte à l'intérieur de la boîte */
+}
+
+/* Effet au survol d'une boîte de diplôme */
+.diplome-box:hover {
+    transform: scale(1.05); /* Agrandit légèrement la boîte au survol pour attirer l'attention */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre au survol pour donner un effet de profondeur */
+}
+
+
+
+
+
+
+
+
+/* Pied de page et Section des icônes des réseaux sociaux */
+
+
+/* Pied de page */
+footer {
+    text-align: center; /* Centrer le texte */
+    padding: 20px; /* Espacement intérieur du pied de page */
+    background-color: #333; /* Fond sombre */
+    color: white; /* Texte blanc */
+}
+
+/* Section des icônes des réseaux sociaux */
+.social-icons {
+    margin-top: 10px; /* Espace au-dessus des icônes */
+}
+
+/* Icônes des réseaux sociaux */
+.social-icons a {
+    margin: 0 10px; /* Espacement entre les icônes */
+    text-decoration: none; /* Supprime le soulignement */
+    color: white; /* Couleur par défaut des icônes */
+    font-size: 24px; /* Taille des icônes */
+    transition: color 0.3s; /* Transition pour le changement de couleur au survol */
+}
+
+/* Changement de couleur des icônes au survol */
+.social-icons a:hover {
+    color: #3498db; /* Change la couleur au survol (bleu clair) */
+}
