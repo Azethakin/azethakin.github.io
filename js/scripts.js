@@ -20,7 +20,7 @@ if (searchElement) {
     });
 }
 
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // =====================
 // Animation au survol des modules de cours
 // =====================
@@ -35,6 +35,8 @@ modules.forEach(module => {
     });
 });
 
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // =====================
 // Gestion du zoom sur l'image du CV
 // =====================
@@ -57,6 +59,8 @@ if (zoomInButton && zoomOutButton && cvImage) {
     });
 }
 
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // =====================
 // Envoi d'emails avec EmailJS
 // =====================
@@ -123,3 +127,37 @@ if (contactForm) {
             });
     });
 }
+
+
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// =====================
+// Carrousel d'images automatiques
+// =====================
+
+// Lorsque le document est entièrement chargé
+// S'assure que le script s'exécute après le chargement du DOM
+// S'assure que le script s'exécute après le chargement du DOM
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    let index = 0;
+    const totalItems = items.length;
+
+    function showNextImage() {
+        // Incrémente l'index pour passer à l'image suivante
+        index = (index + 1) % totalItems;
+        // Applique une transformation pour déplacer le carrousel vers la gauche
+        carouselInner.style.transition = 'transform 1s ease-in-out'; // Transition de 1 seconde
+        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    // Changement d'image toutes les 3 secondes (3000ms)
+    setInterval(showNextImage, 4000); // 3000ms pour laisser l'image et 1000ms pour la transition
+});
+
+
+
+

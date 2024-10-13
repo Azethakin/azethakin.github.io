@@ -11,6 +11,8 @@ body, html {
     overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour l'en-tête du site
    =========================================== */
@@ -31,6 +33,8 @@ header h1 {
     font-weight: 700; /* Texte en gras */
 }
 
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la navigation du site
    =========================================== */
@@ -61,6 +65,8 @@ nav ul li a:hover {
     padding-bottom: 5px; /* Espace entre le lien et la ligne */
 }
 
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la barre de recherche
    =========================================== */
@@ -73,22 +79,57 @@ nav ul li input {
     font-family: 'Roboto', sans-serif; /* Utilise la police Roboto */
 }
 
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la section d'accueil (hero)
    =========================================== */
 
 /* Section d'accueil avec image de fond */
+/* Section principale (hero) */
+/* Section principale (hero) */
 .hero {
-    height: 300px; /* Hauteur de la section */
-    margin-top: -100px; /* Remonte la section pour réduire l'espace entre elle et l'en-tête */
-    color: white; /* Texte blanc */
-    text-align: center; /* Texte centré */
-    padding: 70px 20px; /* Espacement interne vertical et horizontal */
-    background-image: url('../images/electronique.jpg'); /* Image de fond de la section */
-    background-size: cover; /* Ajuste l'image pour qu'elle couvre toute la section */
-    background-position: center; /* Centre l'image de fond */
+    height: 400px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Masque tout contenu qui dépasse */
 }
 
+.carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 400%; /* 4 images donc 400% */
+    height: 100%;
+    transition: transform 1s ease-in-out; /* Transition douce */
+}
+
+.carousel-item {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garde les proportions tout en couvrant l'espace */
+}
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour les modules et cours
    =========================================== */
@@ -430,3 +471,5 @@ footer {
 .social-icons a:hover {
     color: #3498db; /* Change la couleur au survol (bleu clair) */
 }
+
+
