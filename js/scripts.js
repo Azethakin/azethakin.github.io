@@ -73,9 +73,16 @@ const contactForm = document.getElementById("contactForm");
 
 // Vérifie si le formulaire de contact existe sur la page
 if (contactForm) {
+    // Sélectionne le bouton de soumission
+    const submitButton = document.querySelector('.btn-submit');
+
     // Ajoute un événement de soumission au formulaire
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();  // Empêche le rechargement de la page lors de la soumission
+
+        // Désactive le bouton immédiatement après le clic
+        submitButton.disabled = true;
+        submitButton.style.backgroundColor = '#ccc';  // Grise le bouton pour donner un feedback visuel
 
         // Récupère les valeurs saisies dans les champs du formulaire
         const name = document.getElementById("name").value;
@@ -107,23 +114,33 @@ if (contactForm) {
                 console.log("Email à l'administrateur envoyé avec succès !", response.status, response.text);
 
                 // Envoie de l'email de confirmation au client
-                emailjs.send("service_2oherbp", "template_ma4adv9", confirmationParams)
-                    .then(function(response) {
-                        console.log("Email de confirmation envoyé avec succès !", response.status, response.text);
-                        document.getElementById("resultMessage").style.display = "block";
-                        document.getElementById("resultMessage").style.color = "green";
-                        document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
-                    }, function(error) {
-                        console.error("Erreur lors de l'envoi de l'email de confirmation.", error);
-                        document.getElementById("resultMessage").style.display = "block";
-                        document.getElementById("resultMessage").style.color = "red";
-                        document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi de l'email de confirmation. Veuillez réessayer.";
-                    });
-            }, function(error) {
-                console.error("Erreur lors de l'envoi de l'email de notification.", error);
+                return emailjs.send("service_2oherbp", "template_ma4adv9", confirmationParams);
+            })
+            .then(function(response) {
+                console.log("Email de confirmation envoyé avec succès !", response.status, response.text);
+
+                // Affiche le message de succès et réactive le bouton après succès
+                document.getElementById("resultMessage").style.display = "block";
+                document.getElementById("resultMessage").style.color = "green";
+                document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
+                
+                // Réactive le bouton après 3 secondes (ou immédiatement si souhaité)
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.style.backgroundColor = '';  // Réinitialise la couleur du bouton
+                }, 3000);
+            })
+            .catch(function(error) {
+                console.error("Erreur lors de l'envoi de l'email.", error);
+
+                // Affiche un message d'erreur et réactive le bouton en cas d'échec
                 document.getElementById("resultMessage").style.display = "block";
                 document.getElementById("resultMessage").style.color = "red";
                 document.getElementById("resultMessage").textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
+
+                // Réactive le bouton en cas d'échec
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = '';  // Réinitialise la couleur du bouton
             });
     });
 }

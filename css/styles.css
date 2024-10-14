@@ -19,7 +19,7 @@ body, html {
 
 /* Style pour l'en-tête du site avec un dégradé */
 header {
-    background: linear-gradient(135deg, #34495e, #2ecc71); /* Dégradé de bleu foncé à vert */
+    background: linear-gradient(135deg, #5786eb, #9fe0cb); /* Dégradé de bleu foncé à vert */
     color: #ecf0f1; /* Couleur du texte (blanc) */
     padding: 20px; /* Espace autour du contenu de l'en-tête */
     text-align: center; /* Centrer le texte */
@@ -89,39 +89,37 @@ nav ul li input {
 /* Section d'accueil avec image de fond */
 /* Section principale (hero) */
 /* Section principale (hero) */
+/* Section du carrousel */
 .hero {
     height: 400px;
-    color: white;
-    text-align: center;
     position: relative;
-    overflow: hidden; /* Masque tout contenu qui dépasse */
+    overflow: hidden;
 }
 
+/* Conteneur du carrousel */
 .carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
+/* Images du carrousel qui défilent */
 .carousel-inner {
     display: flex;
-    width: 400%; /* 4 images donc 400% */
+    width: 400%; /* Il y a 4 images, donc 400% */
     height: 100%;
-    transition: transform 1s ease-in-out; /* Transition douce */
+    transition: transform 1s ease-in-out; /* Transition fluide lors du changement d'image */
 }
 
 .carousel-item {
-    width: 100%;
-    flex: 1 0 100%;
+    flex: 1 0 100%; /* Chaque image prend 100% de la largeur du conteneur */
 }
 
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garde les proportions tout en couvrant l'espace */
+    object-fit: cover; /* Assure que l'image couvre tout en conservant les proportions */
 }
 
 
@@ -263,6 +261,12 @@ nav ul li input {
 .btn-submit:hover {
     background: #365492; /* Couleur légèrement plus foncée lors du survol */
 }
+
+.btn-submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 
 
 
