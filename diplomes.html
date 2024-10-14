@@ -13,9 +13,58 @@
     
     <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <title>Mes Diplômes - Aziz Malloul</title>
+
+    <!-- Google Analytics pour le suivi des visiteurs -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J24YWBKV6C');
+    </script>
+
+
+    <!-- Script Google Traduction -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
 </head>
 
 <body>
+
+    <!-- En-tête avec la barre de navigation -->
+    <header>
+        <nav>
+            <ul>
+                <!-- Lien vers l'accueil -->
+                <li><a href="index.html">Accueil</a></li>
+                <!-- Lien vers le parcours académique -->
+                <li><a href="parcours.html">Parcours Académique</a></li>
+                <!-- Lien vers les projets réalisés -->
+                <li><a href="projets.html">Projets Réalisés</a></li>
+                <!-- Lien vers mes diplomes -->
+                <li><a href="diplomes.html">Mes Diplômes</a></li>
+                <!-- Lien vers le CV -->
+                <li><a href="cv.html">CV</a></li>
+                <!-- Lien vers la page Qui suis-je -->
+                <li><a href="about.html">Qui suis-je ?</a></li>
+                <!-- Lien vers la page de contact -->
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Barre de recherche -->
+                <li><input type="text" id="search" placeholder="Rechercher..."></li>
+                <!-- Sélecteur de langue -->
+                <div id="google_translate_element"></div>
+
+                <li>
+                    
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Section pour afficher les diplômes -->
     <section class="diplomes">
@@ -46,6 +95,8 @@
             </div>
         </div>
     </section>
+
+    
 
 </body>
 

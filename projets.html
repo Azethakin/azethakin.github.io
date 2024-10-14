@@ -22,7 +22,15 @@
         gtag('js', new Date());
         gtag('config', 'G-J24YWBKV6C');
     </script>
-    <!-- Script Google Analytics pour suivre les statistiques de la page -->
+    
+    <!-- Script Google Traduction -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
 </head>
 
 <body>
@@ -35,14 +43,28 @@
         <!-- Barre de navigation -->
         <nav>
             <ul>
-                <!-- Lien vers la page d'accueil -->
+                <!-- Lien vers l'accueil -->
                 <li><a href="index.html">Accueil</a></li>
+                <!-- Lien vers le parcours académique -->
+                <li><a href="parcours.html">Parcours Académique</a></li>
+                <!-- Lien vers les projets réalisés -->
+                <li><a href="projets.html">Projets Réalisés</a></li>
+                <!-- Lien vers mes diplomes -->
+                <li><a href="diplomes.html">Mes Diplômes</a></li>
                 <!-- Lien vers le CV -->
                 <li><a href="cv.html">CV</a></li>
-                <!-- Lien vers la page "Qui suis-je ?" -->
+                <!-- Lien vers la page Qui suis-je -->
                 <li><a href="about.html">Qui suis-je ?</a></li>
                 <!-- Lien vers la page de contact -->
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Barre de recherche -->
+                <li><input type="text" id="search" placeholder="Rechercher..."></li>
+                <!-- Sélecteur de langue -->
+                <div id="google_translate_element"></div>
+
+                <li>
+                    
+                </li>
             </ul>
         </nav>
     </header>
