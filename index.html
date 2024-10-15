@@ -42,31 +42,23 @@
     <header>
         <nav>
             <ul>
-                <!-- Lien vers l'accueil -->
                 <li><a href="index.html">Accueil</a></li>
-                <!-- Lien vers le parcours académique -->
                 <li><a href="parcours.html">Parcours Académique</a></li>
-                <!-- Lien vers les projets réalisés -->
                 <li><a href="projets.html">Projets Réalisés</a></li>
-                <!-- Lien vers mes diplomes -->
                 <li><a href="diplomes.html">Mes Diplômes</a></li>
-                <!-- Lien vers le CV -->
                 <li><a href="cv.html">CV</a></li>
-                <!-- Lien vers la page Qui suis-je -->
                 <li><a href="about.html">Qui suis-je ?</a></li>
-                <!-- Lien vers la page de contact -->
+                <li><a href="loisirs.html">Loisirs</a></li> <!-- Nouveau lien pour la section loisirs -->
                 <li><a href="contact.html">Contact</a></li>
                 <!-- Barre de recherche -->
                 <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                <!-- Sélecteur de langue -->
-                <div id="google_translate_element"></div>
-
-                <li>
-                    
-                </li>
+                <!-- Sélecteur de langue (Google Traduction) -->
+                <li id="google_translate_element"></li>
             </ul>
         </nav>
     </header>
+    
+    
 
     
 
@@ -99,6 +91,7 @@
     </section>
 
     
+   
 
 
 
@@ -139,61 +132,123 @@
         </div>
     </section>
 
-   <!-- Section Mes Projets Réalisés -->
-<section class="projets">
-    <h2>Mes Projets Réalisés</h2>
-    <div class="project-container">
-        <!-- Boîte pour le projet Reconnaissance Faciale -->
-        <div class="project-box">
-            <img src="images/projet1.jpg" alt="Projet Reconnaissance Faciale">
-            <h3><a href="modules/module1.html">Reconnaissance Faciale avec OpenCV</a></h3> <!-- Lien cliquable ajouté -->
-            <p>Système de reconnaissance faciale utilisant Python et OpenCV.</p>
-        </div>
-        <!-- Boîte pour le projet Automatisation Industrielle -->
-        <div class="project-box">
-            <img src="images/projet2.jpg" alt="Automatisation Industrielle">
-            <h3><a href="modules/module2.html">Automatisation d'une Ligne de Production</a></h3> <!-- Lien cliquable ajouté -->
-            <p>Conception d'un système automatisé pour une ligne de production.</p>
-        </div>
-        <!-- Boîte pour le projet Robot Suiveur de Ligne -->
-        <div class="project-box">
-            <img src="images/projet3.jpg" alt="Robot Suiveur de Ligne">
-            <h3><a href="modules/module3.html">Robot Suiveur de Ligne</a></h3> <!-- Lien cliquable ajouté -->
-            <p>Création d'un robot capable de suivre une ligne tracée au sol.</p>
-        </div>
-        <!-- Boîte pour le projet Système IoT pour la Gestion de l'Énergie -->
-        <div class="project-box">
-            <img src="images/projet4.jpg" alt="Gestion de l'Énergie">
-            <h3><a href="modules/module4.html">Système IoT pour la Gestion de l'Énergie</a></h3> <!-- Lien cliquable ajouté -->
-            <p>Optimisation de la consommation d'énergie à l'aide de capteurs connectés.</p>
-        </div>
-    </div>
-</section>
+    <!-- Séparateur entre les sections -->
+    <div class="section-separator"></div>
 
-<section class="diplomes">
-    <h2>Mes Diplômes</h2>
-    <div class="diplome-container">
-        <!-- Diplômes académiques cliquables -->
-        <a href="diplomes_academiques.html" class="diplome-box-link">
-            <div class="diplome-box">
-                <h3>Diplômes Académiques</h3>
-                <p>Baccalauréat - Filière Mathématiques (2018)</p>
-                <p>Licence en électronique - UMMTO (2020/2021)</p>
-                <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
+
+   <!-- Section Mes Projets Réalisés -->
+    <section class="projets">
+        <h2>Mes Projets Réalisés</h2>
+        <div class="project-container">
+            <!-- Boîte pour le projet Reconnaissance Faciale -->
+            <div class="project-box">
+                <img src="images/projet1.jpg" alt="Projet Reconnaissance Faciale">
+                <h3><a href="modules/module1.html">Reconnaissance Faciale avec OpenCV</a></h3> <!-- Lien cliquable ajouté -->
+                <p>Système de reconnaissance faciale utilisant Python et OpenCV.</p>
             </div>
-        </a>
-        <!-- Autres diplômes cliquables -->
-        <a href="autres_diplomes.html" class="diplome-box-link">
-            <div class="diplome-box">
-                <h3>Autres Diplômes et Formations</h3>
-                <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
-                <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
-                <p>Diplôme secouriste subaquatique (2018)</p>
-                <p>Formation Arduino (Juillet 2018)</p>
+            <!-- Boîte pour le projet Automatisation Industrielle -->
+            <div class="project-box">
+                <img src="images/projet2.jpg" alt="Automatisation Industrielle">
+                <h3><a href="modules/module2.html">Automatisation d'une Ligne de Production</a></h3> <!-- Lien cliquable ajouté -->
+                <p>Conception d'un système automatisé pour une ligne de production.</p>
             </div>
-        </a>
-    </div>
-</section>
+            <!-- Boîte pour le projet Robot Suiveur de Ligne -->
+            <div class="project-box">
+                <img src="images/projet3.jpg" alt="Robot Suiveur de Ligne">
+                <h3><a href="modules/module3.html">Robot Suiveur de Ligne</a></h3> <!-- Lien cliquable ajouté -->
+                <p>Création d'un robot capable de suivre une ligne tracée au sol.</p>
+            </div>
+            <!-- Boîte pour le projet Système IoT pour la Gestion de l'Énergie -->
+            <div class="project-box">
+                <img src="images/projet4.jpg" alt="Gestion de l'Énergie">
+                <h3><a href="modules/module4.html">Système IoT pour la Gestion de l'Énergie</a></h3> <!-- Lien cliquable ajouté -->
+                <p>Optimisation de la consommation d'énergie à l'aide de capteurs connectés.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Séparateur entre les sections -->
+    <div class="section-separator"></div>
+
+
+
+    <section class="diplomes">
+        <h2>Mes Diplômes</h2>
+        <div class="diplome-container">
+            <!-- Diplômes académiques cliquables -->
+            <a href="diplomes_academiques.html" class="diplome-box-link">
+                <div class="diplome-box">
+                    <h3>Diplômes Académiques</h3>
+                    <p>Baccalauréat - Filière Mathématiques (2018)</p>
+                    <p>Licence en électronique - UMMTO (2020/2021)</p>
+                    <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
+                </div>
+            </a>
+            <!-- Autres diplômes cliquables -->
+            <a href="autres_diplomes.html" class="diplome-box-link">
+                <div class="diplome-box">
+                    <h3>Autres Diplômes et Formations</h3>
+                    <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
+                    <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
+                    <p>Diplôme secouriste subaquatique (2018)</p>
+                    <p>Formation Arduino (Juillet 2018)</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Séparateur entre les sections -->
+    <div class="section-separator"></div>
+
+
+    <!--Loisirs-->
+    <section class="loisirs">
+        <h2>Mes Loisirs</h2>
+        
+
+        <div class="loisirs-container">
+            <!-- Football -->
+            <div class="loisir-box">
+                <h3>Football</h3>
+                <p>Passionné de football, je joue régulièrement en amateur et participe à des compétitions locales.</p>
+            </div>
+            
+            <!-- Guitare -->
+            <div class="loisir-box">
+                <h3>Guitare</h3>
+                <p>La musique est une de mes grandes passions. Je joue de la guitare depuis plusieurs années.</p>
+            </div>
+            
+            <!-- Plongée sous-marine -->
+            <div class="loisir-box">
+                <h3>Plongée sous-marine</h3>
+                <p>Explorateur sous-marin, je pratique la plongée depuis plusieurs années avec des certifications avancées.</p>
+            </div>
+
+            <!-- Chasse sous-marine -->
+            <div class="loisir-box">
+                <h3>Chasse sous-marine</h3>
+                <p>J'aime combiner la plongée avec la chasse sous-marine, une activité qui me connecte à la nature.</p>
+            </div>
+
+            <!-- Surf -->
+            <div class="loisir-box">
+                <h3>Surf</h3>
+                <p>Rider de vagues, le surf est un sport que je pratique lors de mes séjours en bord de mer.</p>
+            </div>
+
+            <!-- Vélo -->
+            <div class="loisir-box">
+                <h3>Vélo</h3>
+                <p>Le vélo est mon moyen favori pour explorer les environs et maintenir une forme physique.</p>
+            </div>
+        </div>
+    </section>
+
 
 
 

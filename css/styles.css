@@ -19,7 +19,7 @@ body, html {
 
 /* Style pour l'en-tête du site avec un dégradé */
 header {
-    background: linear-gradient(135deg, #5786eb, #9fe0cb); /* Dégradé de bleu foncé à vert */
+    background: linear-gradient(135deg, #034115, #88868657); /* Dégradé de bleu foncé à vert */
     color: #ecf0f1; /* Couleur du texte (blanc) */
     padding: 20px; /* Espace autour du contenu de l'en-tête */
     text-align: center; /* Centrer le texte */
@@ -89,13 +89,44 @@ nav ul li input {
 /* Section d'accueil avec image de fond */
 /* Section principale (hero) */
 /* Section principale (hero) */
-/* Section du carrousel */
+
 .hero {
     height: 400px;
     position: relative;
     overflow: hidden;
 }
 
+/* Section pour le parcours académique */
+.modules {
+    background: linear-gradient(135deg, #f7faf8a6, #88868657); /* Dégradé de bleu foncé à vert */
+    padding: 50px 20px; /* Ajoute de l'espace à l'intérieur de la section */
+}
+
+/* Section pour les projets réalisés */
+.projets {
+    background: linear-gradient(135deg, #88868657, #f7faf8a6); /* Dégradé de bleu foncé à vert */
+    padding: 50px 20px; /* Ajoute de l'espace à l'intérieur de la section */
+}
+
+/* Section pour les diplômes */
+.diplomes {
+    background: linear-gradient(135deg, #f7faf8a6, #88868657); /* Dégradé de bleu foncé à vert */
+    padding: 50px 20px; /* Ajoute de l'espace à l'intérieur de la section */
+}
+
+/* Section pour les loisirs */
+.loisirs {
+    background: linear-gradient(135deg, #88868657, #f7faf8a6); /* Dégradé de bleu foncé à vert */
+    padding: 50px 20px; /* Ajoute de l'espace à l'intérieur de la section */
+}
+
+
+
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* Section du carrousel */
 /* Conteneur du carrousel */
 .carousel {
     position: relative;
@@ -182,6 +213,9 @@ nav ul li input {
     text-decoration: underline; /* Souligne le lien lors du survol */
 }
 
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour le formulaire de contact
    =========================================== */
@@ -270,7 +304,7 @@ nav ul li input {
 
 
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour le pied de page
    =========================================== */
@@ -286,6 +320,8 @@ footer {
     width: 100%; /* Occupe toute la largeur de l'écran */
 }
 
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la réactivité (responsive design)
    =========================================== */
@@ -317,7 +353,7 @@ footer {
 
 
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la section projets
    =========================================== */
@@ -376,7 +412,7 @@ footer {
 }
 
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la Section Mes Diplômes
    =========================================== */
@@ -444,7 +480,7 @@ footer {
 
 
 
-
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /* Pied de page et Section des icônes des réseaux sociaux */
 
@@ -476,4 +512,93 @@ footer {
     color: #3498db; /* Change la couleur au survol (bleu clair) */
 }
 
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* google traduction*/
+/* Barre de navigation générale */
+/* Centrer les éléments de la barre de navigation */
+
+
+/* Les éléments de la navigation sont affichés sur une seule ligne */
+nav ul li {
+    display: inline-block;
+    margin: 0 15px; /* Espace entre chaque élément */
+}
+
+/* Alignement de la barre de recherche et du sélecteur Google Traduction */
+nav ul li input,
+#google_translate_element {
+    display: inline-block;
+    margin-left: right; /* Pousse le Google Traduction vers la droite */
+}
+
+
+
+/* Style pour centrer le titre h2 dans la section "parcours" */
+.parcours h2 {
+    text-align: center;
+}
+
+
+
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+/* Section des loisirs */
+.loisirs {
+    background-color: #f4f7f6; /* Fond gris clair */
+    padding: 50px 20px; /* Espacement interne */
+    text-align: center; /* Centrer le texte */
+}
+
+/* Conteneur principal des boîtes de loisirs */
+.loisirs-container {
+    display: flex; /* Flexbox pour organiser les boîtes */
+    justify-content: space-around; /* Espace autour des boîtes */
+    flex-wrap: wrap; /* Permet aux boîtes de passer à la ligne suivante si nécessaire */
+}
+
+/* Boîte individuelle de loisir */
+.loisir-box {
+    background-color: #ffffff; /* Fond blanc */
+    border: 1px solid #ddd; /* Bordure grise légère */
+    margin: 15px; /* Espacement entre les boîtes */
+    padding: 20px; /* Espacement interne */
+    width: 300px; /* Largeur des boîtes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation pour le survol */
+}
+
+/* Effet de survol sur les boîtes */
+.loisir-box:hover {
+    transform: scale(1.05); /* Agrandit légèrement la boîte au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre pour un effet visuel */
+}
+
+/* Image dans chaque boîte de loisir */
+.loisir-image {
+    width: 100%; /* L'image prend toute la largeur de la boîte */
+    height: 200px; /* Hauteur fixe pour les images */
+    object-fit: cover; /* Assure que l'image couvre toute la boîte sans déformation */
+    margin-bottom: 15px; /* Espace en dessous de l'image */
+}
+
+/* Titre du loisir */
+.loisir-box h3 {
+    color: #3498db; /* Titre en bleu pour le rendre visible */
+    font-size: 18px; /* Taille du texte */
+    margin-bottom: 10px; /* Espace sous le titre */
+}
+
+/* Description du loisir */
+.loisir-box p {
+    font-size: 16px; /* Taille du texte */
+    color: #333; /* Couleur gris foncé pour la lisibilité */
+}
 
