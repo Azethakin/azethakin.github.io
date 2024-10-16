@@ -21,7 +21,7 @@ body, html {
 header {
     background: linear-gradient(135deg, #034115, #88868657); /* Dégradé de bleu foncé à vert */
     color: #ecf0f1; /* Couleur du texte (blanc) */
-    padding: 20px; /* Espace autour du contenu de l'en-tête */
+    padding: 5px; /* Espace autour du contenu de l'en-tête */
     text-align: center; /* Centrer le texte */
     position: relative; /* Permet de positionner les éléments à l'intérieur de l'en-tête */
     height: 120px; /* Hauteur de l'en-tête */
@@ -91,7 +91,7 @@ nav ul li input {
 /* Section principale (hero) */
 
 .hero {
-    height: 400px;
+    height: 750px;
     position: relative;
     overflow: hidden;
 }
@@ -127,6 +127,8 @@ nav ul li input {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* Conteneur pour les images */
+/* Conteneur pour les images */
+/* Conteneur pour les images */
 .image-container {
     position: relative;
     width: 100%;
@@ -149,6 +151,12 @@ nav ul li input {
 .image-container img.active {
     opacity: 1; /* L'image active est visible */
 }
+
+
+
+
+
+
 
 
 
