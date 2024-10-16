@@ -65,9 +65,6 @@ if (zoomInButton && zoomOutButton && cvImage) {
 // Envoi d'emails avec EmailJS
 // =====================
 
-// Initialisation d'EmailJS avec la clé publique
-emailjs.init("M9PAHz9znIlnqxTIS");
-
 // Sélection du formulaire de contact
 const contactForm = document.getElementById("contactForm");
 
@@ -150,31 +147,41 @@ if (contactForm) {
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// =====================
-// Carrousel d'images automatiques
-// =====================
 
 // Lorsque le document est entièrement chargé
 // S'assure que le script s'exécute après le chargement du DOM
 // S'assure que le script s'exécute après le chargement du DOM
 document.addEventListener('DOMContentLoaded', function () {
-    const carouselInner = document.querySelector('.carousel-inner');
-    const items = document.querySelectorAll('.carousel-item');
-    let index = 0;
-    const totalItems = items.length;
+    const images = document.querySelectorAll('.image-container img');
+    let currentIndex = 0;
+    const totalImages = images.length;
 
-    function showNextImage() {
+    function changeImage() {
+        // Enlève la classe 'active' de l'image actuelle
+        images[currentIndex].classList.remove('active');
+        
         // Incrémente l'index pour passer à l'image suivante
-        index = (index + 1) % totalItems;
-        // Applique une transformation pour déplacer le carrousel vers la gauche
-        carouselInner.style.transition = 'transform 1s ease-in-out'; // Transition de 1 seconde
-        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+        currentIndex = (currentIndex + 1) % totalImages;
+        
+        // Ajoute la classe 'active' à la nouvelle image
+        images[currentIndex].classList.add('active');
     }
 
-    // Changement d'image toutes les 3 secondes (3000ms)
-    setInterval(showNextImage, 4000); // 3000ms pour laisser l'image et 1000ms pour la transition
+    // Change d'image toutes les 3 secondes (3000ms)
+    setInterval(changeImage, 3000);
 });
 
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// pour les smartphone
+// Gestion du menu hamburger pour smartphones
+// Fonction pour basculer le menu mobile
+// JavaScript pour afficher/masquer le menu mobile
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+    var mobileNav = document.getElementById('mobile-nav');
+    var ul = mobileNav.querySelector('ul');
+    ul.classList.toggle('show');
+});
 
 
 

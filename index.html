@@ -27,17 +27,49 @@
     <!-- Script Google Traduction -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element_mobile');
         }
     </script>
+    
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
 <body>
-    <!-- En-tête avec la barre de navigation -->
     <header>
-        <nav>
+        <!-- Menu desktop uniquement -->
+        <div class="desktop-header">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="parcours.html">Parcours Académique</a></li>
+                    <li><a href="projets.html">Projets Réalisés</a></li>
+                    <li><a href="diplomes.html">Mes Diplômes</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="about.html">Qui suis-je ?</a></li>
+                    <li><a href="loisirs.html">Loisirs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><input type="text" id="search" placeholder="Rechercher..."></li>
+                    <li id="google_translate_element"></li>
+                </ul>
+            </nav>
+        </div>
+    
+        <!-- Menu mobile uniquement -->
+        <div class="mobile-header">
+            <span class="logo">Aziz Malloul</span>
+            <div class="right-header-elements">
+                <input type="text" id="search-mobile" placeholder="Rechercher...">
+                <div id="google_translate_element_mobile"></div>
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Navigation mobile -->
+        <nav id="mobile-nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="parcours.html">Parcours Académique</a></li>
@@ -45,72 +77,52 @@
                 <li><a href="diplomes.html">Mes Diplômes</a></li>
                 <li><a href="cv.html">CV</a></li>
                 <li><a href="about.html">Qui suis-je ?</a></li>
-                <li><a href="loisirs.html">Loisirs</a></li> <!-- Nouveau lien pour la section loisirs -->
+                <li><a href="loisirs.html">Loisirs</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- Barre de recherche -->
-                <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                <!-- Sélecteur de langue (Google Traduction) -->
-                <li id="google_translate_element"></li>
             </ul>
         </nav>
     </header>
+    
+    
+    
+    
 
-    <!-- Section du carrousel d'images -->
-    <section class="hero">
-        <!-- Conteneur principal du carrousel -->
-        <div class="carousel">
-            <!-- Conteneur qui contient toutes les images du carrousel -->
-            <div class="carousel-inner">
-                <!-- Chaque div représente une image dans le carrousel -->
-                <div class="carousel-item active">
-                    <img src="images/electronique.jpg" alt="Image 1"> <!-- Image 1 -->
-                </div>
-                <div class="carousel-item">
-                    <img src="images/CAT-Robotsprogrammables.jpg" alt="Image 2"> <!-- Image 2 -->
-                </div>
-                <div class="carousel-item">
-                    <img src="images/systemes-embarques.jpg" alt="Image 3"> <!-- Image 3 -->
-                </div>
-                <div class="carousel-item">
-                    <img src="images/iot.jpg" alt="Image 4"> <!-- Image 4 -->
-                </div>
-            </div>
-        </div>
-        <!-- Texte de présentation -->
-        <h1>Présentation</h1>
-        <p>Bienvenue sur mon site professionnel ! Ici, je vous présente mon parcours académique, mes projets réalisés durant mes années d'études, ainsi que mon CV. Ce site est une vitrine de mes compétences en électronique, robotique, et systèmes embarqués, mais aussi une démonstration de mes compétences en développement web.</p>
-    </section>
+    <!-- Section pour afficher les images qui changent -->
+<section class="hero">
+    <div class="image-container">
+        <img src="images/electronique.jpg" alt="Image 1" class="image active">
+        <img src="images/CAT-Robotsprogrammables.jpg" alt="Image 2" class="image">
+        <img src="images/systemes-embarques.jpg" alt="Image 3" class="image">
+        <img src="images/iot.jpg" alt="Image 4" class="image">
+    </div>
+    <h1>Présentation</h1>
+    <p>Bienvenue sur mon site professionnel ! Ici, je vous présente mon parcours académique, mes projets réalisés durant mes années d'études, ainsi que mon CV. Ce site est une vitrine de mes compétences en électronique, robotique, et systèmes embarqués, mais aussi une démonstration de mes compétences en développement web.</p>
+</section>
 
     <!-- Section Mon Parcours Académique -->
     <section class="modules">
         <h2>Mon Parcours Académique</h2>
         <div class="course-container">
-            <!-- Boîte pour la première année -->
             <div class="course-box">
                 <h3><a href="annee1.html">Première Année - Science et Technologie (UMMTO)</a></h3>
                 <p>Introduction aux sciences fondamentales à l'Université de Mouloud Mammeri de Tizi Ouzou, avec une base solide en mathématiques, physique et programmation.</p>
             </div>
-            <!-- Boîte pour la deuxième année -->
             <div class="course-box">
                 <h3><a href="annee2.html">Deuxième Année - Électronique (UMMTO)</a></h3>
                 <p>Spécialisation en électronique, classé 1er de ma promotion.</p>
             </div>
-            <!-- Boîte pour la troisième année -->
             <div class="course-box">
                 <h3><a href="annee3.html">Troisième Année - Électronique (UMMTO)</a></h3>
                 <p>Diplômé en Électronique et classé major de promotion.</p>
             </div>
-            <!-- Boîte pour la licence à Lyon 1 -->
             <div class="course-box">
                 <h3><a href="annee4.html">Licence EEEA - Université de Lyon 1</a></h3>
                 <p>Licence en Électronique, Énergie Électrique et Automatique (EEEA), incluant des compétences en automatisation, traitement du signal et robotique.</p>
             </div>
-            <!-- Boîte pour le master 1 à Toulon -->
             <div class="course-box">
                 <h3><a href="master1.html">Master 1 - Ingénierie des Systèmes Complexes (Toulon)</a></h3>
                 <p>Spécialité Robotique et Objets Connectés (ROC).</p>
             </div>
-            <!-- Boîte pour le master 2 à Toulon -->
             <div class="course-box">
                 <h3><a href="master2.html">Master 2 - Robotique Intelligente et Systèmes Embarqués (Toulon)</a></h3>
                 <p>Spécialité Robotique Intelligente et Systèmes Embarqués.</p>
@@ -125,31 +137,26 @@
     <section class="projets">
         <h2>Mes Projets Réalisés</h2>
         <div class="project-container">
-            <!-- Boîte pour le projet Reconnaissance Faciale -->
             <div class="project-box">
                 <img src="images/projet1.jpg" alt="Projet Reconnaissance Faciale">
-                <h3><a href="modules/module1.html">Reconnaissance Faciale avec OpenCV</a></h3> <!-- Lien cliquable ajouté -->
+                <h3><a href="modules/module1.html">Reconnaissance Faciale avec OpenCV</a></h3>
                 <p>Système de reconnaissance faciale utilisant Python et OpenCV.</p>
             </div>
-            <!-- Boîte pour le projet Automatisation Industrielle -->
             <div class="project-box">
                 <img src="images/projet2.jpg" alt="Automatisation Industrielle">
-                <h3><a href="modules/module2.html">Automatisation d'une Ligne de Production</a></h3> <!-- Lien cliquable ajouté -->
+                <h3><a href="modules/module2.html">Automatisation d'une Ligne de Production</a></h3>
                 <p>Conception d'un système automatisé pour une ligne de production.</p>
             </div>
-            <!-- Boîte pour le projet Robot Suiveur de Ligne -->
             <div class="project-box">
                 <img src="images/projet3.jpg" alt="Robot Suiveur de Ligne">
-                <h3><a href="modules/module3.html">Robot Suiveur de Ligne</a></h3> <!-- Lien cliquable ajouté -->
+                <h3><a href="modules/module3.html">Robot Suiveur de Ligne</a></h3>
                 <p>Création d'un robot capable de suivre une ligne tracée au sol.</p>
             </div>
-            <!-- Boîte pour le projet Système IoT pour la Gestion de l'Énergie -->
             <div class="project-box">
                 <img src="images/projet4.jpg" alt="Gestion de l'Énergie">
-                <h3><a href="modules/module4.html">Système IoT pour la Gestion de l'Énergie</a></h3> <!-- Lien cliquable ajouté -->
+                <h3><a href="modules/module4.html">Système IoT pour la Gestion de l'Énergie</a></h3>
                 <p>Optimisation de la consommation d'énergie à l'aide de capteurs connectés.</p>
             </div>
-            <!-- Nouveau projet : Création du site web -->
             <div class="project-box">
                 <img src="images/website.jpg" alt="Site web personnel">
                 <h3><a href="#">Création de mon site web professionnel</a></h3>
@@ -165,7 +172,6 @@
     <section class="diplomes">
         <h2>Mes Diplômes</h2>
         <div class="diplome-container">
-            <!-- Diplômes académiques cliquables -->
             <a href="diplomes_academiques.html" class="diplome-box-link">
                 <div class="diplome-box">
                     <h3>Diplômes Académiques</h3>
@@ -174,7 +180,6 @@
                     <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
                 </div>
             </a>
-            <!-- Autres diplômes cliquables -->
             <a href="autres_diplomes.html" class="diplome-box-link">
                 <div class="diplome-box">
                     <h3>Autres Diplômes et Formations</h3>
@@ -194,32 +199,26 @@
     <section class="loisirs">
         <h2>Mes Loisirs</h2>
         <div class="loisirs-container">
-            <!-- Football -->
             <div class="loisir-box">
                 <h3>Football</h3>
                 <p>Passionné de football, je joue régulièrement en amateur et participe à des compétitions locales.</p>
             </div>
-            <!-- Guitare -->
             <div class="loisir-box">
                 <h3>Guitare</h3>
                 <p>La musique est une de mes grandes passions. Je joue de la guitare depuis plusieurs années.</p>
             </div>
-            <!-- Plongée sous-marine -->
             <div class="loisir-box">
                 <h3>Plongée sous-marine</h3>
                 <p>Explorateur sous-marin, je pratique la plongée depuis plusieurs années avec des certifications avancées.</p>
             </div>
-            <!-- Chasse sous-marine -->
             <div class="loisir-box">
                 <h3>Chasse sous-marine</h3>
                 <p>J'aime combiner la plongée avec la chasse sous-marine, une activité qui me connecte à la nature.</p>
             </div>
-            <!-- Surf -->
             <div class="loisir-box">
                 <h3>Surf</h3>
                 <p>Rider de vagues, le surf est un sport que je pratique lors de mes séjours en bord de mer.</p>
             </div>
-            <!-- Vélo -->
             <div class="loisir-box">
                 <h3>Vélo</h3>
                 <p>Le vélo est mon moyen favori pour explorer les environs et maintenir une forme physique.</p>
@@ -229,24 +228,18 @@
 
     <!-- Pied de page -->
     <footer>
-        <!-- Texte du pied de page -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     
-        <!-- Section des icônes des réseaux sociaux -->
         <div class="social-icons">
-            <!-- Lien vers LinkedIn avec icône -->
             <a href="https://www.linkedin.com/in/aziz-malloul-alternance/" target="_blank" class="social-icon">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <!-- Lien vers Facebook avec icône -->
             <a href="https://www.facebook.com/azizmalloul.fr" target="_blank" class="social-icon">
                 <i class="fab fa-facebook"></i>
             </a>
-            <!-- Lien vers YouTube avec icône -->
             <a href="https://www.youtube.com/@azizselectronics335" target="_blank" class="social-icon">
                 <i class="fab fa-youtube"></i>
             </a>
-            <!-- Lien vers Instagram avec icône -->
             <a href="https://www.instagram.com/aziz_spearfisher/" target="_blank" class="social-icon">
                 <i class="fab fa-instagram"></i>
             </a>

@@ -126,35 +126,29 @@ nav ul li input {
 
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/* Section du carrousel */
-/* Conteneur du carrousel */
-.carousel {
+/* Conteneur pour les images */
+.image-container {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
-/* Images du carrousel qui défilent */
-.carousel-inner {
-    display: flex;
-    width: 400%; /* Il y a 4 images, donc 400% */
-    height: 100%;
-    transition: transform 1s ease-in-out; /* Transition fluide lors du changement d'image */
-}
-
-.carousel-item {
-    flex: 1 0 100%; /* Chaque image prend 100% de la largeur du conteneur */
-}
-
-.carousel-item img {
+/* Images de la section qui doivent changer */
+.image-container img {
+    position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Assure que l'image couvre tout en conservant les proportions */
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transition en fondu */
 }
 
-
-
+/* Classe pour l'image active */
+.image-container img.active {
+    opacity: 1; /* L'image active est visible */
+}
 
 
 
@@ -318,35 +312,6 @@ footer {
     position: relative; /* Permet de positionner le pied de page */
     bottom: 0; /* Fixe le pied de page en bas */
     width: 100%; /* Occupe toute la largeur de l'écran */
-}
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/* ===========================================
-   Styles pour la réactivité (responsive design)
-   =========================================== */
-
-/* Styles pour les écrans de moins de 768px (mobiles et tablettes) */
-@media only screen and (max-width: 768px) {
-    .course-container, .project-container {
-        flex-direction: column; /* Les boîtes de cours s'alignent verticalement */
-        align-items: center; /* Centre chaque boîte */
-    }
-
-    /* Ajustement de la hauteur de la section d'accueil pour les petits écrans */
-    .hero {
-        height: 200px;
-    }
-
-    /* Ajustement de la largeur des boîtes de cours, projets et CV pour petits écrans */
-    .course-box, .project-box, .cv-viewer {
-        width: 90%; /* Occupe 90% de la largeur de l'écran */
-    }
-}
-
-/* Transition pour l'image du CV lors du zoom */
-.cv-viewer img {
-    transition: transform 0.3s ease; /* Animation de transition pour le zoom */
 }
 
 
@@ -524,8 +489,8 @@ footer {
 
 /* Les éléments de la navigation sont affichés sur une seule ligne */
 nav ul li {
-    display: inline-block;
-    margin: 0 15px; /* Espace entre chaque élément */
+    display: inline-block; /* Les éléments sont affichés horizontalement */
+    margin: 0 15px; /* Espacement entre chaque lien */
 }
 
 /* Alignement de la barre de recherche et du sélecteur Google Traduction */
@@ -600,5 +565,94 @@ nav ul li input,
 .loisir-box p {
     font-size: 16px; /* Taille du texte */
     color: #333; /* Couleur gris foncé pour la lisibilité */
+}
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* smatphone
+/* ===========================================
+   Styles pour la navigation du site - Mobile
+   =========================================== */
+/* Mobile header styles */
+/* -------------------- Styles pour le menu desktop -------------------- */
+/* Styles par défaut pour masquer et afficher le bon menu */
+@media only screen and (min-width: 768px) {
+    .mobile-header {
+        display: none;
+    }
+    #mobile-nav {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .desktop-header {
+        display: none;
+    }
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: transparent;
+    }
+    #mobile-nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #mobile-nav ul.show {
+        display: flex;
+    }
+    .hamburger {
+        cursor: pointer;
+        font-size: 1.5em;
+        color: #000;
+    }
+}
+
+
+/* Style pour aligner la barre de recherche et Google Translate à côté du menu hamburger */
+/* Ajustement du header mobile pour éviter le débordement */
+.mobile-header .right-header-elements {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-header input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Barre de recherche dans la version mobile */
+#search-mobile {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 70%; /* Ajuste la largeur pour s’adapter à la taille de l’écran */
+    height: 30px; /* Ajuster la hauteur si nécessaire */
+}
+
+/* Forcer l'affichage de Google Translate sur mobile */
+#google_translate_element_mobile {
+    display: inline-block;
+    margin-left: 10px;
+    max-width: 150px;
+}
+
+
+/* Icône hamburger */
+.hamburger {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #000;
 }
 
