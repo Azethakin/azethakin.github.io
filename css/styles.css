@@ -88,13 +88,59 @@ nav ul li input {
 
 /* Section d'accueil avec image de fond */
 /* Section principale (hero) */
-/* Section principale (hero) */
+/* Styles globaux (par défaut) pour tous les appareils */
 
-.hero {
-    height: 750px;
-    position: relative;
-    overflow: hidden;
+/* Conteneur principal de la section 'hero'. 
+   On lui donne une position relative et on cache les débordements des images en dehors du conteneur */
+   .hero {
+    position: relative;  /* Positionnement relatif pour permettre le positionnement des éléments enfants */
+    overflow: hidden;    /* Cache tout ce qui dépasse de la zone de la section */
+    width: 100%;         /* La section occupe toute la largeur disponible */
 }
+
+/* Styles pour les images à l'intérieur du conteneur 'image-container'. 
+   Les images prennent toute la largeur disponible et sont ajustées pour ne pas déformer */
+.image-container img {
+    width: 100%;         /* L'image occupe 100% de la largeur de son conteneur */
+    object-fit: cover;   /* L'image est redimensionnée pour couvrir le conteneur tout en gardant ses proportions */
+    transition: opacity 1s ease-in-out, object-position 1s ease-in-out; /* Transition fluide pour le changement d'image et le déplacement de l'image */
+}
+
+/* Styles spécifiques pour les grands écrans (desktop et tablettes). 
+   Ces styles ne s'appliquent que si l'écran a une largeur de 768px ou plus */
+@media only screen and (min-width: 768px) {
+
+    /* Section 'hero' sur desktop, définie avec une hauteur plus importante pour occuper plus d'espace vertical */
+    .hero {
+        height: 700px;  /* La hauteur de la section est de 600px sur les écrans plus larges */
+    }
+
+    /* Les images dans la section 'hero' sur desktop */
+    .image-container img {
+        height: 100%;  /* L'image occupe toute la hauteur du conteneur (600px) */
+    }
+}
+
+/* Styles spécifiques pour les petits écrans (mobiles).
+   Ces styles ne s'appliquent que si l'écran a une largeur de 767px ou moins */
+@media only screen and (max-width: 767px) {
+
+    /* Section 'hero' sur mobile avec une hauteur plus petite pour mieux s'adapter aux écrans réduits */
+    .hero {
+        height: 300px;  /* La hauteur de la section est de 400px sur les petits écrans */
+    }
+
+    /* Les images dans la section 'hero' sur mobile */
+    .image-container img {
+        height: 100%;  /* L'image occupe toute la hauteur du conteneur (400px) */
+    }
+}
+
+
+
+
+
+
 
 /* Section pour le parcours académique */
 .modules {
@@ -595,72 +641,153 @@ nav ul li input,
     }
 }
 
+/* Styles pour le menu mobile */
+/* --- Début des styles pour le menu mobile --- */
+
+/* Conteneur principal du menu mobile */
+#mobile-nav {
+    position: fixed;       /* Fixe le menu au-dessus de la page pour qu'il reste en place même au défilement */
+    top: 0;                /* Place le menu en haut de la page */
+    left: 0;               /* Place le menu à gauche de la page */
+    width: 100%;           /* Le menu occupe 100% de la largeur de l'écran */
+    height: 100%;          /* Le menu occupe 100% de la hauteur de l'écran */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec 90% d'opacité pour laisser une légère transparence */
+    display: flex;         /* Utilise Flexbox pour organiser les éléments du menu */
+    flex-direction: column;/* Aligne les éléments en colonne */
+    justify-content: center;/* Centre verticalement les éléments dans l'écran */
+    align-items: center;   /* Centre horizontalement les éléments */
+    z-index: 9999;         /* Donne une priorité maximale pour que le menu reste au-dessus de tous les autres éléments */
+    opacity: 0;            /* Rend le menu transparent (non visible) par défaut */
+    visibility: hidden;    /* Cache le menu par défaut */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Ajoute une transition douce lors de l'affichage/cachage */
+}
+
+/* Lorsque le menu mobile est actif (class "show" appliquée), on le rend visible */
+#mobile-nav.show {
+    opacity: 1;            /* Rend le menu totalement visible */
+    visibility: visible;   /* Rend le menu visible à l'écran */
+}
+
+/* Styles pour les éléments de la liste (liens de navigation) dans le menu mobile */
+#mobile-nav ul {
+    list-style: none;      /* Retire les puces de la liste */
+    padding: 0;            /* Supprime les marges internes */
+    margin: 0;             /* Supprime les marges externes */
+    text-align: center;    /* Centre le texte des éléments dans le menu */
+}
+
+/* Chaque élément de la liste dans le menu mobile */
+#mobile-nav ul li {
+    margin: 15px 0;        /* Ajoute un espace de 15px en haut et en bas de chaque élément pour un espacement vertical */
+}
+
+/* Style pour les liens (balise <a>) dans le menu mobile */
+#mobile-nav ul li a {
+    color: white;          /* Le texte des liens est blanc pour qu'il soit lisible sur le fond noir */
+    font-size: 1.5em;      /* Augmente la taille du texte pour le rendre facilement lisible */
+    text-decoration: none; /* Retire le soulignement par défaut des liens */
+}
+
+/* Style pour le champ de recherche (input) dans le menu mobile */
+#search-mobile {
+    background-color: transparent;  /* Fond transparent pour s'intégrer au fond noir du menu */
+    color: white;                   /* Le texte saisi est blanc pour être visible sur fond sombre */
+    border: 1px solid white;        /* Bordure blanche pour bien délimiter le champ */
+    padding: 5px 10px;              /* Ajoute un padding interne pour espacer le texte des bords du champ */
+    margin-bottom: 20px;            /* Espace de 20px en dessous du champ pour espacer les autres éléments */
+}
+
+/* Style pour l'icône du menu hamburger dans la version mobile */
+.hamburger {
+    color: white;                   /* L'icône du menu est blanche pour être bien visible */
+    font-size: 2em;                 /* Taille de l'icône suffisamment grande pour faciliter l'interaction */
+    cursor: pointer;                /* Change le curseur en forme de main pour indiquer qu'il est cliquable */
+}
+
+/* --- Styles supplémentaires pour la version mobile --- */
+/* Général pour mobile */
 @media only screen and (max-width: 767px) {
+    /* Cache le menu desktop */
     .desktop-header {
         display: none;
     }
+    
+    /* Barre supérieure avec logo et icône hamburger */
     .mobile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
-        background-color: transparent;
+        background-color: transparent; /* Couleur de fond */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'ombre */
     }
-    #mobile-nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #ffffff;
-        position: absolute;
-        top: 50px;
-        right: 0;
-        width: 100%;
-        padding: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Barre de recherche dans la version mobile */
+    .mobile-header input[type="text"] {
+        flex-grow: 1;
+        margin-right: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        width: 70%;
+        height: 1px;
+        
     }
-    #mobile-nav ul.show {
-        display: flex;
-    }
+
+    /* Icône hamburger */
     .hamburger {
         cursor: pointer;
         font-size: 1.5em;
         color: #000;
     }
+
+    /* Menu mobile */
+    #mobile-nav {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98); /* Fond transparent blanc */
+        padding: 20px;
+        z-index: 10;
+    }
+
+    /* Affichage du menu lorsque le hamburger est activé */
+    #mobile-nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    /* Les éléments du menu doivent être alignés verticalement */
+    #mobile-nav ul li {
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Lien des éléments du menu */
+    #mobile-nav ul li a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* L'élément actif du menu */
+    #mobile-nav ul li a:hover {
+        color: #d64a4a; /* Rouge sur survol */
+    }
+
+    /* Lorsque le menu est affiché (active) */
+    #mobile-nav.show {
+        display: block;
+        height: 100vh; /* Prend toute la hauteur de l'écran */
+    }
+
+    /* Supprimer les marges et padding du body lors de l'affichage du menu */
+    body.menu-open {
+        overflow: hidden;
+    }
 }
-
-
-/* Style pour aligner la barre de recherche et Google Translate à côté du menu hamburger */
-/* Ajustement du header mobile pour éviter le débordement */
-.mobile-header .right-header-elements {
-    display: flex;
-    align-items: center;
-}
-
-.mobile-header input[type="text"] {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-/* Barre de recherche dans la version mobile */
-#search-mobile {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 70%; /* Ajuste la largeur pour s’adapter à la taille de l’écran */
-    height: 30px; /* Ajuster la hauteur si nécessaire */
-}
-
-/* Forcer l'affichage de Google Translate sur mobile */
-#google_translate_element_mobile {
-    display: inline-block;
-    margin-left: 10px;
-    max-width: 150px;
-}
-
-
-/* Icône hamburger */
-.hamburger {
-    cursor: pointer;
-    font-size: 1.5em;
-    color: #000;
-}
-

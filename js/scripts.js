@@ -177,11 +177,21 @@ document.addEventListener('DOMContentLoaded', function () {
 // Gestion du menu hamburger pour smartphones
 // Fonction pour basculer le menu mobile
 // JavaScript pour afficher/masquer le menu mobile
-document.getElementById('hamburger-menu').addEventListener('click', function() {
-    var mobileNav = document.getElementById('mobile-nav');
-    var ul = mobileNav.querySelector('ul');
-    ul.classList.toggle('show');
+// Ajout de l'événement 'click' sur l'icône hamburger
+// Sélectionner l'élément de l'icône hamburger
+const hamburger = document.getElementById('hamburger-menu');
+// Sélectionner le menu mobile
+const mobileNav = document.getElementById('mobile-nav');
+
+// Ajouter un écouteur d'événement au clic sur l'icône hamburger
+hamburger.addEventListener('click', function () {
+    // Basculer la classe 'show' pour afficher/masquer le menu
+    mobileNav.classList.toggle('show');
+    
+    // Basculer une classe sur le body pour éviter le défilement quand le menu est ouvert
+    document.body.classList.toggle('menu-open');
 });
+
 
 
 
