@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet de Fin de Cycle - L3 Électronique (UMMTO)</title>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Lien vers FontAwesome pour les icônes sociales et l'icône hamburger-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Analytics pour le suivi des visiteurs -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-J24YWBKV6C');
+    </script>
+
+    <!-- Script Google Traduction -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+</head>
+
+<body>
+    <!-- Section En-tête -->
+    <header>
+        <h1>Projet de Fin de Cycle - L3 Électronique (UMMTO)</h1>
+        <!-- Menu desktop -->
+        <div class="desktop-header">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="parcours.html">Parcours Académique</a></li>
+                    <li><a href="projets.html">Projets Réalisés</a></li>
+                    <li><a href="diplomes.html">Mes Diplômes</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="about.html">Qui suis-je ?</a></li>
+                    <li><a href="loisirs.html">Loisirs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><input type="text" id="search" placeholder="Rechercher..."></li>
+                    <li id="google_translate_element"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section principale : Présentation du projet -->
+    <section class="projet-details">
+        <h2>Présentation du Projet</h2>
+        <p>
+            Mon projet de fin de cycle en L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO) consistait à créer un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et deux interrupteurs va-et-vient. Le fonctionnement principal est simple : on a la possibilité d'allumer ou d'éteindre l'appareil avec la télécommande ou les interrupteurs, quel que soit l'état initial de l'appareil.
+        </p>
+
+        <h2>Réalisation de circuit électronique et le Typon</h2>
+        <p>
+            J'ai réalisé le circuit électronique sur ISIS Proteus et le Typon sur ARES.
+        </p>
+
+        <!-- Insertion des images du schéma et du typon -->
+        <div class="image-container">
+            <img src="images/shema.jpg" alt="Schéma du circuit">
+            <img src="images/Typon.jpg" alt="Typon du circuit imprimé">
+        </div>
+
+        <h2>Méthode de fabrication du circuit imprimé :</h2>
+        <ol>
+            <li><strong>Insolation :</strong> J'ai superposé un typon (schéma imprimé) à une plaque de circuit imprimé recouverte de résine photosensible. L'insolation est réalisée sous lumière UV pour dégrader la résine là où la lumière passe à travers le typon. Ce processus dure environ 2 à 3 minutes.</li>
+            <li><strong>Révélation :</strong> Une solution chimique est utilisée pour éliminer la résine photosensible dégradée, ne laissant que celle qui protège le cuivre.</li>
+            <li><strong>Gravure :</strong> Le cuivre non protégé est éliminé par un acide (perchlorure de fer), ce qui laisse le tracé des pistes intact.</li>
+            <li><strong>Nettoyage :</strong> Le circuit est nettoyé à l'eau chaude sous pression pour éliminer les restes d'acide et les résidus.</li>
+            <li><strong>Perçage :</strong> Cette étape consiste à percer la carte aux points où les composants électroniques seront mis en place avant d'être soudés. Ces points sont situés sur les pistes de cuivre représentant le tracé du typon.</li>
+        </ol>
+
+        <h2>Fonctionnement de ce circuit :</h2>
+        <p>
+            Pour que les deux relais basculent, il faut appuyer sur une touche de la télécommande. Cette action émet un signal infrarouge qui sera capté par le récepteur infrarouge IR 338A, permettant d'activer le transistor T1. La ligne d'horloge (CLK) reçoit une impulsion créée par l'activation du transistor T1. Le compteur CD 4017, qui est à l'état haut sur Q0 au départ, est incrémenté à chaque impulsion. L'état haut de Q1 active le transistor T2, allumant ainsi les deux relais pour que la lampe s'allume.
+        </p>
+        <p>
+            Lors d'une seconde impulsion à l'entrée de l'horloge, le compteur est incrémenté une nouvelle fois, mettant Q2 à l'état haut. Cela entraîne la réinitialisation du compteur via la broche MR, éteignant la lampe. D'autres composants assurent la stabilité du circuit : une résistance pull-down R1, un condensateur C2 pour filtrer les parasites, et une diode D1 pour protéger le circuit des courants inverses générés par les relais.
+        </p>
+
+        <h2>Composants Utilisés :</h2>
+        <div class="image-container">
+            <img src="images/liste_des_composants.jpg" alt="Liste des Composants">
+        </div>
+        <ul>
+            <li>Relais 5V</li>
+            <li>IR 338A (récepteur infrarouge)</li>
+            <li>Interrupteur va-et-vient</li>
+            <li>Transistors PNP et NPN</li>
+            <li>Triode</li>
+            <li>Circuit intégré CD 4017</li>
+            <li>Diodes électroluminescentes</li>
+            <li>Résistances (100 Ohm, 220 Ohm)</li>
+            <li>Condensateurs (10µF, 1µF)</li>
+            <li>Ampoule 220V</li>
+        </ul>
+    </section>
+
+    <!-- Section Pied de page -->
+    <footer>
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
