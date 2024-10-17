@@ -2,19 +2,20 @@
 <html lang="fr">
 
 <head>
+    <!-- Encodage des caractères pour supporter tous les caractères -->
     <meta charset="UTF-8">
+    <!-- Meta tag pour rendre la page responsive et adaptée aux différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page qui s'affiche dans l'onglet du navigateur -->
     <title>Première Année - Science et Technologie (UMMTO)</title>
 
-    <!-- Lien vers le fichier CSS -->
-    <!-- Le fichier CSS est dans le dossier "css" et stylise toute la page -->
+    <!-- Lien vers le fichier CSS pour styliser la page -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Lien vers FontAwesome pour les icônes sociales  et l'icone hamburger-->
+    <!-- Lien vers FontAwesome pour les icônes sociales et l'icône hamburger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
-    <!-- Google Analytics pour le suivi des visiteurs -->
+    <!-- Script Google Analytics pour suivre les visiteurs -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,22 +24,22 @@
         gtag('config', 'G-J24YWBKV6C');
     </script>
 
-
-    <!-- Script Google Traduction -->
+    <!-- Script pour Google Traduction -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
 </head>
 
 <body>
-    <!-- Section En-tête -->
+    <!-- En-tête de la page avec le menu de navigation -->
     <header>
-        <h1>Première Année - Science et Technologie (UMMTO)</h1><h1>Première Année - Science et Technologie (UMMTO)</h1>
-        <!-- Menu desktop uniquement -->
+        <!-- Titre de la page pour le header -->
+        <h1>Première Année - Science et Technologie (UMMTO)</h1>
+        
+        <!-- Menu pour la version desktop -->
         <div class="desktop-header">
             <nav>
                 <ul>
@@ -51,19 +52,19 @@
                     <li><a href="loisirs.html">Loisirs</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    <li id="google_translate_element"></li> <!-- Élément pour Google Traduction -->
                 </ul>
             </nav>
         </div>
-    
-        <!-- Menu mobile uniquement -->
+
+        <!-- Menu pour la version mobile -->
         <div class="mobile-header">
             <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
             <div class="hamburger" id="hamburger-menu">
                 <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
             </div>
         </div>
-    
+
         <!-- Navigation mobile -->
         <nav id="mobile-nav">
             <ul>
@@ -81,49 +82,62 @@
         </nav>
     </header>
 
-    <!-- Section principale du contenu -->
-    <!-- Cette section décrit la première année de licence avec les détails des modules et des résultats -->
+    <!-- Section principale qui décrit la première année de licence -->
     <section class="modules">
         <!-- Titre de la section -->
         <h2>Introduction à la Première Année</h2>
 
-        <!-- Paragraphe d'introduction -->
+        <!-- Paragraphe d'introduction sur la première année -->
         <p>
-            Lors de ma première année en Sciences et Technologies à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO),
-            j'ai étudié les bases des sciences fondamentales, telles que les mathématiques, la physique, et
-            l'informatique. Cette année a posé les bases de mes connaissances en ingénierie.
+            En 2018/2019, j'ai entamé ma première année de licence en Sciences et Technologie à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO).
+            Cette année m'a permis d'acquérir des bases solides dans plusieurs disciplines scientifiques fondamentales.
         </p>
 
-        <!-- Liste des modules étudiés durant cette année -->
+        <!-- Liste des modules étudiés -->
         <h2>Modules étudiés :</h2>
         <ul>
-            <!-- Chaque élément de la liste représente un module étudié -->
-            <li><strong>Mathématiques :</strong> Algèbre, Analyse, Calcul différentiel.</li>
-            <li><strong>Physique :</strong> Mécanique, Optique, Thermodynamique.</li>
-            <li><strong>Informatique :</strong> Introduction à la programmation en C.</li>
-            <li><strong>Chimie :</strong> Chimie générale et ses applications.</li>
-            <li><strong>Électronique :</strong> Bases de l'électronique analogique et numérique.</li>
-            <li><strong>Langues :</strong> Français technique et Anglais scientifique.</li>
+            <!-- Modules du Semestre 1 -->
+            <li><strong>Semestre 1 :</strong></li>
+            <ul>
+                <li>Mathématiques 1</li>
+                <li>Physique 1</li>
+                <li>Structure de la matière</li>
+                <li>Méthodologie de la rédaction</li>
+                <li>Informatique 1</li>
+                <li>Les Métiers en sciences et Technologies 1</li>
+                <li>Langue Française 1</li>
+            </ul>
+
+            <!-- Modules du Semestre 2 -->
+            <li><strong>Semestre 2 :</strong></li>
+            <ul>
+                <li>Mathématiques 2</li>
+                <li>Physique 2</li>
+                <li>Thermodynamique</li>
+                <li>Méthodologie de la présentation</li>
+                <li>Informatique 2</li>
+                <li>Les Métiers en sciences et Technologies 2</li>
+                <li>Langue Française 2</li>
+            </ul>
         </ul>
 
-        <!-- Résultats obtenus à la fin de cette année -->
+        <!-- Résultats de l'année -->
         <h2>Résultats :</h2>
         <p>
-            À la fin de cette première année, j'ai été classé 19e sur 2500 étudiants, ce qui m'a permis de continuer mon
-            parcours académique dans la spécialité électronique.
+            À l'issue de cette première année, j'ai été classé 19e sur une promotion de 2417 étudiants.
         </p>
     </section>
 
-    <!-- Section Pied de page -->
+    <!-- Section du pied de page -->
     <footer>
-        <!-- Copyright et informations de droits réservés -->
+        <!-- Informations légales et droits d'auteur -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     </footer>
 
-    <!-- Lien vers le fichier JavaScript -->
-    <!-- Le fichier JS est dans le dossier "js" et gère les interactions dynamiques de la page -->
+    <!-- Lien vers le fichier JS pour gérer les interactions dynamiques -->
     <script src="js/scripts.js"></script>
 
+    <!-- Script pour EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 </body>
