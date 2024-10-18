@@ -1,119 +1,119 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html> <!-- Déclaration du type de document HTML5 -->
+<html lang="fr"> <!-- Début de la balise HTML avec la langue définie sur le français -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet de Fin de Cycle - L3 Électronique (UMMTO)</title>
+    <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 pour supporter tous les caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Permet une mise en page responsive sur mobile et tablette -->
+    <title>Projet de Fin de Cycle - L3 Électronique (UMMTO)</title> <!-- Titre de la page qui apparaîtra dans l'onglet du navigateur -->
 
-    <!-- Lien vers le fichier CSS -->
+    <!-- Lien vers le fichier CSS externe pour styliser la page -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Lien vers FontAwesome pour les icônes sociales et l'icône hamburger-->
+    <!-- Lien vers la bibliothèque FontAwesome pour utiliser des icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Google Analytics pour le suivi des visiteurs -->
+    <!-- Script pour Google Analytics, permettant de suivre les visites sur la page -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-J24YWBKV6C');
+        window.dataLayer = window.dataLayer || [];  <!-- Initialisation de la couche de données de Google Analytics -->
+        function gtag() { dataLayer.push(arguments); }  <!-- Fonction pour envoyer des informations à Google Analytics -->
+        gtag('js', new Date());  <!-- Initialisation du suivi -->
+        gtag('config', 'G-J24YWBKV6C');  <!-- Utilisation de l'ID de suivi pour cette page spécifique -->
     </script>
 
-    <!-- Script Google Traduction -->
+    <!-- Script pour intégrer Google Traduction pour traduire la page -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');  <!-- Initialisation de l'outil de traduction Google -->
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> <!-- Script pour charger Google Traduction -->
 </head>
 
-<body>
-    <!-- Section En-tête -->
+<body> <!-- Début du corps de la page -->
+    <!-- Section En-tête avec le titre et le menu de navigation -->
     <header>
-        <h1>Projet de Fin de Cycle - L3 Électronique (UMMTO)</h1>
+        <h1>Projet de Fin de Cycle - L3 Électronique (UMMTO)</h1> <!-- Titre principal de la page -->
+        
         <!-- Menu desktop -->
         <div class="desktop-header">
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="parcours.html">Parcours Académique</a></li>
-                    <li><a href="projets.html">Projets Réalisés</a></li>
-                    <li><a href="diplomes.html">Mes Diplômes</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="about.html">Qui suis-je ?</a></li>
-                    <li><a href="loisirs.html">Loisirs</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                    <li id="google_translate_element"></li>
+                    <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+                    <li><a href="parcours.html">Parcours Académique</a></li> <!-- Lien vers la page de parcours académique -->
+                    <li><a href="projets.html">Projets Réalisés</a></li> <!-- Lien vers la page des projets réalisés -->
+                    <li><a href="diplomes.html">Mes Diplômes</a></li> <!-- Lien vers la page des diplômes -->
+                    <li><a href="cv.html">CV</a></li> <!-- Lien vers la page du CV -->
+                    <li><a href="about.html">Qui suis-je ?</a></li> <!-- Lien vers la page de présentation personnelle -->
+                    <li><a href="loisirs.html">Loisirs</a></li> <!-- Lien vers la page des loisirs -->
+                    <li><a href="contact.html">Contact</a></li> <!-- Lien vers la page de contact -->
+                    <li><input type="text" id="search" placeholder="Rechercher..."></li> <!-- Champ de recherche pour la navigation -->
+                    <li id="google_translate_element"></li> <!-- Élément pour afficher l'outil de traduction Google -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Section principale : Présentation du projet -->
+    <!-- Section principale contenant les détails du projet -->
     <section class="projet-details">
-        <h2>Présentation du Projet</h2>
+        <h2>Présentation du Projet</h2> <!-- Titre de la section de présentation du projet -->
         <p>
             Mon projet de fin de cycle en L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO) consistait à créer un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et deux interrupteurs va-et-vient. Le fonctionnement principal est simple : on a la possibilité d'allumer ou d'éteindre l'appareil avec la télécommande ou les interrupteurs, quel que soit l'état initial de l'appareil.
-        </p>
+        </p> <!-- Paragraphe décrivant le projet global -->
 
-        <h2>Réalisation de circuit électronique et le Typon</h2>
+        <h2>Réalisation de circuit électronique et le Typon</h2> <!-- Titre de la section décrivant la réalisation du circuit -->
         <p>
             J'ai réalisé le circuit électronique sur ISIS Proteus et le Typon sur ARES.
-        </p>
+        </p> <!-- Description des outils utilisés pour la conception du circuit -->
 
         <!-- Insertion des images du schéma et du typon -->
-        <div class="image-container">
-            <img src="images/shema.jpg" alt="Schéma du circuit">
-            <img src="images/Typon.jpg" alt="Typon du circuit imprimé">
+        <div class="images">
+            <img src="images/shema.jpg" alt="Schéma du circuit"> <!-- Image du schéma du circuit -->
+            <img src="images/Typon.jpg" alt="Typon du circuit imprimé"> <!-- Image du typon du circuit imprimé -->
         </div>
 
-        <h2>Méthode de fabrication du circuit imprimé :</h2>
+        <h2>Méthode de fabrication du circuit imprimé :</h2> <!-- Titre pour la section décrivant la fabrication -->
         <ol>
             <li><strong>Insolation :</strong> J'ai superposé un typon (schéma imprimé) à une plaque de circuit imprimé recouverte de résine photosensible. L'insolation est réalisée sous lumière UV pour dégrader la résine là où la lumière passe à travers le typon. Ce processus dure environ 2 à 3 minutes.</li>
             <li><strong>Révélation :</strong> Une solution chimique est utilisée pour éliminer la résine photosensible dégradée, ne laissant que celle qui protège le cuivre.</li>
             <li><strong>Gravure :</strong> Le cuivre non protégé est éliminé par un acide (perchlorure de fer), ce qui laisse le tracé des pistes intact.</li>
             <li><strong>Nettoyage :</strong> Le circuit est nettoyé à l'eau chaude sous pression pour éliminer les restes d'acide et les résidus.</li>
             <li><strong>Perçage :</strong> Cette étape consiste à percer la carte aux points où les composants électroniques seront mis en place avant d'être soudés. Ces points sont situés sur les pistes de cuivre représentant le tracé du typon.</li>
-        </ol>
+        </ol> <!-- Liste ordonnée expliquant les étapes de fabrication du circuit imprimé -->
 
-        <h2>Fonctionnement de ce circuit :</h2>
+        <h2>Fonctionnement de ce circuit :</h2> <!-- Titre de la section sur le fonctionnement du circuit -->
         <p>
             Pour que les deux relais basculent, il faut appuyer sur une touche de la télécommande. Cette action émet un signal infrarouge qui sera capté par le récepteur infrarouge IR 338A, permettant d'activer le transistor T1. La ligne d'horloge (CLK) reçoit une impulsion créée par l'activation du transistor T1. Le compteur CD 4017, qui est à l'état haut sur Q0 au départ, est incrémenté à chaque impulsion. L'état haut de Q1 active le transistor T2, allumant ainsi les deux relais pour que la lampe s'allume.
-        </p>
+        </p> <!-- Explication du fonctionnement du circuit avec des détails techniques -->
         <p>
             Lors d'une seconde impulsion à l'entrée de l'horloge, le compteur est incrémenté une nouvelle fois, mettant Q2 à l'état haut. Cela entraîne la réinitialisation du compteur via la broche MR, éteignant la lampe. D'autres composants assurent la stabilité du circuit : une résistance pull-down R1, un condensateur C2 pour filtrer les parasites, et une diode D1 pour protéger le circuit des courants inverses générés par les relais.
-        </p>
+        </p> <!-- Suite de l'explication du fonctionnement -->
 
-        <h2>Composants Utilisés :</h2>
-        <div class="image-container">
-            <img src="images/liste_des_composants.jpg" alt="Liste des Composants">
+        <h2>Composants Utilisés :</h2> <!-- Titre pour la liste des composants utilisés -->
+        <div class="images">
+            <img src="images/liste_des_composants.jpg" alt="Liste des Composants"> <!-- Image affichant la liste des composants utilisés dans le projet -->
         </div>
         <ul>
-            <li>Relais 5V</li>
-            <li>IR 338A (récepteur infrarouge)</li>
-            <li>Interrupteur va-et-vient</li>
-            <li>Transistors PNP et NPN</li>
-            <li>Triode</li>
-            <li>Circuit intégré CD 4017</li>
-            <li>Diodes électroluminescentes</li>
-            <li>Résistances (100 Ohm, 220 Ohm)</li>
-            <li>Condensateurs (10µF, 1µF)</li>
-            <li>Ampoule 220V</li>
-        </ul>
+            <li>Relais 5V</li> <!-- Composant 1 : Relais 5V -->
+            <li>IR 338A (récepteur infrarouge)</li> <!-- Composant 2 : Récepteur infrarouge -->
+            <li>Interrupteur va-et-vient</li> <!-- Composant 3 : Interrupteur va-et-vient -->
+            <li>Transistors PNP et NPN</li> <!-- Composant 4 : Transistors PNP et NPN -->
+            <li>Triode</li> <!-- Composant 5 : Triode -->
+            <li>Circuit intégré CD 4017</li> <!-- Composant 6 : Circuit intégré CD 4017 -->
+            <li>Diodes électroluminescentes</li> <!-- Composant 7 : Diodes électroluminescentes -->
+            <li>Résistances (100 Ohm, 220 Ohm)</li> <!-- Composant 8 : Résistances de 100 Ohm et 220 Ohm -->
+            <li>Condensateurs (10µF, 1µF)</li> <!-- Composant 9 : Condensateurs de différentes capacités -->
+            <li>Ampoule 220V</li> <!-- Composant 10 : Ampoule 220V -->
+        </ul> <!-- Liste à puces des composants électroniques utilisés dans le projet -->
     </section>
 
     <!-- Section Pied de page -->
     <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p> <!-- Indication des droits d'auteur -->
     </footer>
 
-    <!-- Lien vers le fichier JavaScript -->
+    <!-- Lien vers le fichier JavaScript pour les interactions -->
     <script src="js/scripts.js"></script>
-</body>
+</body> <!-- Fin du corps de la page -->
 
-</html>
+</html> <!-- Fin du document HTML -->

@@ -206,7 +206,67 @@ nav ul li input {
 
 
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* style pour les projets   */
+
+
+
+
+
+/* Stylisation globale pour le corps de la page */
+body {
+    font-family: Arial, sans-serif; /* Police générale du site */
+    line-height: 1.6; /* Espacement entre les lignes de texte pour améliorer la lisibilité */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les espaces internes par défaut */
+}
+
+/* Stylisation pour la section principale du projet */
+.projet-details {
+    width: 85%; /* Limite la largeur de la section à 80% de la page pour éviter que le texte soit trop large */
+    margin: 20px auto; /* Centre la section horizontalement et ajoute une marge verticale */
+    padding: 20px; /* Ajoute un espace intérieur autour du texte */
+    background-color: #f9f9f9; /* Arrière-plan clair pour améliorer la lisibilité du texte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour donner du relief à la section */
+}
+
+/* Stylisation pour tous les titres h2 */
+h2 {
+    margin-top: 30px; /* Ajoute un espace au-dessus de chaque titre h2 */
+}
+
+/* Stylisation pour les paragraphes */
+p {
+    margin-bottom: 20px; /* Ajoute un espace sous chaque paragraphe */
+}
+
+/* Stylisation pour les images dans la section projet */
+.images img {
+    width: 30%; /* Limite la largeur des images à 30% de la section */
+    margin: 10px; /* Ajoute un espacement autour des images pour éviter qu'elles ne se touchent */
+    display: inline-block; /* Affiche les images côte à côte en ligne */
+}
+
+/* Stylisation pour les listes ordonnées (étapes) */
+ol {
+    margin-left: 40px; /* Ajoute une marge à gauche pour décaler les listes ordonnées */
+}
+
+/* Stylisation pour les listes non ordonnées (composants) */
+ul {
+    margin-left: 40px; /* Ajoute une marge à gauche pour décaler les listes non ordonnées */
+    list-style-type: disc; /* Utilise des puces pour les éléments de liste */
+}
+
+
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 /* ===========================================
    Styles pour les modules et cours
    =========================================== */
