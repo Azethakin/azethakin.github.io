@@ -322,6 +322,38 @@ ul {
 }
 
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes experiences dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.experiences li {
+    margin-bottom: 15px; /* Ajout d'espace entre lignes experience dans cv */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes Compétences Techniques dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.Compétences_Techniques li {
+    margin-bottom: 10px; /* Ajout d'espace entre lignes Compétences Techniques dans cv */
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes Formations dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.Formations li {
+    margin-bottom: 3px; /* Ajout d'espace entre lignes Formations dans cv */
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter ou supprimer des espaces verticales entre les lignes dans diplomes_academiques.html
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.diplomes ul p {
+    margin: 0; /* Supprime les marges verticales */
+    padding: 0; /* Supprime les espacements internes si nécessaires */
+}
+.diplomes ul p + li {
+    margin-top: 15px; /* Ajoute un espace vertical entre <p> et <li> */
+}
+
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
