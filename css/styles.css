@@ -4,8 +4,10 @@
 
 /* Réinitialise les marges et paddings par défaut */
 body, html {
-    margin: 0;
-    padding: 0;
+    overflow: auto; /* Active les barres de défilement pour la page complète */
+    max-height: 100vh; /* Limite la hauteur au viewport */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les marges internes */
     font-family: 'Roboto', sans-serif; /* Utilise la police Roboto pour tout le site */
     background-color: #f4f7f6; /* Couleur de fond du site */
     overflow-x: hidden; /* Empêche le défilement horizontal */
@@ -322,25 +324,6 @@ ul {
 }
 
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes experiences dans cv.html 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-ul.experiences li {
-    margin-bottom: 15px; /* Ajout d'espace entre lignes experience dans cv */
-}
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes Compétences Techniques dans cv.html 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-ul.Compétences_Techniques li {
-    margin-bottom: 10px; /* Ajout d'espace entre lignes Compétences Techniques dans cv */
-}
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes Formations dans cv.html 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-ul.Formations li {
-    margin-bottom: 3px; /* Ajout d'espace entre lignes Formations dans cv */
-}
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -724,162 +707,425 @@ nav ul li input,
 /* Mobile header styles */
 /* -------------------- Styles pour le menu desktop -------------------- */
 /* Styles par défaut pour masquer et afficher le bon menu */
+/* ===========================================
+   Styles pour la navigation du site - Mobile
+   =========================================== */
+
+/* Media query pour les écrans larges (768px et plus) */
+/* Ces styles s'appliquent uniquement aux écrans de taille égale ou supérieure à 768px */
 @media only screen and (min-width: 768px) {
+    /* Cache l'en-tête mobile sur les écrans larges */
     .mobile-header {
-        display: none;
+        display: none; /* L'en-tête mobile n'est pas affichée */
     }
+
+    /* Cache le menu mobile (hamburger menu) sur les écrans larges */
     #mobile-nav {
-        display: none;
+        display: none; /* Le menu mobile est également caché */
     }
 }
-
-/* Styles pour le menu mobile */
-/* --- Début des styles pour le menu mobile --- */
 
 /* Conteneur principal du menu mobile */
 #mobile-nav {
-    position: fixed;       /* Fixe le menu au-dessus de la page pour qu'il reste en place même au défilement */
-    top: 0;                /* Place le menu en haut de la page */
-    left: 0;               /* Place le menu à gauche de la page */
-    width: 100%;           /* Le menu occupe 100% de la largeur de l'écran */
-    height: 100%;          /* Le menu occupe 100% de la hauteur de l'écran */
-    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec 90% d'opacité pour laisser une légère transparence */
-    display: flex;         /* Utilise Flexbox pour organiser les éléments du menu */
-    flex-direction: column;/* Aligne les éléments en colonne */
-    justify-content: center;/* Centre verticalement les éléments dans l'écran */
-    align-items: center;   /* Centre horizontalement les éléments */
-    z-index: 9999;         /* Donne une priorité maximale pour que le menu reste au-dessus de tous les autres éléments */
-    opacity: 0;            /* Rend le menu transparent (non visible) par défaut */
-    visibility: hidden;    /* Cache le menu par défaut */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Ajoute une transition douce lors de l'affichage/cachage */
+    position: fixed; /* Fixe le menu pour qu'il reste au même endroit même si on défile la page */
+    top: 0; /* Positionne le menu en haut de la page */
+    left: 0; /* Positionne le menu à gauche de la page */
+    width: 100%; /* Le menu occupe toute la largeur de l'écran */
+    height: 100%; /* Le menu occupe toute la hauteur de l'écran */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
+    display: flex; /* Utilise Flexbox pour organiser les éléments du menu */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    justify-content: center; /* Centre les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    z-index: 9999; /* Assure que le menu reste au-dessus des autres éléments */
+    opacity: 0; /* Par défaut, le menu est transparent (invisible) */
+    visibility: hidden; /* Par défaut, le menu est caché */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Ajoute une transition fluide pour l'affichage et la disparition */
 }
 
-/* Lorsque le menu mobile est actif (class "show" appliquée), on le rend visible */
+/* Styles pour le menu mobile lorsqu'il est actif */
+/* Lorsque la classe "show" est ajoutée, le menu devient visible */
 #mobile-nav.show {
-    opacity: 1;            /* Rend le menu totalement visible */
-    visibility: visible;   /* Rend le menu visible à l'écran */
+    opacity: 1; /* Règle l'opacité à 1 pour rendre le menu visible */
+    visibility: visible; /* Rend le menu visible */
 }
 
-/* Styles pour les éléments de la liste (liens de navigation) dans le menu mobile */
+/* Liste dans le menu mobile */
 #mobile-nav ul {
-    list-style: none;      /* Retire les puces de la liste */
-    padding: 0;            /* Supprime les marges internes */
-    margin: 0;             /* Supprime les marges externes */
-    text-align: center;    /* Centre le texte des éléments dans le menu */
+    list-style: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime les marges internes */
+    margin: 0; /* Supprime les marges externes */
+    text-align: center; /* Centre le texte des éléments dans le menu */
 }
 
-/* Chaque élément de la liste dans le menu mobile */
-#mobile-nav ul li {
-    margin: 15px 0;        /* Ajoute un espace de 15px en haut et en bas de chaque élément pour un espacement vertical */
-}
-
-/* Style pour les liens (balise <a>) dans le menu mobile */
+/* Liens dans le menu mobile */
 #mobile-nav ul li a {
-    color: white;          /* Le texte des liens est blanc pour qu'il soit lisible sur le fond noir */
-    font-size: 1.5em;      /* Augmente la taille du texte pour le rendre facilement lisible */
-    text-decoration: none; /* Retire le soulignement par défaut des liens */
+    color: white; /* Couleur blanche pour le texte des liens */
+    font-size: 1.5em; /* Augmente la taille du texte pour une meilleure lisibilité */
+    text-decoration: none; /* Supprime le soulignement des liens */
 }
 
-/* Style pour le champ de recherche (input) dans le menu mobile */
+/* Champ de recherche dans le menu mobile */
 #search-mobile {
-    background-color: transparent;  /* Fond transparent pour s'intégrer au fond noir du menu */
-    color: white;                   /* Le texte saisi est blanc pour être visible sur fond sombre */
-    border: 1px solid white;        /* Bordure blanche pour bien délimiter le champ */
-    padding: 5px 10px;              /* Ajoute un padding interne pour espacer le texte des bords du champ */
-    margin-bottom: 20px;            /* Espace de 20px en dessous du champ pour espacer les autres éléments */
+    background-color: transparent; /* Fond transparent pour s'adapter au fond noir du menu */
+    color: white; /* Texte blanc pour une meilleure visibilité */
+    border: 1px solid white; /* Bordure blanche pour délimiter le champ */
+    padding: 5px 10px; /* Ajoute un espace interne au champ de recherche */
+    margin-bottom: 20px; /* Ajoute un espacement en dessous du champ */
 }
 
-/* Style pour l'icône du menu hamburger dans la version mobile */
+/* Icône du menu hamburger dans la version mobile */
 .hamburger {
-    color: white;                   /* L'icône du menu est blanche pour être bien visible */
-    font-size: 2em;                 /* Taille de l'icône suffisamment grande pour faciliter l'interaction */
-    cursor: pointer;                /* Change le curseur en forme de main pour indiquer qu'il est cliquable */
+    color: white; /* L'icône est blanche pour être visible sur le fond sombre */
+    font-size: 2em; /* Augmente la taille de l'icône pour une meilleure interaction */
+    cursor: pointer; /* Change le curseur en main lorsqu'on survole l'icône */
 }
 
-/* --- Styles supplémentaires pour la version mobile --- */
-/* Général pour mobile */
+/* Media query pour les écrans étroits (767px et moins) */
+/* Ces styles s'appliquent uniquement aux écrans de taille égale ou inférieure à 767px */
 @media only screen and (max-width: 767px) {
-    /* Cache le menu desktop */
+    /* Cache l'en-tête desktop sur les petits écrans */
     .desktop-header {
-        display: none;
+        display: none; /* L'en-tête desktop n'est pas affichée */
     }
     
-    /* Barre supérieure avec logo et icône hamburger */
+
+    /* Barre supérieure (logo et hamburger menu) sur mobile */
     .mobile-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: transparent; /* Couleur de fond */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'ombre */
+        display: flex; /* Affiche la barre supérieure en mode flex */
+        justify-content: space-between; /* Place le logo à gauche et l'icône hamburger à droite */
+        align-items: center; /* Aligne les éléments verticalement */
+        padding: 10px 20px; /* Ajoute des espaces internes */
+        background-color: transparent; /* Fond transparent */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous la barre */
     }
 
-    /* Barre de recherche dans la version mobile */
+    /* Champ de recherche dans l'en-tête mobile */
     .mobile-header input[type="text"] {
-        flex-grow: 1;
-        margin-right: 10px;
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        width: 70%;
-        height: 1px;
+        flex-grow: 1; /* Permet au champ de recherche de s'étendre */
+        margin-right: 10px; /* Ajoute un espace à droite */
+        padding: 5px; /* Ajoute un espace interne */
+        border-radius: 5px; /* Arrondit les bords du champ */
+        border: 1px solid #ddd; /* Ajoute une bordure grise */
+        width: 70%; /* Définit la largeur à 70% */
+        height: 1px; /* Hauteur minimale */
+    }
+
+    /* Icône hamburger dans l'en-tête mobile */
+    .hamburger {
+        cursor: pointer; /* Curseur en main pour indiquer qu'il est cliquable */
+        font-size: 1.5em; /* Taille légèrement réduite par rapport au style global */
+        color: #000; /* Couleur noire pour se démarquer */
+    }
+
+    /* Conteneur du menu mobile */
+    #mobile-nav {
+        display: none; /* Par défaut, le menu est caché */
+        position: absolute; /* Position absolue pour superposer au contenu */
+        top: 50px; /* Positionné en dessous de la barre supérieure */
+        right: 0; /* Aligné à droite */
+        width: 100%; /* Occupe toute la largeur de l'écran */
+        background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
+        padding: 20px; /* Ajoute un espace interne */
+        z-index: 1000; /* Assure que le menu reste au-dessus des autres éléments */
+    }
+
+    /* Liste dans le menu mobile */
+    #mobile-nav ul {
+        display: flex; /* Affiche les éléments en flexbox */
+        flex-direction: column; /* Aligne les éléments verticalement */
+        list-style: none; /* Supprime les puces de la liste */
+        padding-left: 0; /* Supprime le padding gauche */
+    }
+
+    /* Élément de liste dans le menu mobile */
+    #mobile-nav ul li {
+        margin-bottom: 15px; /* Ajoute un espacement entre les éléments */
+        font-size: 18px; /* Taille de la police */
+        font-weight: bold; /* Rend le texte en gras */
+        text-align: center; /* Centre le texte */
+    }
+
+    /* Liens des éléments du menu */
+    #mobile-nav ul li a {
+        color: #c2c0c0; /* Couleur des liens du menu hamburgers ( accueil, parcours académique, proje, cv, qui suis je, loisirs, contact)  */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+
+    /* Lien actif ou survolé */
+    #mobile-nav ul li a:hover {
+        color: #d64a4a; /* Change la couleur en rouge au survol */
+    }
+
+    /* Styles pour le menu affiché */
+    #mobile-nav.show {
+        display: block; /* Affiche le menu */
+        height: 100vh; /* Occupe toute la hauteur de l'écran */
+    }
+
+    /* Supprime le défilement du contenu lorsque le menu est ouvert */
+    body.menu-open {
+        overflow: hidden; /* Empêche le défilement */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================
+  pour la page de cv
+ 
+   ================================================ */
+
+/* ================================================
+   STYLES GÉNÉRAUX (COMMUNS À MOBILE ET DESKTOP)
+   ================================================ */
+
+/* Conteneur principal de la page CV */
+.cv-container {
+    display: flex; /* Définit un conteneur flexible */
+    flex-direction: column; /* Organise les sections verticalement par défaut */
+    gap: 20px; /* Ajoute un espace de 20px entre chaque section */
+    padding: 20px; /* Ajoute un espace interne de 20px autour du conteneur */
+}
+
+/* Conteneur du CV pour limiter le zoom à la zone blanche */
+/* Conteneur principal pour le CV */
+.cv-viewer {
+    flex: 2; /* Définit la proportion du conteneur */
+    padding: 0; /* Espacement interne pour respirer autour de l'image */
+    border-radius: 5px;/* Optionnel : arrondit légèrement les coins */
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour démarquer */
+    overflow: auto; /* Active les barres de défilement si le contenu dépasse */
+    position: relative; /* Nécessaire pour le centrage absolu de l'image */
+    height: 100%; /* Remplit l'espace disponible verticalement */
+    max-height: calc(100vh - 100px); /* Ajuste la hauteur maximale pour s'adapter à la hauteur de la fenêtre */
+    display: flex; /* Active le mode flexbox */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre horizontalement les enfants */
+    justify-content: start; /* Place le contenu au début pour éviter la coupe à gauche */
+    overflow: auto; /* Permet le défilement dans toutes les directions */
+    max-width: 100%; /* Empêche la coupe horizontale */
+}
+
+/* Image du CV */
+.cv-viewer img {
+    max-width: 100%; /* Ajuste la largeur maximale à celle du conteneur */
+    max-height: 100%; /* Ajuste la hauteur maximale au conteneur */
+    transform-origin: center center; /* Définit le point d'origine du zoom au centre */
+    transition: transform 0.3s ease; /* Transition fluide pour le zoom */
+    margin: 0 auto; /* Centre l'image horizontalement */
+}
+
+/* Image du CV */
+#cv-image {
+    pointer-events: none; /* Permet l'interaction avec la souris et Désactive les interactions directes avec l'image*/
+    width: auto; /* Permet un défilement horizontal si la largeur de l'image dépasse ou bien Autorise une largeur plus grande que le conteneur*/
+    max-width: none; /* Supprime la limite de largeur */
+    max-height: calc(100vh - 200px); /* Hauteur maximale de l'image pour tenir sous les boutons */
+    display: block; /* Empêche les marges supplémentaires */
+    margin: auto; /* Centre l'image horizontalement */
+    transform-origin: top center; /* Fixe le point de zoom au centre haut */
+    height: auto; /* Ajuste automatiquement la hauteur */33
+}
+
+/* ====================================
+   Résolution du problème des boutons
+==================================== */
+
+/* Positionne les boutons à l'intérieur de la zone blanche */
+/* Conteneur pour les boutons de contrôle */
+/* Boutons de contrôle */
+.controls {
+    position: absolute; /* Fixe les boutons par rapport à la zone contenant le CV */
+    top:0px; /* Distance du haut de la zone CV cest a dire pour regler l'emplacement de la box des bouton dans la zone du cv  */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Centre parfaitement les boutons */
+    z-index: 5; /* Place les boutons au-dessus de l'image */
+    background: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    border-radius: 10px; /* Bordures arrondies */
+    padding: 5px 10px; /* Espacement interne */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Ombre pour un effet visuel agréable */
+    display: flex; /* Active Flexbox pour les boutons */
+    gap: 5px; /* Ajoute un espacement entre les boutons */
+    flex-wrap: nowrap; /* Empêche les boutons de passer à une nouvelle ligne */
+
+}
+
+/* Boutons avec un style cohérent */
+/* Boutons individuels */
+.controls button {
+    padding: 10px; /* Espacement interne des boutons */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    background-color: #3498db; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    cursor: pointer; /* Curseur en forme de main */
+    font-size: 14px; /* Taille du texte */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* Change légèrement la couleur lors du survol des boutons */
+.controls button:hover {
+    background-color: #2980b9; /* Couleur plus foncée pour l'effet de survol */
+}
+
+
+/* Section d'informations complémentaires */
+.cv-details {
+    overflow-y: auto; /* Active uniquement la barre de défilement verticale */
+    max-height: calc(100vh - 100px); /* Ajuste la hauteur maximale pour éviter le dépassement de la fenêtre */
+    background-color: #ecf0f1; /* Définit un fond gris clair pour cette section */
+    padding: 20px; /* Ajoute un espace interne de 20px */
+    border-radius: 5px; /* Arrondit légèrement les coins de la section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce pour un effet de profondeur */
+}
+
+/* Titres de sections dans les informations complémentaires */
+.cv-details h2 {
+    margin-bottom: 20px; /* Ajoute un espace en dessous du titre */
+    font-size: 18px; /* Définit la taille de la police */
+    font-weight: bold; /* Rend le texte du titre en gras */
+    color: #333; /* Couleur du texte gris foncé */
+}
+
+/* Listes dans les informations complémentaires */
+.cv-details ul {
+    list-style: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le padding interne */
+    margin: 0; /* Supprime les marges externes */
+}
+
+/* Élément individuel de la liste */
+.cv-details ul li {
+    margin-bottom: 10px; /* Ajoute un espace en dessous de chaque élément */
+    font-size: 14px; /* Définit la taille de la police */
+    color: #555; /* Couleur du texte légèrement plus claire */
+}
+
+/* ================================================
+   STYLES POUR MOBILE (ÉCRANS < 768px)
+   ================================================ */
+@media only screen and (max-width: 767px) {
+    /* Conteneur principal sur mobile */
+    .cv-container {
+        flex-direction: column; /* Les sections sont empilées verticalement */
+    }
+
+    /* Image du CV */
+    #cv-image {
+        max-width: 100%; /* L'image occupe toute la largeur de l'écran */
+    }
+
+
+    .cv-viewer {
+        max-height: 60vh; /* Ajuste la hauteur pour les petits écrans */
+        overflow: auto; /* Active le défilement */
+    }
+
+    /* Section des informations complémentaires */
+    .cv-details {
+        margin-top: 20px; /* Ajoute un espace entre la visualisation et les détails */
+        max-height: 40vh; /* Ajuste la hauteur pour ne pas empiéter sur la zone de la photo */
+        overflow-y: auto; /* Active le défilement vertical */
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /* Alignement des boutons sur une seule ligne */
+    .controls {
+        position: absolute; /* Les boutons restent fixés par rapport au conteneur */
+        top: 0; /* Place les boutons en haut du conteneur */
+        left: 50%; /* Centre horizontalement les boutons */
+        transform: translateX(-50%); /* Centre les boutons avec précision */
+        z-index: 10; /* Assure que les boutons restent au-dessus de tout */
+        display: flex; /* Affiche les boutons sur une seule ligne */
+        justify-content: center; /* Centre les boutons sur la ligne */
+        gap: 10px; /* Ajoute un espace entre chaque bouton */
+        background: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+        padding: 5px 10px; /* Ajoute un padding pour que les boutons soient bien espacés */
+        border-radius: 8px; /* Coins arrondis pour un style agréable */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour un meilleur visuel */
+    }
+
+    /* Ajustement du titre pour ne pas être caché */
+    .cv-viewer h2 {
+        margin-top: 80px; /* Ajoute un espace pour éviter le chevauchement avec les boutons */
+        text-align: center; /* Centre le texte pour plus d'esthétique */
+    }
+}
+
+/* ================================================
+   STYLES POUR DESKTOP (ÉCRANS ≥ 768px)
+   ================================================ */
+@media only screen and (min-width: 768px) {
+    /* Conteneur principal sur desktop */
+    .cv-container {
+        flex-direction: row; /* Les sections sont affichées côte à côte */
+    }
+
+    /* Section des informations complémentaires */
+    .cv-details {
+        flex: 1; /* Occupe une proportion égale à celle de la visualisation */
+        max-width: 30%; /* Définit une largeur maximale pour les détails */
+        max-height: calc(100vh - 150px); /* Limite la hauteur pour éviter de dépasser la fenêtre */
+    }
+
+    /* Section de visualisation du CV */
+    .cv-viewer {
+        flex: 2; /* Occupe deux fois plus d'espace que les détails */
+        max-height: calc(100vh - 150px); /* Ajuste la hauteur pour tenir compte des marges */
+        overflow: auto; /* Active le défilement */
         
     }
 
-    /* Icône hamburger */
-    .hamburger {
-        cursor: pointer;
-        font-size: 1.5em;
-        color: #000;
-    }
-
-    /* Menu mobile */
-    #mobile-nav {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.98); /* Fond transparent blanc */
-        padding: 20px;
-        z-index: 10;
-    }
-
-    /* Affichage du menu lorsque le hamburger est activé */
-    #mobile-nav ul {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        padding-left: 0;
-    }
-
-    /* Les éléments du menu doivent être alignés verticalement */
-    #mobile-nav ul li {
-        margin-bottom: 15px;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    /* Lien des éléments du menu */
-    #mobile-nav ul li a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    /* L'élément actif du menu */
-    #mobile-nav ul li a:hover {
-        color: #d64a4a; /* Rouge sur survol */
-    }
-
-    /* Lorsque le menu est affiché (active) */
-    #mobile-nav.show {
-        display: block;
-        height: 100vh; /* Prend toute la hauteur de l'écran */
-    }
-
-    /* Supprimer les marges et padding du body lors de l'affichage du menu */
-    body.menu-open {
-        overflow: hidden;
+     /* Ajustement du titre visualisation du CV pour ne pas être caché   */
+     .cv-viewer h2 {
+        margin-top: 80px; /* Ajoute un espace pour éviter le chevauchement avec les boutons */
+        text-align: center; /* Centre le texte pour plus d'esthétique */
     }
 }
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes experiences dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.experiences li {
+    margin-bottom: 15px; /* Ajout d'espace entre lignes experience dans cv */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes Compétences Techniques dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.Compétences_Techniques li {
+    margin-bottom: 10px; /* Ajout d'espace entre lignes Compétences Techniques dans cv */
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pour ajouter des espaces entre les lignes Formations dans cv.html 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+ul.Formations li {
+    margin-bottom: 3px; /* Ajout d'espace entre lignes Formations dans cv */
+}
+
+
+
+
+
+
+
+
+
+
+

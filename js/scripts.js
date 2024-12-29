@@ -36,28 +36,7 @@ modules.forEach(module => {
 });
 
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// =====================
-// Gestion du zoom sur l'image du CV
-// =====================
-const zoomInButton = document.getElementById('zoom-in');
-const zoomOutButton = document.getElementById('zoom-out');
-const cvImage = document.getElementById('cv-image');
-if (zoomInButton && zoomOutButton && cvImage) {
-    let zoomLevel = 1;
-    zoomInButton.addEventListener('click', () => {
-        zoomLevel += 0.1;
-        cvImage.style.transform = `scale(${zoomLevel})`;
-        cvImage.style.transition = 'transform 0.3s ease';
-    });
-    zoomOutButton.addEventListener('click', () => {
-        if (zoomLevel > 0.5) {
-            zoomLevel -= 0.1;
-            cvImage.style.transform = `scale(${zoomLevel})`;
-            cvImage.style.transition = 'transform 0.3s ease';
-        }
-    });
-}
+
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -193,5 +172,137 @@ hamburger.addEventListener('click', function () {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================
+  pour la page de cv
+ 
+   ================================================ */
+
+// ==================================================
+// FONCTIONNALITÉS COMMUNES POUR MOBILE ET DESKTOP
+// ==================================================
+
+// ==========================================
+// Gestion des Boutons de Zoom et Plein Écran
+// ==========================================
+
+// Exécute le script une fois que le DOM est chargé
+document.addEventListener('DOMContentLoaded', function () {
+    // Sélection des éléments
+    const zoomInButton = document.getElementById('zoom-in'); // Bouton Zoom +
+    const zoomOutButton = document.getElementById('zoom-out'); // Bouton Zoom -
+    const resetZoomButton = document.getElementById('reset-zoom'); // Bouton Réinitialiser
+    const fullScreenButton = document.getElementById('fullscreen'); // Bouton Plein écran
+    const cvImage = document.getElementById('cv-image'); // L'image du CV
+    const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de la photo de CV
+
+    // Permet de capturer uniquement le défilement vertical avec la roulette
+    cvViewer.addEventListener('wheel', function (event) {
+        const isAtTop = cvViewer.scrollTop === 0; // Vérifie si on est en haut de la zone du CV
+        const isAtBottom =
+            cvViewer.scrollTop + cvViewer.clientHeight >= cvViewer.scrollHeight; // Vérifie si on est en bas de la zone du CV
+    
+        if ((event.deltaY < 0 && isAtTop) || (event.deltaY > 0 && isAtBottom)) {
+            // Laisse le défilement se propager à la page
+            cvViewer.blur(); // Perd le focus pour permettre le défilement global
+        } else {
+            // Sinon, empêche le défilement global
+            event.preventDefault(); // Empêche le défilement global si on est dans la zone du CV
+            cvViewer.scrollBy({
+                top: event.deltaY * 4, // Déplace verticalement
+                behavior: 'smooth', // Ajoute une animation fluide au défilement
+            });
+        }
+    });
+    
+
+    let zoomLevel = 1; // Niveau de zoom initial
+
+  // Fonction pour zoomer sur l'image
+    zoomInButton.addEventListener('click', () => {
+        if (zoomLevel < 5) { // Limite maximale de zoom à 200%
+            zoomLevel += 0.1;
+            updateZoom();
+            updateScrollBars(); // Met à jour les barres de défilement
+        }
+    });
+
+    // Fonction pour dézoomer sur l'image
+    zoomOutButton.addEventListener('click', () => {
+        if (zoomLevel > 0.5) { // Limite minimale de zoom à 50%
+            zoomLevel -= 0.1;
+            updateZoom();
+            updateScrollBars(); // Met à jour les barres de défilement
+        }
+    });
+
+    resetZoomButton.addEventListener('click', () => {
+        zoomLevel = 1; // Réinitialise le niveau de zoom à la taille initiale
+        updateZoom(); // Met à jour l'affichage
+        updateScrollBars(); // Met à jour les barres de défilement
+    });
+    
+
+    // Fonction pour passer en plein écran
+    fullScreenButton.addEventListener('click', function () {
+        if (cvViewer.requestFullscreen) {
+            cvViewer.requestFullscreen(); // Active le mode plein écran
+        } else if (cvViewer.webkitRequestFullscreen) {
+            cvViewer.webkitRequestFullscreen(); // Compatibilité pour Safari
+        } else if (cvViewer.msRequestFullscreen) {
+            cvViewer.msRequestFullscreen(); // Compatibilité pour IE/Edge
+        }
+    });
+
+    // Fonction pour mettre à jour l'échelle de l'image
+    function updateZoom() {
+        cvImage.style.transform = `scale(${zoomLevel})`; // Applique le zoom
+        cvImage.style.transition = 'transform 0.3s ease'; // Animation fluide du zoom
+    }
+    
+        // Ajoutez un événement pour empêcher l'image de dépasser les limites
+    cvImage.addEventListener('wheel', (event) => {
+        event.preventDefault(); // Empêche le défilement par défaut
+    });
+
+    function updateScrollBars() {
+        const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de l'image
+        const cvImage = document.getElementById('cv-image'); // Image du CV
+    
+        // Vérifie si l'image dépasse la largeur ou la hauteur du conteneur après le zoom
+        const imageWidth = cvImage.offsetWidth * zoomLevel;
+        const imageHeight = cvImage.offsetHeight * zoomLevel;
+        const viewerWidth = cvViewer.clientWidth;
+        const viewerHeight = cvViewer.clientHeight;
+    
+        // Active la barre horizontale si l'image dépasse la largeur du conteneur
+        cvViewer.style.overflowX = imageWidth > viewerWidth ? 'scroll' : 'hidden';
+    
+        // Active la barre verticale si l'image dépasse la hauteur du conteneur
+        cvViewer.style.overflowY = imageHeight > viewerHeight ? 'scroll' : 'hidden';
+    }
+    
+    
+    
+    // Appelle cette fonction après chaque zoom
+    zoomInButton.addEventListener('click', updateScrollBars);
+    zoomOutButton.addEventListener('click', updateScrollBars);
+    resetButton.addEventListener('click', updateScrollBars);
+    
+    // Appeler lors du chargement initial
+    document.addEventListener('DOMContentLoaded', updateScrollBars);
+    
+    
+});
 
 

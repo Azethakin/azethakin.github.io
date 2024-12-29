@@ -1,109 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Métadonnées du document -->
     <meta charset="UTF-8">
-    <!-- Définit l'encodage en UTF-8 pour prendre en charge les caractères spéciaux -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Permet d'adapter la page à toutes les tailles d'écrans (ordinateurs, tablettes, mobiles) -->
-
     <title>CV de Aziz Malloul</title>
-    <!-- Titre de la page affiché dans l'onglet du navigateur -->
-
-    <!-- Lien vers le fichier de styles CSS pour styliser la page -->
+    <!-- Lien vers le fichier CSS externe -->
     <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Lien vers FontAwesome pour les icônes sociales  et l'icone hamburger-->
+    <!-- Lien vers FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Google Analytics pour suivre les visiteurs du site -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J24YWBKV6C');
-    </script>
-    <!-- Script Google Analytics pour suivre les statistiques de la page -->
-
-    <!-- Script Google Traduction -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <!-- Style interne pour personnaliser la mise en page du CV -->
-    <style>
-        /* Conteneur principal qui divise la page en deux parties : les détails et la visualisation du CV */
-        .cv-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            height: 700px;
-        }
-
-        /* Section gauche qui contient les détails du CV */
-        .cv-details {
-            flex: 1;
-            padding: 20px;
-            background-color: #ecf0f1;
-            margin-right: 20px;
-            border-radius: 5px;
-            max-width: 30%;
-            overflow-y: scroll; /* Permet un défilement vertical si le contenu est trop long */
-        }
-
-        /* Section droite qui contient l'image du CV */
-        .cv-viewer {
-            flex: 2;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow-y: scroll; /* Permet un défilement vertical pour le CV */
-            position: relative;
-        }
-
-        /* Image du CV affichée dans la partie droite */
-        .cv-viewer img {
-            width: 100%;
-            transform-origin: top left; /* Point de départ du zoom */
-        }
-
-        /* Boutons de contrôle pour zoomer sur le CV */
-        .controls {
-            display: flex;
-            justify-content: center; /* Centre les boutons */
-            margin-bottom: 10px;
-        }
-
-        /* Style des boutons de zoom */
-        .controls button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #3498db;
-            color: white;
-            cursor: pointer;
-            margin: 0 5px;
-        }
-
-        /* Effet au survol des boutons */
-        .controls button:hover {
-            background-color: #2980b9;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Début du corps de la page -->
-
-    <!-- En-tête avec la barre de navigation -->
+    <!-- En-tête principal -->
     <header>
-        <!-- Menu desktop uniquement -->
+        <!-- Menu desktop -->
         <div class="desktop-header">
             <nav>
                 <ul>
@@ -115,21 +25,16 @@
                     <li><a href="about.html">Qui suis-je ?</a></li>
                     <li><a href="loisirs.html">Loisirs</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
                 </ul>
             </nav>
         </div>
-    
-        <!-- Menu mobile uniquement -->
+        <!-- Menu mobile -->
         <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+            <span class="logo">Aziz Malloul</span>
             <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-    
-        <!-- Navigation mobile -->
         <nav id="mobile-nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -140,15 +45,28 @@
                 <li><a href="about.html">Qui suis-je ?</a></li>
                 <li><a href="loisirs.html">Loisirs</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> <!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
             </ul>
         </nav>
     </header>
 
-    <!-- Section principale du CV qui se divise en deux colonnes -->
+    <!-- Section principale -->
     <section class="cv-container">
-        <!-- Partie gauche avec des informations détaillées sur le CV -->
+        <!-- Zone du CV avec boutons et titre -->
+    <div class="cv-viewer">
+        <div class="cv-header">
+            <h2>Visualisation du CV</h2>
+            <div class="controls">
+                <button id="zoom-out">Zoom -</button>
+                <button id="zoom-in">Zoom +</button>
+                <button id="reset-zoom">Réinitialiser</button>
+                <button id="fullscreen">Plein Écran</button>
+            </div>
+        </div>
+        <!-- Image du CV -->
+        <img id="cv-image" src="images/CV_Aziz_MALLOUL_Stage.jpg" alt="CV de Aziz Malloul">
+    </div>
+
+        <!-- Partie informations complémentaires -->
         <div class="cv-details">
             <!-- Titre de la section des détails -->
             <h2>Informations Complémentaires</h2>
@@ -165,10 +83,11 @@
             <!-- Formations -->
             <h3>Formations</h3>
             <ul class="Formations">
-                <li><strong>Master 2 :</strong> Robotique Intelligente et Systèmes Embarqués (RISE) - Université de Toulon (en cours, 2024)</li>
-                <li><strong>Master 1 :</strong> Ingénierie des Systèmes Complexes (ISC), Parcours Robotique et Objets Connectés - Université de Toulon (2023)</li>
-                <li><strong>Licence :</strong> Électronique, Énergie Électrique et Automatique (EEEA) - Université Lyon 1 (2022)</li>
-                <li><strong>Licence :</strong> Électronique, Science et Technologie - Université Mouloud Mammeri de Tizi Ouzou (2021)</li>
+                <li><strong>Master 2 :</strong> Robotique Intelligente et Systèmes Embarqués (RISE) - Université de Toulon (2024/2025, en cours)</li>
+                <li><strong>Master 1 :</strong> Ingénierie des Systèmes Complexes (ISC), Parcours Robotique et Objets Connectés - Université de Toulon (2023/2024)</li>
+                <li><strong>Licence :</strong> Électronique, Énergie Électrique et Automatique (EEEA) - Université Lyon 1 (2022/2023)</li>
+                <li><strong>Licence :</strong> Électronique, Énergie Électrique et Automatique (EEEA) - Université Lyon 1 (2021/2022)</li>
+                <li><strong>Licence :</strong> Science et Technologie Parcours Électronique - Université Mouloud Mammeri de Tizi Ouzou (2020/2021)</li>
                 <li><strong>Baccalauréat :</strong> Filière Mathématiques - Lycée de Boudjima, Tizi Ouzou (2018)</li>
             </ul>
 
@@ -177,7 +96,7 @@
             <ul class="experiences">
                 <li><strong>Participation à la RoboCup Middle Size League (MSL) :</strong> Développement des stratégies de tirs pour robots de football autonomes (Toulon, 2023/2024).</li>
                 <li><strong>Système d’arrosage automatique : </strong> Développement d’un projet de système d’arrosage contrôlant 16 électrovannes via un ESP32, avec programmation par interface web et gestion des données dans Google Drive. (France , 2024).</li>
-                <li><strong>Système de démarrage étoile-triangle automatisé :</strong> Conception d’une armoire électrique intégrant des relais thermiques, contacteurs, temporisateurs, et dispositifs de sécurité. (Lyon 1, 2023).</li>
+                <li><strong>Système de démarrage étoile-triangle automatisé :</strong> Conception d’une armoire électrique intégrant des Sectionneurs avec contacts de précoupure, relais thermiques, contacteurs, temporisateurs, et dispositifs de sécurité. (Lyon 1, 2023).</li>
                 <li><strong>Prototypage d’un chargeur de batterie solaire :</strong> Réalisation d’un système stabilisé à hacheur abaisseur pour optimiser la recharge des batteries malgré les variations de tension du panneau solaire. (Lyon 1, 2022).</li>
                 <li><strong>Contrôle à distance d’appareils secteur :</strong> Conception et fabrication d’un circuit imprimé (PCB) pour contrôler des appareils secteur à distance via relais, transistors (NPN et PNP), compteur CD4017 et capteur infrarouge. (UMMTO, 2021).</li>
                 
@@ -216,60 +135,14 @@
             </ul>
         </div>
 
-        <!-- Partie droite où le CV est visualisé (sous forme d'image) -->
-        <div class="cv-viewer">
-            <!-- Titre de la section de visualisation du CV -->
-            <h2>Visualisation du CV</h2>
-
-            <!-- Boutons de zoom (agrandir et réduire) -->
-            <div class="controls">
-                <!-- Bouton pour réduire la taille du CV -->
-                <button id="zoom-out">Zoom -</button>
-                <!-- Bouton pour augmenter la taille du CV -->
-                <button id="zoom-in">Zoom +</button>
-            </div>
-
-            <!-- Image du CV (à adapter avec le bon chemin de l'image) -->
-            <img src="images/CV_Aziz_MALLOUL_Stage.jpg" id="cv-image" alt="CV de Aziz Malloul">
-        </div>
     </section>
 
     <!-- Pied de page -->
     <footer>
-        <!-- Message de copyright -->
         <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
     </footer>
 
-    <!-- Inclusion du fichier JavaScript pour gérer le zoom sur le CV -->
+    <!-- Script JavaScript -->
     <script src="js/scripts.js"></script>
-
-    <!-- Script pour gérer le zoom de l'image du CV -->
-    <script>
-        // Sélection des boutons et de l'image du CV
-        const zoomInButton = document.getElementById('zoom-in');
-        const zoomOutButton = document.getElementById('zoom-out');
-        const cvImage = document.getElementById('cv-image');
-        let zoomLevel = 1;
-
-        // Fonction pour zoomer (agrandir) l'image
-        zoomInButton.addEventListener('click', function() {
-            zoomLevel += 0.1;
-            cvImage.style.transform = `scale(${zoomLevel})`;  // Applique le zoom
-            cvImage.style.transition = 'transform 0.3s ease'; // Animation pour rendre le zoom fluide
-        });
-
-        // Fonction pour réduire le zoom de l'image
-        zoomOutButton.addEventListener('click', function() {
-            if (zoomLevel > 0.5) {  // Empêche un zoom trop faible
-                zoomLevel -= 0.1;
-                cvImage.style.transform = `scale(${zoomLevel})`;
-                cvImage.style.transition = 'transform 0.3s ease';
-            }
-        });
-    </script>
-
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 </body>
-
 </html>
