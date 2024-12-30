@@ -33,6 +33,104 @@ header {
 header h1 {
     margin: 0; /* Pas de marge autour du titre */
     font-weight: 700; /* Texte en gras */
+    
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page ProjetL3UMMTO
+   =========================================== */
+.projetL3ummto h1 {   /* titre principal projet de fin de cycle-L3 Electronique (UMMTO) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page bac
+   =========================================== */
+   .bac h1 {   /* titre principal Baccalauréat - Mathématiques (2017/2018) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page annee1
+   =========================================== */
+   .annee1 h1 {   /* titre principal Première Année - Science et Technologie (UMMTO) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page annee2
+   =========================================== */
+   .annee2 h1 {   /* titre principal Deuxième Année - Électronique (UMMTO) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page annee3
+   =========================================== */
+   .annee3 h1 {   /* titre principal Troisième Année - Électronique (UMMTO) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page annee4
+   =========================================== */
+   .annee4 h1 {   /* titre principal Licence Électronique, Énergie Électrique et Automatique (EEEA) à l'Université de Lyon 1 Claude Bernard */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page master1
+   =========================================== */
+   .master1 h1 {   /* titre principal Master 1 - Ingénierie des Systèmes Complexes (ISC) Parcours Robotique et Objets Connectés à l'Université de Toulon */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   page master2
+   =========================================== */
+   .master2 h1 {   /* titre principal Master 2 - Robotique Intelligente et Systèmes Embarqués (RISE) à l'Université de Toulon, La Garde */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
 }
 
 

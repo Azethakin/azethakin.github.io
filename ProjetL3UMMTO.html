@@ -9,8 +9,9 @@
     <!-- Lien vers le fichier CSS externe pour styliser la page -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Lien vers la bibliothèque FontAwesome pour utiliser des icônes -->
+    <!-- Lien vers FontAwesome pour les icônes sociales  et l'icone hamburger-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     <!-- Script pour Google Analytics, permettant de suivre les visites sur la page -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
@@ -33,7 +34,7 @@
 <body> <!-- Début du corps de la page -->
     <!-- Section En-tête avec le titre et le menu de navigation -->
     <header>
-        <h1>Projet de Fin de Cycle - L3 Électronique (UMMTO)</h1> <!-- Titre principal de la page -->
+        
         
         <!-- Menu desktop -->
         <div class="desktop-header">
@@ -52,10 +53,39 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Menu mobile uniquement -->
+        <div class="mobile-header">
+          <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+          <div class="hamburger" id="hamburger-menu">
+              <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+          </div>
+        </div>
+  
+        <!-- Navigation mobile -->
+        <nav id="mobile-nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours Académique</a></li>
+            <li><a href="projets.html">Projets Réalisés</a></li>
+            <li><a href="diplomes.html">Mes Diplômes</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="about.html">Qui suis-je ?</a></li>
+            <li><a href="loisirs.html">Loisirs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
+            <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
+          </ul>
+        </nav>
+
     </header>
 
     <!-- Section principale contenant les détails du projet -->
     <section class="projet-details">
+        <body class="projetL3ummto">
+            <h1>Projet de Fin de Cycle - L3 Électronique (UMMTO)</h1> <!-- Titre principal de la page -->
+        </body>
+     
         <h2>Présentation du Projet</h2> <!-- Titre de la section de présentation du projet -->
         <p>
             Mon projet de fin de cycle en L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO) consistait à créer un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et deux interrupteurs va-et-vient. Le fonctionnement principal est simple : on a la possibilité d'allumer ou d'éteindre l'appareil avec la télécommande ou les interrupteurs, quel que soit l'état initial de l'appareil.
