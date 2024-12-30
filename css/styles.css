@@ -774,12 +774,7 @@ nav ul li input,
     margin-bottom: 20px; /* Ajoute un espacement en dessous du champ */
 }
 
-/* Icône du menu hamburger dans la version mobile */
-.hamburger {
-    color: white; /* L'icône est blanche pour être visible sur le fond sombre */
-    font-size: 2em; /* Augmente la taille de l'icône pour une meilleure interaction */
-    cursor: pointer; /* Change le curseur en main lorsqu'on survole l'icône */
-}
+
 
 /* Media query pour les écrans étroits (767px et moins) */
 /* Ces styles s'appliquent uniquement aux écrans de taille égale ou inférieure à 767px */
