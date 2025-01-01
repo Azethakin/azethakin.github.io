@@ -11,6 +11,9 @@ body, html {
     font-family: 'Roboto', sans-serif; /* Utilise la police Roboto pour tout le site */
     background-color: #f4f7f6; /* Couleur de fond du site */
     overflow-x: hidden; /* Empêche le défilement horizontal */
+    
+    
+
 }
 
 
@@ -260,6 +263,12 @@ nav ul li input {
     padding: 50px 20px; /* Ajoute de l'espace à l'intérieur de la section */
 }
 
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* pour Loisirs */
+/* Loisirs */
+/* Loisirs */
+
 /* Section pour les loisirs */
 .loisirs {
     background: linear-gradient(135deg, #88868657, #f7faf8a6); /* Dégradé de bleu foncé à vert */
@@ -268,11 +277,101 @@ nav ul li input {
 
 
 
+/* Section des loisirs */
+.loisirs {
+    background-color: #f4f7f6; /* Fond gris clair */
+    padding: 50px 20px; /* Espacement interne */
+    text-align: center; /* Centrer le texte */
+}
+
+/* Conteneur principal des boîtes de loisirs */
+.loisirs-container {
+    display: flex; /* Flexbox pour organiser les boîtes */
+    justify-content: space-around; /* Espace autour des boîtes */
+    flex-wrap: wrap; /* Permet aux boîtes de passer à la ligne suivante si nécessaire */
+}
+
+/* Boîte individuelle de loisir */
+.loisir-box {
+    background-color: #ffffff; /* Fond blanc */
+    border: 1px solid #ddd; /* Bordure grise légère */
+    margin: 15px; /* Espacement entre les boîtes */
+    padding: 20px; /* Espacement interne */
+    width: 300px; /* Largeur des boîtes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation pour le survol */
+    position: relative;
+    overflow: hidden; /* Assure que les images restent dans leur conteneur */
+}
 
 
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/* Conteneur pour les images */
+
+/* Effet de survol sur les boîtes */
+.loisir-box:hover {
+    transform: scale(1.05); /* Agrandit légèrement la boîte au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre pour un effet visuel */
+}
+
+/* Image dans chaque boîte de loisir */
+.loisir-image {
+    width: 100%; /* L'image prend toute la largeur de la boîte */
+    height: 200px; /* Hauteur fixe pour les images */
+    object-fit: cover; /* Assure que l'image couvre toute la boîte sans déformation */
+    margin-bottom: 15px; /* Espace en dessous de l'image */
+}
+
+/* Titre du loisir */
+.loisir-box h3 {
+    color: #3498db; /* Titre en bleu pour le rendre visible */
+    font-size: 18px; /* Taille du texte */
+    margin-bottom: 10px; /* Espace sous le titre */
+}
+
+/* Description du loisir */
+.loisir-box p {
+    font-size: 16px; /* Taille du texte */
+    color: #333; /* Couleur gris foncé pour la lisibilité */
+}
+
+
+
+/* Sélectionne toutes les images dans les conteneurs spécifiques (foot, guitare, bouteille, chasse, surf, vélo) */
+.image-container-football img,
+.image-container-guitar img,
+.image-container-bouteille img,
+.image-container-chasse_sous_marine img,
+.image-container-surf img,
+.image-container-velo img {
+    width: 100%; /* Assure que chaque image remplit la largeur complète de son conteneur */
+    height: 200px; /* Définit une hauteur fixe de 200px pour toutes les images */
+    object-fit: cover; /* Redimensionne l'image pour remplir le conteneur sans déformation, en coupant les parties excédentaires si nécessaire */
+    position: absolute; /* Positionne chaque image par rapport à son conteneur parent */
+    opacity: 0; /* Rend les images invisibles par défaut */
+    transition: opacity 0s ease-in-out; /* Supprime le délai de transition pour rendre les images visibles immédiatement sans effet de fondu */
+}
+
+/* Applique un style spécifique à l'image active dans chaque conteneur */
+.image-container-football img.active,
+.image-container-guitar img.active,
+.image-container-bouteille img.active,
+.image-container-chasse_sous_marine img.active,
+.image-container-surf img.active,
+.image-container-velo img.active {
+    opacity: 1; /* Rend l'image active visible */
+    position: relative; /* Remet l'image active en position relative pour mieux gérer son placement */
+}
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* Conteneur pour les images de la page d'acueil */
 /* Conteneur pour les images */
 /* Conteneur pour les images */
 .image-container {
@@ -535,10 +634,12 @@ footer {
     background: #34495e; /* Couleur de fond bleu foncé */
     color: #ecf0f1; /* Couleur blanche pour le texte */
     text-align: center; /* Centre le texte dans le pied de page */
-    padding: 20px; /* Espacement interne */
+    padding: 10px 0; /* Espacement interne */
     position: relative; /* Permet de positionner le pied de page */
     bottom: 0; /* Fixe le pied de page en bas */
     width: 100%; /* Occupe toute la largeur de l'écran */
+    margin-top: auto; /* Permet de pousser le footer en bas */
+   
 }
 
 
@@ -739,60 +840,7 @@ nav ul li input,
 
 
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-/* Section des loisirs */
-.loisirs {
-    background-color: #f4f7f6; /* Fond gris clair */
-    padding: 50px 20px; /* Espacement interne */
-    text-align: center; /* Centrer le texte */
-}
-
-/* Conteneur principal des boîtes de loisirs */
-.loisirs-container {
-    display: flex; /* Flexbox pour organiser les boîtes */
-    justify-content: space-around; /* Espace autour des boîtes */
-    flex-wrap: wrap; /* Permet aux boîtes de passer à la ligne suivante si nécessaire */
-}
-
-/* Boîte individuelle de loisir */
-.loisir-box {
-    background-color: #ffffff; /* Fond blanc */
-    border: 1px solid #ddd; /* Bordure grise légère */
-    margin: 15px; /* Espacement entre les boîtes */
-    padding: 20px; /* Espacement interne */
-    width: 300px; /* Largeur des boîtes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
-    transition: transform 0.3s, box-shadow 0.3s; /* Animation pour le survol */
-}
-
-/* Effet de survol sur les boîtes */
-.loisir-box:hover {
-    transform: scale(1.05); /* Agrandit légèrement la boîte au survol */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre pour un effet visuel */
-}
-
-/* Image dans chaque boîte de loisir */
-.loisir-image {
-    width: 100%; /* L'image prend toute la largeur de la boîte */
-    height: 200px; /* Hauteur fixe pour les images */
-    object-fit: cover; /* Assure que l'image couvre toute la boîte sans déformation */
-    margin-bottom: 15px; /* Espace en dessous de l'image */
-}
-
-/* Titre du loisir */
-.loisir-box h3 {
-    color: #3498db; /* Titre en bleu pour le rendre visible */
-    font-size: 18px; /* Taille du texte */
-    margin-bottom: 10px; /* Espace sous le titre */
-}
-
-/* Description du loisir */
-.loisir-box p {
-    font-size: 16px; /* Taille du texte */
-    color: #333; /* Couleur gris foncé pour la lisibilité */
-}
 
 
 

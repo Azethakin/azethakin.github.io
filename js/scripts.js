@@ -81,7 +81,7 @@ if (contactForm) {
             from_name: name,
             prenom: prenom,
             from_email: email,
-            message: `Bonjour ${prenom},\n\nMerci de m'avoir contacté ! J'ai bien reçu votre message. Je vous répondrai sous peu.\n\nCordialement,\nAziz Malloul`
+            message: `Bonjour ${prenom},\n\nMerci de m'avoir contacté ! Votre message a bien été reçu, et je reviendrai vers vous sous peu.\n\nCordialement,\nAziz Malloul`
         };
 
         // Envoie de l'email à l'administrateur
@@ -128,7 +128,7 @@ if (contactForm) {
 
 
 // Lorsque le document est entièrement chargé
-// S'assure que le script s'exécute après le chargement du DOM
+// les images de la page d'acueil
 // S'assure que le script s'exécute après le chargement du DOM
 document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('.image-container img');
@@ -150,6 +150,167 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(changeImage, 3000);
 });
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// changement des images de container Loisir (foot, guitare, plongée sous marine, chasse sous marine, surf, velo)
+
+// changement des images de container Loisir ( only foot)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationfoot(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    setupImageRotationfoot('image-container-football');
+    //setupImageRotation('image-container-guitar');
+    //setupImageRotation('image-container-surf');
+    //setupImageRotation('image-container-chasse_sous_marine');
+    //setupImageRotation('image-container-bouteille');
+    //setupImageRotation('image-container-velo');
+});
+
+// changement des images de container Loisir ( only guitar)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationguitar(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    
+    setupImageRotationguitar('image-container-guitar');
+    
+});
+
+
+// changement des images de container Loisir ( only plongée sous marine)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationbouteille(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    //setupImageRotation('image-container-football');
+    //setupImageRotation('image-container-guitar');
+    //setupImageRotation('image-container-surf');
+    //setupImageRotation('image-container-chasse_sous_marine');
+    setupImageRotationbouteille('image-container-bouteille');
+    //setupImageRotation('image-container-velo');
+});
+
+
+// changement des images de container Loisir ( only chasse sous marine)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationchasse(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    //setupImageRotation('image-container-football');
+    //setupImageRotation('image-container-guitar');
+    //setupImageRotation('image-container-surf');
+    setupImageRotationchasse('image-container-chasse_sous_marine');
+    //setupImageRotationbouteille('image-container-bouteille');
+    //setupImageRotation('image-container-velo');
+});
+
+
+// changement des images de container Loisir ( only surf)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationsurf(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    //setupImageRotation('image-container-football');
+    //setupImageRotation('image-container-guitar');
+    setupImageRotationsurf('image-container-surf');
+    //setupImageRotation('image-container-chasse_sous_marine');
+    //setupImageRotationbouteille('image-container-bouteille');
+    //setupImageRotation('image-container-velo');
+});
+
+
+// changement des images de container Loisir ( only velo)
+document.addEventListener('DOMContentLoaded', function () {
+    // Une fonction générique pour gérer les changements d'images
+    function setupImageRotationvelo(containerClass) {
+        const images = document.querySelectorAll(`.${containerClass} img`);
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 2000); // Change toutes les 2 secondes
+    }
+
+    // Appelez la fonction pour chaque conteneur de loisir
+    //setupImageRotation('image-container-football');
+    //setupImageRotation('image-container-guitar');
+    //setupImageRotation('image-container-surf');
+    //setupImageRotation('image-container-chasse_sous_marine');
+    //setupImageRotationbouteille('image-container-bouteille');
+    setupImageRotationvelo('image-container-velo');
+});
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // pour les smartphone
@@ -169,6 +330,9 @@ hamburger.addEventListener('click', function () {
     
     // Basculer une classe sur le body pour éviter le défilement quand le menu est ouvert
     document.body.classList.toggle('menu-open');
+
+    console.log(hamburger); // Doit afficher l'élément dans la console
+
 });
 
 
