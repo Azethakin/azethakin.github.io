@@ -39,17 +39,7 @@ header h1 {
     
 }
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/* ===========================================
-   page ProjetL3UMMTO
-   =========================================== */
-.projetL3ummto h1 {   /* titre principal projet de fin de cycle-L3 Electronique (UMMTO) */
-    font-size: 24px; /* Taille spécifique */
-    font-weight: bold;
-    color: #0a0a0a; /* Couleur spécifique */
-    text-align: center; /* Centré horizontalement */
-    margin-top: 20px; /* Espacement supérieur */
-}
+
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
@@ -485,12 +475,21 @@ ul {
     font-weight: 700; /* Texte en gras */
 }
 
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* parcours academiques */
 /* Conteneur pour les boîtes de cours */
 .course-container {
-    display: flex; /* Affiche les boîtes de cours sur une ligne */
-    justify-content: space-around; /* Espace uniforme autour de chaque boîte */
-    flex-wrap: wrap; /* Permet aux boîtes de se déplacer sur une nouvelle ligne si l'écran est trop petit */
+    display: flex; /* Permet de disposer les boîtes en ligne sur grand écran */
+    justify-content: space-around; /* Espace uniformément les boîtes pour un alignement esthétique */
+    flex-wrap: wrap; /* Permet aux boîtes de passer à la ligne suivante si l'espace est insuffisant */
+    margin-top: 40px; /* Ajoute un espace en haut pour séparer la section des autres sections */
 }
+
 
 /* Boîte individuelle pour chaque cours ou module */
 .course-box {
@@ -499,15 +498,18 @@ ul {
     margin: 10px; /* Espace autour de chaque boîte */
     padding: 20px; /* Espacement interne */
     width: 300px; /* Largeur fixe de chaque boîte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère autour de chaque boîte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère pour donner un effet de profondeur */
     transition: transform 0.3s, box-shadow 0.3s; /* Transition pour le zoom et l'ombre */
+    text-align: center; /* Centre le contenu (image, titre, description) dans chaque boîte */
 }
+
 
 /* Effet lors du survol d'une boîte de cours */
 .course-box:hover {
-    transform: scale(1.05); /* Agrandit légèrement la boîte lors du survol */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre lors du survol */
+    transform: scale(1.05); /* Augmente légèrement la taille de la boîte au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée pour un effet de profondeur au survol */
 }
+
 
 /* Lien vers le cours à l'intérieur de la boîte */
 .course-box h3 a {
@@ -519,6 +521,23 @@ ul {
 .course-box h3 a:hover {
     text-decoration: underline; /* Souligne le lien lors du survol */
 }
+
+
+
+
+/* Style pour les images dans les boîtes mon parcours academiques */
+.course-box img {
+    max-width: 100%; /* L'image prend 100% de la largeur de la boîte sans déformer */
+    height: auto; /* La hauteur est ajustée automatiquement pour garder les proportions */
+    margin-bottom: 15px; /* Espace sous l'image pour séparer de manière esthétique le texte */
+}
+
+
+
+
+
+
+
 
 
 
@@ -703,6 +722,21 @@ footer {
     font-weight: bold; /* Optionnel : rend le texte en gras */
     margin-bottom: 40px; /* Espace en bas pour séparer le titre des boîtes de projet */
 }
+
+
+   /*page ProjetL3UMMTO
+   =========================================== */
+   .projetL3ummto h1 {   /* titre principal projet de fin de cycle-L3 Electronique (UMMTO) */
+    font-size: 24px; /* Taille spécifique */
+    font-weight: bold;
+    color: #0a0a0a; /* Couleur spécifique */
+    text-align: center; /* Centré horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+}
+
+
+
+
 
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
