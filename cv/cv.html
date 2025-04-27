@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- Définir l'icône du site (favicon) qui apparaît dans l'onglet du navigateur -->
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+
+    <!-- Ajouter une description pour améliorer le référencement SEO de cette page -->
+    <meta name="description" content="Découvrez le CV détaillé d'Aziz Malloul : parcours académique, projets, expériences professionnelles, compétences techniques et centres d'intérêt.">
+
+    <!-- Ajouter des mots-clés pour le SEO -->
+    <meta name="keywords" content="Aziz Malloul, CV, Curriculum Vitae, Compétences, Projets, Expériences, Étudiant, Ingénierie, Développement, Robotique, Systèmes embarqués">
+
+    <!-- Préciser l'auteur du site -->
+    <meta name="author" content="Aziz Malloul">
+
+    <!-- Définir l'URL canonique pour éviter la duplication de contenu SEO -->
+    <link rel="canonical" href="https://azizmalloul.github.io/cv.html">
+
+    <!-- Balises Open Graph pour un affichage optimisé sur Facebook, WhatsApp, LinkedIn -->
+    <meta property="og:title" content="CV d'Aziz Malloul">
+    <meta property="og:description" content="Parcourez le CV complet d'Aziz Malloul : Master en Robotique, projets technologiques, compétences en électronique et programmation.">
+    <meta property="og:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+    <meta property="og:url" content="https://azizmalloul.github.io/cv.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card pour un affichage optimisé sur Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CV d'Aziz Malloul">
+    <meta name="twitter:description" content="Parcourez le CV complet d'Aziz Malloul : Master en Robotique, projets technologiques, compétences en électronique et programmation.">
+    <meta name="twitter:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+
+
+
+
+    <title>CV de Aziz Malloul</title>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Lien vers FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+     <!-- Google Analytics pour le suivi des visiteurs -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag() { dataLayer.push(arguments); }
+         gtag('js', new Date());
+         gtag('config', 'G-J24YWBKV6C');
+     </script>
+ 
+ 
+     <!-- Script Google Traduction -->
+     <script type="text/javascript">
+         function googleTranslateElementInit() {
+         new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+         }
+     </script>
+     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+     
+
+
+
+
+
+</head>
+
+<body>
+    <!-- En-tête principal -->
+    <header>
+        <!-- Menu desktop -->
+        <div class="desktop-header">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../parcours.html">Parcours Académique</a></li>
+                    <li><a href="../projets.html">Projets Réalisés</a></li>
+                    <li><a href="../diplomes.html">Mes Diplômes</a></li>
+                    <li><a href="../cv.html">CV</a></li>
+                    <li><a href="../about.html">Qui suis-je ?</a></li>
+                    <li><a href="../loisirs.html">Loisirs</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                </ul>
+            </nav>
+        </div>
+        <!-- Menu mobile -->
+        <div class="mobile-header">
+            <span class="logo">Aziz Malloul</span>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav id="mobile-nav">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../parcours.html">Parcours Académique</a></li>
+                <li><a href="../projets.html">Projets Réalisés</a></li>
+                <li><a href="../diplomes.html">Mes Diplômes</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../about.html">Qui suis-je ?</a></li>
+                <li><a href="../loisirs.html">Loisirs</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+
+                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
+                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section principale -->
+    <section class="cv-container">
+        <!-- Zone du CV avec boutons et titre -->
+    <div class="cv-viewer">
+        <div class="cv-header">
+            <h2>Visualisation du CV</h2>
+            <div class="controls">
+                <button id="zoom-out">Zoom -</button>
+                <button id="zoom-in">Zoom +</button>
+                <button id="reset-zoom">Réinitialiser</button>
+                <button id="fullscreen">Plein Écran</button>
+            </div>
+        </div>
+        <!-- Image du CV -->
+        <img id="cv-image" src="../images/CV_Aziz_MALLOUL_Stage.webp" alt="Curriculum Vitae d'Aziz Malloul détaillant ses compétences et projets">
+
+    </div>
+
+        <!-- Partie informations complémentaires -->
+        <div class="cv-details">
+            <!-- Titre de la section des détails -->
+            <h2>Informations Complémentaires</h2>
+
+            <!-- Détails des compétences et expériences -->
+            <h3>Contact</h3>
+            <ul>
+                <li><strong>Email :</strong> azizekarma@gmail.com</li>
+                <li><strong>Téléphone :</strong> 0665617249</li>
+                <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/aziz-malloul-alternance/" target="_blank">Aziz Malloul</a></li>
+                <li><strong>Site web :</strong> <a href="https://azizmalloul.com" target="_blank">azizmalloul.com</a></li>
+            </ul>
+
+            <!-- Formations -->
+            <h3>Formations</h3>
+            <ul class="Formations">
+                <li><strong>Master 2 :</strong> Robotique Intelligente et Systèmes Embarqués (RISE) - Université de Toulon (2024/2025, en cours)</li>
+                <li><strong>Master 1 :</strong> Ingénierie des Systèmes Complexes (ISC), Parcours Robotique et Objets Connectés - Université de Toulon (2023/2024)</li>
+                <li><strong>Licence :</strong> Électronique, Énergie Électrique et Automatique (EEEA) - Université Lyon 1 (2022/2023)</li>
+                <li><strong>Licence :</strong> Électronique, Énergie Électrique et Automatique (EEEA) - Université Lyon 1 (2021/2022)</li>
+                <li><strong>Licence :</strong> Science et Technologie Parcours Électronique - Université Mouloud Mammeri de Tizi Ouzou (2020/2021)</li>
+                <li><strong>Baccalauréat :</strong> Filière Mathématiques - Lycée de Boudjima, Tizi Ouzou (2018)</li>
+            </ul>
+
+            <!-- Expériences -->
+            <h3>Expériences</h3>
+            <ul class="experiences">
+                <li><strong>Stage de fin d'études - Développement d'un compteur intelligent de mouvements sportifs :</strong> 
+                Conception d'une carte électronique à base de capteur IMU pour compter les répétitions en temps réel sur écran LCD.
+                Programmation en C pour RP2040 sous Linux (VSCode), conception de circuits imprimés (PCB), 
+                entraînement de modèles IA légers (TensorFlow Lite Micro, SVM, Random Forest, CNN 1D) pour détection robuste de mouvements sur microcontrôleur.
+                Déploiement d'IA embarquée optimisée en C pour classification des mouvements bruités. (Nice . 03/03/2025 - 31/08/2025).
+                </li>
+                    
+                <li><strong>Participation à la RoboCup Middle Size League (MSL) :</strong> Développement des stratégies de tirs pour robots de football autonomes (Toulon, 2023/2024).</li>
+                <li><strong>Système d’arrosage automatique : </strong> Développement d’un projet de système d’arrosage contrôlant 16 électrovannes via un ESP32, avec programmation par interface web et gestion des données dans Google Drive. (France , 2024).</li>
+                <li><strong>Système de démarrage étoile-triangle automatisé :</strong> Conception d’une armoire électrique intégrant des Sectionneurs avec contacts de précoupure, relais thermiques, contacteurs, temporisateurs, et dispositifs de sécurité. (Lyon 1, 2023).</li>
+                <li><strong>Prototypage d’un chargeur de batterie solaire :</strong> Réalisation d’un système stabilisé à hacheur abaisseur pour optimiser la recharge des batteries malgré les variations de tension du panneau solaire. (Lyon 1, 2022).</li>
+                <li><strong>Contrôle à distance d’appareils secteur :</strong> Conception et fabrication d’un circuit imprimé (PCB) pour contrôler des appareils secteur à distance via relais, transistors (NPN et PNP), compteur CD4017 et capteur infrarouge. (UMMTO, 2021).</li>
+                
+                <li><strong>Oscillateur basé sur NE555 : </strong> Réalisation d’une alimentation à découpage en utilisant un NE555 pour piloter un MOSFET IRFZ44N. (Tigzirt, 2020).</li>
+                <li><strong>Tracker solaire à 2 axes :</strong> Développement d’un système autonome basé sur des comparateurs à hystérésis (LM339), des LDRs et des ponts en H pour optimiser l’orientation des panneaux solaires et recharger une batterie 12V. (UMMTO, 2020).</li>
+                <li><strong>Réparation et maintenance de smartphones et tablettes :</strong> Diagnostic et réparation de matériel électronique (Tigzirt, 2017-2021).</li>
+            </ul>
+
+            <!-- Compétences Techniques -->
+            <h3>Compétences Techniques</h3>
+            <ul class="Compétences_Techniques">
+                <li><strong>Logiciels :</strong> Keil Vision 5, Isis Proteus, Matlab, LTSpice, Arduino, QElectro Tech, MPLabX IDE, Visual Studio Code, STM 32, Code Composer Studio</li>
+                <li><strong>Langages de programmation :</strong> C, C++, Python, Assembleur</li>
+            </ul>
+
+            <!-- Langues -->
+            <h3>Langues</h3>
+            <ul>
+                <li><strong>Kabyle :</strong> Langue Maternelle</li>
+                <li><strong>Français :</strong> Courant</li>
+                <li><strong>Anglais :</strong> Intermédiaire</li>
+                <li><strong>Espagnol :</strong> Débutant</li>
+                <li><strong>Arabe :</strong> Courant</li>
+            </ul>
+
+            <!-- Centres d'Intérêt -->
+            <h3>Centres d'Intérêt</h3>
+            <ul>
+                <li>Football</li>
+                <li>Guitare</li>
+                <li>Vélo</li>
+                <li>Plongée sous-marine (breveté)</li>
+                <li>Chasse sous-marine</li>
+                <li>Surf</li>
+                
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+    </footer>
+
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
+    <!-- Script JavaScript -->
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
