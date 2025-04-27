@@ -98,7 +98,7 @@ if (contactForm) {
                 // Affiche le message de succès et réactive le bouton après succès
                 document.getElementById("resultMessage").style.display = "block";
                 document.getElementById("resultMessage").style.color = "green";
-                document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de nous avoir contacté!";
+                document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de m'avoir contacté!";
                 
                 // Réactive le bouton après 3 secondes (ou immédiatement si souhaité)
                 setTimeout(() => {
