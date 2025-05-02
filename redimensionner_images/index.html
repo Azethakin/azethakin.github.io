@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Redimensionner et Modifier une Image - Aziz Malloul</title>
+    
+        <!-- Favicon -->
+        <link rel="icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
+    
+        <!-- Responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- SEO -->
+        <meta name="description" content="Redimensionnez et modifiez vos images directement dans le navigateur avec cet outil interactif développé par Aziz Malloul.">
+        <meta name="keywords" content="redimensionner image, retouche image, outil en ligne, Aziz Malloul, web, image, traitement d'image">
+        <meta name="author" content="Aziz Malloul">
+    
+        <!-- Open Graph -->
+        <meta property="og:title" content="Redimensionner et Modifier une Image - Aziz Malloul">
+        <meta property="og:description" content="Outil en ligne pour redimensionner, ajuster la netteté et la luminosité de vos images.">
+        <meta property="og:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+        <meta property="og:url" content="https://azizmalloul.github.io/redimensionner_images/">
+        <meta property="og:type" content="website">
+    
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Redimensionner une Image - Aziz Malloul">
+        <meta name="twitter:description" content="Outil gratuit pour modifier et redimensionner vos images facilement.">
+        <meta name="twitter:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+    
+        <!-- CSS principal -->
+        <link rel="stylesheet" href="../css/styles.css">
+    
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-J24YWBKV6C');
+        </script>
+    </head>
+    
+
+<body class="image-editor">
+
+    <div class="container">
+
+        <h1>Redimensionner et Modifier une Image</h1>
+
+        <!-- Upload de l'image -->
+        <div class="upload-section" style="margin-top: 20px;">
+            <label for="upload" class="custom-file-upload">
+                📂 Choisir une image
+            </label>
+            <input type="file" id="upload" accept="image/*" style="display: none;">
+        </div>
+
+
+
+        
+
+        
+
+        <!-- Affichage des images -->
+        <div class="canvases">
+            <div>
+                <h2>Image Originale</h2>
+                <canvas id="originalCanvas" width="400" height="300"></canvas>
+            </div>
+            <div>
+                <h2>Image Retouchée</h2>
+                <canvas id="editedCanvas" width="400" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Contrôles de retouche -->
+        <div class="controls">
+            <label>
+                Éclaircissement :
+                <input type="range" id="brightness" min="0.5" max="2" value="1" step="0.01">
+            </label>
+
+            <label>
+                Netteté :
+                <input type="range" id="sharpness" min="1" max="5" value="1" step="0.1">
+            </label>
+
+            <label>
+                Agrandissement (%) :
+                <input type="range" id="scale" min="10" max="300" value="100" step="1">
+            </label>
+        </div>
+
+        <!-- Boutons -->
+        <div class="buttons">
+            <button id="resetBtn">Réinitialiser</button>
+            <button id="downloadBtn">Télécharger l'image retouchée</button>
+        </div>
+
+    </div>
+
+    <!-- Inclusion des scripts -->
+    <script src="../js/scripts.js"></script> <!-- Ton script général -->
+    <script src="../js/redimensionner.js"></script> <!-- Script spécifique à l'éditeur -->
+
+</body>
+</html>
