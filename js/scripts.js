@@ -502,8 +502,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Variables globales
     let originalImage = null;
-    const MAX_WIDTH = 3000;
-    const MAX_HEIGHT = 3000;
+    const MAX_WIDTH = 4000;
+    const MAX_HEIGHT = 4000;
 
     // Sélection rapide des éléments
     const uploadInput = document.getElementById('upload');

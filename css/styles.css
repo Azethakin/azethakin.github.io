@@ -2172,15 +2172,7 @@ ul.Formations li {
     min-height: 100vh; /* Hauteur minimale de 100% de la hauteur de la fenêtre visible (viewport) */
 }
 
-/* Conteneur principal central */
-.container {
-    background: white; /* Fond blanc pour bien faire ressortir le contenu */
-    padding: 40px; /* Espacement intérieur généreux (haut, bas, gauche, droite) */
-    border-radius: 12px; /* Coins arrondis pour un aspect moderne et doux */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Légère ombre portée pour donner du relief */
-    max-width: 1200px; /* Limite la largeur maximale du conteneur à 1200px pour les grands écrans */
-    margin: auto; /* Centre le conteneur horizontalement (marges auto gauche/droite) */
-}
+
 
 /* Section contenant le champ de téléversement */
 .upload-section {
@@ -2288,9 +2280,79 @@ ul.Formations li {
     object-fit: contain; /* L’image s’adapte sans être rognée ni déformée */
 }
 
+body.compress-file-page {
+    display: flex;
+    flex-direction: column; /* Dispose les éléments verticalement */
+    min-height: 100vh; /* Hauteur minimale = hauteur de l'écran */
+    margin: 0; /* Supprime les marges par défaut */
+}
+
+/* Le wrapper prend tout l'espace disponible entre le header et le footer */
+.compress-wrapper {
+    flex-grow: 1; /* Remplit l'espace restant */
+    display: flex;
+    flex-direction: column; /* Colonne pour empiler contenu et footer */
+    justify-content: flex-start; /* Alignement en haut */
+    align-items: center; /* Centre horizontalement */
+    padding: 30px 0; /* Espace optionnel */
+}
+
+
+
+
+
+.footer-compresser {
+    background-color: #1c1c1c;  /* Définit la couleur de fond du footer en gris foncé (#1c1c1c) */
+    color: white;  /* Définit la couleur du texte à blanc pour un bon contraste avec le fond sombre */
+    text-align: center; /* Centre le texte horizontalement dans le footer */
+    padding: 15px 0; /* Ajoute un espacement vertical (15px de haut et 15px de bas) autour du contenu du footer */
+    font-size: 14px;  /* Définit la taille de la police à 14 pixels pour un affichage clair mais compact */
+    
+}
+
+/* === Conteneur principal === */
+/* Cette classe définit le style du bloc central qui contient tout le contenu principal de la page */
+.container {
+    width: 100%;  /* Le conteneur prend 100% de la largeur disponible de son parent */
+    max-width: 1200px; /* Limite la largeur maximale à 1200px, même sur les grands écrans */
+    margin: 0 auto; /* Centre le conteneur horizontalement grâce aux marges automatiques (gauche et droite) */
+    padding: 100px; /* Ajoute un espace intérieur (padding) de 100px autour du contenu à l'intérieur du conteneur */
+    background: white; /* Définit la couleur de fond du conteneur à blanc pour faire ressortir le contenu */
+    border-radius: 12px;  /* Applique des coins arrondis de 12px pour un look moderne et doux */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);  /* Ajoute une ombre légère autour du conteneur pour lui donner un effet de profondeur */
+    box-sizing: border-box; /* Inclut padding et bordures dans les calculs de largeur */
+}
+
+/* Style pour le header */
+.page-header {
+    background-color: #27ae60; /* Couleur verte (exemple) */
+    padding: 20px 40px; /* Espace autour du texte */
+    color: white; /* Texte blanc pour contraste */
+    text-align: center; /* Centre le texte horizontalement */
+    margin-bottom: 30px; /* Espacement en dessous du header */
+    display: flex; /* Utilise Flexbox pour le centrage */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+}
+
+/* Supprime la marge par défaut du <p> dans le header */
+.page-header p {
+    margin: 0;
+    font-size: 20px; /* Taille du texte */
+}
 
 
    @media only screen and (max-width: 767px) {
+
+    .page-header {
+        padding: 15px 20px; /* Réduit l'espace interne pour éviter le débordement */
+    }
+
+    .page-header p {
+        font-size: 14px; /* Réduit la taille du texte sur petits écrans */
+        word-break: break-word; /* Permet le retour à la ligne si nécessaire */
+        white-space: normal; /* Permet le retour à la ligne automatique */
+    }
 
     /* Sélecteur du conteneur principal de la page de compression */
     .compress-file-page .container {

@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Compression de Fichiers - Aziz Malloul</title>
+
     
         <!-- Favicon -->
-        <link rel="icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
     
         <!-- Responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,19 +16,25 @@
         <meta name="description" content="Outil de compression de fichiers (images, PDF, etc.) développé par Aziz Malloul. Réduisez la taille de vos fichiers facilement.">
         <meta name="keywords" content="compression de fichiers, outil en ligne, fichiers images, PDF, compresser, Aziz Malloul">
         <meta name="author" content="Aziz Malloul">
+
+        <!-- Définir l'URL canonique pour éviter la duplication de contenu SEO -->
+         <link rel="canonical" href="https://azizmalloul.com/compresser_fichiers/">
+
     
         <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
         <meta property="og:title" content="Compresser vos fichiers - Aziz Malloul">
         <meta property="og:description" content="Réduisez la taille de vos fichiers (images, PDF...) grâce à cet outil web développé par Aziz Malloul.">
-        <meta property="og:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
-        <meta property="og:url" content="https://azizmalloul.github.io/compresser_fichiers/">
+        <meta property="og:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
+        <meta property="og:url" content="https://azizmalloul.com/compresser_fichiers/">
         <meta property="og:type" content="website">
     
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Compresser vos fichiers - Aziz Malloul">
         <meta name="twitter:description" content="Réduisez la taille de vos fichiers (images, PDF...) grâce à cet outil web développé par Aziz Malloul.">
-        <meta name="twitter:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+        <meta name="twitter:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
+        <meta name="twitter:url" content="https://azizmalloul.com/compresser_fichiers/" />
+
     
         <!-- CSS -->
         <link rel="stylesheet" href="../css/styles.css">
@@ -47,51 +54,71 @@
     
 
 <body class="compress-file-page">
-    <div class="container">
-        <h1>Compresser des Fichiers</h1>
+    
+   <!-- EN-TÊTE (texte introductif) -->
+    <header class="page-header">
+        <p>Importez un fichier image (JPG, PNG, etc.) ou PDF, ajustez le taux de compression, puis téléchargez votre fichier compressé.</p>
+    </header>
 
-        <div class="upload-section">
-            <label for="upload" class="custom-file-upload">
-                Sélectionner un fichier
-            </label>
-            <input type="file" id="upload" style="display:none;">
-        </div>
+    <!-- WRAPPER PRINCIPAL (contenu central) -->
+    <div class="compress-wrapper">
+        <div class="container">
+            <h1>Compresser des Fichiers</h1>
 
-        <div class="file-info" id="fileInfo" style="display:none;">
-            <p><strong>Nom du fichier :</strong> <span id="fileName"></span></p>
-            <p><strong>Taille originale :</strong> <span id="originalSize"></span></p>
-            <p><strong>Taille estimée :</strong> <span id="compressedSize"></span></p>
-        </div>
-
-
-                <!-- Prévisualisation images -->
-        <div class="preview-section" id="previewSection" style="display:none;">
-            <div>
-                <p>Original</p>
-                <img id="originalPreview" class="preview-image">
+            <div class="upload-section">
+                <label for="upload" class="custom-file-upload">
+                    Sélectionner un fichier
+                </label>
+                <input type="file" id="upload" style="display:none;">
             </div>
-            <div>
-                <p>Compressée (estimation)</p>
-                <img id="compressedPreview" class="preview-image">
+
+            <div class="file-info" id="fileInfo" style="display:none;">
+                <p><strong>Nom du fichier :</strong> <span id="fileName"></span></p>
+                <p><strong>Taille originale :</strong> <span id="originalSize"></span></p>
+                <p><strong>Taille estimée :</strong> <span id="compressedSize"></span></p>
             </div>
-        </div>
 
 
-        <div class="compression-control" style="display:none;">
-            <label for="compressionRange">Taux de compression : <span id="compressionValue">70</span>%</label>
-            <input type="range" id="compressionRange" min="10" max="100" value="70">
+                    <!-- Prévisualisation images -->
+            <div class="preview-section" id="previewSection" style="display:none;">
+                <div>
+                    <p>Original</p>
+                    <img id="originalPreview" class="preview-image">
+                </div>
+                <div>
+                    <p>Compressée (estimation)</p>
+                    <img id="compressedPreview" class="preview-image">
+                </div>
+            </div>
+
+
+            <div class="compression-control" style="display:none;">
+                <label for="compressionRange">Taux de compression : <span id="compressionValue">70</span>%</label>
+                <input type="range" id="compressionRange" min="10" max="100" value="70">
+            </div>
+
+            <div class="buttons" style="display:none;">
+                <button id="compressBtn">Compresser et Télécharger</button>
+            </div>
+
+            <!-- Progression -->
+            <div id="progressContainer" style="display:none; margin-top:20px;">
+                <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
+                <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
+            </div>
+
+
+
         </div>
 
-        <div class="buttons" style="display:none;">
-            <button id="compressBtn">Compresser et Télécharger</button>
-        </div>
+        
 
-        <!-- Progression -->
-        <div id="progressContainer" style="display:none; margin-top:20px;">
-            <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
-            <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
-        </div>
     </div>
+      
+    <footer class="footer-compresser">
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+    </footer>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 

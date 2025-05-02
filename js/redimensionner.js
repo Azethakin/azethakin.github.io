@@ -2,8 +2,8 @@
     if (!document.querySelector('.image-editor')) return;
 
     let originalImage = null;
-    const MAX_WIDTH = 3000; // Limite maximale de largeur pour l'image originale
-    const MAX_HEIGHT = 3000; // Limite maximale de hauteur pour l'image originale
+    const MAX_WIDTH = 4000; // Limite maximale de largeur pour l'image originale
+    const MAX_HEIGHT = 4000; // Limite maximale de hauteur pour l'image originale
 
     const uploadInput = document.getElementById('upload');
     const brightnessInput = document.getElementById('brightness');
