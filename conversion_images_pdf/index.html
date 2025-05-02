@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Convertir des Images en PDF - Aziz Malloul</title>
+    
+        <!-- Favicon -->
+        <link rel="icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://azizmalloul.github.io/images/favicon.ico" type="image/x-icon">
+    
+        <!-- Responsive -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- SEO -->
+        <meta name="description" content="Convertissez facilement vos images (JPG, PNG, WebP...) en fichiers PDF avec cet outil en ligne développé par Aziz Malloul.">
+        <meta name="keywords" content="convertir image en PDF, image to PDF, JPG vers PDF, PNG vers PDF, outil web, Aziz Malloul">
+        <meta name="author" content="Aziz Malloul">
+    
+        <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+        <meta property="og:title" content="Convertisseur Image en PDF - Aziz Malloul">
+        <meta property="og:description" content="Un outil rapide et simple pour convertir vos images en fichiers PDF directement en ligne.">
+        <meta property="og:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+        <meta property="og:url" content="https://azizmalloul.github.io/conversion_images_pdf/">
+        <meta property="og:type" content="website">
+    
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Convertir des Images en PDF - Aziz Malloul">
+        <meta name="twitter:description" content="Un outil en ligne pour transformer vos images (JPG, PNG...) en fichiers PDF rapidement.">
+        <meta name="twitter:image" content="https://azizmalloul.github.io/images/CV_Aziz_MALLOUL_Stage.webp">
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+    
+        <!-- FontAwesome (optionnel si icônes) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24YWBKV6C"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-J24YWBKV6C');
+        </script>
+    </head>
+    
+
+<body class="image-pdf-converter">
+    <div class="container">
+        <h1>Convertir des Images en PDF</h1>
+
+        <!-- Choisir Images -->
+        <div class="upload-section">
+            <label for="upload" class="custom-file-upload">
+                Sélectionner des images
+            </label>
+            <input type="file" id="upload" accept="image/*" multiple style="display: none;">
+        </div>
+
+        <!-- Aperçu des images sélectionnées -->
+        <div id="preview" class="preview-section"></div>
+
+        <!-- Options -->
+        <div class="options">
+            <div>
+                <label>Orientation :</label>
+                <select id="orientation">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Paysage</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Taille de page :</label>
+                <select id="pageSize">
+                    <option value="a4">A4 (210×297mm)</option>
+                    <option value="a3">A3 (297×420mm)</option>
+                    <option value="letter">Lettre (8.5×11 pouces)</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Marge :</label>
+                <select id="margin">
+                    <option value="0">Aucune</option>
+                    <option value="10">Petite</option>
+                    <option value="20">Grande</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Bouton Convertir -->
+        <div class="buttons">
+            <button id="convertBtn">Convertir en PDF</button>
+        </div>
+    </div>
+
+
+
+
+    <!--une barre de progression-->
+    <div id="progressContainer" style="display:none; margin-top:20px;">
+        <div id="progressText" style="margin-bottom: 5px; font-weight: bold;">Progression : 0%</div>
+        <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
+    </div>
+    
+
+    
+    <!-- Charger la bibliothèque jsPDF AVANT le script script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+    <script src="../js/convertir.js"></script>
+
+
+</body>
+</html>
