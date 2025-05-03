@@ -39,6 +39,17 @@ header h1 {
     
 }
 
+.desktop-header {
+    height: 120px; /* même que le header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    height: 120px;
+    min-height: 120px;
+}
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -867,6 +878,12 @@ nav ul li input,
     margin-left: right; /* Pousse le Google Traduction vers la droite */
 }
 
+#google_translate_element {
+    min-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 
 /* Style pour centrer le titre h2 dans la section "parcours" */
@@ -958,6 +975,7 @@ nav ul li input,
     padding: 5px 10px; /* Ajoute un espace interne au champ de recherche */
     margin-bottom: 20px; /* Ajoute un espacement en dessous du champ */
 }
+
 
 
 
