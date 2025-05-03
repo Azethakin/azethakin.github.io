@@ -51,67 +51,76 @@
             gtag('js', new Date());
             gtag('config', 'G-J24YWBKV6C');
         </script>
+        <!-- Barba.js -->
+        <script src="https://unpkg.com/@barba/core"></script>
+
     </head>
     
 
-<body class="image-pdf-converter">
-    <div class="container">
-        <h1>Convertir des Images en PDF</h1>
+<body class="image-pdf-converter" data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="conversion_images_pdf">
 
-        <!-- Choisir Images -->
-        <div class="upload-section">
-            <label for="upload" class="custom-file-upload">
-                Sélectionner des images
-            </label>
-            <input type="file" id="upload" accept="image/*" multiple style="display: none;">
-        </div>
 
-        <!-- Aperçu des images sélectionnées -->
-        <div id="preview" class="preview-section"></div>
+        <div class="container">
+            <h1>Convertir des Images en PDF</h1>
 
-        <!-- Options -->
-        <div class="options">
-            <div>
-                <label>Orientation :</label>
-                <select id="orientation">
-                    <option value="portrait">Portrait</option>
-                    <option value="landscape">Paysage</option>
-                </select>
+            <!-- Choisir Images -->
+            <div class="upload-section">
+                <label for="upload" class="custom-file-upload">
+                    Sélectionner des images
+                </label>
+                <input type="file" id="upload" accept="image/*" multiple style="display: none;">
             </div>
 
-            <div>
-                <label>Taille de page :</label>
-                <select id="pageSize">
-                    <option value="a4">A4 (210×297mm)</option>
-                    <option value="a3">A3 (297×420mm)</option>
-                    <option value="letter">Lettre (8.5×11 pouces)</option>
-                </select>
+            <!-- Aperçu des images sélectionnées -->
+            <div id="preview" class="preview-section"></div>
+
+            <!-- Options -->
+            <div class="options">
+                <div>
+                    <label>Orientation :</label>
+                    <select id="orientation">
+                        <option value="portrait">Portrait</option>
+                        <option value="landscape">Paysage</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Taille de page :</label>
+                    <select id="pageSize">
+                        <option value="a4">A4 (210×297mm)</option>
+                        <option value="a3">A3 (297×420mm)</option>
+                        <option value="letter">Lettre (8.5×11 pouces)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Marge :</label>
+                    <select id="margin">
+                        <option value="0">Aucune</option>
+                        <option value="10">Petite</option>
+                        <option value="20">Grande</option>
+                    </select>
+                </div>
             </div>
 
-            <div>
-                <label>Marge :</label>
-                <select id="margin">
-                    <option value="0">Aucune</option>
-                    <option value="10">Petite</option>
-                    <option value="20">Grande</option>
-                </select>
+            <!-- Bouton Convertir -->
+            <div class="buttons">
+                <button id="convertBtn">Convertir en PDF</button>
             </div>
         </div>
 
-        <!-- Bouton Convertir -->
-        <div class="buttons">
-            <button id="convertBtn">Convertir en PDF</button>
+
+
+
+        <!--une barre de progression-->
+        <div id="progressContainer" style="display:none; margin-top:20px;">
+            <div id="progressText" style="margin-bottom: 5px; font-weight: bold;">Progression : 0%</div>
+            <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
         </div>
-    </div>
 
 
-
-
-    <!--une barre de progression-->
-    <div id="progressContainer" style="display:none; margin-top:20px;">
-        <div id="progressText" style="margin-bottom: 5px; font-weight: bold;">Progression : 0%</div>
-        <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
-    </div>
+    </div> <!-- Fin de data-barba container -->
     
 
     
@@ -120,7 +129,10 @@
 
 
 
-    <script src="../js/convertir.js"></script>
+    
+
+    <script src="../js/barba-init.js"></script>
+
 
 
 </body>

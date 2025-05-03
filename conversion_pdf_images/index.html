@@ -50,41 +50,49 @@
             gtag('js', new Date());
             gtag('config', 'G-J24YWBKV6C');
         </script>
+        <!-- Barba.js -->
+        <script src="https://unpkg.com/@barba/core"></script>
+
     </head>
     
 
-<body class="pdf-image-converter">
-    <div class="container">
-        <h1>Convertir des PDF en Images JPG</h1>
+<body class="pdf-image-converter" data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="conversion_pdf_images">
+    
+        <div class="container">
+            <h1>Convertir des PDF en Images JPG</h1>
 
-        <!-- Charger PDF -->
-        <div class="upload-section">
-            <label for="upload" class="custom-file-upload">
-                Sélectionner des fichiers PDF
-            </label>
-            <input type="file" id="upload" accept="application/pdf" multiple style="display: none;">
+            <!-- Charger PDF -->
+            <div class="upload-section">
+                <label for="upload" class="custom-file-upload">
+                    Sélectionner des fichiers PDF
+                </label>
+                <input type="file" id="upload" accept="application/pdf" multiple style="display: none;">
+            </div>
+
+            <!-- Options de sortie -->
+            <div class="options">
+                <label><input type="radio" name="outputOption" value="images" checked> Télécharger images séparées</label>
+                <label><input type="radio" name="outputOption" value="zip"> Télécharger un fichier .zip</label>
+            </div>
+
+            <!-- Aperçu PDF -->
+            <div id="preview" class="preview-section"></div>
+
+            <!-- Bouton de Conversion -->
+            <div class="buttons">
+                <button id="convertBtn">Convertir en Images</button>
+            </div>
+
+            <!-- Barre de progression -->
+            <div id="progressContainer" style="display:none; margin-top:20px;">
+                <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
+                <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
+            </div>
         </div>
 
-        <!-- Options de sortie -->
-        <div class="options">
-            <label><input type="radio" name="outputOption" value="images" checked> Télécharger images séparées</label>
-            <label><input type="radio" name="outputOption" value="zip"> Télécharger un fichier .zip</label>
-        </div>
 
-        <!-- Aperçu PDF -->
-        <div id="preview" class="preview-section"></div>
-
-        <!-- Bouton de Conversion -->
-        <div class="buttons">
-            <button id="convertBtn">Convertir en Images</button>
-        </div>
-
-        <!-- Barre de progression -->
-        <div id="progressContainer" style="display:none; margin-top:20px;">
-            <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
-            <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
-        </div>
-    </div>
+    </div> <!-- Fin du container Barba -->
 
     <!-- Scripts nécessaires -->
    <!-- Charger PDF.js -->
@@ -93,8 +101,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 
+    
 
+    <script src="../js/barba-init.js"></script>
 
-    <script src="../js/convertir_pdf.js"></script>
 </body>
 </html>

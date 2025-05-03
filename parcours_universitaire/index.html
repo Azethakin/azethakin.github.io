@@ -72,17 +72,48 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
 </head>
 
-<body>
-    <!-- Début du corps de la page -->
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="parcours_universitaire">
 
-    <!-- En-tête avec la barre de navigation -->
-    <header>
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+        <!-- Début du corps de la page -->
+
+        <!-- En-tête avec la barre de navigation -->
+        <header>
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
+
+                        <!--<li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -94,112 +125,91 @@
                     <li><a href="../contact/">Contact</a></li>
                     <li><a href="../espace_interactif/">Espace Interactif</a></li>
 
-                    <!--<li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+        </header>
+
+        <!-- Section principale présentant le parcours académique -->
+        <section class="parcours">
+            <!-- Titre de la section -->
+            <h2>Mon Parcours Universitaire</h2>
+            <!-- Description générale du parcours académique -->
+            <p>Voici un aperçu de mon parcours universitaire depuis ma première année de licence jusqu'à mon Master 2. Chaque année a été marquée par des apprentissages enrichissants et des projets passionnants.</p>
+
+            <!-- Liste des années et des diplômes avec des liens vers des pages détaillées -->
+            <div class="course-container">
+                <!-- Chaque élément représente une année ou un diplôme avec un lien vers une page plus détaillée -->
+
+                <!-- Baccalauréat -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/boudjima.webp" alt="Lycée de Boudjima">
+                    <h3><a href="../baccalauréat/">Baccalauréat - Mathématiques (2017/2018)</a></h3>
+                    <p>Baccalauréat en filière Mathématiques, marquant le début de mon parcours scientifique.</p>
+                </div>
+
+
+                <!-- Première année ST UMMTO-->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
+                    <h3><a href="../premiere_annee_science_et_technologie_UMMTO/">Première Année - Science et Technologie (UMMTO)</a></h3>
+                    <p>Introduction aux sciences fondamentales à l'Université de Mouloud Mammeri de Tizi Ouzou, avec une base solide en mathématiques et physique.</p>
+                </div>
+
+                <!-- Deuxième année electronique UMMTO-->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
+                    <h3><a href="../deuxieme_annee_electronique_UMMTO/">Deuxième Année - Électronique (UMMTO)</a></h3>
+                    <p>Spécialisation en électronique, classé 1er de ma promotion.</p>
+                </div>
+
+                <!-- Troisième année electronique UMMTO -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
+                    <h3><a href="../troisieme_annee_electronique_UMMTO/">Troisième Année - Électronique (UMMTO)</a></h3>
+                    <p>Diplômé en Électronique et classé major de promotion.</p>
+                </div>
+
+                <!-- Licence EEEA Lyon1 Claude Bernard -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Lyon 1.webp" alt="Université Lyon1 Claude Bernard">
+                    <h3><a href="../Licence_EEEA_Lyon1_Claude_Bernard/">Licence EEEA - Université de Lyon 1</a></h3>
+                    <p>Licence en Électronique, Énergie Électrique et Automatique (EEEA) à l'université de Lyon 1 Claude Bernard.</p>
+                </div>
+
+                <!-- Master 1 ISC toulon-->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde">
+                    <h3><a href="../master1_toulon/">Master 1 - Ingénierie des Systèmes Complexes (Toulon)</a></h3>
+                    <p>Spécialité Robotique et Objets Connectés (ROC).</p>
+                </div>
+
+                <!-- Master 2 Rise Toulon-->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde">
+                    <h3><a href="../master2_toulon/">Master 2 - Robotique Intelligente et Systèmes Embarqués (Toulon)</a></h3>
+                    <p>Spécialité Robotique Intelligente et Systèmes Embarqués (Toulon).</p>
+                </div>
             </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
+        </section>
 
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
+        <!-- Pied de page -->
+        <footer>
+            <!-- Message de copyright -->
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-    <!-- Section principale présentant le parcours académique -->
-    <section class="parcours">
-        <!-- Titre de la section -->
-        <h2>Mon Parcours Universitaire</h2>
-        <!-- Description générale du parcours académique -->
-        <p>Voici un aperçu de mon parcours universitaire depuis ma première année de licence jusqu'à mon Master 2. Chaque année a été marquée par des apprentissages enrichissants et des projets passionnants.</p>
+    </div> <!-- Fin container Barba -->
 
-        <!-- Liste des années et des diplômes avec des liens vers des pages détaillées -->
-        <div class="course-container">
-            <!-- Chaque élément représente une année ou un diplôme avec un lien vers une page plus détaillée -->
-
-            <!-- Baccalauréat -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/boudjima.webp" alt="Lycée de Boudjima">
-                <h3><a href="../baccalauréat/">Baccalauréat - Mathématiques (2017/2018)</a></h3>
-                <p>Baccalauréat en filière Mathématiques, marquant le début de mon parcours scientifique.</p>
-            </div>
-
-
-            <!-- Première année ST UMMTO-->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
-                <h3><a href="../premiere_annee_science_et_technologie_UMMTO/">Première Année - Science et Technologie (UMMTO)</a></h3>
-                <p>Introduction aux sciences fondamentales à l'Université de Mouloud Mammeri de Tizi Ouzou, avec une base solide en mathématiques et physique.</p>
-            </div>
-
-            <!-- Deuxième année electronique UMMTO-->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
-                <h3><a href="../deuxieme_annee_electronique_UMMTO/">Deuxième Année - Électronique (UMMTO)</a></h3>
-                <p>Spécialisation en électronique, classé 1er de ma promotion.</p>
-            </div>
-
-            <!-- Troisième année electronique UMMTO -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou">
-                <h3><a href="../troisieme_annee_electronique_UMMTO/">Troisième Année - Électronique (UMMTO)</a></h3>
-                <p>Diplômé en Électronique et classé major de promotion.</p>
-            </div>
-
-            <!-- Licence EEEA Lyon1 Claude Bernard -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Lyon 1.webp" alt="Université Lyon1 Claude Bernard">
-                <h3><a href="../Licence_EEEA_Lyon1_Claude_Bernard/">Licence EEEA - Université de Lyon 1</a></h3>
-                <p>Licence en Électronique, Énergie Électrique et Automatique (EEEA) à l'université de Lyon 1 Claude Bernard.</p>
-            </div>
-
-            <!-- Master 1 ISC toulon-->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde">
-                <h3><a href="../master1_toulon/">Master 1 - Ingénierie des Systèmes Complexes (Toulon)</a></h3>
-                <p>Spécialité Robotique et Objets Connectés (ROC).</p>
-            </div>
-
-            <!-- Master 2 Rise Toulon-->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde">
-                <h3><a href="../master2_toulon/">Master 2 - Robotique Intelligente et Systèmes Embarqués (Toulon)</a></h3>
-                <p>Spécialité Robotique Intelligente et Systèmes Embarqués (Toulon).</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <!-- Message de copyright -->
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
 
     <!-- Inclusion du fichier JavaScript pour les interactions dynamiques -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

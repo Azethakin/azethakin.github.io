@@ -363,12 +363,16 @@ hamburger.addEventListener('click', function () {
 // Exécute le script une fois que le DOM est chargé
 document.addEventListener('DOMContentLoaded', function () {
     // Sélection des éléments
+
+    const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de la photo de CV
+    if (!cvViewer) return; // ⛔ Si pas sur la page CV, on ne fait rien
+
     const zoomInButton = document.getElementById('zoom-in'); // Bouton Zoom +
     const zoomOutButton = document.getElementById('zoom-out'); // Bouton Zoom -
     const resetZoomButton = document.getElementById('reset-zoom'); // Bouton Réinitialiser
     const fullScreenButton = document.getElementById('fullscreen'); // Bouton Plein écran
     const cvImage = document.getElementById('cv-image'); // L'image du CV
-    const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de la photo de CV
+    
 
     // Permet de capturer uniquement le défilement vertical avec la roulette
     cvViewer.addEventListener('wheel', function (event) {
@@ -440,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function updateScrollBars() {
-        const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de l'image
+        
         const cvImage = document.getElementById('cv-image'); // Image du CV
     
         // Vérifie si l'image dépasse la largeur ou la hauteur du conteneur après le zoom
@@ -461,7 +465,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Appelle cette fonction après chaque zoom
     zoomInButton.addEventListener('click', updateScrollBars);
     zoomOutButton.addEventListener('click', updateScrollBars);
-    resetButton.addEventListener('click', updateScrollBars);
+    resetZoomButton.addEventListener('click', updateScrollBars);
+
     
     // Appeler lors du chargement initial
     document.addEventListener('DOMContentLoaded', updateScrollBars);

@@ -66,16 +66,47 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
 
 </head>
 
-<body>
-    <!-- Section En-tête -->
-    <header>
-      
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="master2_toulon">
+  
+
+        <!-- Section En-tête -->
+        <header>
+        
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                        <!--<li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span>
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -86,88 +117,67 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                    <!--<li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li>
+                    <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
+                    <li id="google_translate_element_mobile"></li>
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span>
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
+        </header>
 
-                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
-                <li id="google_translate_element_mobile"></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section principale du contenu pour le Master 2 -->
-    <section class="modules">
-        <h1 class="master2">Master 2 - Robotique Intelligente et Systèmes Embarqués (RISE) à l'Université de Toulon, La Garde</h1>        <!-- Titre principal de la page master2 -->
-       
+        <!-- Section principale du contenu pour le Master 2 -->
+        <section class="modules">
+            <h1 class="master2">Master 2 - Robotique Intelligente et Systèmes Embarqués (RISE) à l'Université de Toulon, La Garde</h1>        <!-- Titre principal de la page master2 -->
         
+            
 
-        <!-- Paragraphe d'introduction -->
-        <p>
-            En 2024/2025, je suis actuellement en Master 2 à l'Université de Toulon, spécialisation en Robotique Intelligente et Systèmes Embarqués. Ce programme couvre des sujets avancés en robotique, systèmes embarqués, et intelligence artificielle, dans le but de concevoir des systèmes autonomes intelligents. 
-        </p>
+            <!-- Paragraphe d'introduction -->
+            <p>
+                En 2024/2025, je suis actuellement en Master 2 à l'Université de Toulon, spécialisation en Robotique Intelligente et Systèmes Embarqués. Ce programme couvre des sujets avancés en robotique, systèmes embarqués, et intelligence artificielle, dans le but de concevoir des systèmes autonomes intelligents. 
+            </p>
 
-        <!-- Liste des modules étudiés pendant cette année -->
-        <h2>Modules étudiés (Semestre 9 en cours) :</h2>
-        <ul>
-            <li>Contrôle non linéaire</li>
-            <li>Robotique à câbles</li>
-            <li>Comportement décision</li>
-            <li>Systèmes d'exploitation</li>
-            <li>Robotique bio-inspirée</li>
-            <li>Systèmes temps réel pour véhicules</li>
-            <li>Initiation à la recherche</li>
-            <li>Anglais 3</li>
-            <li>Recherche documentaire</li>
-            <li>Localisation et cartographie</li>
-            <li>IA embarquée à faible consommation</li>
-            <li>Drones sous-marins</li>
-            <li>Capteurs embarqués</li>
-        </ul>
+            <!-- Liste des modules étudiés pendant cette année -->
+            <h2>Modules étudiés (Semestre 9 en cours) :</h2>
+            <ul>
+                <li>Contrôle non linéaire</li>
+                <li>Robotique à câbles</li>
+                <li>Comportement décision</li>
+                <li>Systèmes d'exploitation</li>
+                <li>Robotique bio-inspirée</li>
+                <li>Systèmes temps réel pour véhicules</li>
+                <li>Initiation à la recherche</li>
+                <li>Anglais 3</li>
+                <li>Recherche documentaire</li>
+                <li>Localisation et cartographie</li>
+                <li>IA embarquée à faible consommation</li>
+                <li>Drones sous-marins</li>
+                <li>Capteurs embarqués</li>
+            </ul>
 
-        <h3>Semestre 10 (en cours) :</h3>
-        <ul>
-            <li>Stage de 6 mois</li>
-        </ul>
+            <h3>Semestre 10 (en cours) :</h3>
+            <ul>
+                <li>Stage de 6 mois</li>
+            </ul>
 
-        <!-- Résultats attendus pour la fin de l'année universitaire -->
-        <h2>Objectifs pour cette année :</h2>
-        <p>
-            Ce semestre, je concentre mes efforts sur le développement de compétences avancées en électronique et en systèmes embarqués, avec une attention particulière portée à la robotique intelligente. À travers des projets liés à l’automatisation et aux systèmes intelligents, j’approfondis ma maîtrise des outils et technologies du domaine. Le stage de 6 mois prévu à partir de mars 2025 constitue une étape clé pour mettre en pratique ces compétences et contribuer activement à des projets innovants.
-        </p>
-    </section>
+            <!-- Résultats attendus pour la fin de l'année universitaire -->
+            <h2>Objectifs pour cette année :</h2>
+            <p>
+                Ce semestre, je concentre mes efforts sur le développement de compétences avancées en électronique et en systèmes embarqués, avec une attention particulière portée à la robotique intelligente. À travers des projets liés à l’automatisation et aux systèmes intelligents, j’approfondis ma maîtrise des outils et technologies du domaine. Le stage de 6 mois prévu à partir de mars 2025 constitue une étape clé pour mettre en pratique ces compétences et contribuer activement à des projets innovants.
+            </p>
+        </section>
 
-    <!-- Section Pied de page -->
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+        <!-- Section Pied de page -->
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
+
+    </div>
 
     <!-- Lien vers le fichier JavaScript -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

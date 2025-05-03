@@ -30,6 +30,8 @@ header {
     text-align: center; /* Centrer le texte */
     position: relative; /* Permet de positionner les éléments à l'intérieur de l'en-tête */
     height: 120px; /* Hauteur de l'en-tête */
+    height: 120px;
+    min-height: 120px;
 }
 
 /* Style du titre principal de l'en-tête */
@@ -46,10 +48,7 @@ header h1 {
     justify-content: center;
 }
 
-header {
-    height: 120px;
-    min-height: 120px;
-}
+
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1634,6 +1633,8 @@ ul.Formations li {
     cursor: grab;                          /* Curseur de type 'attraper' */
     transition: transform 0.3s;            /* Transition douce pour les transformations */
 }
+
+
 
 /* Lors du survol d'une image : afficher les outils */
 .image-wrapper:hover .image-toolbar,

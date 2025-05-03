@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Redirection vers la page d'accueil du site de Aziz Malloul.">
 
+    <meta name="robots" content="noindex, nofollow">
+
+
 
     <!-- Indique l’URL canonique de cette page pour le référencement SEO -->
     <link rel="canonical" href="https://azizmalloul.com/Accueil/">
@@ -65,7 +68,7 @@
             // Lance une redirection après 100 millisecondes (quasi instantané)
             setTimeout(() => {
                 // Redirige vers la page d'accueil du site
-                window.location.replace("Accueil/index.html");
+                window.location.replace("https://azizmalloul.com/Accueil/");
                 // window.location.replace() ne garde pas cette page dans l’historique du navigateur
             }, 100); // Délai de 100 millisecondes
         });
@@ -74,19 +77,38 @@
 </head>
 
 <!-- Début du corps de la page HTML -->
-<body>
-    <!-- Élément visuel de chargement (spinner animé) -->
-    <div class="spinner"></div>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="redirect_accueil">
 
-    <!-- Contenu de secours pour les utilisateurs sans JavaScript activé -->
-    <noscript>
-        <!-- Message alternatif avec lien manuel vers la page d'accueil -->
-        <p class="message">
-            Merci d’activer JavaScript pour accéder au site.
-            <a href="Accueil/index.html">Accéder à l’accueil</a>
+        <!-- Élément visuel de chargement (spinner animé) -->
+        <div class="spinner" role="status" aria-label="Chargement en cours..."></div>
+
+        <!-- Paragraphe affiché si la redirection échoue -->
+        <p id="manual-link" class="message" style="display: none;">
+            La redirection prend trop de temps ?
+            <a href="https://azizmalloul.com/Accueil/">Cliquez ici pour accéder à l’accueil</a>.
         </p>
-    </noscript>
+
+        <!-- Contenu de secours pour les utilisateurs sans JavaScript activé -->
+        <noscript>
+            <p class="message">
+                Merci d’activer JavaScript pour accéder au site.
+                <a href="Accueil/index.html">Accéder à l’accueil</a>
+            </p>
+        </noscript>
+
+        <!-- Script qui affiche le lien si la redirection échoue -->
+        <script>
+            setTimeout(() => {
+                const link = document.getElementById('manual-link');
+                if (link) link.style.display = 'block';
+            }, 2000);
+        </script>
+
+    </div>
+
 </body>
+
 
 <!-- Fin du document HTML -->
 </html>

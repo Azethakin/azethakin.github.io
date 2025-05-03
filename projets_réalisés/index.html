@@ -79,17 +79,53 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
+
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
+
+
 </head>
 
-<body>
-    <!-- Début du corps de la page -->
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="projets_réalisés">
 
-    <!-- En-tête avec la barre de navigation -->
-    <header>
+            
+        <!-- Début du corps de la page -->
+
+        <!-- En-tête avec la barre de navigation -->
+        <header>
+            
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
+
+                    <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
         
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -101,100 +137,78 @@
                     <li><a href="../contact/">Contact</a></li>
                     <li><a href="../espace_interactif/">Espace Interactif</a></li>
 
-                  <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
+        </header>
 
-                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
+        <!-- Section principale présentant les projets réalisés -->
+        <section class="projets">
+            <!-- Titre de la section -->
+            <h2>Mes Projets Réalisés</h2>
+            <!-- Description introductive -->
+            <p>Voici un aperçu des projets que j'ai réalisés au cours de mon parcours universitaire et professionnel. Chacun de ces projets illustre mes compétences en robotique, systèmes embarqués, automatisation et intelligence artificielle.</p>
 
-    <!-- Section principale présentant les projets réalisés -->
-    <section class="projets">
-        <!-- Titre de la section -->
-        <h2>Mes Projets Réalisés</h2>
-        <!-- Description introductive -->
-        <p>Voici un aperçu des projets que j'ai réalisés au cours de mon parcours universitaire et professionnel. Chacun de ces projets illustre mes compétences en robotique, systèmes embarqués, automatisation et intelligence artificielle.</p>
+            <!-- Conteneur pour afficher les projets -->
+            <div class="project-container">
+                <!-- Chaque projet est représenté par une boîte avec une image et une description -->
 
-        <!-- Conteneur pour afficher les projets -->
-        <div class="project-container">
-            <!-- Chaque projet est représenté par une boîte avec une image et une description -->
+                <!-- Projet 1 : ProjetL3UMMTO -->
+                <div class="project-box">
+                    <img src="../images/liste_des_composants.webp" alt="Liste des Composants du Projet" loading="lazy">
+                    <h3><a href="../projet_L3_UMMTO/">Projet de Fin de Cycle (L3 Électronique à UMMTO)</a></h3>
+                    <p>Ce projet de fin de cycle, réalisé dans le cadre de ma L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou, consistait à concevoir un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et d'interrupteurs va-et-vient. Le projet comprenait la création d'un circuit imprimé en utilisant la méthode de gravure chimique et des composants tels que des relais, des transistors et un circuit intégré CD 4017. Le schéma et le typon ont été réalisés respectivement avec ISIS Proteus et ARES.</p>
+                    <p>Le projet est détaillé avec les étapes de fabrication du circuit imprimé et le fonctionnement du circuit, accompagné de photos illustrant les composants utilisés et le typon final.</p>
+                </div>
 
-            <!-- Projet 1 : ProjetL3UMMTO -->
+
+                <!-- Projet 2 : Automatisation Industrielle -->
             <div class="project-box">
-                <img src="../images/liste_des_composants.webp" alt="Liste des Composants du Projet" loading="lazy">
-                <h3><a href="../projet_L3_UMMTO/">Projet de Fin de Cycle (L3 Électronique à UMMTO)</a></h3>
-                <p>Ce projet de fin de cycle, réalisé dans le cadre de ma L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou, consistait à concevoir un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et d'interrupteurs va-et-vient. Le projet comprenait la création d'un circuit imprimé en utilisant la méthode de gravure chimique et des composants tels que des relais, des transistors et un circuit intégré CD 4017. Le schéma et le typon ont été réalisés respectivement avec ISIS Proteus et ARES.</p>
-                <p>Le projet est détaillé avec les étapes de fabrication du circuit imprimé et le fonctionnement du circuit, accompagné de photos illustrant les composants utilisés et le typon final.</p>
+                <img src="../images/projet2.webp" alt="Chargeur de batterie solaire" loading="lazy">
+                <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                <p>----------</p>
             </div>
 
+            <!-- Projet 3 : Robot Suiveur de Ligne -->
+            <div class="project-box">
+                <img src="../images/projet3.webp" alt="Armoire electrique" loading="lazy">
+                <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                <p>----------</p>
+            </div>
 
-            <!-- Projet 2 : Automatisation Industrielle -->
-        <div class="project-box">
-            <img src="../images/projet2.webp" alt="Chargeur de batterie solaire" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
+            <!-- Projet 4 : IoT pour la Gestion de l'Énergie -->
+            <div class="project-box">
+                <img src="../images/projet4.webp" alt="Robocup (MSL)" loading="lazy">
+                <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                <p>----------</p>
+            </div>
 
-        <!-- Projet 3 : Robot Suiveur de Ligne -->
-        <div class="project-box">
-            <img src="../images/projet3.webp" alt="Armoire electrique" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
+            <!-- Projet 5 : Analyse de Données avec Python -->
+            <div class="project-box">
+                <img src="../images/projet5.webp" alt="Arrosage automatique" loading="lazy">
+                <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                <p>----------</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Projet 4 : IoT pour la Gestion de l'Énergie -->
-        <div class="project-box">
-            <img src="../images/projet4.webp" alt="Robocup (MSL)" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
 
-        <!-- Projet 5 : Analyse de Données avec Python -->
-        <div class="project-box">
-            <img src="../images/projet5.webp" alt="Arrosage automatique" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
+        <!-- Pied de page -->
+        <footer>
+            <!-- Message de copyright -->
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
+
     </div>
-</section>
-
-
-    <!-- Pied de page -->
-    <footer>
-        <!-- Message de copyright -->
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
 
     <!-- Inclusion du fichier JavaScript pour les interactions dynamiques -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

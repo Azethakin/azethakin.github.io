@@ -65,16 +65,46 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
 
 </head>
 
-<body>
-    <!-- Section En-tête -->
-    <header>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="master1_toulon">
+
+        <!-- Section En-tête -->
+        <header>
+            
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li>
+                    </ul>
+                </nav>
+            </div>
         
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span>
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -85,98 +115,77 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                   <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li>
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
+                    <li id="google_translate_element_mobile"></li>
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span>
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
+        </header>
+
+        <!-- Section principale du contenu pour le Master 1 -->
+        <section class="modules">
+            <h1 class="master1">Master 1 - Ingénierie des Systèmes Complexes (ISC) Parcours Robotique et Objets Connectés à l'Université de Toulon</h1> <!-- Titre principal de la page master1 -->
+        
+        
+
+            <!-- Paragraphe d'introduction -->
+            <p>
+                En 2023/2024, j'ai intégré la première année de Master (M1) en Ingénierie des Systèmes Complexes (ISC) à l'Université de Toulon, parcours Robotique et Objets Connectés (ROC). Ce programme m'a permis de développer mes compétences en robotique, systèmes embarqués et objets connectés à travers des modules et projets techniques.
+            </p>
+
+            <!-- Liste des modules étudiés pendant cette année -->
+            <h2>Modules étudiés :</h2>
+
+            <h3>Semestre 7 :</h3>
             <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
-                <li id="google_translate_element_mobile"></li>
+                <li>Projet collaboratif 1</li>
+                <li>Anglais 1</li>
+                <li>Modélisation des systèmes mécaniques</li>
+                <li>Modélisation des systèmes marins</li>
+                <li>Automatique linéaire des systèmes multivariables</li>
+                <li>Apprentissage non supervisé</li>
+                <li>Apprentissage supervisé</li>
+                <li>Apprentissage par renforcement</li>
+                <li>Traitement analogique du signal</li>
+                <li>Électronique des radiocommunications</li>
+                <li>Électronique numérique embarquée</li>
             </ul>
-        </nav>
-    </header>
 
-    <!-- Section principale du contenu pour le Master 1 -->
-    <section class="modules">
-        <h1 class="master1">Master 1 - Ingénierie des Systèmes Complexes (ISC) Parcours Robotique et Objets Connectés à l'Université de Toulon</h1> <!-- Titre principal de la page master1 -->
-      
-       
+            <h3>Semestre 8 :</h3>
+            <ul>
+                <li>Initiation à la recherche (méthodologie documentaire)</li>
+                <li>Projet collaboratif 2</li>
+                <li>Anglais 2</li>
+                <li>Mécanique pour la robotique</li>
+                <li>Techniques d'optimisation</li>
+                <li>Automatique non linéaire</li>
+                <li>Apprentissage profond dans un plan</li>
+                <li>Perception multimodale</li>
+                <li>Capteurs numériques et bus</li>
+                <li>Réseaux de communication sans fils</li>
+                <li>Instrumentation et capteurs</li>
+            </ul>
 
-        <!-- Paragraphe d'introduction -->
-        <p>
-            En 2023/2024, j'ai intégré la première année de Master (M1) en Ingénierie des Systèmes Complexes (ISC) à l'Université de Toulon, parcours Robotique et Objets Connectés (ROC). Ce programme m'a permis de développer mes compétences en robotique, systèmes embarqués et objets connectés à travers des modules et projets techniques.
-        </p>
+            <!-- Résultats obtenus à la fin de l'année universitaire -->
+            <h2>Résultats :</h2>
+            <p>
+                Cette première année de Master m'a permis de renforcer mes compétences dans le domaine de la robotique et des objets connectés, me préparant pour le Master 2 en Robotique Intelligente et Systèmes Embarqués.
+            </p>
+        </section>
 
-        <!-- Liste des modules étudiés pendant cette année -->
-        <h2>Modules étudiés :</h2>
+        <!-- Section Pied de page -->
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-        <h3>Semestre 7 :</h3>
-        <ul>
-            <li>Projet collaboratif 1</li>
-            <li>Anglais 1</li>
-            <li>Modélisation des systèmes mécaniques</li>
-            <li>Modélisation des systèmes marins</li>
-            <li>Automatique linéaire des systèmes multivariables</li>
-            <li>Apprentissage non supervisé</li>
-            <li>Apprentissage supervisé</li>
-            <li>Apprentissage par renforcement</li>
-            <li>Traitement analogique du signal</li>
-            <li>Électronique des radiocommunications</li>
-            <li>Électronique numérique embarquée</li>
-        </ul>
-
-        <h3>Semestre 8 :</h3>
-        <ul>
-            <li>Initiation à la recherche (méthodologie documentaire)</li>
-            <li>Projet collaboratif 2</li>
-            <li>Anglais 2</li>
-            <li>Mécanique pour la robotique</li>
-            <li>Techniques d'optimisation</li>
-            <li>Automatique non linéaire</li>
-            <li>Apprentissage profond dans un plan</li>
-            <li>Perception multimodale</li>
-            <li>Capteurs numériques et bus</li>
-            <li>Réseaux de communication sans fils</li>
-            <li>Instrumentation et capteurs</li>
-        </ul>
-
-        <!-- Résultats obtenus à la fin de l'année universitaire -->
-        <h2>Résultats :</h2>
-        <p>
-            Cette première année de Master m'a permis de renforcer mes compétences dans le domaine de la robotique et des objets connectés, me préparant pour le Master 2 en Robotique Intelligente et Systèmes Embarqués.
-        </p>
-    </section>
-
-    <!-- Section Pied de page -->
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
-
+    </div> <!-- Fin container Barba -->
+    
     <!-- Lien vers le fichier JavaScript -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

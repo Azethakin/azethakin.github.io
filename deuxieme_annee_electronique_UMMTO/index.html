@@ -72,14 +72,44 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
-<body>
-    <!-- En-tête de la page avec le menu de navigation -->
-    <header>
-        
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="deuxieme_annee_electronique_UMMTO">
 
-        <!-- Menu pour la version desktop -->
-        <div class="desktop-header">
-            <nav>
+   
+   
+    <!-- En-tête de la page avec le menu de navigation -->
+        <header>
+            
+
+            <!-- Menu pour la version desktop -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                        <li><input type="text" id="search" placeholder="Rechercher..."></li>
+                        <li id="google_translate_element"></li> <!-- Élément pour Google Traduction -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Menu pour la version mobile -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -90,100 +120,84 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                    <li><input type="text" id="search" placeholder="Rechercher..."></li>
-                    <li id="google_translate_element"></li> <!-- Élément pour Google Traduction -->
+                    <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> <!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
+        </header>
 
-        <!-- Menu pour la version mobile -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-
-                <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> <!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section principale qui décrit la deuxième année de licence -->
-    <section class="modules">
-        <h1 class="annee2">Deuxième Année - Électronique (UMMTO)</h1> <!-- Titre principal de la page annee2 -->
-      
+        <!-- Section principale qui décrit la deuxième année de licence -->
+        <section class="modules">
+            <h1 class="annee2">Deuxième Année - Électronique (UMMTO)</h1> <!-- Titre principal de la page annee2 -->
         
-        <!-- Paragraphe d'introduction sur la deuxième année -->
-        <p>
-            En 2019/2020, j'ai poursuivi mes études en 2ème année de licence à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO),
-            dans la filière Électronique. Cette année m'a permis d'approfondir mes connaissances en électronique, électricité,
-            et en mathématiques appliquées.
-        </p>
+            
+            <!-- Paragraphe d'introduction sur la deuxième année -->
+            <p>
+                En 2019/2020, j'ai poursuivi mes études en 2ème année de licence à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO),
+                dans la filière Électronique. Cette année m'a permis d'approfondir mes connaissances en électronique, électricité,
+                et en mathématiques appliquées.
+            </p>
 
-        <!-- Liste des modules étudiés pendant cette année -->
-        <h2>Modules étudiés :</h2>
-        <ul>
-            <!-- Modules du Semestre 3 -->
-            <li><strong>Semestre 3 :</strong></li>
+            <!-- Liste des modules étudiés pendant cette année -->
+            <h2>Modules étudiés :</h2>
             <ul>
-                <li>Mathématiques 3</li>
-                <li>Ondes et vibrations</li>
-                <li>Électronique fondamentale 1</li>
-                <li>Électrotechnique fondamentale 1</li>
-                <li>Probabilités et statistiques</li>
-                <li>Informatique 3</li>
-                <li>État de l'art du génie électrique</li>
-                <li>Énergie et environnement</li>
-                <li>Anglais technique</li>
+                <!-- Modules du Semestre 3 -->
+                <li><strong>Semestre 3 :</strong></li>
+                <ul>
+                    <li>Mathématiques 3</li>
+                    <li>Ondes et vibrations</li>
+                    <li>Électronique fondamentale 1</li>
+                    <li>Électrotechnique fondamentale 1</li>
+                    <li>Probabilités et statistiques</li>
+                    <li>Informatique 3</li>
+                    <li>État de l'art du génie électrique</li>
+                    <li>Énergie et environnement</li>
+                    <li>Anglais technique</li>
+                </ul>
+
+                <!-- Modules du Semestre 4 -->
+                <li><strong>Semestre 4 :</strong></li>
+                <ul>
+                    <li>Électronique fondamentale 2</li>
+                    <li>Logique combinatoire et séquentielle</li>
+                    <li>Méthode numérique</li>
+                    <li>Théorie du signal</li>
+                    <li>Mesure électrique et électronique</li>
+                    <li>Technologie des composants électroniques</li>
+                    <li>Technologie et fabrication des circuits intégrés</li>
+                    <li>Techniques d'expression et de communication</li>
+                </ul>
             </ul>
 
-            <!-- Modules du Semestre 4 -->
-            <li><strong>Semestre 4 :</strong></li>
-            <ul>
-                <li>Électronique fondamentale 2</li>
-                <li>Logique combinatoire et séquentielle</li>
-                <li>Méthode numérique</li>
-                <li>Théorie du signal</li>
-                <li>Mesure électrique et électronique</li>
-                <li>Technologie des composants électroniques</li>
-                <li>Technologie et fabrication des circuits intégrés</li>
-                <li>Techniques d'expression et de communication</li>
-            </ul>
-        </ul>
+            <!-- Résultats de l'année -->
+            <h2>Résultats :</h2>
+            <p>
+                À la fin de cette deuxième année, j'ai été classé 1er sur une promotion de 436 étudiants, ce qui m'a permis de poursuivre
+                avec succès dans la spécialisation électronique pour ma troisième année.
+            </p>
+        </section>
 
-        <!-- Résultats de l'année -->
-        <h2>Résultats :</h2>
-        <p>
-            À la fin de cette deuxième année, j'ai été classé 1er sur une promotion de 436 étudiants, ce qui m'a permis de poursuivre
-            avec succès dans la spécialisation électronique pour ma troisième année.
-        </p>
-    </section>
+        <!-- Section du pied de page -->
+        <footer>
+            <!-- Informations légales et droits d'auteur -->
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-    <!-- Section du pied de page -->
-    <footer>
-        <!-- Informations légales et droits d'auteur -->
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
 
-    <!-- Lien vers le fichier JS pour gérer les interactions dynamiques -->
-    <script src="../js/scripts.js"></script>
+    </div> <!-- Fin du container Barba -->
+
+
+    
 
     <!-- Script pour EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+        <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
+    <!-- Ton script d'initialisation Barba -->
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

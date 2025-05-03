@@ -70,16 +70,49 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
 
 
 </head>
-<body>
-    <!-- En-tête avec la barre de navigation -->
-    <header>
+
+
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="loisirs">
+    
+        <!-- En-tête avec la barre de navigation -->
+        <header>
+            
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
         
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -91,130 +124,109 @@
                     <li><a href="../contact/">Contact</a></li>
                     <li><a href="../espace_interactif/">Espace Interactif</a></li>
 
-                   <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
+        </header>
 
-                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section des loisirs -->
-    <section class="loisirs">
-        <h2>Mes Loisirs</h2>
-        <p>Voici quelques-unes de mes passions et activités favorites en dehors de mes études et projets professionnels.</p>
-        
-        <!-- Conteneur pour les loisirs -->
-        <div class="loisirs-container">
-            <!-- Boîte pour chaque loisir -->
-            <div class="loisir-box">
-                <div class="image-container-football">
-                    <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy">
+        <!-- Section des loisirs -->
+        <section class="loisirs">
+            <h2>Mes Loisirs</h2>
+            <p>Voici quelques-unes de mes passions et activités favorites en dehors de mes études et projets professionnels.</p>
+            
+            <!-- Conteneur pour les loisirs -->
+            <div class="loisirs-container">
+                <!-- Boîte pour chaque loisir -->
+                <div class="loisir-box">
+                    <div class="image-container-football">
+                        <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy">
+                    </div>
+                    <h3>Football</h3>
+                    <p>Le football est l’un de mes sports préférés: je joue régulièrement avec mes amis pour le plaisir et pour rester en forme, tout en participant à des compétitions avec mon club.</p>
                 </div>
-                <h3>Football</h3>
-                <p>Le football est l’un de mes sports préférés: je joue régulièrement avec mes amis pour le plaisir et pour rester en forme, tout en participant à des compétitions avec mon club.</p>
-            </div>
-            
-            
-            <div class="loisir-box">
-                <div class="image-container-guitar">
-                    <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy">
+                
+                
+                <div class="loisir-box">
+                    <div class="image-container-guitar">
+                        <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy">
+                    </div>
+                    <h3>Guitare</h3>
+                    <p>J’aime prendre ma guitare de temps en temps pour me détendre.</p>
                 </div>
-                <h3>Guitare</h3>
-                <p>J’aime prendre ma guitare de temps en temps pour me détendre.</p>
-            </div>
-            
+                
 
-            <div class="loisir-box">
-                <div class="image-container-bouteille">
-                    <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy">
+                <div class="loisir-box">
+                    <div class="image-container-bouteille">
+                        <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy">
+                    </div>
+                    <h3>Plongée sous-marine</h3>
+                    <p>J’adore plonger en bouteille pour explorer les fonds marins et découvrir la richesse de la faune et de la flore sous-marines. Rester dans les profondeurs pour observer ces merveilles est une expérience à la fois apaisante et fascinante. 🌊🐠</p>
                 </div>
-                <h3>Plongée sous-marine</h3>
-                <p>J’adore plonger en bouteille pour explorer les fonds marins et découvrir la richesse de la faune et de la flore sous-marines. Rester dans les profondeurs pour observer ces merveilles est une expérience à la fois apaisante et fascinante. 🌊🐠</p>
-            </div>
-            
+                
 
-            <div class="loisir-box">
-                <div class="image-container-chasse_sous_marine">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy">
+                <div class="loisir-box">
+                    <div class="image-container-chasse_sous_marine">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy">
+                    </div>
+                    <h3>Chasse sous-marine</h3>
+                    <p>La chasse sous-marine est ma véritable passion : elle combine l’exploration des fonds marins avec un défi sportif unique. J’aime énormément partir à l’aventure sous l’eau ! 🌊🐟</p>
                 </div>
-                <h3>Chasse sous-marine</h3>
-                <p>La chasse sous-marine est ma véritable passion : elle combine l’exploration des fonds marins avec un défi sportif unique. J’aime énormément partir à l’aventure sous l’eau ! 🌊🐟</p>
-            </div>
-            
+                
 
-            <div class="loisir-box">
-                <div class="image-container-surf">
-                    <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy">
-                    <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy">
+                <div class="loisir-box">
+                    <div class="image-container-surf">
+                        <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy">
+                        <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy">
+                    </div>
+                    <h3>Surf</h3>
+                    <p>Le surf, c’est ma passion. Glisser sur les vagues de la Méditerranée, c’est ressentir toute l’énergie de la mer. Sur une planche, tout s’efface, et je me sens en parfaite connexion avec la puissance de l’eau.</p>
                 </div>
-                <h3>Surf</h3>
-                <p>Le surf, c’est ma passion. Glisser sur les vagues de la Méditerranée, c’est ressentir toute l’énergie de la mer. Sur une planche, tout s’efface, et je me sens en parfaite connexion avec la puissance de l’eau.</p>
-            </div>
-            
+                
 
-            <div class="loisir-box">
-                <div class="image-container-velo">
-                    <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy">
-                    <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy">
+                <div class="loisir-box">
+                    <div class="image-container-velo">
+                        <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy">
+                        <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy">
+                    </div>
+                    <h3>Vélo</h3>
+                    <p>J'aime faire des randonnées à vélo pour explorer de nouveaux paysages tout en pratiquant une activité physique.</p>
                 </div>
-                <h3>Vélo</h3>
-                <p>J'aime faire des randonnées à vélo pour explorer de nouveaux paysages tout en pratiquant une activité physique.</p>
+                
             </div>
-            
-        </div>
-    </section>
+        </section>
 
-    <!-- Pied de page -->
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+        <!-- Pied de page -->
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
+
+    </div> <!-- Fin container Barba -->
+
 
     <!-- Inclusion du fichier JavaScript -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 </html>

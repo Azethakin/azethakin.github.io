@@ -68,17 +68,50 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
+
 </head>
 
-<body>
-    <!-- En-tête de la page avec le menu de navigation -->
-    <header>
-        
-        
-        
-        <!-- Menu pour la version desktop -->
-        <div class="desktop-header">
-            <nav>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="premiere_annee_science_et_technologie_UMMTO">
+
+        <!-- En-tête de la page avec le menu de navigation -->
+        <header>
+            
+            
+            
+            <!-- Menu pour la version desktop -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Élément pour Google Traduction -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Menu pour la version mobile -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -89,96 +122,75 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                   <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Élément pour Google Traduction -->
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
+        </header>
 
-        <!-- Menu pour la version mobile -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
+        <!-- Section principale qui décrit la première année de licence -->
+        <section class="modules">  
+            <h1 class="annee1">Première Année - Science et Technologie (UMMTO)</h1> <!-- Titre principal de la page annee1 -->
+            
+            
 
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
+            <!-- Paragraphe d'introduction sur la première année -->
+            <p>
+                En 2018/2019, j'ai entamé ma première année de licence en Sciences et Technologie à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO).
+                Cette année m'a permis d'acquérir des bases solides dans plusieurs disciplines scientifiques fondamentales.
+            </p>
+
+            <!-- Liste des modules étudiés -->
+            <h2>Modules étudiés :</h2>
             <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
+                <!-- Modules du Semestre 1 -->
+                <li><strong>Semestre 1 :</strong></li>
+                <ul>
+                    <li>Mathématiques 1</li>
+                    <li>Physique 1</li>
+                    <li>Structure de la matière</li>
+                    <li>Méthodologie de la rédaction</li>
+                    <li>Informatique 1</li>
+                    <li>Les Métiers en sciences et Technologies 1</li>
+                    <li>Langue Française 1</li>
+                </ul>
 
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section principale qui décrit la première année de licence -->
-    <section class="modules">  
-        <h1 class="annee1">Première Année - Science et Technologie (UMMTO)</h1> <!-- Titre principal de la page annee1 -->
-        
-        
-
-        <!-- Paragraphe d'introduction sur la première année -->
-        <p>
-            En 2018/2019, j'ai entamé ma première année de licence en Sciences et Technologie à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO).
-            Cette année m'a permis d'acquérir des bases solides dans plusieurs disciplines scientifiques fondamentales.
-        </p>
-
-        <!-- Liste des modules étudiés -->
-        <h2>Modules étudiés :</h2>
-        <ul>
-            <!-- Modules du Semestre 1 -->
-            <li><strong>Semestre 1 :</strong></li>
-            <ul>
-                <li>Mathématiques 1</li>
-                <li>Physique 1</li>
-                <li>Structure de la matière</li>
-                <li>Méthodologie de la rédaction</li>
-                <li>Informatique 1</li>
-                <li>Les Métiers en sciences et Technologies 1</li>
-                <li>Langue Française 1</li>
+                <!-- Modules du Semestre 2 -->
+                <li><strong>Semestre 2 :</strong></li>
+                <ul>
+                    <li>Mathématiques 2</li>
+                    <li>Physique 2</li>
+                    <li>Thermodynamique</li>
+                    <li>Méthodologie de la présentation</li>
+                    <li>Informatique 2</li>
+                    <li>Les Métiers en sciences et Technologies 2</li>
+                    <li>Langue Française 2</li>
+                </ul>
             </ul>
 
-            <!-- Modules du Semestre 2 -->
-            <li><strong>Semestre 2 :</strong></li>
-            <ul>
-                <li>Mathématiques 2</li>
-                <li>Physique 2</li>
-                <li>Thermodynamique</li>
-                <li>Méthodologie de la présentation</li>
-                <li>Informatique 2</li>
-                <li>Les Métiers en sciences et Technologies 2</li>
-                <li>Langue Française 2</li>
-            </ul>
-        </ul>
+            <!-- Résultats de l'année -->
+            <h2>Résultats :</h2>
+            <p>
+                À l'issue de cette première année, j'ai été classé 19e sur une promotion de 2417 étudiants.
+            </p>
+        </section>
 
-        <!-- Résultats de l'année -->
-        <h2>Résultats :</h2>
-        <p>
-            À l'issue de cette première année, j'ai été classé 19e sur une promotion de 2417 étudiants.
-        </p>
-    </section>
+        <!-- Section du pied de page -->
+        <footer>
+            <!-- Informations légales et droits d'auteur -->
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-    <!-- Section du pied de page -->
-    <footer>
-        <!-- Informations légales et droits d'auteur -->
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+    </div> <!-- Fin container Barba -->
 
     <!-- Lien vers le fichier JS pour gérer les interactions dynamiques -->
     <script src="../js/scripts.js"></script>
 
     <!-- Script pour EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 
