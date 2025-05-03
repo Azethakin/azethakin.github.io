@@ -62,17 +62,55 @@
         }
     </script>
     
+    <script src="https://unpkg.com/@barba/core"></script>
+
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
-<body>
-    <header>
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+
+
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="accueil">
+        <header>
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
+                        
+
+
+                    <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span>
+                <div class="right-header-elements">
+                <!-- <input type="text" id="search-mobile" placeholder="Rechercher..."> -->
+                    <div id="google_translate_element_mobile"></div>
+                    <div class="hamburger" id="hamburger-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
-                    
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
                     <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
@@ -82,328 +120,298 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
                     <li><a href="../espace_interactif/">Espace Interactif</a></li>
-                    
 
 
-                  <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li>
+            
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span>
-            <div class="right-header-elements">
-               <!-- <input type="text" id="search-mobile" placeholder="Rechercher..."> -->
-                <div id="google_translate_element_mobile"></div>
-                <div class="hamburger" id="hamburger-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
-
-
+        </header>
         
-            </ul>
-        </nav>
-    </header>
-    
-    
-    
-    
+        
+        
+        
 
-    <!-- Section pour afficher les images qui changent -->
-<section class="hero">
-    <div class="image-container">
-        <img src="../images/electronique.webp" alt="Image 1" class="image active" loading="lazy">
-        <img src="../images/CAT-Robotsprogrammables.webp" alt="Image 2" class="image" loading="lazy">
-        <img src="../images/systemes-embarques.webp" alt="Image 3" class="image" loading="lazy">
-        <img src="../images/iot.webp" alt="Image 4" class="image" loading="lazy">
-    </div>
-    <h1>Présentation</h1>
-    <p>Bienvenue sur mon site professionnel ! Ici, je vous présente mon parcours académique, mes projets réalisés durant mes années d'études, ainsi que mon CV. Ce site est une vitrine de mes compétences en électronique, robotique, et systèmes embarqués, mais aussi une démonstration de mes compétences en développement web.</p>
-</section>
-
-    <!-- Section Mon Parcours Académique -->
-    <section class="modules">
-        <h2>Mon Parcours Académique</h2>
-        <div class="course-container">
-
-            <!-- Baccalauréat -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/boudjima.webp" alt="Lycée de Boudjima" loading="lazy"> <!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../baccalauréat/">Baccalauréat - Mathématiques (2017/2018)</a></h3>
-                <p>Baccalauréat en filière Mathématiques, marquant le début de mon parcours scientifique.</p>
+            <!-- Section pour afficher les images qui changent -->
+        <section class="hero">
+            <div class="image-container">
+                <img src="../images/electronique.webp" alt="Image 1" class="image active" loading="lazy">
+                <img src="../images/CAT-Robotsprogrammables.webp" alt="Image 2" class="image" loading="lazy">
+                <img src="../images/systemes-embarques.webp" alt="Image 3" class="image" loading="lazy">
+                <img src="../images/iot.webp" alt="Image 4" class="image" loading="lazy">
             </div>
+            <h1>Présentation</h1>
+            <p>Bienvenue sur mon site professionnel ! Ici, je vous présente mon parcours académique, mes projets réalisés durant mes années d'études, ainsi que mon CV. Ce site est une vitrine de mes compétences en électronique, robotique, et systèmes embarqués, mais aussi une démonstration de mes compétences en développement web.</p>
+        </section>
 
+        <!-- Section Mon Parcours Académique -->
+        <section class="modules">
+            <h2>Mon Parcours Académique</h2>
+            <div class="course-container">
 
-            <!-- Première année -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../premiere_annee_science_et_technologie_UMMTO/">Première Année - Science et Technologie (UMMTO)</a></h3>
-                <p>Introduction aux sciences fondamentales à l'Université de Mouloud Mammeri de Tizi Ouzou, avec une base solide en mathématiques et physique.</p>
-            </div>
-
-            <!-- Deuxième année -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"> <!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../deuxieme_annee_electronique_UMMTO/">Deuxième Année - Électronique (UMMTO)</a></h3>
-                <p>Spécialisation en électronique, classé 1er de ma promotion.</p>
-            </div>
-
-            <!-- Troisième année -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../troisieme_annee_electronique_UMMTO/">Troisième Année - Électronique (UMMTO)</a></h3>
-                <p>Diplômé en Électronique et classé major de promotion.</p>
-            </div>
-
-            <!-- Licence en France -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Lyon 1.webp" alt="Université Lyon1 Claude Bernard" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../Licence_EEEA_Lyon1_Claude_Bernard/">Licence EEEA - Université de Lyon 1</a></h3>
-                <p>Licence en Électronique, Énergie Électrique et Automatique (EEEA) à l'université de Lyon 1 Claude Bernard.</p>
-            </div>
-
-            <!-- Master 1 -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../master1_toulon/">Master 1 - Ingénierie des Systèmes Complexes (Toulon)</a></h3>
-                <p>Spécialité Robotique et Objets Connectés (ROC).</p>
-            </div>
-
-            <!-- Master 2 -->
-            <div class="course-box">
-                <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
-                <h3><a href="../master2_toulon/">Master 2 - Robotique Intelligente et Systèmes Embarqués (Toulon)</a></h3>
-                <p>Spécialité Robotique Intelligente et Systèmes Embarqués (Toulon).</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Séparateur entre les sections -->
-    <div class="section-separator"></div>
-
-    <!-- Section Mes Projets Réalisés -->
-<section class="projets">
-    <h2>Mes Projets Réalisés</h2>
-    <div class="project-container">
-        <!-- Projet L3 : Projet de fin de cycle (L3 Électronique à UMMTO) -->
-        <div class="project-box">
-            <img src="../images/liste_des_composants.webp" alt="Liste des Composants du Projet" loading="lazy">
-            <h3><a href="../projet_L3_UMMTO/">Projet de Fin de Cycle (L3 Électronique à UMMTO)</a></h3>
-            <p>Mon projet de fin de cycle en L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO) consistait à créer un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et d'interrupteurs va-et-vient. Ce projet inclut la conception d'un circuit imprimé en utilisant la méthode de gravure chimique, l'utilisation de composants tels que des relais, des transistors, et le circuit intégré CD 4017. Des photos détaillant les composants et le typon sont disponibles.</p>
-        </div>
-
-        <!-- Projet 2 : Automatisation Industrielle -->
-        <div class="project-box">
-            <img src="../images/projet2.webp" alt="Chargeur de batterie solaire" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
-
-        <!-- Projet 3 : Robot Suiveur de Ligne -->
-        <div class="project-box">
-            <img src="../images/projet3.webp" alt="Armoire electrique" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
-
-        <!-- Projet 4 : IoT pour la Gestion de l'Énergie -->
-        <div class="project-box">
-            <img src="../images/projet4.webp" alt="Robocup (MSL)" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
-
-        <!-- Projet 5 : Analyse de Données avec Python -->
-        <div class="project-box">
-            <img src="../images/projet5.webp" alt="Arosage automatique" loading="lazy">
-            <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
-            <p>----------</p>
-        </div>
-    </div>
-</section>
-
-    <!-- Séparateur entre les sections -->
-    <div class="section-separator"></div>
-
-    <!-- Section Mes Diplômes -->
-    <section class="diplomes">
-        <h2>Mes Diplômes</h2>
-        <div class="diplome-container">
-            <a href="../diplomes_academiques/" class="diplome-box-link">
-                <div class="diplome-box">
-                    <h3>Diplômes Académiques</h3>
-                    <p>Baccalauréat - Filière Mathématiques (2018)</p>
-                    <p>Licence en électronique - UMMTO (2020/2021)</p>
-                    <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
+                <!-- Baccalauréat -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/boudjima.webp" alt="Lycée de Boudjima" loading="lazy"> <!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../baccalauréat/">Baccalauréat - Mathématiques (2017/2018)</a></h3>
+                    <p>Baccalauréat en filière Mathématiques, marquant le début de mon parcours scientifique.</p>
                 </div>
-            </a>
-            <a href="../autres_diplomes_et_formations/" class="diplome-box-link">
-                <div class="diplome-box">
-                    <h3>Autres Diplômes et Formations</h3>
-                    <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
-                    <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
-                    <p>Diplôme secouriste subaquatique (2018)</p>
-                    <p>Formation Arduino (Juillet 2018)</p>
+
+
+                <!-- Première année -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../premiere_annee_science_et_technologie_UMMTO/">Première Année - Science et Technologie (UMMTO)</a></h3>
+                    <p>Introduction aux sciences fondamentales à l'Université de Mouloud Mammeri de Tizi Ouzou, avec une base solide en mathématiques et physique.</p>
                 </div>
-            </a>
+
+                <!-- Deuxième année -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"> <!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../deuxieme_annee_electronique_UMMTO/">Deuxième Année - Électronique (UMMTO)</a></h3>
+                    <p>Spécialisation en électronique, classé 1er de ma promotion.</p>
+                </div>
+
+                <!-- Troisième année -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/ummto.webp" alt="Université Mouloud-Mammeri de Tizi Ouzou" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../troisieme_annee_electronique_UMMTO/">Troisième Année - Électronique (UMMTO)</a></h3>
+                    <p>Diplômé en Électronique et classé major de promotion.</p>
+                </div>
+
+                <!-- Licence en France -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Lyon 1.webp" alt="Université Lyon1 Claude Bernard" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../Licence_EEEA_Lyon1_Claude_Bernard/">Licence EEEA - Université de Lyon 1</a></h3>
+                    <p>Licence en Électronique, Énergie Électrique et Automatique (EEEA) à l'université de Lyon 1 Claude Bernard.</p>
+                </div>
+
+                <!-- Master 1 -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../master1_toulon/">Master 1 - Ingénierie des Systèmes Complexes (Toulon)</a></h3>
+                    <p>Spécialité Robotique et Objets Connectés (ROC).</p>
+                </div>
+
+                <!-- Master 2 -->
+                <div class="course-box">
+                    <img src="../images/images de mon parcours academique/Toulon.webp" alt="Université de Toulon, La Garde" loading="lazy"><!--alt= permet d'afficher ce titre si l’image ne peut pas être chargée -->
+                    <h3><a href="../master2_toulon/">Master 2 - Robotique Intelligente et Systèmes Embarqués (Toulon)</a></h3>
+                    <p>Spécialité Robotique Intelligente et Systèmes Embarqués (Toulon).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Séparateur entre les sections -->
+        <div class="section-separator"></div>
+
+            <!-- Section Mes Projets Réalisés -->
+        <section class="projets">
+            <h2>Mes Projets Réalisés</h2>
+            <div class="project-container">
+                <!-- Projet L3 : Projet de fin de cycle (L3 Électronique à UMMTO) -->
+                <div class="project-box">
+                    <img src="../images/liste_des_composants.webp" alt="Liste des Composants du Projet" loading="lazy">
+                    <h3><a href="../projet_L3_UMMTO/">Projet de Fin de Cycle (L3 Électronique à UMMTO)</a></h3>
+                    <p>Mon projet de fin de cycle en L3 Électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO) consistait à créer un circuit permettant de contrôler à distance des appareils fonctionnant sur secteur (230V) à l'aide d'une télécommande infrarouge et d'interrupteurs va-et-vient. Ce projet inclut la conception d'un circuit imprimé en utilisant la méthode de gravure chimique, l'utilisation de composants tels que des relais, des transistors, et le circuit intégré CD 4017. Des photos détaillant les composants et le typon sont disponibles.</p>
+                </div>
+
+                <!-- Projet 2 : Automatisation Industrielle -->
+                <div class="project-box">
+                    <img src="../images/projet2.webp" alt="Chargeur de batterie solaire" loading="lazy">
+                    <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                    <p>----------</p>
+                </div>
+
+                <!-- Projet 3 : Robot Suiveur de Ligne -->
+                <div class="project-box">
+                    <img src="../images/projet3.webp" alt="Armoire electrique" loading="lazy">
+                    <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                    <p>----------</p>
+                </div>
+
+                <!-- Projet 4 : IoT pour la Gestion de l'Énergie -->
+                <div class="project-box">
+                    <img src="../images/projet4.webp" alt="Robocup (MSL)" loading="lazy">
+                    <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                    <p>----------</p>
+                </div>
+
+                <!-- Projet 5 : Analyse de Données avec Python -->
+                <div class="project-box">
+                    <img src="../images/projet5.webp" alt="Arosage automatique" loading="lazy">
+                    <h3>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</h3>
+                    <p>----------</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Séparateur entre les sections -->
+        <div class="section-separator"></div>
+
+        <!-- Section Mes Diplômes -->
+        <section class="diplomes">
+            <h2>Mes Diplômes</h2>
+            <div class="diplome-container">
+                <a href="../diplomes_academiques/" class="diplome-box-link">
+                    <div class="diplome-box">
+                        <h3>Diplômes Académiques</h3>
+                        <p>Baccalauréat - Filière Mathématiques (2018)</p>
+                        <p>Licence en électronique - UMMTO (2020/2021)</p>
+                        <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
+                    </div>
+                </a>
+                <a href="../autres_diplomes_et_formations/" class="diplome-box-link">
+                    <div class="diplome-box">
+                        <h3>Autres Diplômes et Formations</h3>
+                        <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
+                        <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
+                        <p>Diplôme secouriste subaquatique (2018)</p>
+                        <p>Formation Arduino (Juillet 2018)</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Séparateur entre les sections -->
+        <div class="section-separator"></div>
+
+        <!-- Section Mes Loisirs -->
+        <section class="loisirs">
+            <h2>Mes Loisirs</h2>
+            <!-- Conteneur pour les loisirs -->
+            <div class="loisirs-container">
+                <!-- Boîte pour chaque loisir -->
+                <div class="loisir-box">
+                    <div class="image-container-football">
+                        <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy">
+                    </div>
+                    <h3>Football</h3>
+                    <p>Le football est l’un de mes sports préférés : je joue régulièrement avec mes amis pour le plaisir et pour rester en forme, tout en participant à des compétitions avec mon club..</p>
+                </div>
+                
+                
+                <div class="loisir-box">
+                    <div class="image-container-guitar">
+                        <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy">
+                    </div>
+                    <h3>Guitare</h3>
+                    <p>J’aime prendre ma guitare de temps en temps pour me détendre.</p>
+                </div>
+                
+
+                <div class="loisir-box">
+                    <div class="image-container-bouteille">
+                        <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy">
+                    </div>
+                    <h3>Plongée sous-marine</h3>
+                    <p>J’adore plonger en bouteille pour explorer les fonds marins et découvrir la richesse de la faune et de la flore sous-marines. Rester dans les profondeurs pour observer ces merveilles est une expérience à la fois apaisante et fascinante. 🌊🐠</p>
+                </div>
+                
+
+                <div class="loisir-box">
+                    <div class="image-container-chasse_sous_marine">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy">
+                    </div>
+                    <h3>Chasse sous-marine</h3>
+                    <p>La chasse sous-marine est ma véritable passion : elle combine l’exploration des fonds marins avec un défi sportif unique. J’aime énormément partir à l’aventure sous l’eau ! 🌊🐟</p>
+                </div>
+                
+
+                <div class="loisir-box">
+                    <div class="image-container-surf">
+                        <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy">
+                        <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy">
+                    </div>
+                    <h3>Surf</h3>
+                    <p>Le surf, c’est ma passion. Glisser sur les vagues de la Méditerranée, c’est ressentir toute l’énergie de la mer. Sur une planche, tout s’efface, et je me sens en parfaite connexion avec la puissance de l’eau.</p>
+                </div>
+                
+
+                <div class="loisir-box">
+                    <div class="image-container-velo">
+                        <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy">
+                        <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy">
+                        <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy">
+                    </div>
+                    <h3>Vélo</h3>
+                    <p>J'aime faire des randonnées à vélo pour explorer de nouveaux paysages tout en pratiquant une activité physique.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Pied de page -->
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        
+            <nav class="social-icons">            
+                <!-- Lien vers le profil LinkedIn -->
+                <!--  target="_blank"  Ouvre le lien dans un nouvel onglet sans fermer la page actuelle -->
+                <!-- rel="noopener noreferrer"  Sécurise la page contre les attaques (tabnabbing) et bloque window.opener -->
+                <!-- aria-label="Profil LinkedIn"  Fournit une description pour les lecteurs d'écran pour l'accessibilité -->
+                <!-- class="social-icon">  Utilise la classe CSS "social-icon" pour styliser ce lien -->
+                <!-- <i class="fab fa-linkedin"></i>  Affiche l'icône LinkedIn avec FontAwesome -->
+                <a href="https://www.linkedin.com/in/aziz-malloul-alternance/"
+                target="_blank"                
+                rel="noopener noreferrer"      
+                aria-label="Profil LinkedIn"    
+                class="social-icon">            
+                    <i class="fab fa-linkedin"></i> 
+                </a>
+
+                <!-- Lien vers le profil Facebook -->
+                <a href="https://www.facebook.com/azizmalloul.fr"
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Profil Facebook"
+                class="social-icon">
+                    <i class="fab fa-facebook"></i> <!-- Affiche l'icône Facebook -->
+                </a>
+
+                <!-- Lien vers la chaîne YouTube -->
+                <a href="https://www.youtube.com/@azizselectronics335"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chaîne YouTube"
+                class="social-icon">
+                    <i class="fab fa-youtube"></i> <!-- Affiche l'icône YouTube -->
+                </a>
+
+                <!-- Lien vers le profil Instagram -->
+                <a href="https://www.instagram.com/aziz_spearfisher/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profil Instagram"
+                class="social-icon">
+                    <i class="fab fa-instagram"></i> <!-- Affiche l'icône Instagram -->
+                </a>
+
+                
+                
+            </nav>
+        </footer>
+
         </div>
-    </section>
+        
+<!-- TOUS les scripts doivent rester dans le body -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="../js/scripts.js"></script>
+<script src="../js/barba-init.js"></script>
 
-    <!-- Séparateur entre les sections -->
-    <div class="section-separator"></div>
-
-    <!-- Section Mes Loisirs -->
-    <section class="loisirs">
-        <h2>Mes Loisirs</h2>
-        <!-- Conteneur pour les loisirs -->
-        <div class="loisirs-container">
-            <!-- Boîte pour chaque loisir -->
-            <div class="loisir-box">
-                <div class="image-container-football">
-                    <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy">
-                    <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy">
-                </div>
-                <h3>Football</h3>
-                <p>Le football est l’un de mes sports préférés : je joue régulièrement avec mes amis pour le plaisir et pour rester en forme, tout en participant à des compétitions avec mon club..</p>
-            </div>
-            
-            
-            <div class="loisir-box">
-                <div class="image-container-guitar">
-                    <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy">
-                </div>
-                <h3>Guitare</h3>
-                <p>J’aime prendre ma guitare de temps en temps pour me détendre.</p>
-            </div>
-            
-
-            <div class="loisir-box">
-                <div class="image-container-bouteille">
-                    <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy">
-                </div>
-                <h3>Plongée sous-marine</h3>
-                <p>J’adore plonger en bouteille pour explorer les fonds marins et découvrir la richesse de la faune et de la flore sous-marines. Rester dans les profondeurs pour observer ces merveilles est une expérience à la fois apaisante et fascinante. 🌊🐠</p>
-            </div>
-            
-
-            <div class="loisir-box">
-                <div class="image-container-chasse_sous_marine">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy">
-                    <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy">
-                </div>
-                <h3>Chasse sous-marine</h3>
-                <p>La chasse sous-marine est ma véritable passion : elle combine l’exploration des fonds marins avec un défi sportif unique. J’aime énormément partir à l’aventure sous l’eau ! 🌊🐟</p>
-            </div>
-            
-
-            <div class="loisir-box">
-                <div class="image-container-surf">
-                    <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy">
-                    <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy">
-                </div>
-                <h3>Surf</h3>
-                <p>Le surf, c’est ma passion. Glisser sur les vagues de la Méditerranée, c’est ressentir toute l’énergie de la mer. Sur une planche, tout s’efface, et je me sens en parfaite connexion avec la puissance de l’eau.</p>
-            </div>
-            
-
-            <div class="loisir-box">
-                <div class="image-container-velo">
-                    <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy">
-                    <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy">
-                    <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy">
-                </div>
-                <h3>Vélo</h3>
-                <p>J'aime faire des randonnées à vélo pour explorer de nouveaux paysages tout en pratiquant une activité physique.</p>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    
-        <nav class="social-icons">            
-            <!-- Lien vers le profil LinkedIn -->
-            <!--  target="_blank"  Ouvre le lien dans un nouvel onglet sans fermer la page actuelle -->
-            <!-- rel="noopener noreferrer"  Sécurise la page contre les attaques (tabnabbing) et bloque window.opener -->
-            <!-- aria-label="Profil LinkedIn"  Fournit une description pour les lecteurs d'écran pour l'accessibilité -->
-            <!-- class="social-icon">  Utilise la classe CSS "social-icon" pour styliser ce lien -->
-            <!-- <i class="fab fa-linkedin"></i>  Affiche l'icône LinkedIn avec FontAwesome -->
-            <a href="https://www.linkedin.com/in/aziz-malloul-alternance/"
-               target="_blank"                
-               rel="noopener noreferrer"      
-               aria-label="Profil LinkedIn"    
-               class="social-icon">            
-                <i class="fab fa-linkedin"></i> 
-            </a>
-
-            <!-- Lien vers le profil Facebook -->
-            <a href="https://www.facebook.com/azizmalloul.fr"
-               target="_blank" 
-               rel="noopener noreferrer"
-               aria-label="Profil Facebook"
-               class="social-icon">
-                <i class="fab fa-facebook"></i> <!-- Affiche l'icône Facebook -->
-            </a>
-
-            <!-- Lien vers la chaîne YouTube -->
-            <a href="https://www.youtube.com/@azizselectronics335"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Chaîne YouTube"
-               class="social-icon">
-                <i class="fab fa-youtube"></i> <!-- Affiche l'icône YouTube -->
-            </a>
-
-            <!-- Lien vers le profil Instagram -->
-            <a href="https://www.instagram.com/aziz_spearfisher/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Profil Instagram"
-               class="social-icon">
-                <i class="fab fa-instagram"></i> <!-- Affiche l'icône Instagram -->
-            </a>
-
-             
-            
-        </nav>
-    </footer>
-    
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-    <!-- Inclusion du fichier JavaScript -->
-    <script src="../js/scripts.js"></script>
 </body>
 
 </html>

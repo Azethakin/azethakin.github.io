@@ -69,13 +69,42 @@
 
 </head>
 
-<body>
-    <!-- Section En-tête -->
-    <header>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="baccalaureat">
+
+
+        <!-- Section En-tête -->
+        <header>
+            
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                    <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li>
+                    </ul>
+                </nav>
+            </div>
         
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span>
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -86,61 +115,39 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                  <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li>
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
+                    <li id="google_translate_element_mobile"></li>
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span>
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
+        </header>
 
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> -->
-                <li id="google_translate_element_mobile"></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section principale du contenu pour le Baccalauréat -->
-    <section class="modules">
-        <h1 class="bac">Baccalauréat - Mathématiques (2017/2018)</h1><!-- Titre principal de la page bac -->
+        <!-- Section principale du contenu pour le Baccalauréat -->
+        <section class="modules">
+            <h1 class="bac">Baccalauréat - Mathématiques (2017/2018)</h1><!-- Titre principal de la page bac -->
+            
+    
         
- 
-       
-        <!-- Paragraphe expliquant l'obtention du baccalauréat -->
-        <p>
-            Pour l'année 2017/2018, j'ai obtenu mon Baccalauréat en Mathématiques. Cette formation m'a fourni une solide base en sciences, ce qui m'a permis de poursuivre mes études en licence de sciences et technologies.
-        </p>
-    </section>
+            <!-- Paragraphe expliquant l'obtention du baccalauréat -->
+            <p>
+                Pour l'année 2017/2018, j'ai obtenu mon Baccalauréat en Mathématiques. Cette formation m'a fourni une solide base en sciences, ce qui m'a permis de poursuivre mes études en licence de sciences et technologies.
+            </p>
+        </section>
 
-    <!-- Section Pied de page -->
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+        <!-- Section Pied de page -->
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
     
+    </div> <!-- Fin du container Barba -->
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     
     <!-- Lien vers le fichier JavaScript -->
     <script src="../js/scripts.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

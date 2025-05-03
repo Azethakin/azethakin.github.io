@@ -72,15 +72,49 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+    <!-- Barba.js -->
+
+    <script src="https://unpkg.com/@barba/core"></script>
+
+
 </head>
 
-<body>
-    <!-- Section En-tête -->
-    <header>
-       
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="troisieme_annee_electronique_UMMTO">
+
+        <!-- Section En-tête -->
+        <header>
+        
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                    <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -91,94 +125,73 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                  <!--  <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
-    
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
+        </header>
+
+        <!-- Section principale du contenu pour la troisième année -->
+        <section class="modules">
+
+            
+            <h1 class="annee3">Troisième Année - Électronique (UMMTO)</h1> <!-- Titre principal de la page annee3 -->
+            
+            
+
+            <!-- Paragraphe d'introduction -->
+            <p>
+                Durant ma troisième année de licence en électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO), 
+                j'ai approfondi mes compétences en systèmes électroniques, microprocesseurs et technologies des composants. 
+                Cette année fut marquée par des projets pratiques et des cours théoriques avancés. J'ai été classé 1er de ma promotion.
+            </p>
+
+            <!-- Liste des modules étudiés pendant cette année -->
+            <h2>Modules étudiés :</h2>
             <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
+                <li><strong>Semestre 5 :</strong></li>
+                <li>Systèmes à Microprocesseurs</li>
+                <li>Fonctions de l'Électronique</li>
+                <li>Traitement de signal</li>
+                <li>Réseaux informatiques locaux</li>
+                <li>Technologie des composants électroniques 2</li>
+                <li>Propagation d'ondes et Antennes</li>
+                <li>Physique des semi-conducteurs</li>
+                <li>Travaux Avant-projet</li>
 
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
+                <li><strong>Semestre 6 :</strong></li>
+                <li>Asservissements et régulation</li>
+                <li>Capteurs et Instrumentation</li>
+                <li>Électronique de puissance</li>
+                <li>Électronique des impulsions</li>
+                <li>Dispositifs Optoélectroniques</li>
+                <li>Projet Professionnel et Gestion d'Entreprise</li>
+                <li>Projet de Fin de Cycle</li>
             </ul>
-        </nav>
-    </header>
 
-    <!-- Section principale du contenu pour la troisième année -->
-    <section class="modules">
+            <!-- Résultats obtenus à la fin de l'année universitaire -->
+            <h2>Résultats :</h2>
+            <p>
+                J'ai obtenu mon diplôme de licence en électronique avec une première place dans la promotion, qui comptait 264 étudiants. 
+                Cela m'a permis de poursuivre mes études en France.
+            </p>
+        </section>
 
-        
-        <h1 class="annee3">Troisième Année - Électronique (UMMTO)</h1> <!-- Titre principal de la page annee3 -->
-        
-        
+        <!-- Section Pied de page -->
+        <footer>
+            <!-- Copyright et informations de droits réservés -->
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-        <!-- Paragraphe d'introduction -->
-        <p>
-            Durant ma troisième année de licence en électronique à l'Université Mouloud Mammeri de Tizi Ouzou (UMMTO), 
-            j'ai approfondi mes compétences en systèmes électroniques, microprocesseurs et technologies des composants. 
-            Cette année fut marquée par des projets pratiques et des cours théoriques avancés. J'ai été classé 1er de ma promotion.
-        </p>
-
-        <!-- Liste des modules étudiés pendant cette année -->
-        <h2>Modules étudiés :</h2>
-        <ul>
-            <li><strong>Semestre 5 :</strong></li>
-            <li>Systèmes à Microprocesseurs</li>
-            <li>Fonctions de l'Électronique</li>
-            <li>Traitement de signal</li>
-            <li>Réseaux informatiques locaux</li>
-            <li>Technologie des composants électroniques 2</li>
-            <li>Propagation d'ondes et Antennes</li>
-            <li>Physique des semi-conducteurs</li>
-            <li>Travaux Avant-projet</li>
-
-            <li><strong>Semestre 6 :</strong></li>
-            <li>Asservissements et régulation</li>
-            <li>Capteurs et Instrumentation</li>
-            <li>Électronique de puissance</li>
-            <li>Électronique des impulsions</li>
-            <li>Dispositifs Optoélectroniques</li>
-            <li>Projet Professionnel et Gestion d'Entreprise</li>
-            <li>Projet de Fin de Cycle</li>
-        </ul>
-
-        <!-- Résultats obtenus à la fin de l'année universitaire -->
-        <h2>Résultats :</h2>
-        <p>
-            J'ai obtenu mon diplôme de licence en électronique avec une première place dans la promotion, qui comptait 264 étudiants. 
-            Cela m'a permis de poursuivre mes études en France.
-        </p>
-    </section>
-
-    <!-- Section Pied de page -->
-    <footer>
-        <!-- Copyright et informations de droits réservés -->
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+    </div>
 
     <!-- Lien vers le fichier JavaScript -->
     <script src="../js/scripts.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

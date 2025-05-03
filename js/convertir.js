@@ -25,8 +25,11 @@ function updatePreview() {
 
         const img = document.createElement('img');
         img.src = imgObj.url;
+
+
         img.className = 'preview-image';
         img.style.transform = `rotate(${imgObj.rotation}deg)`;
+
 
         const badge = document.createElement('div');
         badge.className = 'number-badge';

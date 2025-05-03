@@ -74,15 +74,47 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
 </head>
 
-<body>
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="mes_diplomes">
 
-    <!-- En-tête avec la barre de navigation -->
-    <header>
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+
+        <!-- En-tête avec la barre de navigation -->
+        <header>
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li>-->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+        
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -94,75 +126,54 @@
                     <li><a href="../contact/">Contact</a></li>
                     <li><a href="../espace_interactif/">Espace Interactif</a></li>
 
-                   <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li>-->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
+        </header>
+
+        <!-- Section pour afficher les diplômes -->
+        <section class="diplomes">
+            <!-- Titre de la section diplômes -->
+            <h2>Mes Diplômes</h2>
+            
+            <!-- Conteneur pour les boîtes des diplômes -->
+            <div class="diplome-container">
+                <!-- Première boîte contenant les diplômes académiques -->
+                <div class="diplome-box">
+                    <!-- Titre cliquable menant vers la page des diplômes académiques -->
+                    <h3><a href="../diplomes_academiques/">Diplômes Académiques</a></h3>
+                    <!-- Liste des diplômes académiques -->
+                    <p>Baccalauréat - Filière Mathématiques (2018)</p>
+                    <p>Licence en électronique - UMMTO (2020/2021)</p>
+                    <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
+                </div>
+
+                <!-- Deuxième boîte contenant les autres diplômes et formations -->
+                <div class="diplome-box">
+                    <!-- Titre cliquable menant vers la page des autres diplômes et formations -->
+                    <h3><a href="../autres_diplomes_et_formations/">Autres Diplômes et Formations</a></h3>
+                    <!-- Liste des autres diplômes et formations -->
+                    <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
+                    <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
+                    <p>Diplôme secouriste subaquatique (2018)</p>
+                    <p>Formation Arduino (Juillet 2018)</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
+
+    </div> <!-- Fin container Barba -->
     
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-    
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
-
-               <!-- <li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section pour afficher les diplômes -->
-    <section class="diplomes">
-        <!-- Titre de la section diplômes -->
-        <h2>Mes Diplômes</h2>
-        
-        <!-- Conteneur pour les boîtes des diplômes -->
-        <div class="diplome-container">
-            <!-- Première boîte contenant les diplômes académiques -->
-            <div class="diplome-box">
-                <!-- Titre cliquable menant vers la page des diplômes académiques -->
-                <h3><a href="../diplomes_academiques/">Diplômes Académiques</a></h3>
-                <!-- Liste des diplômes académiques -->
-                <p>Baccalauréat - Filière Mathématiques (2018)</p>
-                <p>Licence en électronique - UMMTO (2020/2021)</p>
-                <p>Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)</p>
-            </div>
-
-            <!-- Deuxième boîte contenant les autres diplômes et formations -->
-            <div class="diplome-box">
-                <!-- Titre cliquable menant vers la page des autres diplômes et formations -->
-                <h3><a href="../autres_diplomes_et_formations/">Autres Diplômes et Formations</a></h3>
-                <!-- Liste des autres diplômes et formations -->
-                <p>Brevet plongeurs sous-marine 1er degré (2016)</p>
-                <p>Brevet plongeurs sous-marine 2ème degré (2018)</p>
-                <p>Diplôme secouriste subaquatique (2018)</p>
-                <p>Formation Arduino (Juillet 2018)</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
     
     <script src="../js/scripts.js"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 

@@ -46,41 +46,56 @@
             gtag('js', new Date());
             gtag('config', 'G-J24YWBKV6C');
         </script>
+
+
+                <!-- Barba.js -->
+        <script src="https://unpkg.com/@barba/core"></script>
+
+        <!-- Script d'initialisation de Barba -->
+        <script src="../js/barba-init.js"></script>
+
+
     </head>
     
-<body>
-<div class="Liens-cliquables">
-    <div class="container">
-        <h1>Ajouter des Liens Cliquables au PDF</h1>
-
-        <div class="upload-section">
-            <label for="fileUploader" class="custom-file-upload">
-                Sélectionner un fichier
-            </label>
-            <input type="file" id="fileUploader" accept=".pdf" style="display: none;">
-        </div>
-
-     
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="liens_cliquables">
         
 
-        <div class="tools">
-            <button id="rectangleBtn">Rectangle</button>
-            <button id="circleBtn">Cercle</button>
-            <input type="url" id="linkInput" placeholder="Coller lien ici">
-            <button id="addLinkBtn">Ajouter Lien</button>
-            <button id="downloadPdfBtn">Télécharger PDF</button>
-            <button id="deleteShapeBtn">Supprimer</button>
+    <div class="Liens-cliquables">
+        <div class="container">
+            <h1>Ajouter des Liens Cliquables au PDF</h1>
 
-        </div>
-        
-
-        <div class="pdf-container">
-            <canvas id="pdfCanvas"></canvas>
-        </div>
+            <div class="upload-section">
+                <label for="fileUploader" class="custom-file-upload">
+                    Sélectionner un fichier
+                </label>
+                <input type="file" id="fileUploader" accept=".pdf" style="display: none;">
+            </div>
 
         
+            
+
+            <div class="tools">
+                <button id="rectangleBtn">Rectangle</button>
+                <button id="circleBtn">Cercle</button>
+                <input type="url" id="linkInput" placeholder="Coller lien ici">
+                <button id="addLinkBtn">Ajouter Lien</button>
+                <button id="downloadPdfBtn">Télécharger PDF</button>
+                <button id="deleteShapeBtn">Supprimer</button>
+
+            </div>
+            
+
+            <div class="pdf-container">
+                <canvas id="pdfCanvas"></canvas>
+            </div>
+
+            
+        </div>
     </div>
-</div>
+
+</div> <!-- Fin de Barba container -->
+
 
 <!-- Bibliothèques requises -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
@@ -88,6 +103,6 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
 </script>
 <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-<script src="../js/Liens_cliquables.js"></script>
+
 </body>
 </html>

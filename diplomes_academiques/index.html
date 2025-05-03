@@ -64,15 +64,48 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-</head>
-<body>
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
 
-    <!-- En-tête avec la barre de navigation -->
-    <header>
-        <!-- Menu desktop uniquement -->
-        <div class="desktop-header">
-            <nav>
+
+</head>
+
+
+<body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="diplomes_academiques">
+  
+
+        <!-- En-tête avec la barre de navigation -->
+        <header>
+            <!-- Menu desktop uniquement -->
+            <div class="desktop-header">
+                <nav>
+                    <ul>
+                        <li><a href="../Accueil/">Accueil</a></li>
+                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                        <li><a href="../cv/">CV</a></li>
+                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                        <li><a href="../Loisirs/">Loisirs</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+
+                    <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
+                        <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Menu mobile uniquement -->
+            <div class="mobile-header">
+                <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
+                <div class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
+                </div>
+            </div>
+
+            <!-- Navigation mobile -->
+            <nav id="mobile-nav">
                 <ul>
                     <li><a href="../Accueil/">Accueil</a></li>
                     <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
@@ -83,66 +116,44 @@
                     <li><a href="../Loisirs/">Loisirs</a></li>
                     <li><a href="../contact/">Contact</a></li>
 
-                   <!-- <li><input type="text" id="search" placeholder="Rechercher..."></li> -->
-                    <li id="google_translate_element"></li> <!-- Traduction Google -->
+                    <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
+                    <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
                 </ul>
             </nav>
-        </div>
+        </header>
 
-        <!-- Menu mobile uniquement -->
-        <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-        </div>
-
-        <!-- Navigation mobile -->
-        <nav id="mobile-nav">
+        <section class="diplomes">
+            <h2>Diplômes Académiques</h2>
+            
             <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
+                <li>
+                    <strong>Baccalauréat :</strong><br>
+                    Filière Mathématiques (2018)
+                </li>
+                <li style="margin-top: 10px;">
+                    <strong>Deux diplômes licences :</strong><br>
+                    Licence en électronique - UMMTO (2020/2021)<br>
+                    Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)
+                </li>
 
-                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li> --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
+                <!-- On ajoute des diplômes futurs ici -->
             </ul>
-        </nav>
-    </header>
-
-    <section class="diplomes">
-        <h2>Diplômes Académiques</h2>
+            
+        </section>
         
-        <ul>
-            <li>
-                <strong>Baccalauréat :</strong><br>
-                Filière Mathématiques (2018)
-            </li>
-            <li style="margin-top: 10px;">
-                <strong>Deux diplômes licences :</strong><br>
-                Licence en électronique - UMMTO (2020/2021)<br>
-                Licence en électronique, énergie électrique et automatique (EEEA) - Université de Lyon 1 (2022/2023)
-            </li>
+        
 
-            <!-- On ajoute des diplômes futurs ici -->
-        </ul>
-          
-    </section>
-    
-    
+        <footer>
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
 
-    <footer>
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+    </div> <!-- Fin de container Barba -->    
 
-    <script src="../js/scripts.js"></script>
+  
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="../js/barba-init.js"></script>
 
 
 

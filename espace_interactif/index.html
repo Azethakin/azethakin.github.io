@@ -36,56 +36,64 @@
 
 
 
-
-
-
     <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Barba.js -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
 </head>
 
 
-<body>
+<body data-barba="wrapper">
+<div data-barba="container" data-barba-namespace="espace_interactif">
 
-<section class="espace-interactif">
-    <h2>Mon Espace Interactif</h2>
-    <p>Explorez mes outils interactifs réalisés en développement web : compression, conversion, redimensionnement d’images, PDF et bien d’autres à venir.</p>
 
-    <div class="interactif-container">
-        <!-- Carte outil 1 -->
-        <div class="interactif-box">
-            <img src="../images/image_espace_interactif/compresser_fichier/Aziz-Malloul Compressor.webp" alt="Compression de fichiers">
-            <h3><a href="../compresser_fichiers/">Compression de fichiers</a></h3>
-            <p>Outil simple pour compresser vos fichiers (images, PDF...).</p>
+    <section class="espace-interactif">
+        <h2>Mon Espace Interactif</h2>
+        <p>Explorez mes outils interactifs réalisés en développement web : compression, conversion, redimensionnement d’images, PDF et bien d’autres à venir.</p>
+
+        <div class="interactif-container">
+            <!-- Carte outil 1 -->
+            <div class="interactif-box">
+                <img src="../images/image_espace_interactif/compresser_fichier/Aziz-Malloul Compressor.webp" alt="Compression de fichiers">
+                <h3><a href="../compresser_fichiers/">Compression de fichiers</a></h3>
+                <p>Outil simple pour compresser vos fichiers (images, PDF...).</p>
+            </div>
+
+            <!-- Carte outil 2 -->
+            <div class="interactif-box">
+                <img src="../images/image_espace_interactif/conversion_pdf_images/convert pdf_image.webp" alt="PDF vers images">
+                <h3><a href="../conversion_pdf_images/">Conversion PDF → Images</a></h3>
+                <p>Transformez chaque page PDF en image haute qualité.</p>
+            </div>
+
+            <!-- Carte outil 3 -->
+            <div class="interactif-box">
+                <img src="../images/image_espace_interactif/conversion_images_pdf/convert image_pdf.webp" alt="Images vers PDF">
+                <h3><a href="../conversion_images_pdf/">Conversion Images → PDF</a></h3>
+                <p>Fusionnez plusieurs images en un seul fichier PDF.</p>
+            </div>
+
+            <!-- Carte outil 4 -->
+            <div class="interactif-box">
+                <img src="../images/image_espace_interactif/redimensionner_images/Aziz_Malloul_Rsizer.webp" alt="Redimensionner">
+                <h3><a href="../redimensionner_images/">Redimensionner une image</a></h3>
+                <p>Ajustez la taille de vos images à la volée.</p>
+            </div>
+
+            <!-- Carte outil 5 -->
+            <div class="interactif-box">
+                <img src="../images/image_espace_interactif/Liens_cliquables/Aziz_Malloul_Linker.webp" alt="Liens PDF">
+                <h3><a href="../Liens_cliquables/">Ajouter des liens dans un PDF</a></h3>
+                <p>Ajoutez facilement des hyperliens dans vos documents PDF.</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Carte outil 2 -->
-        <div class="interactif-box">
-            <img src="../images/image_espace_interactif/conversion_pdf_images/convert pdf_image.webp" alt="PDF vers images">
-            <h3><a href="../conversion_pdf_images/">Conversion PDF → Images</a></h3>
-            <p>Transformez chaque page PDF en image haute qualité.</p>
-        </div>
+</div> <!-- Fin container Barba -->
 
-        <!-- Carte outil 3 -->
-        <div class="interactif-box">
-            <img src="../images/image_espace_interactif/conversion_images_pdf/convert image_pdf.webp" alt="Images vers PDF">
-            <h3><a href="../conversion_images_pdf/">Conversion Images → PDF</a></h3>
-            <p>Fusionnez plusieurs images en un seul fichier PDF.</p>
-        </div>
+<script src="../js/barba-init.js"></script>
 
-        <!-- Carte outil 4 -->
-        <div class="interactif-box">
-            <img src="../images/image_espace_interactif/redimensionner_images/Aziz_Malloul_Rsizer.webp" alt="Redimensionner">
-            <h3><a href="../redimensionner_images/">Redimensionner une image</a></h3>
-            <p>Ajustez la taille de vos images à la volée.</p>
-        </div>
-
-        <!-- Carte outil 5 -->
-        <div class="interactif-box">
-            <img src="../images/image_espace_interactif/Liens_cliquables/Aziz_Malloul_Linker.webp" alt="Liens PDF">
-            <h3><a href="../Liens_cliquables/">Ajouter des liens dans un PDF</a></h3>
-            <p>Ajoutez facilement des hyperliens dans vos documents PDF.</p>
-        </div>
-    </div>
-</section>
 
 </body>
 </html>

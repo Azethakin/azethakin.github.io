@@ -46,70 +46,85 @@
             gtag('js', new Date());
             gtag('config', 'G-J24YWBKV6C');
         </script>
+
+        <!-- Barba.js -->
+        <script src="https://unpkg.com/@barba/core"></script>
+
+
     </head>
     
 
-<body class="image-editor">
-
-    <div class="container">
-
-        <h1>Redimensionner et Modifier une Image</h1>
-
-        <!-- Upload de l'image -->
-        <div class="upload-section" style="margin-top: 20px;">
-            <label for="upload" class="custom-file-upload">
-                📂 Choisir une image
-            </label>
-            <input type="file" id="upload" accept="image/*" style="display: none;">
-        </div>
+<body class="image-editor" data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="redimensionner_images">
 
 
 
-        
 
-        
+        <div class="container">
 
-        <!-- Affichage des images -->
-        <div class="canvases">
-            <div>
-                <h2>Image Originale</h2>
-                <canvas id="originalCanvas" width="400" height="300"></canvas>
+            <h1>Redimensionner et Modifier une Image</h1>
+
+            <!-- Upload de l'image -->
+            <div class="upload-section" style="margin-top: 20px;">
+                <label for="upload" class="custom-file-upload">
+                    📂 Choisir une image
+                </label>
+                <input type="file" id="upload" accept="image/*" style="display: none;">
             </div>
-            <div>
-                <h2>Image Retouchée</h2>
-                <canvas id="editedCanvas" width="400" height="300"></canvas>
+
+
+
+            
+
+            
+
+            <!-- Affichage des images -->
+            <div class="canvases">
+                <div>
+                    <h2>Image Originale</h2>
+                    <canvas id="originalCanvas" width="400" height="300"></canvas>
+                </div>
+                <div>
+                    <h2>Image Retouchée</h2>
+                    <canvas id="editedCanvas" width="400" height="300"></canvas>
+                </div>
             </div>
-        </div>
 
-        <!-- Contrôles de retouche -->
-        <div class="controls">
-            <label>
-                Éclaircissement :
-                <input type="range" id="brightness" min="0.5" max="2" value="1" step="0.01">
-            </label>
+            <!-- Contrôles de retouche -->
+            <div class="controls">
+                <label>
+                    Éclaircissement :
+                    <input type="range" id="brightness" min="0.5" max="2" value="1" step="0.01">
+                </label>
 
-            <label>
-                Netteté :
-                <input type="range" id="sharpness" min="1" max="5" value="1" step="0.1">
-            </label>
+                <label>
+                    Netteté :
+                    <input type="range" id="sharpness" min="1" max="5" value="1" step="0.1">
+                </label>
 
-            <label>
-                Agrandissement (%) :
-                <input type="range" id="scale" min="10" max="300" value="100" step="1">
-            </label>
-        </div>
+                <label>
+                    Agrandissement (%) :
+                    <input type="range" id="scale" min="10" max="300" value="100" step="1">
+                </label>
+            </div>
 
-        <!-- Boutons -->
-        <div class="buttons">
-            <button id="resetBtn">Réinitialiser</button>
-            <button id="downloadBtn">Télécharger l'image retouchée</button>
+            <!-- Boutons -->
+            <div class="buttons">
+                <button id="resetBtn">Réinitialiser</button>
+                <button id="downloadBtn">Télécharger l'image retouchée</button>
+            </div>
+
         </div>
 
     </div>
 
+
     <!-- Inclusion des scripts -->
     <script src="../js/scripts.js"></script> <!-- Ton script général -->
     <script src="../js/redimensionner.js"></script> <!-- Script spécifique à l'éditeur -->
+
+    <script src="../js/barba-init.js"></script>
+
 
 </body>
 </html>

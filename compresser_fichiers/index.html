@@ -50,79 +50,97 @@
             gtag('js', new Date());
             gtag('config', 'G-J24YWBKV6C');
         </script>
+
+        <!-- Script Barba.js -->
+        <script src="https://unpkg.com/@barba/core"></script>
+
     </head>
     
 
-<body class="compress-file-page">
-    
-   <!-- EN-TÊTE (texte introductif) -->
-    <header class="page-header">
-        <p>Importez un fichier image (JPG, PNG, etc.) ou PDF, ajustez le taux de compression, puis téléchargez votre fichier compressé.</p>
-    </header>
-
-    <!-- WRAPPER PRINCIPAL (contenu central) -->
-    <div class="compress-wrapper">
-        <div class="container">
-            <h1>Compresser des Fichiers</h1>
-
-            <div class="upload-section">
-                <label for="upload" class="custom-file-upload">
-                    Sélectionner un fichier
-                </label>
-                <input type="file" id="upload" style="display:none;">
-            </div>
-
-            <div class="file-info" id="fileInfo" style="display:none;">
-                <p><strong>Nom du fichier :</strong> <span id="fileName"></span></p>
-                <p><strong>Taille originale :</strong> <span id="originalSize"></span></p>
-                <p><strong>Taille estimée :</strong> <span id="compressedSize"></span></p>
-            </div>
-
-
-                    <!-- Prévisualisation images -->
-            <div class="preview-section" id="previewSection" style="display:none;">
-                <div>
-                    <p>Original</p>
-                    <img id="originalPreview" class="preview-image">
-                </div>
-                <div>
-                    <p>Compressée (estimation)</p>
-                    <img id="compressedPreview" class="preview-image">
-                </div>
-            </div>
-
-
-            <div class="compression-control" style="display:none;">
-                <label for="compressionRange">Taux de compression : <span id="compressionValue">70</span>%</label>
-                <input type="range" id="compressionRange" min="10" max="100" value="70">
-            </div>
-
-            <div class="buttons" style="display:none;">
-                <button id="compressBtn">Compresser et Télécharger</button>
-            </div>
-
-            <!-- Progression -->
-            <div id="progressContainer" style="display:none; margin-top:20px;">
-                <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
-                <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
-            </div>
-
-
-
-        </div>
+<body class="compress-file-page" data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="compresser_fichiers">
 
         
 
-    </div>
-      
-    <footer class="footer-compresser">
-        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
-    </footer>
+    
 
+        
+    <!-- EN-TÊTE (texte introductif) -->
+        <header class="page-header">
+            <p>Importez un fichier image (JPG, PNG, etc.) ou PDF, ajustez le taux de compression, puis téléchargez votre fichier compressé.</p>
+        </header>
+
+        <!-- WRAPPER PRINCIPAL (contenu central) -->
+        <div class="compress-wrapper">
+            <div class="container">
+                <h1>Compresser des Fichiers</h1>
+
+                <div class="upload-section">
+                    <label for="upload" class="custom-file-upload">
+                        Sélectionner un fichier
+                    </label>
+                    <input type="file" id="upload" style="display:none;">
+                </div>
+
+                <div class="file-info" id="fileInfo" style="display:none;">
+                    <p><strong>Nom du fichier :</strong> <span id="fileName"></span></p>
+                    <p><strong>Taille originale :</strong> <span id="originalSize"></span></p>
+                    <p><strong>Taille estimée :</strong> <span id="compressedSize"></span></p>
+                </div>
+
+
+                        <!-- Prévisualisation images -->
+                <div class="preview-section" id="previewSection" style="display:none;">
+                    <div>
+                        <p>Original</p>
+                        <img id="originalPreview" class="preview-image">
+                    </div>
+                    <div>
+                        <p>Compressée (estimation)</p>
+                        <img id="compressedPreview" class="preview-image">
+                    </div>
+                </div>
+
+
+                <div class="compression-control" style="display:none;">
+                    <label for="compressionRange">Taux de compression : <span id="compressionValue">70</span>%</label>
+                    <input type="range" id="compressionRange" min="10" max="100" value="70">
+                </div>
+
+                <div class="buttons" style="display:none;">
+                    <button id="compressBtn">Compresser et Télécharger</button>
+                </div>
+
+                <!-- Progression -->
+                <div id="progressContainer" style="display:none; margin-top:20px;">
+                    <div id="progressBar" style="width:0%; height:20px; background-color:#28a745; border-radius:5px;"></div>
+                    <div id="progressText" style="margin-top:5px; font-weight:bold;">Progression : 0%</div>
+                </div>
+
+
+
+            </div>
+
+            
+
+        </div>
+
+    </div> <!-- Fin du container Barba -->
+
+
+        <footer class="footer-compresser">
+            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+        </footer>
+
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 
 
-    <script src="../js/compresser_fichiers.js"></script>
+   
+
+    <script src="../js/barba-init.js"></script>
+
+
 </body>
 </html>
