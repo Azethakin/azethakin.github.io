@@ -48,17 +48,13 @@
         </script>
 
 
-                <!-- Barba.js -->
-        <script src="https://unpkg.com/@barba/core"></script>
-
-        <!-- Script d'initialisation de Barba -->
-        <script src="../js/barba-init.js"></script>
 
 
     </head>
     
-<body data-barba="wrapper">
-    <div data-barba="container" data-barba-namespace="liens_cliquables">
+<body>
+        
+      
         
 
     <div class="Liens-cliquables">
@@ -67,7 +63,7 @@
 
             <div class="upload-section">
                 <label for="fileUploader" class="custom-file-upload">
-                    Sélectionner un fichier
+                    📂 Sélectionner un fichier
                 </label>
                 <input type="file" id="fileUploader" accept=".pdf" style="display: none;">
             </div>
@@ -94,7 +90,7 @@
         </div>
     </div>
 
-</div> <!-- Fin de Barba container -->
+
 
 
 <!-- Bibliothèques requises -->
@@ -103,6 +99,10 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
 </script>
 <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+
+<script src="../js/Liens_cliquables.js"></script>
+
 
 </body>
 </html>

@@ -557,6 +557,10 @@ ul {
 
 
 
+
+
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 pour ajouter ou supprimer des espaces verticales entre les lignes dans diplomes_academiques.html
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -1135,7 +1139,7 @@ nav ul li input,
     display: block; /* Empêche les marges supplémentaires */
     margin: auto; /* Centre l'image horizontalement */
     transform-origin: top center; /* Fixe le point de zoom au centre haut */
-    height: auto; /* Ajuste automatiquement la hauteur */33
+    height: auto; /* Ajuste automatiquement la hauteur */
 }
 
 /* ====================================
@@ -1145,21 +1149,7 @@ nav ul li input,
 /* Positionne les boutons à l'intérieur de la zone blanche */
 /* Conteneur pour les boutons de contrôle */
 /* Boutons de contrôle */
-.cv-viewer .controls {
-    position: absolute; /* Fixe les boutons par rapport à la zone contenant le CV */
-    top:0px; /* Distance du haut de la zone CV cest a dire pour regler l'emplacement de la box des bouton dans la zone du cv  */
-    left: 50%; /* Centre horizontalement */
-    transform: translateX(-50%); /* Centre parfaitement les boutons */
-    z-index: 5; /* Place les boutons au-dessus de l'image */
-    background: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
-    border-radius: 10px; /* Bordures arrondies */
-    padding: 5px 10px; /* Espacement interne */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Ombre pour un effet visuel agréable */
-    display: flex; /* Active Flexbox pour les boutons */
-    gap: 5px; /* Ajoute un espacement entre les boutons */
-    flex-wrap: nowrap; /* Empêche les boutons de passer à une nouvelle ligne */
 
-}
 
 /* Boutons avec un style cohérent */
 /* Boutons individuels */
@@ -1174,10 +1164,39 @@ nav ul li input,
     transition: background-color 0.3s; /* Transition pour l'effet de survol */
 }
 
+/* Conteneur des boutons de zoom */
+/* Boîte contenant les boutons de contrôle */
+.cv-controls {
+    display: flex; /* Affiche les boutons en ligne */
+    justify-content: center; /* Centre les boutons horizontalement */
+    align-items: center; /* Aligne verticalement */
+    gap: 10px; /* Espacement entre les boutons */
+    padding: 8px 10px; /* Espace intérieur réduit */
+    background-color: #ffffff; /* Même couleur que la zone du CV */
+    border-bottom: 1px solid #ddd; /* Ligne de séparation fine */
+    width: 100%; /* Prend toute la largeur du viewer */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+
+/* Style des boutons à l'intérieur de .cv-controls */
+.cv-controls button {
+    padding: 6px 12px; /* Taille correcte et compacte */
+    font-size: 13px; /* Texte lisible mais compact */
+    background-color: #3498db; /* Bleu */
+    color: white; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur main */
+    transition: background-color 0.3s ease;
+}
+
 /* Change légèrement la couleur lors du survol des boutons */
-.controls button:hover {
+.cv-controls button:hover {
     background-color: #2980b9; /* Couleur plus foncée pour l'effet de survol */
 }
+
+
 
 
 /* Section d'informations complémentaires */
@@ -2448,7 +2467,7 @@ body.compress-file-page {
 
 
 
-/* === Styles pour le module "Liens cliquables" === */
+/* === Styles pour le module "Liens cliquables"  Liens_cliquables   liens cliquables ajout de lien cliquables dans un pdf=== */
 
 .Liens-cliquables {
     font-family: Arial, sans-serif;       /* Police principale utilisée dans toute l'interface */

@@ -1,6 +1,17 @@
 const fileUploader = document.getElementById('fileUploader');
+
+
 const canvas = document.getElementById('pdfCanvas');
 const ctx = canvas.getContext('2d');
+
+// ✅ Ajout de l'écouteur sur le label pour forcer le clic sur l'input caché
+const fileLabel = document.querySelector('label[for="fileUploader"]');
+if (fileLabel && fileUploader) {
+    fileLabel.addEventListener('click', (e) => {
+        e.preventDefault();
+        fileUploader.click();
+    });
+}
 
 let pdfDoc = null;
 let currentPdfBytes = null;
@@ -24,24 +35,20 @@ let isRendering = false;
 let overlayCanvas;
 let overlayCtx;
 
-
-
-
-// Chargement du fichier PDF
+// 📂 Chargement du fichier PDF
 fileUploader.onchange = (e) => {
     const file = e.target.files[0];
     if (!file || file.type !== 'application/pdf') return alert("Veuillez charger un fichier PDF valide.");
 
     const reader = new FileReader();
 
-
     reader.onload = async () => {
         try {
             const arrayBuffer = reader.result;
-            pdfForPdfLib = arrayBuffer.slice(0); // copie indépendante pour pdf-lib
-            const uint8Array = new Uint8Array(arrayBuffer); // pour pdf.js
+            pdfForPdfLib = arrayBuffer.slice(0);
+            const uint8Array = new Uint8Array(arrayBuffer);
             pdfForPdfJs = uint8Array;
-    
+
             pdfDoc = await pdfjsLib.getDocument({ data: pdfForPdfJs }).promise;
             renderPage();
         } catch (error) {
@@ -49,14 +56,10 @@ fileUploader.onchange = (e) => {
             alert("Impossible de charger le fichier PDF. Vérifiez son format et réessayez.");
         }
     };
-    
-
-
 
     reader.readAsArrayBuffer(file);
 };
 
-// Affichage de la page PDF dans le canvas
 async function renderPage() {
     if (!pdfDoc || isRendering) return;
     isRendering = true;
@@ -67,23 +70,23 @@ async function renderPage() {
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
-                // Créer une seule fois le overlayCanvas
         if (!overlayCanvas) {
             overlayCanvas = document.createElement('canvas');
-            overlayCanvas.width = canvas.width;
-            overlayCanvas.height = canvas.height;
-            overlayCanvas.style.position = 'absolute';
-            overlayCanvas.style.left = '0';
-            overlayCanvas.style.top = '0';
-            overlayCanvas.style.width = '100%';
-            overlayCanvas.style.height = '100%';
-
-            overlayCanvas.style.pointerEvents = 'none'; // permet les clics à travers
-            canvas.parentNode.style.position = 'relative'; // important pour positionner absolu
+            canvas.parentNode.style.position = 'relative';
             canvas.parentNode.appendChild(overlayCanvas);
             overlayCtx = overlayCanvas.getContext('2d');
         }
-
+        
+        // Toujours synchroniser les dimensions à chaque rendu
+        overlayCanvas.width = canvas.width;
+        overlayCanvas.height = canvas.height;
+        overlayCanvas.style.position = 'absolute';
+        overlayCanvas.style.left = '0';
+        overlayCanvas.style.top = '0';
+        overlayCanvas.style.width = canvas.style.width;
+        overlayCanvas.style.height = canvas.style.height;
+        overlayCanvas.style.pointerEvents = 'none';
+        
 
         await page.render({ canvasContext: ctx, viewport }).promise;
 
@@ -99,17 +102,26 @@ async function renderPage() {
     }
 }
 
-
-// Boutons pour sélectionner la forme
 document.getElementById('rectangleBtn').onclick = () => currentShapeType = 'rectangle';
 document.getElementById('circleBtn').onclick = () => currentShapeType = 'circle';
 
-// Gestion du dessin sur le canvas
-canvas.onmousedown = (e) => {
-    const x = e.offsetX;
-    const y = e.offsetY;
+function getMousePos(canvas, evt) {
+    const rect = canvas.getBoundingClientRect(); // taille visible à l'écran
+    const scaleX = canvas.width / rect.width;   // rapport entre taille logique et physique
+    const scaleY = canvas.height / rect.height;
 
-    // Vérifie si on clique sur une forme existante (en partant de la dernière vers la première)
+    return {
+        x: (evt.clientX - rect.left) * scaleX,
+        y: (evt.clientY - rect.top) * scaleY
+    };
+}
+
+
+
+canvas.onmousedown = (e) => {
+    const { x, y } = getMousePos(canvas, e);
+
+
     selectedShapeIndex = null;
     isDraggingShape = false;
 
@@ -127,50 +139,37 @@ canvas.onmousedown = (e) => {
             dragOffsetY = y - y1;
             drawing = false;
             document.getElementById('deleteShapeBtn').disabled = false;
-            renderPage(); // pour mettre à jour le style du rectangle sélectionné (bleu)
+            renderPage();
             return;
         }
     }
 
-    // Si aucune forme sélectionnée, commencer un nouveau dessin
     drawing = true;
     startX = x;
     startY = y;
     selectedShapeIndex = null;
     document.getElementById('deleteShapeBtn').disabled = true;
-    renderPage(); // désélectionner visuellement les formes
+    renderPage();
 };
 
-
-
-
-
-
-
-
-
 canvas.onmousemove = (e) => {
+    const { x, y } = getMousePos(canvas, e);
 
-    // Détection du survol d'une forme pour changer le curseur
-let hovering = false;
-for (let i = shapes.length - 1; i >= 0; i--) {
-    const shape = shapes[i];
-    const x1 = Math.min(shape.startX, shape.endX);
-    const x2 = Math.max(shape.startX, shape.endX);
-    const y1 = Math.min(shape.startY, shape.endY);
-    const y2 = Math.max(shape.startY, shape.endY);
 
-    if (e.offsetX >= x1 && e.offsetX <= x2 && e.offsetY >= y1 && e.offsetY <= y2) {
-        hovering = true;
-        break;
+    let hovering = false;
+    for (let i = shapes.length - 1; i >= 0; i--) {
+        const shape = shapes[i];
+        const x1 = Math.min(shape.startX, shape.endX);
+        const x2 = Math.max(shape.startX, shape.endX);
+        const y1 = Math.min(shape.startY, shape.endY);
+        const y2 = Math.max(shape.startY, shape.endY);
+
+        if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
+            hovering = true;
+            break;
+        }
     }
-}
-canvas.style.cursor = hovering ? 'grab' : 'default';
-
-
-
-    const x = e.offsetX;
-    const y = e.offsetY;
+    canvas.style.cursor = hovering ? 'grab' : 'default';
 
     if (isDraggingShape && selectedShapeIndex !== null) {
         const shape = shapes[selectedShapeIndex];
@@ -192,27 +191,12 @@ canvas.style.cursor = hovering ? 'grab' : 'default';
         overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
         drawShapeOnOverlay(startX, startY, x, y, currentShapeType);
     }
-    
 };
 
-
-function drawShapeOnOverlay(x1, y1, x2, y2, type) {
-    overlayCtx.strokeStyle = 'red';
-    overlayCtx.lineWidth = 2;
-
-    if (type === 'rectangle') {
-        overlayCtx.strokeRect(x1, y1, x2 - x1, y2 - y1);
-    } else if (type === 'circle') {
-        overlayCtx.beginPath();
-        overlayCtx.arc((x1 + x2) / 2, (y1 + y2) / 2, Math.hypot(x2 - x1, y2 - y1) / 2, 0, 2 * Math.PI);
-        overlayCtx.stroke();
-    }
-}
-
-
-
-
 canvas.onmouseup = (e) => {
+    const { x, y } = getMousePos(canvas, e);
+
+
     if (isDraggingShape) {
         isDraggingShape = false;
         return;
@@ -225,39 +209,55 @@ canvas.onmouseup = (e) => {
             type: currentShapeType,
             startX,
             startY,
-            endX: e.offsetX,
-            endY: e.offsetY,
+            endX: x,
+            endY: y,
             link: ''
         });
 
-        renderPage(); // redessine avec la nouvelle forme
+        renderPage();
     }
 
     overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
-
 };
 
+function drawShapeOnOverlay(x1, y1, x2, y2, type) {
+    overlayCtx.strokeStyle = 'red';
+    overlayCtx.lineWidth = 2;
 
+    if (type === 'rectangle') {
+        const left = Math.min(x1, x2);
+        const top = Math.min(y1, y2);
+        const width = Math.abs(x2 - x1);
+        const height = Math.abs(y2 - y1);
+        overlayCtx.strokeRect(left, top, width, height);
 
-// Redessine sans effacer tout le canvas
+    } else if (type === 'circle') {
+        overlayCtx.beginPath();
+        overlayCtx.arc((x1 + x2) / 2, (y1 + y2) / 2, Math.hypot(x2 - x1, y2 - y1) / 2, 0, 2 * Math.PI);
+        overlayCtx.stroke();
+    }
+}
+
 async function renderPageWithoutClear() {
     const page = await pdfDoc.getPage(1);
-
     const viewport = page.getViewport({ scale: pdfScale });
     canvas.width = viewport.width;
     canvas.height = viewport.height;
-    page.render({ canvasContext: ctx, viewport }).promise.then(() => {
-        shapes.forEach(s => drawShape(s.startX, s.startY, s.endX, s.endY, s.type));
-    });
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    shapes.forEach(s => drawShape(s.startX, s.startY, s.endX, s.endY, s.type));
 }
 
-// Dessine les formes sur le canvas
 function drawShape(x1, y1, x2, y2, type, isSelected = false) {
     ctx.strokeStyle = isSelected ? 'blue' : 'red';
     ctx.lineWidth = 2;
 
     if (type === 'rectangle') {
-        ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+        const left = Math.min(x1, x2);
+        const top = Math.min(y1, y2);
+        const width = Math.abs(x2 - x1);
+        const height = Math.abs(y2 - y1);
+        ctx.strokeRect(left, top, width, height);
+
     } else if (type === 'circle') {
         ctx.beginPath();
         ctx.arc((x1 + x2) / 2, (y1 + y2) / 2, Math.hypot(x2 - x1, y2 - y1) / 2, 0, 2 * Math.PI);
@@ -265,8 +265,6 @@ function drawShape(x1, y1, x2, y2, type, isSelected = false) {
     }
 }
 
-
-// Ajout d'un lien à la dernière zone sélectionnée
 document.getElementById('addLinkBtn').onclick = () => {
     const link = document.getElementById('linkInput').value.trim();
     if (!link || shapes.length === 0) {
@@ -278,30 +276,23 @@ document.getElementById('addLinkBtn').onclick = () => {
     alert("✅ Lien ajouté !");
 };
 
-// Téléchargement du PDF modifié
 document.getElementById('downloadPdfBtn').onclick = async () => {
     if (!pdfForPdfLib) return alert("Veuillez charger un PDF avant de télécharger.");
 
-
     try {
         const pdfDoc = await PDFLib.PDFDocument.load(pdfForPdfLib);
-
-
         const pages = pdfDoc.getPages();
         const page = pages[0];
-
         const { width, height } = page.getSize();
 
         shapes.forEach(shape => {
             if (!shape.link) return;
 
-            // Conversion des coordonnées canvas vers PDF
             const x1 = Math.min(shape.startX, shape.endX) / pdfScale;
             const x2 = Math.max(shape.startX, shape.endX) / pdfScale;
             const y1 = height - (Math.max(shape.startY, shape.endY) / pdfScale);
             const y2 = height - (Math.min(shape.startY, shape.endY) / pdfScale);
 
-            // Création de l'annotation de lien
             const annotationDict = pdfDoc.context.obj({
                 Type: 'Annot',
                 Subtype: 'Link',
@@ -313,16 +304,15 @@ document.getElementById('downloadPdfBtn').onclick = async () => {
                     URI: PDFLib.PDFString.of(shape.link)
                 }
             });
-            
+
             const annotationRef = pdfDoc.context.register(annotationDict);
             const annots = page.node.Annots();
-            
+
             if (annots) {
                 annots.push(annotationRef);
             } else {
                 page.node.set(PDFLib.PDFName.of('Annots'), pdfDoc.context.obj([annotationRef]));
             }
-            
         });
 
         const modifiedPdfBytes = await pdfDoc.save();
@@ -335,12 +325,7 @@ document.getElementById('downloadPdfBtn').onclick = async () => {
         console.error("Erreur lors de la génération du PDF :", error);
         alert("❌ Une erreur est survenue lors de la création du PDF.");
     }
-
-    
-
 };
-
-
 
 document.getElementById('deleteShapeBtn').onclick = () => {
     if (selectedShapeIndex !== null) {
@@ -348,8 +333,6 @@ document.getElementById('deleteShapeBtn').onclick = () => {
         selectedShapeIndex = null;
         document.getElementById('deleteShapeBtn').disabled = true;
         renderPage();
-        
-        
     } else {
         alert("Cliquez d'abord sur une forme à supprimer.");
     }

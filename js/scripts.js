@@ -444,21 +444,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function updateScrollBars() {
-        
-        const cvImage = document.getElementById('cv-image'); // Image du CV
-    
-        // Vérifie si l'image dépasse la largeur ou la hauteur du conteneur après le zoom
         const imageWidth = cvImage.offsetWidth * zoomLevel;
-        const imageHeight = cvImage.offsetHeight * zoomLevel;
         const viewerWidth = cvViewer.clientWidth;
-        const viewerHeight = cvViewer.clientHeight;
     
-        // Active la barre horizontale si l'image dépasse la largeur du conteneur
         cvViewer.style.overflowX = imageWidth > viewerWidth ? 'scroll' : 'hidden';
+        cvViewer.style.overflowY = 'auto';
     
-        // Active la barre verticale si l'image dépasse la hauteur du conteneur
-        cvViewer.style.overflowY = imageHeight > viewerHeight ? 'scroll' : 'hidden';
+        // Centrage horizontal pour transform-origin: top center
+        const scrollLeft = (imageWidth - viewerWidth) / 2;
+        requestAnimationFrame(() => {
+            cvViewer.scrollLeft = scrollLeft;
+        });
     }
+    
+    
+    
     
     
     
