@@ -2527,42 +2527,232 @@ body.compress-file-page {
 .Liens-cliquables button:hover {
     background-color: #0056b3;            /* Couleur bleue plus foncée au survol */
 }
+/* Section de téléversement (upload) */
 .upload-section {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    margin-top: 0px;        /* (optionnel) espace au-dessus */
+    display: flex;                  /* Utilise Flexbox pour l'agencement */
+    justify-content: center;       /* Centre les éléments horizontalement */
+    margin-top: 0px;               /* Aucun espace au-dessus de cette section */
 }
 
+/* Contrôles de zoom (ex: boutons + et -) */
 .zoom-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
+    display: flex;                 /* Utilise Flexbox pour les aligner sur une ligne */
+    justify-content: center;      /* Centre les boutons horizontalement */
+    gap: 10px;                     /* Espace horizontal de 10px entre chaque bouton */
+    margin: 10px 0;                /* Marge de 10px en haut et en bas, 0 sur les côtés */
 }
 
-.zoom-controls button {
-    padding: 6px 12px;
-    background-color: #28a745;
-    color: white;
+
+
+
+/* pour la fenetre information dans liens cliquable*/
+/* Style du bouton ℹ️ (info) */
+
+/* --------- MODALE GÉNÉRALE --------- */
+
+#infoModalMobile.modal {
+  display: none;/* Masque la modale par défaut */
+  position: fixed;/* Positionne la modale par rapport à la fenêtre du navigateur */
+  z-index: 999;/* S'assure que la modale est au-dessus de presque tous les autres éléments */
+  left: 0; /* Aligne le bord gauche de la modale à gauche de l'écran */
+  top: 0;/* Aligne le bord supérieur de la modale en haut de l'écran */
+  width: 100%;  /* Occupe toute la largeur de l'écran */
+  height: 100%; /* Occupe toute la hauteur de l'écran */
+  background-color: rgba(0,0,0,0.5); /* Fond semi-transparent noir pour effet d’overlay */
+}
+
+
+#infoModalDesktop.modal {
+  display: none;/* Masque la modale par défaut */
+  position: fixed;/* Positionne la modale par rapport à la fenêtre du navigateur */
+  z-index: 999;/* S'assure que la modale est au-dessus de presque tous les autres éléments */
+  left: 0; /* Aligne le bord gauche de la modale à gauche de l'écran */
+  top: 0;/* Aligne le bord supérieur de la modale en haut de l'écran */
+  width: 100%;  /* Occupe toute la largeur de l'écran */
+  height: 100%; /* Occupe toute la hauteur de l'écran */
+  background-color: rgba(0,0,0,0.5); /* Fond semi-transparent noir pour effet d’overlay */
+}
+
+
+/* --------- CONTENU DE LA MODALE --------- */
+#infoModalMobile .modal-content {
+    background-color: white;                /* Fond blanc pour le contenu de la modale */
+    margin: 15% auto;                       /* Centrage horizontal, et 15% d'espace en haut */
+    padding: 20px;                          /* Espace intérieur autour du contenu */
+    border-radius: 8px;                     /* Coins arrondis */
+    width: 90%;                             /* Largeur de 90% du conteneur parent (réactive) */
+    max-width: 400px;                       /* Ne dépasse jamais 400px de large */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);   /* Ombre douce autour de la boîte */
+    text-align: left;                       /* Alignement du texte à gauche */
+    position: relative;                     /* Permet de positionner les éléments enfants (comme le bouton de fermeture) */
+}
+
+
+#infoModalDesktop .modal-content {
+    background-color: white;                /* Fond blanc pour le contenu de la modale */
+    margin: 15% auto;                       /* Centrage horizontal, et 15% d'espace en haut */
+    padding: 20px;                          /* Espace intérieur autour du contenu */
+    border-radius: 8px;                     /* Coins arrondis */
+    width: 90%;                             /* Largeur de 90% du conteneur parent (réactive) */
+    max-width: 400px;                       /* Ne dépasse jamais 400px de large */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);   /* Ombre douce autour de la boîte */
+    text-align: left;                       /* Alignement du texte à gauche */
+    position: relative;                     /* Permet de positionner les éléments enfants (comme le bouton de fermeture) */
+}
+
+/* --------- BOUTON DE FERMETURE --------- */
+.modal .close {
+    position: absolute;                     /* Position absolue dans la modale */
+    top: 8px;                               /* Distance de 8px depuis le haut */
+    right: 12px;                            /* Distance de 12px depuis la droite */
+    font-size: 20px;                        /* Taille du texte du bouton de fermeture */
+    cursor: pointer;                        /* Change le curseur en main au survol */
+}
+
+/* --------- CLASSES POUR GÉRER LE RESPONSIVE --------- */
+
+.info-btn {
+    background: none;           /* Supprime le fond bleu */
+    border: none;               /* Supprime la bordure */
+    font-size: 22px;            /* Taille du texte */
+    cursor: pointer;            /* Curseur main au survol */
+    padding: 5px;               /* Un petit peu d'espace autour du texte */
+    margin: 0 10px;             /* Espace horizontal si besoin */
+    color: #333;                /* Couleur de l’icône/text */
+    background-color: transparent;  /* S’assure qu’il n’y a pas de fond */
+    z-index: 10;
+  }
+  
+  
+
+  .mobile-only {   /* Par défaut, les éléments mobile sont masqués */
+    display: none;
+  }
+  
+  .desktop-only {  /* Par défaut, les éléments desktop sont masqués aussi */
+  
+    display: none;
+  }
+  
+  /* Mobile : affiche uniquement les boutons .mobile-only */
+  @media (max-width: 767px) {
+    .mobile-only {
+        display: inline-block !important; /* Visible sur mobile */
+        margin-left: 10px;                /* Optionnel : petit espace à gauche */
+        vertical-align: middle;           /* Alignement avec le bouton de fichier */
+      }
+  }
+  
+  /* Desktop : affiche uniquement les boutons .desktop-only */
+  @media (min-width: 768px) {
+    .desktop-only {
+      display: flex !important;
+      justify-content: flex-start;
+    }
+  }
+  
+  /* === Style mobile : plein écran === */
+@media (max-width: 767px) {
+    #fileUploadBtn {
+      width: 100%;             /* Pleine largeur */
+      font-size: 16px;         /* Texte lisible au doigt */
+      display: block;          /* Sur sa propre ligne */
+    }
+  }
+  
+  /* === Style desktop : plus compact === */
+  @media (min-width: 768px) {
+    #fileUploadBtn {
+      width: auto;             /* S'adapte au contenu */
+      font-size: 14px;         /* Plus petit texte */
+      padding: 10px 16px;      /* Espacement réduit */
+      display: inline-block;   /* Sur la même ligne que ℹ️ */
+      white-space: nowrap;     /* Ne passe pas à la ligne */
+    }
+  
+    
+  }
+  
+
+  .file-info-wrapper {
+    display: flex;               /* Pour l'alignement horizontal */
+    justify-content: center;     /* Centrage */
+    align-items: center;         /* Centrage vertical */
+    gap: 10px;                   /* Espace entre les deux */
+    flex-wrap: wrap;             /* Empêche le débordement */
+  }
+  
+  
+  
+  /* Mobile version */
+  #infoBtnMobile {
+    background-color: transparent;
     border: none;
-    border-radius: 4px;
+    font-size: 22px;
+    color: #007BFF;
     cursor: pointer;
+    padding: 5px;
+  }
+
+  /* === Conteneur horizontal pour le bouton de fichier + les boutons ℹ️ === */
+.upload-wrapper {
+    display: flex;                 /* Active Flexbox pour un alignement horizontal */
+    justify-content: center;      /* Centre tous les éléments enfants horizontalement */
+    align-items: center;          /* Aligne verticalement les éléments au centre */
+    gap: 10px;                     /* Espace horizontal entre chaque élément (boutons) */
+    margin: 10px 0;               /* Espace au-dessus et en dessous du bloc */
 }
 
-.zoom-controls button:hover {
-    background-color: #1e7e34;
+/* === Style du bouton ℹ️ pour MOBILE === */
+#infoBtnMobile {
+    background-color: transparent; /* Pas de fond */
+    border: none;                  /* Pas de bordure */
+    font-size: 40px;               /* Taille du texte (icône ℹ️) */
+    color: #007BFF;                /* Couleur bleue (même que le bouton principal) */
+    cursor: pointer;               /* Curseur "main" au survol */
+    padding: 4px;                  /* Espacement intérieur réduit pour un bon placement */
 }
 
-.Liens-cliquables .pdf-container {
-    position: relative;
-    overflow: auto;          /* scrollbars visibles si nécessaire */
-    max-height: 80vh;        /* limite haute pour permettre le scroll */
-    border: 1px solid #ccc;
-    margin-top: 10px;
+/* === Style du bouton ℹ️ pour DESKTOP === */
+#infoBtnDesktop {
+    background-color: transparent; /* Pas de fond */
+    border: none;                  /* Pas de bordure */
+    font-size: 30px;               /* Taille du texte (icône ℹ️) */
+    color: #007BFF;                /* Couleur bleue (harmonie visuelle) */
+    cursor: pointer;               /* Curseur "main" au survol */
+    padding: 4px;                  /* Espacement intérieur réduit */
 }
 
+
+
+/* === Bouton "Sélectionner un fichier" — version spécifique au module "liens cliquables" === */
+.custom-file-upload-liens {
+    display: block;                /* Force le bouton à prendre toute la largeur disponible */
+    width: 100%;                   /* Utilise toute la largeur du conteneur parent */
+    padding: 12px 15px;            /* Espacement intérieur (haut/bas et gauche/droite) */
+    cursor: pointer;               /* Curseur main au survol */
+    background-color: #007BFF;     /* Fond bleu vif */
+    color: white;                  /* Texte blanc */
+    border-radius: 5px;            /* Coins arrondis */
+    font-weight: bold;             /* Texte en gras */
+    text-align: center;            /* Centre le texte */
+    transition: background-color 0.3s; /* Effet de transition fluide */
+    box-sizing: border-box;        /* Empêche le padding de dépasser la largeur */
+    font-size: 16px;               /* Taille de texte adaptée aux écrans mobiles */
+}
+
+
+/* === Effet au survol du bouton "Sélectionner un fichier" === */
+.custom-file-upload-liens:hover {
+    background-color: #0056b3;     /* Bleu plus foncé au hover */
+}
+
+  
 
 @media only screen and (max-width: 767px) {
+
+   
+
 
     /* Conteneur principal */
     .Liens-cliquables .container {

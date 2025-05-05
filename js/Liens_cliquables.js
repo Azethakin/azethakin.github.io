@@ -35,6 +35,16 @@ let isRendering = false;
 let overlayCanvas;
 let overlayCtx;
 
+let drawingMode = false; // État du mode dessin activé/désactivé
+
+
+// ✅ Si l'écran est large (PC), active le dessin automatiquement
+if (window.innerWidth >= 768) {
+    drawingMode = true;
+  }
+  
+
+
 // 📂 Chargement du fichier PDF
 fileUploader.onchange = (e) => {
     const file = e.target.files[0];
@@ -102,26 +112,12 @@ async function renderPage() {
     }
 }
 
-document.getElementById('rectangleBtn').onclick = () => currentShapeType = 'rectangle';
-document.getElementById('circleBtn').onclick = () => currentShapeType = 'circle';
-
-function getMousePos(canvas, evt) {
-    const rect = canvas.getBoundingClientRect(); // taille visible à l'écran
-    const scaleX = canvas.width / rect.width;   // rapport entre taille logique et physique
-    const scaleY = canvas.height / rect.height;
-
-    return {
-        x: (evt.clientX - rect.left) * scaleX,
-        y: (evt.clientY - rect.top) * scaleY
-    };
-}
 
 
 
-canvas.onmousedown = (e) => {
-    const { x, y } = getMousePos(canvas, e);
+// pour mobile 
 
-
+function handlePointerDown(x, y) {
     selectedShapeIndex = null;
     isDraggingShape = false;
 
@@ -150,27 +146,9 @@ canvas.onmousedown = (e) => {
     selectedShapeIndex = null;
     document.getElementById('deleteShapeBtn').disabled = true;
     renderPage();
-};
+}
 
-canvas.onmousemove = (e) => {
-    const { x, y } = getMousePos(canvas, e);
-
-
-    let hovering = false;
-    for (let i = shapes.length - 1; i >= 0; i--) {
-        const shape = shapes[i];
-        const x1 = Math.min(shape.startX, shape.endX);
-        const x2 = Math.max(shape.startX, shape.endX);
-        const y1 = Math.min(shape.startY, shape.endY);
-        const y2 = Math.max(shape.startY, shape.endY);
-
-        if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
-            hovering = true;
-            break;
-        }
-    }
-    canvas.style.cursor = hovering ? 'grab' : 'default';
-
+function handlePointerMove(x, y) {
     if (isDraggingShape && selectedShapeIndex !== null) {
         const shape = shapes[selectedShapeIndex];
         const width = Math.abs(shape.endX - shape.startX);
@@ -191,12 +169,9 @@ canvas.onmousemove = (e) => {
         overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
         drawShapeOnOverlay(startX, startY, x, y, currentShapeType);
     }
-};
+}
 
-canvas.onmouseup = (e) => {
-    const { x, y } = getMousePos(canvas, e);
-
-
+function handlePointerUp(x, y) {
     if (isDraggingShape) {
         isDraggingShape = false;
         return;
@@ -204,7 +179,6 @@ canvas.onmouseup = (e) => {
 
     if (drawing) {
         drawing = false;
-
         shapes.push({
             type: currentShapeType,
             startX,
@@ -218,7 +192,98 @@ canvas.onmouseup = (e) => {
     }
 
     overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+}
+
+
+
+
+
+
+
+
+document.getElementById('rectangleBtn').onclick = () => currentShapeType = 'rectangle';
+document.getElementById('circleBtn').onclick = () => currentShapeType = 'circle';
+
+function getMousePos(canvas, evt) {
+    const rect = canvas.getBoundingClientRect(); // taille visible à l'écran
+    const scaleX = canvas.width / rect.width;   // rapport entre taille logique et physique
+    const scaleY = canvas.height / rect.height;
+
+    return {
+        x: (evt.clientX - rect.left) * scaleX,
+        y: (evt.clientY - rect.top) * scaleY
+    };
+}
+
+
+function getTouchPos(canvas, touchEvent) {    // pour mobile
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const touch = touchEvent.touches[0] || touchEvent.changedTouches[0];
+    return {
+        x: (touch.clientX - rect.left) * scaleX,
+        y: (touch.clientY - rect.top) * scaleY
+    };
+}
+
+
+
+canvas.onmousedown = (e) => {
+    if (!drawingMode) return;
+
+    const { x, y } = getMousePos(canvas, e);
+    handlePointerDown(x, y);
+
 };
+
+
+canvas.ontouchstart = (e) => {
+    if (!drawingMode) return;
+
+    e.preventDefault();
+    const { x, y } = getTouchPos(canvas, e);
+    handlePointerDown(x, y);
+};
+
+
+canvas.onmousemove = (e) => {
+    if (!drawingMode) return;
+
+    const { x, y } = getMousePos(canvas, e);
+    handlePointerMove(x, y);
+
+
+};
+
+
+canvas.ontouchmove = (e) => {
+    e.preventDefault();
+    const { x, y } = getTouchPos(canvas, e);
+    handlePointerMove(x, y);
+};
+
+canvas.ontouchend = (e) => {
+    e.preventDefault();
+    const { x, y } = getTouchPos(canvas, e);
+    handlePointerUp(x, y);
+};
+
+
+canvas.onmouseup = (e) => {
+    if (!drawingMode) return;
+
+    const { x, y } = getMousePos(canvas, e);
+    handlePointerUp(x, y);
+
+
+};
+
+
+
+
+
+
 
 function drawShapeOnOverlay(x1, y1, x2, y2, type) {
     overlayCtx.strokeStyle = 'red';
@@ -337,3 +402,34 @@ document.getElementById('deleteShapeBtn').onclick = () => {
         alert("Cliquez d'abord sur une forme à supprimer.");
     }
 };
+
+document.getElementById('toggleDrawBtn').onclick = () => {
+    drawingMode = !drawingMode;
+
+    const btn = document.getElementById('toggleDrawBtn');
+    btn.textContent = drawingMode ? "🛑 Désactiver le dessin" : "🖌️ Activer le dessin";
+
+    // Optionnel : feedback visuel
+    canvas.style.cursor = drawingMode ? "crosshair" : "default";
+};
+
+
+// pour la fenetre information dans liens cliquable
+// Ouvrir les modales selon le bouton cliqué
+
+// MOBILE uniquement
+document.getElementById("infoBtnMobile").addEventListener("click", () => {
+    document.getElementById("infoModalMobile").style.display = "block";
+  });
+  document.querySelector(".close-mobile").addEventListener("click", () => {
+    document.getElementById("infoModalMobile").style.display = "none";
+  });
+  
+  // DESKTOP uniquement
+  document.getElementById("infoBtnDesktop").addEventListener("click", () => {
+    document.getElementById("infoModalDesktop").style.display = "block";
+  });
+  document.querySelector(".close-desktop").addEventListener("click", () => {
+    document.getElementById("infoModalDesktop").style.display = "none";
+  });
+  

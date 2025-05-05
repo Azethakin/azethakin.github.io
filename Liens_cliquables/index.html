@@ -31,6 +31,10 @@
         <meta name="twitter:title" content="Ajouter des Liens Cliquables au PDF - Aziz Malloul">
         <meta name="twitter:description" content="Créez des PDF interactifs avec des liens personnalisés grâce à cet outil web.">
         <meta name="twitter:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  <!--pour eviter le zoom-->
+
     
         <!-- CSS principal -->
         <link rel="stylesheet" href="../css/styles.css">
@@ -61,10 +65,49 @@
         <div class="container">
             <h1>Ajouter des Liens Cliquables au PDF</h1>
 
-            <div class="upload-section">
-                <label for="fileUploader" class="custom-file-upload">
+
+            <!-- Modale pour mobile -->
+            <div id="infoModalMobile" class="modal">
+            <div class="modal-content">
+                <span class="close close-mobile">&times;</span>
+                <h3>📌 Mode d'emploi (Mobile) :</h3>
+                <ul>
+                <li>Appuyez sur <strong>"Activer le dessin"</strong> pour commencer.</li>
+                <li>Sélectionnez <strong>rectangle</strong> ou <strong>cercle</strong>.</li>
+                <li><strong>Maintenez le doigt</strong> pour dessiner une forme.</li>
+                <li>Ajoutez un lien dans le champ ci-dessus.</li>
+                <li>Désactivez le mode dessin pour interagir avec la page.</li>
+                </ul>
+            </div>
+            </div>
+
+            <!-- Modale pour desktop -->
+            <div id="infoModalDesktop" class="modal">
+            <div class="modal-content">
+                <span class="close close-desktop">&times;</span>
+                <h3>💡 Comment utiliser l’outil (PC) :</h3>
+                <ul>
+                <li>Sélectionnez une forme (rectangle ou cercle).</li>
+                <li>Tracez une zone sur le PDF avec votre souris.</li>
+                <li>Ajoutez un lien via le champ prévu.</li>
+                <li>Téléchargez le PDF modifié.</li>
+                </ul>
+            </div>
+            </div>
+
+
+
+
+            <div class="file-info-wrapper">
+
+                <label for="fileUploader" class="custom-file-upload-liens" id="fileUploadBtn">
                     📂 Sélectionner un fichier
                 </label>
+                
+
+                <button id="infoBtnDesktop" class="info-btn desktop-only">ℹ️</button>
+                <button id="infoBtnMobile" class="info-btn mobile-only">ℹ️</button>
+
                 <input type="file" id="fileUploader" accept=".pdf" style="display: none;">
             </div>
 
@@ -78,9 +121,12 @@
                 <button id="addLinkBtn">Ajouter Lien</button>
                 <button id="downloadPdfBtn">Télécharger PDF</button>
                 <button id="deleteShapeBtn">Supprimer</button>
+                <button id="toggleDrawBtn" class="mobile-only">🖌️ Activer le dessin</button>               
 
             </div>
-            
+
+
+           
 
             <div class="pdf-container">
                 <canvas id="pdfCanvas"></canvas>
