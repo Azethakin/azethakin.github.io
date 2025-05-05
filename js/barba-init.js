@@ -24,38 +24,6 @@ barba.init({
           
 
       {
-        namespace: 'conversion_pdf_images',
-        afterEnter() {
-          const script = document.createElement('script');
-          script.src = '../js/convertir_pdf.js';
-          document.body.appendChild(script);
-        }
-      },
-      {
-        namespace: 'conversion_images_pdf',
-        afterEnter() {
-          const script = document.createElement('script');
-          script.src = '../js/convertir.js';
-          document.body.appendChild(script);
-        }
-      },
-      {
-        namespace: 'liens_cliquables',
-        afterEnter() {
-          const script = document.createElement('script');
-          script.src = '../js/Liens_cliquables.js';
-          document.body.appendChild(script);
-        }
-      },
-      {
-        namespace: 'compresser_fichiers',
-        afterEnter() {
-          const script = document.createElement('script');
-          script.src = '../js/compresser_fichiers.js';
-          document.body.appendChild(script);
-        }
-      },
-      {
         namespace: 'licence_eeea_lyon1',
         afterEnter() {
           const script = document.createElement('script');
@@ -167,14 +135,7 @@ barba.init({
           // gsap.from("h2, p, li", { opacity: 0, y: 20, duration: 1, stagger: 0.1 });
         }
       },
-      {
-        namespace: 'redimensionner_images',
-        afterEnter() {
-          const script = document.createElement('script');
-          script.src = '../js/redimensionner.js';
-          document.body.appendChild(script);
-        }
-      },
+      
       {
         namespace: 'troisieme_annee_electronique_UMMTO',
         afterEnter() {
@@ -220,26 +181,12 @@ barba.init({
           script.src = '../js/scripts.js';
           document.body.appendChild(script);
         }
-      },
+      }
       
       
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-      
-      
-
-    // Tu peux continuer à ajouter d'autres vues ici...
+     
+   
     ]
   });
   
