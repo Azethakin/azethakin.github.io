@@ -66,6 +66,7 @@
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
 </head>
 
 
@@ -495,39 +496,60 @@
                 <!-- class="social-icon">  Utilise la classe CSS "social-icon" pour styliser ce lien -->
                 <!-- <i class="fab fa-linkedin"></i>  Affiche l'icône LinkedIn avec FontAwesome -->
                 <a href="https://www.linkedin.com/in/aziz-malloul-alternance/"
-                target="_blank"                
-                rel="noopener noreferrer"      
-                aria-label="Profil LinkedIn"    
-                class="social-icon">            
-                    <i class="fab fa-linkedin"></i> 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Profil LinkedIn"
+                    class="social-icon"
+                    onclick="gtag('event', 'clic_reseau_social', {
+                        event_category: 'réseaux_sociaux',
+                        event_label: 'LinkedIn'
+                    });">
+                    <i class="fab fa-linkedin"></i>
                 </a>
 
+
                 <!-- Lien vers le profil Facebook -->
+                <!-- Facebook -->
                 <a href="https://www.facebook.com/azizmalloul.fr"
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Profil Facebook"
-                class="social-icon">
-                    <i class="fab fa-facebook"></i> <!-- Affiche l'icône Facebook -->
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Profil Facebook"
+                    class="social-icon"
+                    onclick="gtag('event', 'clic_reseau_social', {
+                        event_category: 'réseaux_sociaux',
+                        event_label: 'Facebook'
+                    });">
+                    <i class="fab fa-facebook"></i> <!-- Affiche l'icône facebook -->
                 </a>
+
 
                 <!-- Lien vers la chaîne YouTube -->
                 <a href="https://www.youtube.com/@azizselectronics335"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chaîne YouTube"
-                class="social-icon">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chaîne YouTube"
+                    class="social-icon"
+                    onclick="gtag('event', 'clic_reseau_social', {
+                        event_category: 'réseaux_sociaux',
+                        event_label: 'YouTube'
+                    });">
                     <i class="fab fa-youtube"></i> <!-- Affiche l'icône YouTube -->
                 </a>
 
+
                 <!-- Lien vers le profil Instagram -->
                 <a href="https://www.instagram.com/aziz_spearfisher/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Profil Instagram"
-                class="social-icon">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Profil Instagram"
+                    class="social-icon"
+                    onclick="gtag('event', 'clic_reseau_social', {
+                        event_category: 'réseaux_sociaux',
+                        event_label: 'Instagram'
+                    });">
                     <i class="fab fa-instagram"></i> <!-- Affiche l'icône Instagram -->
                 </a>
+
 
                 
                 
