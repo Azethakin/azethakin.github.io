@@ -1231,6 +1231,23 @@ nav ul li input,
     color: #555; /* Couleur du texte légèrement plus claire */
 }
 
+.cv-details ul ul {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    list-style-type: disc;
+}
+
+.cv-details li {
+    margin-bottom: 0.8em;
+}
+
+.cv-details ul ul li {
+    margin-bottom: 0.3em; /* Réduit l'espacement entre les puces */
+    line-height: 1.4; /* Ajuste la hauteur de ligne pour plus de compacité */
+}
+
+
 /* ================================================
    STYLES POUR MOBILE (ÉCRANS < 768px)
    ================================================ */
