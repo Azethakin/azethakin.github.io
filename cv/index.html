@@ -79,7 +79,11 @@
 
 </head>
 
-<body data-barba="wrapper">
+<body data-barba="wrapper" oncontextmenu="gtag('event', 'clic_droit', {
+    event_category: 'interaction_sensible',
+    event_label: 'Clic droit sur la page CV'
+}); return true;">
+
     <div data-barba="container" data-barba-namespace="cv">
         <!-- En-tête principal -->
         <header>
@@ -138,19 +142,44 @@
             <div class="cv-viewer">
 
                 <div class="cv-controls">
-
-                    <button id="zoom-out">Zoom -</button>
-                    <button id="zoom-in">Zoom +</button>
-                    <button id="reset-zoom">Réinitialiser</button>
-                    <button id="fullscreen">Plein Écran</button>
+                    <button id="zoom-out"
+                        onclick="gtag('event', 'click_zoom_out', {
+                            event_category: 'interaction',
+                            event_label: 'Zoom -'
+                        });">Zoom -</button>
+                
+                    <button id="zoom-in"
+                        onclick="gtag('event', 'click_zoom_in', {
+                            event_category: 'interaction',
+                            event_label: 'Zoom +'
+                        });">Zoom +</button>
+                
+                    <button id="reset-zoom"
+                        onclick="gtag('event', 'click_reset_zoom', {
+                            event_category: 'interaction',
+                            event_label: 'Réinitialiser le zoom'
+                        });">Réinitialiser</button>
+                
+                    <button id="fullscreen"
+                        onclick="gtag('event', 'click_fullscreen', {
+                            event_category: 'interaction',
+                            event_label: 'Plein Écran'
+                        });">Plein Écran</button>
                 </div>
+                
                 
                 <div class="cv-header">
                     <h2>Visualisation du CV</h2>
                     
                 </div>
                 <!-- Image du CV -->
-                <img id="cv-image" src="../images/CV_Aziz_MALLOUL_Stage.webp" alt="Curriculum Vitae d'Aziz Malloul détaillant ses compétences et projets">
+                <img id="cv-image" src="../images/CV_Aziz_MALLOUL_Stage.webp"
+                    alt="Curriculum Vitae d'Aziz Malloul détaillant ses compétences et projets"
+                    onclick="gtag('event', 'click_cv_image', {
+                        event_category: 'interaction',
+                        event_label: 'Image du CV cliquée'
+                    });">
+
 
             </div>
 
@@ -162,10 +191,31 @@
                 <!-- Détails des compétences et expériences -->
                 <h3>Contact</h3>
                 <ul>
-                    <li><strong>Email :</strong> azizekarma@gmail.com</li>
+                    <li><strong>Email :</strong> <a href="mailto:azizekarma@gmail.com"
+                                                    onclick="gtag('event', 'click_email', {
+                                                        event_category: 'contact',
+                                                        event_label: 'Lien Email'
+                                                    });">
+                                                    azizekarma@gmail.com
+                                                </a>
+                     
                     <li><strong>Téléphone :</strong> 0665617249</li>
-                    <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/aziz-malloul-alternance/" target="_blank">Aziz Malloul</a></li>
-                    <li><strong>Site web :</strong> <a href="https://azizmalloul.com" target="_blank">azizmalloul.com</a></li>
+                    <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/aziz-malloul-alternance/" target="_blank"
+                                                        onclick="gtag('event', 'click_linkedin', {
+                                                            event_category: 'social',
+                                                            event_label: 'Lien LinkedIn'
+                                                        });">
+                                                        Aziz Malloul
+                                                    </a>
+                     
+                    <li><strong>Site web :</strong> <a href="https://azizmalloul.com" target="_blank"
+                                                        onclick="gtag('event', 'click_website', {
+                                                            event_category: 'navigation',
+                                                            event_label: 'Lien vers site personnel'
+                                                        });">
+                                                        azizmalloul.com
+                                                    </a>
+                     
                 </ul>
 
                 <!-- Formations -->
@@ -257,6 +307,20 @@
 
 
     <script src="../js/barba-init.js"></script>
+
+    <script>
+    document.addEventListener("selectionchange", function () {
+        const selection = window.getSelection().toString();
+        if (selection.length >= 15) {
+            gtag('event', 'selection_texte', {
+                event_category: 'interaction_sensible',
+                event_label: 'Texte sélectionné sur la page CV',
+                value: selection.length
+            });
+        }
+    });
+    </script>
+        
 
 </body>
 </html>
