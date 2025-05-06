@@ -1,3 +1,10 @@
+barba.hooks.afterEnter(() => {
+  gtag('config', 'G-H30S5SETCF', {
+    page_path: window.location.pathname
+  });
+});
+
+
 barba.init({
 
     transitions: [
@@ -193,10 +200,5 @@ barba.init({
     ]
   });
 
-  barba.hooks.afterEnter(() => {
-    gtag('config', 'G-H30S5SETCF', {
-      page_path: window.location.pathname
-    });
-  });
-  
+ 
   
