@@ -1,4 +1,5 @@
 barba.init({
+
     transitions: [
       {
         name: 'default-transition',
@@ -48,6 +49,8 @@ barba.init({
           const script = document.createElement('script');
           script.src = '../js/scripts.js';
           document.body.appendChild(script);
+
+       
         }
       }
       ,
@@ -189,4 +192,11 @@ barba.init({
    
     ]
   });
+
+  barba.hooks.afterEnter(() => {
+    gtag('config', 'G-H30S5SETCF', {
+      page_path: window.location.pathname
+    });
+  });
+  
   
