@@ -78,7 +78,11 @@
 
 </head>
 
-<body data-barba="wrapper">
+<body data-barba="wrapper" oncontextmenu="gtag('event', 'clic_droit', {
+    event_category: 'interaction_sensible',
+    event_label: 'Clic droit sur la page Projet L3'
+}); return true;">
+
     <div data-barba="container" data-barba-namespace="projet_L3_UMMTO">
 
 
@@ -148,8 +152,17 @@
 
             <!-- Insertion des images du schéma et du typon -->
             <div class="images">
-                <img src="../images/shema.webp" alt="Schéma du circuit" loading="lazy"> <!-- Image du schéma du circuit -->
-                <img src="../images/Typon.webp" alt="Typon du circuit imprimé" loading="lazy"> <!-- Image du typon du circuit imprimé -->
+                <img src="../images/shema.webp" alt="Schéma du circuit" loading="lazy" 
+                    onclick="gtag('event', 'click_image_projet', {
+                        event_category: 'interaction',
+                        event_label: 'Schéma du circuit'
+                    });">
+
+                <img src="../images/Typon.webp" alt="Typon du circuit imprimé" loading="lazy"
+                    onclick="gtag('event', 'click_image_projet', {
+                        event_category: 'interaction',
+                        event_label: 'Typon du circuit imprimé'
+                    });">
             </div>
 
             <h2>Méthode de fabrication du circuit imprimé :</h2> <!-- Titre pour la section décrivant la fabrication -->
@@ -171,7 +184,11 @@
 
             <h2>Composants Utilisés :</h2> <!-- Titre pour la liste des composants utilisés -->
             <div class="images">
-                <img src="../images/liste_des_composants.webp" alt="Liste des Composants" loading="lazy"> <!-- Image affichant la liste des composants utilisés dans le projet -->
+                <img src="../images/liste_des_composants.webp" alt="Liste des Composants" loading="lazy"
+                    onclick="gtag('event', 'click_image_projet', {
+                        event_category: 'interaction',
+                        event_label: 'Liste des composants'
+                    });">
             </div>
             <ul>
                 <li>Relais 5V</li> <!-- Composant 1 : Relais 5V -->
@@ -200,6 +217,21 @@
 
 
     <script src="../js/barba-init.js"></script>
+
+
+    <script>
+    document.addEventListener("selectionchange", function () {
+        const selection = window.getSelection().toString();
+        if (selection.length >= 15) {
+            gtag('event', 'selection_texte', {
+                event_category: 'interaction_sensible',
+                event_label: 'Texte sélectionné sur la page Projet L3',
+                value: selection.length
+            });
+        }
+    });
+    </script>
+
 
 
 </body> <!-- Fin du corps de la page -->

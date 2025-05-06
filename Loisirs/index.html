@@ -77,7 +77,11 @@
 </head>
 
 
-<body data-barba="wrapper">
+<body data-barba="wrapper" oncontextmenu="gtag('event', 'clic_droit', {
+    event_category: 'interaction_sensible',
+    event_label: 'Clic droit sur la page Loisirs'
+}); return true;">
+
     <div data-barba="container" data-barba-namespace="loisirs">
     
         <!-- En-tête avec la barre de navigation -->
@@ -140,10 +144,30 @@
                 <!-- Boîte pour chaque loisir -->
                 <div class="loisir-box">
                     <div class="image-container-football">
-                        <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy">
-                        <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy">
-                        <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy">
+                        <img src="../images/images loisirs/foot/foot1.webp" alt="Football" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Football - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/foot/foot2.webp" alt="Football" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Football - image 2'
+                            });">
+
+                        <img src="../images/images loisirs/foot/foot3.webp" alt="Football" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Football - image 3'
+                            });">
+
+                        <img src="../images/images loisirs/foot/foot4.webp" alt="Football" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Football - image 4'
+                            });">
+
                     </div>
                     <h3>Football</h3>
                     <p>Le football est l’un de mes sports préférés: je joue régulièrement avec mes amis pour le plaisir et pour rester en forme, tout en participant à des compétitions avec mon club.</p>
@@ -152,8 +176,18 @@
                 
                 <div class="loisir-box">
                     <div class="image-container-guitar">
-                        <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy">
+                        <img src="../images/images loisirs/guitar/guitar1.webp" alt="Guitare" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Guitare - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/guitar/guitar2.webp" alt="Guitare" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Guitare - image 2'
+                            });">
+
                     </div>
                     <h3>Guitare</h3>
                     <p>J’aime prendre ma guitare de temps en temps pour me détendre.</p>
@@ -162,15 +196,60 @@
 
                 <div class="loisir-box">
                     <div class="image-container-bouteille">
-                        <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/bouteille/bouteille1.webp" alt="Plongée sous-marine" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille2.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 2'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille3.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 3'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille4.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 4'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille5.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 5'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille6.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 6'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille7.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 7'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille8.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 8'
+                            });">
+
+                        <img src="../images/images loisirs/bouteille/bouteille9.webp" alt="Plongée sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Plongée - image 9'
+                            });">
+
                     </div>
                     <h3>Plongée sous-marine</h3>
                     <p>J’adore plonger en bouteille pour explorer les fonds marins et découvrir la richesse de la faune et de la flore sous-marines. Rester dans les profondeurs pour observer ces merveilles est une expérience à la fois apaisante et fascinante. 🌊🐠</p>
@@ -179,9 +258,24 @@
 
                 <div class="loisir-box">
                     <div class="image-container-chasse_sous_marine">
-                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy">
-                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy">
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine1.webp" alt="Chasse sous-marine" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Chasse sous-marine - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine2.webp" alt="Chasse sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Chasse sous-marine - image 2'
+                            });">
+
+                        <img src="../images/images loisirs/chasse_sous_marine/chasse_sous_marine3.webp" alt="Chasse sous-marine" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Chasse sous-marine - image 3'
+                            });">
+
                     </div>
                     <h3>Chasse sous-marine</h3>
                     <p>La chasse sous-marine est ma véritable passion : elle combine l’exploration des fonds marins avec un défi sportif unique. J’aime énormément partir à l’aventure sous l’eau ! 🌊🐟</p>
@@ -190,9 +284,24 @@
 
                 <div class="loisir-box">
                     <div class="image-container-surf">
-                        <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy">
-                        <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy">
+                        <img src="../images/images loisirs/surf/surf1.webp" alt="Surf" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Surf - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/surf/surf2.webp" alt="Surf" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Surf - image 2'
+                            });">
+
+                        <img src="../images/images loisirs/surf/surf3.webp" alt="Surf" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Surf - image 3'
+                            });">
+
                     </div>
                     <h3>Surf</h3>
                     <p>Le surf, c’est ma passion. Glisser sur les vagues de la Méditerranée, c’est ressentir toute l’énergie de la mer. Sur une planche, tout s’efface, et je me sens en parfaite connexion avec la puissance de l’eau.</p>
@@ -201,9 +310,24 @@
 
                 <div class="loisir-box">
                     <div class="image-container-velo">
-                        <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy">
-                        <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy">
-                        <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy">
+                        <img src="../images/images loisirs/velo/velo1.webp" alt="Vélo" class="image active" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Vélo - image 1'
+                            });">
+
+                        <img src="../images/images loisirs/velo/velo2.webp" alt="Vélo" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Vélo - image 2'
+                            });">
+
+                        <img src="../images/images loisirs/velo/velo3.webp" alt="Vélo" loading="lazy"
+                            onclick="gtag('event', 'click_image_loisir', {
+                                event_category: 'interaction',
+                                event_label: 'Vélo - image 3'
+                            });">
+
                     </div>
                     <h3>Vélo</h3>
                     <p>J'aime faire des randonnées à vélo pour explorer de nouveaux paysages tout en pratiquant une activité physique.</p>
@@ -226,6 +350,21 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
     <script src="../js/barba-init.js"></script>
+
+
+    <script>
+    document.addEventListener("selectionchange", function () {
+        const selection = window.getSelection().toString();
+        if (selection.length >= 15) {
+            gtag('event', 'selection_texte', {
+                event_category: 'interaction_sensible',
+                event_label: 'Texte sélectionné sur la page Loisirs',
+                value: selection.length
+            });
+        }
+    });
+    </script>
+
 
 
 </body>
