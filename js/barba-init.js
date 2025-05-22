@@ -2,7 +2,15 @@ barba.hooks.afterEnter(() => {
   gtag('config', 'G-H30S5SETCF', {
     page_path: window.location.pathname
   });
+
+  gtag('event', 'page_view', {
+    page_path: window.location.pathname
+  });
 });
+
+
+
+
 
 
 barba.init({
@@ -29,7 +37,7 @@ barba.init({
               // Exemple : gsap.from(".hero", { opacity: 0, y: 50, duration: 1 });
             }
        },
-          
+
 
       {
         namespace: 'licence_eeea_lyon1',
@@ -57,7 +65,7 @@ barba.init({
           script.src = '../js/scripts.js';
           document.body.appendChild(script);
 
-       
+
         }
       }
       ,
@@ -83,7 +91,7 @@ barba.init({
         namespace: 'master1_toulon',
         afterEnter() {
           console.log('Page Master 1 Toulon chargée');
-      
+
           // Tu peux charger un script JS spécial ici si besoin :
           // const script = document.createElement('script');
           // script.src = '../js/master1.js';
@@ -145,7 +153,7 @@ barba.init({
           // gsap.from("h2, p, li", { opacity: 0, y: 20, duration: 1, stagger: 0.1 });
         }
       },
-      
+
       {
         namespace: 'troisieme_annee_electronique_UMMTO',
         afterEnter() {
@@ -192,13 +200,7 @@ barba.init({
           document.body.appendChild(script);
         }
       }
-      
-      
-      
-     
-   
+
+
     ]
   });
-
- 
-  

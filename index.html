@@ -61,6 +61,16 @@
     </style>
     <!-- Fin du bloc CSS -->
 
+
+    <!-- Google Analytics pour le suivi des visiteurs -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H30S5SETCF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-H30S5SETCF');
+    </script>
+
     <!-- Script JavaScript pour effectuer une redirection fluide -->
     <script>
         // Attend que le DOM soit complètement chargé avant d'exécuter le script
@@ -77,8 +87,10 @@
 </head>
 
 <!-- Début du corps de la page HTML -->
-<body data-barba="wrapper">
-    <div data-barba="container" data-barba-namespace="redirect_accueil">
+<body>
+
+    <div>
+
 
         <!-- Élément visuel de chargement (spinner animé) -->
         <div class="spinner" role="status" aria-label="Chargement en cours..."></div>
