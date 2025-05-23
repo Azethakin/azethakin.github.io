@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Ajouter des Liens Cliquables au PDF - Aziz Malloul</title>
-    
+
         <!-- Favicon -->
         <link rel="icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
-    
+
         <!-- Responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
         <!-- SEO -->
         <meta name="description" content="Ajoutez facilement des liens interactifs à vos fichiers PDF grâce à cet outil en ligne développé par Aziz Malloul.">
         <meta name="keywords" content="ajouter liens PDF, PDF interactif, lien cliquable PDF, outil PDF, Aziz Malloul, PDF web">
@@ -18,14 +18,14 @@
 
         <link rel="canonical" href="https://azizmalloul.com/Liens_cliquables/">
 
-    
+
         <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
         <meta property="og:title" content="Ajouter des Liens Cliquables au PDF - Aziz Malloul">
         <meta property="og:description" content="Un outil web simple pour dessiner des zones cliquables et ajouter des liens dans un fichier PDF.">
         <meta property="og:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
         <meta property="og:url" content="https://azizmalloul.com/Liens_cliquables/">
         <meta property="og:type" content="website">
-    
+
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Ajouter des Liens Cliquables au PDF - Aziz Malloul">
@@ -35,13 +35,13 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  <!--pour eviter le zoom-->
 
-    
+
         <!-- CSS principal -->
         <link rel="stylesheet" href="../css/styles.css">
-    
+
         <!-- FontAwesome (si utilisé ailleurs) -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-H30S5SETCF"></script>
         <script>
@@ -55,11 +55,9 @@
 
 
     </head>
-    
+
 <body>
-        
-      
-        
+
 
     <div class="Liens-cliquables">
         <div class="container">
@@ -103,7 +101,7 @@
                 <label for="fileUploader" class="custom-file-upload-liens" id="fileUploadBtn">
                     📂 Sélectionner un fichier
                 </label>
-                
+
 
                 <button id="infoBtnDesktop" class="info-btn desktop-only">ℹ️</button>
                 <button id="infoBtnMobile" class="info-btn mobile-only">ℹ️</button>
@@ -111,8 +109,8 @@
                 <input type="file" id="fileUploader" accept=".pdf" style="display: none;">
             </div>
 
-        
-            
+
+
 
             <div class="tools">
                 <button id="rectangleBtn">Rectangle</button>
@@ -121,18 +119,18 @@
                 <button id="addLinkBtn">Ajouter Lien</button>
                 <button id="downloadPdfBtn">Télécharger PDF</button>
                 <button id="deleteShapeBtn">Supprimer</button>
-                <button id="toggleDrawBtn" class="mobile-only">🖌️ Activer le dessin</button>               
+                <button id="toggleDrawBtn" class="mobile-only">🖌️ Activer le dessin</button>
 
             </div>
 
 
-           
+
 
             <div class="pdf-container">
                 <canvas id="pdfCanvas"></canvas>
             </div>
 
-            
+
         </div>
     </div>
 

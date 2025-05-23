@@ -60,7 +60,7 @@
          gtag('config', 'G-H30S5SETCF');
      </script>
 
-   
+
      <!-- Script Google Traduction -->
      <script type="text/javascript">
          function googleTranslateElementInit() {
@@ -68,23 +68,14 @@
          }
      </script>
      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-     
-     <!-- Barba.js -->
-    <script src="https://unpkg.com/@barba/core"></script>
-
-
-
-
 
 
 </head>
 
-<body data-barba="wrapper" oncontextmenu="gtag('event', 'clic_droit', {
-    event_category: 'interaction_sensible',
-    event_label: 'Clic droit sur la page CV'
-}); return true;">
+<body oncontextmenu="gtag('event', 'clic_droit', {event_category: 'interaction_sensible',event_label: 'Clic droit sur la page CV'}); return true;">
 
-    <div data-barba="container" data-barba-namespace="cv">
+    <div>
+
         <!-- En-tête principal -->
         <header>
             <!-- Menu desktop -->
@@ -137,7 +128,7 @@
         <section class="cv-container">
             <!-- Zone du CV avec boutons et titre -->
 
-            
+
 
             <div class="cv-viewer">
 
@@ -147,30 +138,30 @@
                             event_category: 'interaction',
                             event_label: 'Zoom -'
                         });">Zoom -</button>
-                
+
                     <button id="zoom-in"
                         onclick="gtag('event', 'click_zoom_in', {
                             event_category: 'interaction',
                             event_label: 'Zoom +'
                         });">Zoom +</button>
-                
+
                     <button id="reset-zoom"
                         onclick="gtag('event', 'click_reset_zoom', {
                             event_category: 'interaction',
                             event_label: 'Réinitialiser le zoom'
                         });">Réinitialiser</button>
-                
+
                     <button id="fullscreen"
                         onclick="gtag('event', 'click_fullscreen', {
                             event_category: 'interaction',
                             event_label: 'Plein Écran'
                         });">Plein Écran</button>
                 </div>
-                
-                
+
+
                 <div class="cv-header">
                     <h2>Visualisation du CV</h2>
-                    
+
                 </div>
                 <!-- Image du CV -->
                 <img id="cv-image" src="../images/CV_Aziz_MALLOUL_Stage.webp"
@@ -198,7 +189,7 @@
                                                     });">
                                                     azizekarma@gmail.com
                                                 </a>
-                     
+
                     <li><strong>Téléphone :</strong> 0665617249</li>
                     <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/aziz-malloul-alternance/" target="_blank"
                                                         onclick="gtag('event', 'click_linkedin', {
@@ -207,7 +198,7 @@
                                                         });">
                                                         Aziz Malloul
                                                     </a>
-                     
+
                     <li><strong>Site web :</strong> <a href="https://azizmalloul.com" target="_blank"
                                                         onclick="gtag('event', 'click_website', {
                                                             event_category: 'navigation',
@@ -215,7 +206,7 @@
                                                         });">
                                                         azizmalloul.com
                                                     </a>
-                     
+
                 </ul>
 
                 <!-- Formations -->
@@ -246,16 +237,16 @@
                         </ul>
                         <em>(Nice, 03/03/2025 – 31/08/2025)</em>
                     </li>
-                    
-                    
-                        
-                        
+
+
+
+
                     <li><strong>Participation à la RoboCup Middle Size League (MSL) :</strong> Développement des stratégies de tirs pour robots de football autonomes (Toulon, 2023/2024).</li>
                     <li><strong>Système d’arrosage automatique : </strong> Développement d’un projet de système d’arrosage contrôlant 16 électrovannes via un ESP32, avec programmation par interface web et gestion des données dans Google Drive. (France , 2024).</li>
                     <li><strong>Système de démarrage étoile-triangle automatisé :</strong> Conception d’une armoire électrique intégrant des Sectionneurs avec contacts de précoupure, relais thermiques, contacteurs, temporisateurs, et dispositifs de sécurité. (Lyon 1, 2023).</li>
                     <li><strong>Prototypage d’un chargeur de batterie solaire :</strong> Réalisation d’un système stabilisé à hacheur abaisseur pour optimiser la recharge des batteries malgré les variations de tension du panneau solaire. (Lyon 1, 2022).</li>
                     <li><strong>Contrôle à distance d’appareils secteur :</strong> Conception et fabrication d’un circuit imprimé (PCB) pour contrôler des appareils secteur à distance via relais, transistors (NPN et PNP), compteur CD4017 et capteur infrarouge. (UMMTO, 2021).</li>
-                    
+
                     <li><strong>Oscillateur basé sur NE555 : </strong> Réalisation d’une alimentation à découpage en utilisant un NE555 pour piloter un MOSFET IRFZ44N. (Tigzirt, 2020).</li>
                     <li><strong>Tracker solaire à 2 axes :</strong> Développement d’un système autonome basé sur des comparateurs à hystérésis (LM339), des LDRs et des ponts en H pour optimiser l’orientation des panneaux solaires et recharger une batterie 12V. (UMMTO, 2020).</li>
                     <li><strong>Réparation et maintenance de smartphones et tablettes :</strong> Diagnostic et réparation de matériel électronique (Tigzirt, 2017-2021).</li>
@@ -287,7 +278,7 @@
                     <li>Plongée sous-marine (breveté)</li>
                     <li>Chasse sous-marine</li>
                     <li>Surf</li>
-                    
+
                 </ul>
             </div>
 
@@ -298,15 +289,13 @@
             <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
         </footer>
 
-    </div>    
+    </div>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 
     <script src="../js/scripts.js"></script>
 
-
-    <script src="../js/barba-init.js"></script>
 
     <script>
     document.addEventListener("selectionchange", function () {
@@ -320,7 +309,7 @@
         }
     });
     </script>
-        
+
 
 </body>
 </html>
