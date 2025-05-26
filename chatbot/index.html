@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Aziz Chatbot Intelligent Multilingue</title>
+
+  <!-- Style spécifique au chatbot -->
+  <link rel="stylesheet" href="../css/chatbot.css">
+
+  <!-- Style global du site -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <link rel="icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
+
+  <!-- Highlight.js pour coloration syntaxique -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+  <!-- Markdown + Sécurité -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+</head>
+
+<body>
+
+  <!-- JS désactivé -->
+  <noscript>
+    <p style="text-align:center; color:red;">⚠️ Ce chatbot nécessite JavaScript pour fonctionner.</p>
+  </noscript>
+
+  <!-- Consentement cookies -->
+  <div id="cookie-overlay" class="cookie-overlay hidden"></div>
+  <div id="cookie-consent" class="cookie-box">
+    <h2>Nous accordons une grande importance à ta confidentialité</h2>
+    <div class="scroll-text">
+      Ce site utilise des cookies afin d’optimiser votre expérience de navigation. En cliquant sur “Tout accepter”, vous consentez à l’utilisation de cookies à des fins de performance, d’analyse statistique et d’affichage personnalisé. Pour en savoir plus, veuillez consulter notre
+      <a href="../confidentialite/">politique de confidentialité</a>
+    </div>
+    <div class="cookie-actions">
+      <button id="accept-all">Tout accepter</button>
+      <button id="reject-non-essential">Rejeter les cookies non essentiels</button>
+    </div>
+  </div>
+
+  <!-- 🎯 Chatbot principal -->
+  <div id="chatbotApp">
+
+    <!-- Sélecteur de modèle + Thème -->
+    <div class="model-selector">
+      <label for="modelSelect">🧠 Modèle actuel :</label>
+      <select id="modelSelect">
+        <option value="meta-llama/llama-4-scout:free">Meta: Llama 4 Scout (free)</option>
+        <option value="qwen/qwen2.5-vl-72b-instruct:free">Qwen2.5 VL 72B Instruct (free)</option>
+        <option value="mistralai/mistral-small-3.1-24b-instruct:free">Mistral Small 3.1 24B (free)</option>
+        <option value="deepseek/deepseek-chat-v3-0324:free">DeepSeek V3 0324 (free)</option>
+        <option value="qwen/qwen3-235b-a22b:free">Qwen3 235B A22B (free)</option>
+        <option value="deepseek/deepseek-prover-v2:free">DeepSeek Prover V2 (free)</option>
+      </select>
+      <button id="themeToggleBtn" aria-label="Basculer thème clair/sombre">🌙/☀️</button>
+    </div>
+
+    <!-- Description du modèle -->
+    <div class="model-description" id="modelDescription"></div>
+
+    <!-- En-tête chatbot -->
+    <div id="chatbotHeader">
+      <h2 class="chat-title">💬 Aziz Chatbot</h2>
+    </div>
+
+    <!-- Indicateur de frappe (optionnel, peut être caché dynamiquement) -->
+    <div class="typing-indicator hidden">
+      <span>.</span><span>.</span><span>.</span>
+    </div>
+
+    <!-- Historique de chat -->
+    <div id="chatHistory"></div>
+
+    <!-- Zone de saisie -->
+    <div class="input-container">
+      <textarea id="userInput" rows="3" placeholder="Posez votre question ici..." aria-label="Entrer un message"></textarea>
+      <button id="sendBtn" title="Envoyer" aria-label="Envoyer le message">➤</button>
+      <button id="stopBtn" title="Arrêter la réponse" aria-label="Arrêter la réponse en cours">⏹</button>
+      <button id="clearBtn" title="Effacer la conversation" aria-label="Effacer la conversation">🗑️</button>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/cookies.js"></script>
+
+</body>
+</html>
