@@ -1,0 +1,406 @@
+/* === BASE GENERALE === */
+#chatbotApp {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 140px;
+  background-color: #fafafa;
+  color: #333;
+  transition: background 0.5s, color 0.5s;
+
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* === TITRES === */
+#chatbotApp .chat-title {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 20px;
+  color: #222;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+body.dark #chatbotApp .chat-title,
+body.dark #chatbotApp .model-description {
+  background-color: #fff !important;
+  color: #222 !important;
+  border-bottom: 1px solid #ddd;
+}
+
+/* === EN-TETE CHATBOT === */
+#chatbotHeader {
+  background-color: #fff;
+  color: #222;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* utile pour bien découper les coins */
+}
+
+body.dark #chatbotHeader {
+  background-color: #fff !important;
+  color: #222 !important;
+}
+
+/* === DESCRIPTION DU MODELE === */
+#chatbotApp .model-description {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 800px; /* à adapter selon la largeur souhaitée */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+
+body.dark #chatbotApp .model-description {
+  color: #222 !important;
+}
+
+/* === HISTORIQUE DU CHAT === */
+#chatHistory {
+  height: 70vh;
+  padding: 20px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+#chatbotApp .message-block {
+  background-color: #f9f9f9;
+  padding: 16px;
+  margin-top: 16px;
+  border-left: 4px solid #8c8c8c;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+body.dark #chatbotApp .message-block {
+  background-color: #2e2e2e;
+  border-left-color: #888;
+  color: #e3e3e3;
+}
+
+/* === IDENTITE DES MESSAGES === */
+#chatbotApp span.user,
+#chatbotApp span.assistant {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+}
+
+#chatbotApp span.user::before {
+  content: "👤 Vous :";
+  color: #444;
+}
+
+body.dark #chatbotApp span.user::before {
+  color: #ddd;
+}
+
+/* === ZONE DE SAISIE === */
+#chatbotApp .input-container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 20;
+}
+
+#userInput {
+  flex: 1;
+  font-size: 16px;
+  padding: 10px;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* === BOUTONS D'ACTION === */
+#chatbotApp button {
+  margin-left: 10px;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#chatbotApp button:hover {
+  background-color: #000;
+}
+
+#chatbotApp button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+#chatbotApp #stopBtn {
+  display: none;
+}
+
+#chatbotApp #clearBtn {
+  margin-left: 10px;
+}
+
+/* === SELECTEUR DE MODELE === */
+#chatbotApp .model-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  justify-content: space-between;
+}
+
+#chatbotApp .model-selector label {
+  margin-right: 10px;
+}
+
+#chatbotApp #modelSelect {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+#chatbotApp #themeToggleBtn {
+  margin-left: auto;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#chatbotApp #themeToggleBtn:hover {
+  background-color: #000;
+}
+
+/* === BLOCS DE CODE === */
+#chatbotApp pre,
+#chatbotApp code {
+  background-color: #f6f8fa;
+  padding: 12px;
+  white-space: pre-wrap;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 15px;
+  color: #222;
+  overflow-x: auto;
+}
+
+#chatbotApp pre {
+  position: relative;
+  padding-top: 34px; /* Espace pour les boutons de copie/édition */
+  margin: 10px 0;
+  border: none;
+}
+
+/* DARK MODE pour les blocs de code */
+body.dark #chatbotApp pre,
+body.dark #chatbotApp code {
+  background-color: #23272f !important;
+  color: #e3e3e3 !important;
+  border-radius: 8px;
+}
+
+/* === ASSISTANT : AVATAR & LABEL === */
+#chatbotApp span.assistant {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+}
+
+#chatbotApp span.assistant img.assistant-photo,
+#chatbotApp .assistant-photo {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #005bbb;
+  background-color: #fff;
+  margin-right: 7px;
+}
+
+#chatbotApp .assistant-label {
+  color: #005bbb;
+  font-weight: bold;
+  font-size: 17px;
+  font-family: system-ui, Arial, sans-serif;
+  vertical-align: middle;
+}
+
+/* === ANIMATION DE L’AVATAR (battement) === */
+#chatbotApp .assistant-photo.pulse {
+  animation: pulse-avatar 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulse-avatar {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.17); }
+  50%  { transform: scale(0.92); }
+  75%  { transform: scale(1.10); }
+  100% { transform: scale(1); }
+}
+
+/* === DARK MODE — MENUS & LABELS === */
+body.dark #chatbotApp .model-selector {
+  background-color: #222 !important;
+  color: #fafafa !important;
+  border-bottom: 1px solid #444;
+}
+
+body.dark #chatbotApp .model-selector label {
+  color: #fafafa !important;
+}
+
+body.dark #chatbotApp #modelSelect {
+  background-color: #333 !important;
+  color: #fafafa !important;
+  border: 1px solid #555;
+}
+
+body.dark #chatbotApp #modelSelect:focus {
+  outline: 2px solid #888;
+}
+
+/* === DARK MODE — TITRES & HEADINGS === */
+body.dark #chatbotApp h1,
+body.dark #chatbotApp h2,
+body.dark #chatbotApp h3 {
+  color: #f5f5f5 !important;
+}
+
+/* === GROUPE DE BOUTONS DANS <pre> === */
+#chatbotApp .code-btn-group {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* === BOUTONS : Copier / Éditer === */
+#chatbotApp .copy-btn,
+#chatbotApp .edit-btn {
+  background: none;
+  border: none;
+  color: #a4a7ae;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1.8;
+  transition: color 0.15s;
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+#chatbotApp .copy-btn:hover,
+#chatbotApp .edit-btn:hover {
+  color: #1a73e8;
+  text-decoration: underline;
+  background: none;
+}
+
+#chatbotApp .copy-btn:active,
+#chatbotApp .edit-btn:active {
+  background: none;
+}
+
+/* === DARK MODE : BOUTONS CODE === */
+body.dark #chatbotApp .copy-btn,
+body.dark #chatbotApp .edit-btn {
+  color: #848995;
+}
+
+body.dark #chatbotApp .copy-btn:hover,
+body.dark #chatbotApp .edit-btn:hover {
+  color: #60aaff;
+}
+
+/* === DARK MODE : HLJS & TOKENS === */
+body.dark #chatbotApp .hljs,
+body.dark #chatbotApp .token {
+  background: #23272f !important;
+  color: #ffe07a !important;
+  border-radius: 4px;
+}
+
+/* === INLINE <code> (ex : `mot`) === */
+body.dark #chatbotApp code {
+  background: #2a2f38 !important;
+  color: #ffe07a !important;
+}
+
+/* === Typing indicator */
+.typing-indicator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 28px;
+  color: #ccc;
+}
+
+
+.typing-indicator span {
+  animation: blink 1.4s infinite both;
+  margin: 0 2px;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}

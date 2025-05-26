@@ -45,16 +45,6 @@
     <!-- Lien vers le fichier CSS pour styliser la page -->
     <link rel="stylesheet" href="../css/styles.css">
 
-    <!-- Google Analytics pour le suivi des visiteurs -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8YKGGC2Y6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-F8YKGGC2Y6');
-    </script>
-
 
     <!-- Script Google Traduction -->
     <script type="text/javascript">
@@ -69,14 +59,36 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
+
+
+
 </head>
 
 
 
-<body oncontextmenu="gtag('event', 'clic_droit', {
-    event_category: 'interaction_sensible',
-    event_label: 'Clic droit sur la page Accueil'
-}); return true;">
+<body>
+
+
+
+
+    <div id="cookie-overlay" class="cookie-overlay hidden"></div>
+
+
+    <div id="cookie-consent" class="cookie-box">
+
+        <h2>Nous accordons une grande importance à votre confidentialité</h2>
+        <div class="scroll-text">
+            Ce site utilise des cookies afin d’optimiser votre expérience de navigation. En cliquant sur “Tout accepter”, vous consentez à l’utilisation de cookies à des fins de performance, d’analyse statistique et d’affichage personnalisé. Pour en savoir plus, veuillez consulter notre
+            <a href="../confidentialite/">politique de confidentialité</a>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-all">Tout accepter</button>
+            <button id="reject-non-essential">Rejeter les cookies non essentiels</button>
+        </div>
+    </div>
+
+
+
 
     <div>
 
@@ -564,6 +576,7 @@
 <!-- TOUS les scripts doivent rester dans le body -->
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script src="../js/scripts.js"></script>
+<script src="../js/cookies.js"></script>
 
 
 <script>

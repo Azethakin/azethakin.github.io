@@ -21,6 +21,8 @@
 
     <!-- Indique l’URL canonique de cette page pour le référencement SEO -->
     <link rel="canonical" href="https://azizmalloul.com/Accueil/">
+    <link rel="stylesheet" href="../css/styles.css">
+
 
     <!-- Début du bloc de styles CSS intégrés pour la mise en page et l'animation -->
     <style>
@@ -59,16 +61,6 @@
             color: #333; /* Couleur de texte gris foncé */
         }
     </style>
-    <!-- Fin du bloc CSS -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8YKGGC2Y6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-F8YKGGC2Y6');
-    </script>
 
 
     <!-- Script JavaScript pour effectuer une redirection fluide -->
@@ -83,11 +75,28 @@
             }, 100); // Délai de 100 millisecondes
         });
     </script>
-    <!-- Fin du script de redirection -->
+
+
 </head>
 
-<!-- Début du corps de la page HTML -->
+
 <body>
+
+
+    <div id="cookie-overlay" class="cookie-overlay hidden"></div>
+
+
+    <div class="cookie-box">
+        <h2>Nous accordons une grande importance à ta confidentialité</h2>
+        <div class="scroll-text">
+            Ce site utilise des cookies afin d’optimiser votre expérience de navigation. En cliquant sur “Tout accepter”, vous consentez à l’utilisation de cookies à des fins de performance, d’analyse statistique et d’affichage personnalisé. Pour en savoir plus, veuillez consulter notre
+            <a href="#">politique de confidentialité</a>
+        <div class="cookie-actions">
+            <button id="accept-all">Tout accepter</button>
+            <button id="reject-non-essential">Rejeter les cookies non essentiels</button>
+        </div>
+    </div>
+
 
     <div>
 
@@ -118,6 +127,8 @@
         </script>
 
     </div>
+    <script src="../js/cookies.js"></script>
+
 
 </body>
 

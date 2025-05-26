@@ -55,15 +55,6 @@
     <!-- Lien vers FontAwesome pour les icônes sociales et l'icône hamburger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8YKGGC2Y6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-F8YKGGC2Y6');
-    </script>
-
 
     <!-- Script Google Traduction -->
     <script type="text/javascript">
@@ -78,6 +69,23 @@
 </head>
 
 <body>
+
+
+    <div id="cookie-overlay" class="cookie-overlay hidden"></div>
+
+
+    <div class="cookie-box">
+        <h2>Nous accordons une grande importance à ta confidentialité</h2>
+        <div class="scroll-text">
+            Ce site utilise des cookies afin d’optimiser votre expérience de navigation. En cliquant sur “Tout accepter”, vous consentez à l’utilisation de cookies à des fins de performance, d’analyse statistique et d’affichage personnalisé. Pour en savoir plus, veuillez consulter notre
+            <a href="#">politique de confidentialité</a>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-all">Tout accepter</button>
+            <button id="reject-non-essential">Rejeter les cookies non essentiels</button>
+        </div>
+    </div>
+
 
     <div>
 >
@@ -186,6 +194,7 @@
 
     <!-- Lien vers le fichier JavaScript -->
     <script src="../js/scripts.js"></script>
+    <script src="../js/cookies.js"></script>
 
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 

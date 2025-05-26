@@ -11,8 +11,8 @@ body, html {
     font-family: 'Roboto', sans-serif; /* Utilise la police Roboto pour tout le site */
     background-color: #f4f7f6; /* Couleur de fond du site */
     overflow-x: hidden; /* Empêche le défilement horizontal */
-    
-    
+
+
 
 }
 
@@ -38,7 +38,7 @@ header {
 header h1 {
     margin: 0; /* Pas de marge autour du titre */
     font-weight: 700; /* Texte en gras */
-    
+
 }
 
 .desktop-header {
@@ -193,7 +193,7 @@ nav ul li input {
 /* Section principale (hero) */
 /* Styles globaux (par défaut) pour tous les appareils */
 
-/* Conteneur principal de la section 'hero'. 
+/* Conteneur principal de la section 'hero'.
    On lui donne une position relative et on cache les débordements des images en dehors du conteneur */
    .hero {
     position: relative;  /* Positionnement relatif pour permettre le positionnement des éléments enfants */
@@ -201,7 +201,7 @@ nav ul li input {
     width: 100%;         /* La section occupe toute la largeur disponible */
 }
 
-/* Styles pour les images à l'intérieur du conteneur 'image-container'. 
+/* Styles pour les images à l'intérieur du conteneur 'image-container'.
    Les images prennent toute la largeur disponible et sont ajustées pour ne pas déformer */
 .image-container img {
     width: 100%;         /* L'image occupe 100% de la largeur de son conteneur */
@@ -209,7 +209,7 @@ nav ul li input {
     transition: opacity 1s ease-in-out, object-position 1s ease-in-out; /* Transition fluide pour le changement d'image et le déplacement de l'image */
 }
 
-/* Styles spécifiques pour les grands écrans (desktop et tablettes). 
+/* Styles spécifiques pour les grands écrans (desktop et tablettes).
    Ces styles ne s'appliquent que si l'écran a une largeur de 768px ou plus */
 @media only screen and (min-width: 768px) {
 
@@ -677,7 +677,7 @@ footer {
     bottom: 0; /* Fixe le pied de page en bas */
     width: 100%; /* Occupe toute la largeur de l'écran */
     margin-top: auto; /* Permet de pousser le footer en bas */
-   
+
 }
 
 
@@ -989,7 +989,7 @@ nav ul li input,
     .desktop-header {
         display: none; /* L'en-tête desktop n'est pas affichée */
     }
-    
+
 
     /* Barre supérieure (logo et hamburger menu) sur mobile */
     .mobile-header {
@@ -1086,7 +1086,7 @@ nav ul li input,
 
 /* ================================================
   pour la page de cv
- 
+
    ================================================ */
 
 /* ================================================
@@ -1321,7 +1321,7 @@ nav ul li input,
         flex: 2; /* Occupe deux fois plus d'espace que les détails */
         max-height: calc(100vh - 150px); /* Ajuste la hauteur pour tenir compte des marges */
         overflow: auto; /* Active le défilement */
-        
+
     }
 
      /* Ajustement du titre visualisation du CV pour ne pas être caché   */
@@ -1352,13 +1352,13 @@ nav ul li input,
     .diplomes h2 {
         text-align: center; /* Centre le texte à l’intérieur du h2 */
         width: 85vw;        /* Donne au h2 une largeur de 85% de la largeur visible de la fenêtre */
-        margin-left: calc((100vw - 100%) / -2); 
-        /* 
-           Cette ligne est une astuce de centrage horizontal : 
+        margin-left: calc((100vw - 100%) / -2);
+        /*
+           Cette ligne est une astuce de centrage horizontal :
            - 100vw = largeur totale de la fenêtre
            - 100% = largeur du conteneur parent (.diplomes)
            - (100vw - 100%) / -2 = moitié du surplus qu’on soustrait à gauche
-           ➜ Cela recentre le <h2> par rapport à la fenêtre entière, 
+           ➜ Cela recentre le <h2> par rapport à la fenêtre entière,
              même si le parent a un padding/marge qui le décale.
         */
     }
@@ -1369,20 +1369,20 @@ nav ul li input,
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes experiences dans cv.html 
+pour ajouter des espaces entre les lignes experiences dans cv.html
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 ul.experiences li {
     margin-bottom: 15px; /* Ajout d'espace entre lignes experience dans cv */
 }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes Compétences Techniques dans cv.html 
+pour ajouter des espaces entre les lignes Compétences Techniques dans cv.html
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 ul.Compétences_Techniques li {
     margin-bottom: 10px; /* Ajout d'espace entre lignes Compétences Techniques dans cv */
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-pour ajouter des espaces entre les lignes Formations dans cv.html 
+pour ajouter des espaces entre les lignes Formations dans cv.html
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 ul.Formations li {
     margin-bottom: 3px; /* Ajout d'espace entre lignes Formations dans cv */
@@ -1449,7 +1449,7 @@ ul.Formations li {
 
 /* Bloc contenant les sliders de contrôle */
 .image-editor .controls {
-    
+
     margin-top: 30px;                        /* Espace avant les contrôles */
     background: #fff;                        /* Fond blanc pour visibilité */
     padding: 15px 20px;                      /* Marge interne */
@@ -1557,20 +1557,20 @@ ul.Formations li {
         margin: 20px auto;
         border-radius: 10px;
     }
-    
-    
+
+
     .image-editor .controls label {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         font-size: 15px;
     }
-    
+
     .image-editor .controls input[type="range"] {
         width: 100%;
     }
-    
-    
+
+
 
     /* Zone des canevas : passe en colonne */
     .image-editor .canvases {
@@ -1871,14 +1871,14 @@ ul.Formations li {
         white-space: normal;           /* Permet le retour à la ligne du texte */
         word-break: break-word;        /* Coupe proprement si besoin */
     }
-    
-    
-    
+
+
+
     /* État hover */
     .custom-file-upload:hover {
         background-color: #0056b3;
     }
-    
+
 
     /* Section des options (orientation, taille, marge) */
     .options {
@@ -2362,7 +2362,7 @@ body.compress-file-page {
     text-align: center; /* Centre le texte horizontalement dans le footer */
     padding: 15px 0; /* Ajoute un espacement vertical (15px de haut et 15px de bas) autour du contenu du footer */
     font-size: 14px;  /* Définit la taille de la police à 14 pixels pour un affichage clair mais compact */
-    
+
 }
 
 /* === Conteneur principal === */
@@ -2639,18 +2639,18 @@ body.compress-file-page {
     background-color: transparent;  /* S’assure qu’il n’y a pas de fond */
     z-index: 10;
   }
-  
-  
+
+
 
   .mobile-only {   /* Par défaut, les éléments mobile sont masqués */
     display: none;
   }
-  
+
   .desktop-only {  /* Par défaut, les éléments desktop sont masqués aussi */
-  
+
     display: none;
   }
-  
+
   /* Mobile : affiche uniquement les boutons .mobile-only */
   @media (max-width: 767px) {
     .mobile-only {
@@ -2659,7 +2659,7 @@ body.compress-file-page {
         vertical-align: middle;           /* Alignement avec le bouton de fichier */
       }
   }
-  
+
   /* Desktop : affiche uniquement les boutons .desktop-only */
   @media (min-width: 768px) {
     .desktop-only {
@@ -2667,7 +2667,7 @@ body.compress-file-page {
       justify-content: flex-start;
     }
   }
-  
+
   /* === Style mobile : plein écran === */
 @media (max-width: 767px) {
     #fileUploadBtn {
@@ -2676,7 +2676,7 @@ body.compress-file-page {
       display: block;          /* Sur sa propre ligne */
     }
   }
-  
+
   /* === Style desktop : plus compact === */
   @media (min-width: 768px) {
     #fileUploadBtn {
@@ -2686,10 +2686,10 @@ body.compress-file-page {
       display: inline-block;   /* Sur la même ligne que ℹ️ */
       white-space: nowrap;     /* Ne passe pas à la ligne */
     }
-  
-    
+
+
   }
-  
+
 
   .file-info-wrapper {
     display: flex;               /* Pour l'alignement horizontal */
@@ -2698,9 +2698,9 @@ body.compress-file-page {
     gap: 10px;                   /* Espace entre les deux */
     flex-wrap: wrap;             /* Empêche le débordement */
   }
-  
-  
-  
+
+
+
   /* Mobile version */
   #infoBtnMobile {
     background-color: transparent;
@@ -2764,11 +2764,11 @@ body.compress-file-page {
     background-color: #0056b3;     /* Bleu plus foncé au hover */
 }
 
-  
+
 
 @media only screen and (max-width: 767px) {
 
-   
+
 
 
     /* Conteneur principal */
@@ -2899,7 +2899,7 @@ body.compress-file-page {
     border-radius: 8px;                     /* Coins légèrement arrondis pour aspect moderne */
     padding: 20px;                          /* Espace interne généreux autour du contenu */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Ombre légère pour donner de la profondeur */
-    transition: transform 0.3s ease, 
+    transition: transform 0.3s ease,
                 box-shadow 0.3s ease;       /* Animation fluide pour interaction au survol */
     text-align: center;                     /* Texte centré à l’intérieur des cartes */
     width: 100%;                            /* Largeur adaptable à l'espace disponible */
@@ -2984,3 +2984,125 @@ body.compress-file-page {
 }
 
 
+
+
+
+/* pour les cookies */
+
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9998;
+    pointer-events: all;
+}
+
+.cookie-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 460px;
+  max-height: 200px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(20px);
+  opacity: 1;
+}
+
+.cookie-box h2 {
+  font-size: 1.1rem;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+.cookie-box .scroll-text {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 16px;
+  max-height: 100px;
+  padding-right: 8px;
+}
+
+.cookie-box a {
+  color: #0079d3;
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cookie-actions button {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#accept-all {
+  background-color: #0079d3;
+  color: white;
+}
+
+#accept-all:hover {
+  background-color: #005ea8; /* Bleu plus foncé (survol)*/
+}
+
+#reject-non-essential {
+  background-color: #dae0e6;
+  color: #0079d3;
+}
+
+#reject-non-essential:hover {
+  background-color: #c2cbd3; /* Gris plus foncé (survol) */
+}
+
+.cookie-actions button:focus {
+  outline: 2px solid #0079d3;
+  outline-offset: 2px;
+}
+
+
+.cookie-box:not(.hidden) {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+@media (max-width: 480px) {
+  .cookie-box {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    max-width: unset;
+    width: auto;
+  }
+}
