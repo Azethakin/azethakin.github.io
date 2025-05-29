@@ -293,12 +293,12 @@ document.getElementById("clearBtn").addEventListener("click", () => {
 });
 
 const descriptions = {
-  "meta-llama/llama-4-scout:free": "🟪 Llama 4 Scout (free) : Nouvelle génération, ultra-puissant et polyvalent, texte + image. 256K tokens, 17B actifs (Mixture-of-Experts sur 109B). Idéal conversation, multimodal, prompts très longs.",
-  "qwen/qwen2.5-vl-72b-instruct:free": "🟩 Qwen2.5 VL 72B Instruct (free) : Multimodal (texte + image), fort pour images, tableaux, graphiques. 131K tokens, 72B paramètres.",
-  "mistralai/mistral-small-3.1-24b-instruct:free": "🟧 Mistral Small 3.1 24B (free) : Rapide, multitâche, contextes longs (96K tokens), texte + image. 24B paramètres.",
-  "deepseek/deepseek-chat-v3-0324:free": "🟦 DeepSeek V3 0324 (free) : Texte pur, XXL contexte (164K tokens), logique avancée. 236B paramètres (MoE sur 686B). Idéal prompts longs, synthèse et raisonnement.",
-  "qwen/qwen3-235b-a22b:free": "🟩 Qwen3 235B A22B (free) : Géant du texte, multilingue, raisonnement et analyse profonde. 41K tokens, 235B (22B actifs, MoE). Pas d’image.",
-  "deepseek/deepseek-prover-v2:free": "🟦 DeepSeek Prover V2 (free) : Spécialiste raisonnement math/logique. 164K tokens, 671B (MoE). Idéal pour preuves, calculs avancés. Multilingue."
+  "meta-llama/llama-4-scout:free": "🟪 Llama 4 Scout (free) : Nouvelle génération, ultra-puissant, polyvalent et adapté aux échanges complexes. 256K tokens, 17B actifs (MoE sur 109B). Idéal pour conversations, raisonnement et prompts très longs.",
+  "qwen/qwen2.5-vl-72b-instruct:free": "🟩 Qwen2.5 VL 72B Instruct (free) : Modèle texte avancé, très bon pour compréhension, raisonnement et longs contenus (131K tokens, 72B paramètres).",
+  "mistralai/mistral-small-3.1-24b-instruct:free": "🟧 Mistral Small 3.1 24B (free) : Modèle rapide et polyvalent, efficace pour de nombreuses tâches textuelles avec un large contexte (96K tokens, 24B paramètres). ",
+  "deepseek/deepseek-chat-v3-0324:free": "🟦 DeepSeek V3 0324 (free) : Modèle texte pur, très large contexte (164K tokens), logique avancée. 236B paramètres (MoE sur 686B). Idéal pour prompts longs, synthèse et raisonnement.",
+  "qwen/qwen3-235b-a22b:free": "🟩 Qwen3 235B A22B (free) : Modèle texte massif, multilingue, expert en raisonnement et analyse fine. 41K tokens, 235B (22B actifs, architecture MoE).",
+  "deepseek/deepseek-prover-v2:free": "🟦 DeepSeek Prover V2 (free) : Modèle dédié au raisonnement mathématique et logique. 164K tokens, 671B paramètres (MoE). Multilingue, idéal pour preuves formelles et calculs complexes."
 };
 
 
