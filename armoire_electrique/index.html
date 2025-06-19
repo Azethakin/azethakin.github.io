@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="Découvrez le projet électrique d'Aziz Malloul à l'Université Lyon 1 : mise à jour de deux armoires de commande moteur industrielles, avec étude complète, schémas, composants et sécurité.">
+    <meta name="keywords" content="Aziz Malloul, Armoire électrique, Énergie électrique, Université Lyon 1, Commande moteur, Démarrage étoile-triangle, Deux sens de rotation, Contacteurs, Schémas électriques, Sécurité industrielle">
+    <meta name="author" content="Aziz Malloul">
+    <link rel="canonical" href="https://azizmalloul.com/projet_armoire_electrique/">
+
+    <meta property="og:title" content="Projet Électrique Industriel - Aziz Malloul - Université Lyon 1">
+    <meta property="og:description" content="Mise à jour de deux armoires électriques pour le démarrage moteur et commande à deux sens de rotation. Avec schémas, explications détaillées, calculs et photos.">
+    <meta property="og:image" content="https://azizmalloul.com/images/projet_armoire_preview.webp">
+    <meta property="og:url" content="https://azizmalloul.com/projet_armoire_electrique/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projet Électrique Industriel - Aziz Malloul">
+    <meta name="twitter:description" content="Mise à jour d'armoires électriques industrielles pour démarrage moteur étoile-triangle et commande de moteurs à deux sens de rotation.">
+    <meta name="twitter:image" content="https://azizmalloul.com/images/projet_armoire_preview.webp">
+
+    <title>Projet Industriel - Armoires électriques - Université Lyon 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body oncontextmenu="gtag('event', 'clic_droit', { event_category: 'interaction_sensible', event_label: 'Clic droit page Armoire Électrique' }); return true;">
+
+    <div id="cookie-overlay" class="cookie-overlay hidden"></div>
+    <div class="cookie-box">
+        <h2>Nous accordons une grande importance à ta confidentialité</h2>
+        <div class="scroll-text">
+            Ce site utilise des cookies pour optimiser votre expérience. En cliquant sur “Tout accepter”, vous consentez à leur utilisation à des fins de performance, d’analyse et de personnalisation. <a href="../confidentialite/">Politique de confidentialité</a>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-all">Tout accepter</button>
+            <button id="reject-non-essential">Rejeter</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="desktop-header">
+            <nav>
+                <ul>
+                    <li><a href="../Accueil/">Accueil</a></li>
+                    <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                    <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                    <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                    <li><a href="../cv/">CV</a></li>
+                    <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                    <li><a href="../Loisirs/">Loisirs</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../espace_interactif/">Espace Interactif</a></li>
+                    <li id="google_translate_element"></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="mobile-header">
+            <span class="logo">Aziz Malloul</span>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <nav id="mobile-nav">
+            <ul>
+                <li><a href="../Accueil/">Accueil</a></li>
+                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+                <li><a href="../cv/">CV</a></li>
+                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+                <li><a href="../Loisirs/">Loisirs</a></li>
+                <li><a href="../contact/">Contact</a></li>
+                <li><a href="../espace_interactif/">Espace Interactif</a></li>
+                <li id="google_translate_element_mobile"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="projet-details">
+        <h1>Projet Énergie Électrique – Université Lyon 1</h1>
+
+        <h2>Introduction</h2>
+        <p>Ce projet, réalisé à l’Université Lyon 1 dans le cadre de l’UE-GEP3043L, consiste à mettre à jour deux armoires électriques industrielles. Ces armoires sont destinées à deux fonctions spécifiques : l’une pour le démarrage moteur en étoile-triangle, et l’autre pour le contrôle de moteur avec deux sens de rotation.</p>
+        <p>Les armoires électriques de démarrage sont largement utilisées dans l’industrie pour piloter des moteurs utilisés dans des ascenseurs, compresseurs, machines-outils, pompes, etc. Leur bon fonctionnement garantit une alimentation électrique fiable, le démarrage progressif du moteur, et la sécurité des équipements et des personnes.</p>
+
+        <h2>Objectifs du projet</h2>
+        <p>Le projet vise à :
+        <ul>
+            <li>Détecter les défauts dans les armoires existantes</li>
+            <li>Remplacer ou ajouter les composants nécessaires (contacteurs, relais, sectionneurs, transformateurs, voyants, etc.)</li>
+            <li>Implémenter un système de commande sécurisé</li>
+            <li>Installer des dispositifs de temporisation et de sécurité mécanique</li>
+        </ul>
+        </p>
+
+        <h2>Schémas de câblage et fonctionnement</h2>
+
+        <div class="images">
+            <h3>Armoire 1 – État initial</h3>
+            <img src="../images/projets_realises/armoire_electrique/armoire1_existant.webp" alt="Schéma armoire 1 existant" loading="lazy"
+                onclick="gtag('event', 'click_image_projet', {
+                    event_category: 'interaction',
+                    event_label: 'Schéma armoire 1 existant'
+            });">
+
+            <h3>Armoire 2 – État initial</h3>
+            <img src="../images/projets_realises/armoire_electrique/armoire2_existant.webp" alt="Schéma armoire 2 existant" loading="lazy"
+                onclick="gtag('event', 'click_image_projet', {
+                    event_category: 'interaction',
+                    event_label: 'Schéma armoire 2 existant'
+            });">
+
+            <p>
+                Le fonctionnement des armoires 1 et 2 dans leur état initial repose sur un système de commande simple. Lorsque le sectionneur Q1 est en position fermée, il alimente le circuit de commande. L'utilisateur peut alors appuyer sur le bouton poussoir de marche S2 : cela active la bobine du contacteur KM1. Cette activation entraîne la fermeture du contact auxiliaire (bornes 36-37) de KM1, normalement ouvert (NO), ce qui permet l’auto-alimentation de la bobine. Par conséquent, les contacts de puissance de KM1 se ferment à leur tour, permettant au courant d’atteindre le moteur et de le faire tourner. Pour changer le sens de rotation du moteur, il est nécessaire d’appuyer sur le bouton d’arrêt S1, ce qui désactive la bobine KM1 et coupe le circuit de puissance. Ensuite, l’opérateur doit manuellement intervertir deux phases de l’alimentation du moteur avant de réappuyer sur S2 pour relancer la rotation dans le sens inverse. Ce système impose une intervention manuelle et n’offre ni automatisation du changement de sens ni protections avancées contre les erreurs de manipulation.
+            </p>
+
+        </div>
+
+
+        <div class="images">
+
+            <h3>Armoire 1 – Mise à jour</h3>
+            <img src="../images/projets_realises/armoire_electrique/armoire1_mise_a_jour.webp" alt="Schéma armoire 1 mis à jour" loading="lazy"
+                onclick="gtag('event', 'click_image_projet', {
+                    event_category: 'interaction',
+                    event_label: 'Schéma armoire 1 mis à jour'
+            });">
+
+
+            <h3>Armoire 2 – Mise à jour</h3>
+            <img src="../images/projets_realises/armoire_electrique/armoire2_mise_a_jour.webp" alt="Schéma armoire 2 mis à jour" loading="lazy"
+                onclick="gtag('event', 'click_image_projet', {
+                    event_category: 'interaction',
+                    event_label: 'Schéma armoire 2 mis à jour'
+            });">
+
+            <p>
+                <h3>Armoire 1 – Mise à jour:</h3>Lorsque le circuit du sectionneur est fermé, les contacts de puissance se ferment en premier. Un voyant lumineux H4 s’allume pour indiquer que le courant est bien présent dans les contacts de puissance du sectionneur. Ensuite, les contacts de précoupure se ferment, ce qui alimente le circuit de commande, faisant ainsi s’allumer le voyant H3 pour signaler que le circuit de commande est sous tension. En appuyant sur le bouton poussoir de marche S2, le contact correspondant se ferme, permettant au courant d’alimenter la bobine du contacteur KM1. L'excitation de cette bobine entraîne l’allumage du voyant H1, indiquant que le moteur tourne dans un premier sens. Simultanément, le contact auxiliaire de KM1 (bornes 59-60, NF) se ferme, ce qui assure l’auto-alimentation de KM1 lorsque S2 est relâché. De plus, le contact auxiliaire (57-58, NF) de KM1 s’ouvre pour empêcher que le courant ne passe vers KM2 si l’utilisateur appuie par erreur sur S3 (sens inverse), assurant ainsi la sécurité électrique. Pour inverser le sens de rotation, il faut d’abord appuyer sur le bouton d’arrêt S1 pour désactiver KM1, puis sur le bouton poussoir S3. Ce dernier autorise le passage du courant vers la bobine de KM2, ce qui excite la bobine et allume le voyant H2. Le contact auxiliaire 55-56 (NO) de KM2 se ferme alors, permettant l’auto-alimentation de KM2 même après relâchement de S3. De plus, le contact auxiliaire 53-54 (NF) de KM2 s’ouvre pour bloquer l’alimentation vers KM1 si l’utilisateur réappuie sur S2. Cette logique assure qu’un seul moteur tourne à la fois dans une direction donnée. En plus de ces sécurités électriques, un dispositif de sécurité mécanique est intégré afin d’éviter tout court-circuit ou basculement simultané des deux directions. Ce verrouillage mécanique empêche les deux contacteurs de se fermer en même temps, notamment si les boutons poussoirs S2 et S3 sont pressés en parallèle, ou si l’utilisateur appuie sur un bouton de changement de sens sans arrêt préalable du moteur. Ainsi, il est impossible de démarrer les deux bobines simultanément, ce qui protège le moteur et les opérateurs. Ce système s’avère particulièrement utile pour éviter les erreurs humaines, notamment en cas de mauvais câblage ou de dysfonctionnements au niveau des contacts auxiliaires.
+            </p>
+
+            <p>
+                <h3>Armoire 2 – Mise à jour:</h3>Lorsque le circuit du sectionneur est fermé, les contacts de puissance se ferment en premier. Un voyant H4 s’allume pour indiquer que le courant est présent dans les contacts de puissance du sectionneur. Ensuite, les contacts de précoupure se ferment pour alimenter le circuit de commande, et un voyant H3 s'allume pour signaler que le circuit de commande est sous tension. Si l'on appuie sur le bouton poussoir S2, cela active la bobine KM1, qui enclenche directement une temporisation. Le contact auxiliaire KM1-1 se ferme, permettant l'auto-alimentation de la bobine KM1. Au moment de la fermeture de KM1-1, le moteur démarre directement en mode étoile grâce à la bobine KM3Y qui est excitée par le courant passant à travers KM1-1. Un voyant H1 s’allume pour indiquer que le moteur fonctionne en mode triangle. Le contact auxiliaire KM3Y-1 s’ouvre pour que la bobine KM2D ne soit jamais alimentée tant que la bobine KM3Y est excitée. Après la durée de temporisation, les deux contacts de temporisation changent d'état. Le contact KT1 (91-92) passe de NF à NO, ce qui coupe le courant vers KM3Y et ferme le contact KM3Y-1 (41-42). Grâce au contact temporisé KT2 (93-94) qui passe de NO à NF, le courant passe à la bobine KM2D pour permettre au moteur de passer en mode triangle. Le voyant H2 s'allume pour indiquer que le moteur fonctionne en mode triangle. Si une surcharge ou un court-circuit survient, le relais thermique détecte l'élévation de température résultant d'une surintensité électrique qui circule dans le circuit et coupe le courant dans le circuit de commande grâce à l’ouverture du contact F1 (63-64), désactivant toutes les bobines des contacteurs et ouvrant tous les contacts de puissance des contacteurs. En plus de la sécurité électrique, un système de sécurité mécanique a été installé pour éviter tout risque de court-circuit en cas de problème avec les contacts auxiliaires de KM2 et KM3 de sécurité électrique et les contacts de temporisateurs. Ce système de verrouillage empêche les deux contacteurs KM2 et KM3 de se fermer en même temps. Cette sécurité mécanique est particulièrement utile en cas de problème avec les contacts auxiliaires de la sécurité électrique.
+            </p>
+
+        </div>
+
+        <h2>Type de fusible utilisé et calcul de calibre</h2>
+        <p>
+        <strong>Armoire 1 :</strong><br>
+        1/ Calcul du courant total pour choisir les bons fusibles (Armoire 1 : deux sens de marche)<br>
+        D’après la plaque signalétique :<br>
+        - Le courant nominal : In = 3,6A<br>
+        - Le déphasage : cos φ = 0,82 ⇒ ρ ≈ 34,91<br>
+        - La tension nominale : Un = 400V<br>
+        - On règle le rhéostat à R = 50Ω<br><br>
+
+        Le courant du moteur : Im = In × (cos φ - j × sin φ) = 3,6 × (0,82 - j × 0,57)<br>
+        Im = 2,952 - j × 2,052<br>
+
+        Le courant du rhéostat : Ir = Un / R = 400 / 50 = 8A<br><br>
+
+        D’où le courant total est :<br>
+        It = Ir + Im<br>
+        It = (8 + 2,952) - j × 2,052<br>
+        It = 11,14A<br><br>
+
+        ⇒ On choisit donc les fusibles de 12A<br>
+        (Cartouches aM : accompagnement moteur)
+        </p>
+
+        <p>
+        <strong>Armoire 2 :</strong><br>
+        2/ Calcul du courant total pour choisir les bons fusibles (Armoire 2 : démarrage étoile-triangle)<br>
+        D’après la plaque signalétique :<br>
+        - Le courant nominal : In = 6,2A<br>
+        - Le déphasage : cos φ = 0,82 ⇒ ρ ≈ 34,91<br>
+        - La tension nominale : Un = 400V<br>
+        - On règle le rhéostat à R = 50Ω<br><br>
+
+        Le courant du moteur : Im = In × (cos φ - j × sin φ) = 6,2 × (0,82 - j × 0,57)<br>
+        Im = 5,084 - j × 3,534<br>
+
+        Le courant du rhéostat : Ir = Un / R = 400 / 50 = 8A<br><br>
+
+        D’où le courant total est :<br>
+        It = Ir + Im<br>
+        It = 13,084 - j × 3,534<br>
+        It = 13,98A<br><br>
+
+        ⇒ On choisit donc les fusibles de 16A<br>
+        (Cartouches aM : accompagnement moteur)
+        </p>
+
+
+        <h2>Composants utilisés</h2>
+        <div class="images">
+            <img src="../images/projets_realises/armoire_electrique/composants_armoire1.webp" alt="Composants Armoire 1" loading="lazy">
+            <img src="../images/projets_realises/armoire_electrique/composants_armoire2.webp" alt="Composants Armoire 2" loading="lazy">
+        </div>
+        <ul>
+            <li>Sectionneur porte fusible</li>
+            <li>Contact de précoupure</li>
+            <li>Relais thermique</li>
+            <li>Transformateur variable</li>
+            <li>Fusibles industriels aM</li>
+            <li>Moteur triphasé</li>
+            <li>Boutons poussoirs NO et NC</li>
+            <li>Voyants lumineux 230V</li>
+            <li>Contacteurs et auxiliaires</li>
+            <li>Temporisateurs de travail</li>
+            <li>Verrouillage mécanique</li>
+        </ul>
+
+        <h2>Rôle et fonctionnement de chaque composant</h2>
+
+        <h3>Sectionneur :</h3>
+        <p>
+        Le sectionneur est un dispositif électromécanique destiné à séparer physiquement un circuit électrique de son alimentation, garantissant ainsi une distance de sécurité suffisante pour isoler la partie aval de l'installation. Il est couramment utilisé pour assurer la sécurité des personnes intervenant sur une partie isolée du réseau électrique, ou pour mettre hors service une section défectueuse du réseau sans interrompre l'ensemble de l'installation.
+        Contrairement à un disjoncteur ou à un interrupteur, le sectionneur ne possède ni pouvoir de coupure, ni pouvoir de fermeture en charge. Par conséquent, pour éviter tout risque de brûlure lié à un arc électrique, il est impératif de couper préalablement l'alimentation des équipements situés en aval.
+        Le sectionneur doit être installé en tête d'une installation électrique, de manière visible, afin d'indiquer clairement sa position et de garantir une mise hors tension effective. Il doit couper tous les conducteurs actifs, à l’exception du conducteur de protection (PEN). Généralement manipulé depuis l’extérieur de l’armoire électrique au moyen d'une poignée, il est essentiel de respecter scrupuleusement les règles d'installation et d'utilisation du sectionneur pour assurer la sécurité des intervenants et le bon fonctionnement des installations électriques.
+        </p>
+
+        <h3>Contact de précoupure :</h3>
+        <p>
+        Les contacts de précoupure sont des composants clés intégrés aux sectionneurs. Leur fonction est d'interrompre l’alimentation électrique en amont des contacts principaux, en ouvrant la continuité du circuit électrique avant toute coupure physique.
+        Lorsque le sectionneur est actionné, ces contacts se déclenchent en premier, assurant une séparation anticipée des conducteurs. Cela crée une distance d'isolement suffisante entre les parties actives du circuit, minimisant ainsi le risque de formation d'arcs électriques.
+        À l'inverse, si les contacts principaux étaient les premiers à s’ouvrir, cela pourrait engendrer des arcs dangereux, provoquant étincelles, échauffements, voire incendies. C’est pourquoi les contacts de précoupure jouent un rôle fondamental en matière de sécurité.
+        </p>
+
+        <h3>Relais thermique :</h3>
+        <p>
+        Le relais thermique est un dispositif de protection destiné à prévenir les surcharges électriques, en particulier au niveau des moteurs. Il surveille en continu le courant traversant le récepteur, et en cas de dépassement du seuil admissible, il agit non pas sur la coupure directe du circuit de puissance, mais en ouvrant le circuit de commande de la bobine du contacteur.
+        Lorsque le relais détecte une surcharge, il interrompt l’alimentation de la bobine, ce qui provoque l'ouverture des contacts du contacteur, coupant ainsi le courant vers le récepteur. Ce type de relais est généralement repéré par la lettre « F » sur les schémas électriques.
+        Doté de contacts intégrés, le relais thermique assure une protection efficace contre la surchauffe en bloquant l’alimentation du récepteur lorsque le courant dépasse un seuil critique.
+        </p>
+
+        <h3>Fusible :</h3>
+        <p>
+        Les fusibles sont des composants de sécurité conçus pour protéger les circuits contre les surintensités, qu’il s’agisse de surcharges ou de courts-circuits. Ils laissent passer le courant jusqu’à un certain seuil, puis fondent au-delà, interrompant le circuit pour éviter tout dommage aux équipements ou tout danger.
+        Dans les milieux industriels, deux types de fusibles sont couramment utilisés :
+        les cartouches <strong>gG</strong>, identifiées par une bague noire, assurent une protection contre les faibles et fortes surcharges ainsi que les courts-circuits ;
+        et les cartouches <strong>aM</strong>, à bague verte, qui sont spécifiquement conçues pour les fortes surcharges et les courts-circuits, notamment en complément d’un relais thermique.
+        Ces derniers sont souvent choisis dans les applications de démarrage moteur, car ils peuvent résister à des pointes de courant temporaires, tout en exigeant une protection thermique complémentaire contre les faibles surcharges.
+        </p>
+        <h3>Bouton poussoir NO et NC :</h3>
+        <p>
+        Les boutons-poussoirs NO (Normalement Ouvert) et NC (Normalement Fermé) sont des composants couramment utilisés dans les circuits électriques pour commander les appareils électriques.
+        Le bouton-poussoir NO est ouvert lorsque le bouton n'est pas enfoncé. Lorsque vous appuyez sur le bouton, il se ferme et permet au courant de circuler à travers le circuit. Une fois que vous relâchez le bouton, il revient automatiquement à sa position ouverte et le courant cesse de circuler.
+        Le bouton-poussoir NC est exactement le contraire du bouton-poussoir NO. Il est fermé lorsque le bouton n'est pas enfoncé et s'ouvre lorsque vous appuyez sur le bouton. Lorsque vous relâchez le bouton, il revient automatiquement à sa position fermée et le courant peut à nouveau circuler.
+        </p>
+
+        <h3>Voyant lumineux 230V :</h3>
+        <p>
+        Les voyants lumineux de tension 230V sont des équipements électriques utilisés dans diverses applications industrielles et domestiques pour indiquer la présence de courant électrique à une tension de 230 volts sur un circuit électrique.
+        Ces voyants lumineux sont généralement équipés d'une LED de couleur rouge, verte ou jaune et peuvent être montés sur un panneau de contrôle ou un tableau électrique. Certains voyants lumineux de tension 230V sont équipés d'un boîtier en plastique ou en métal pour les protéger contre les chocs et les vibrations.
+        Les voyants lumineux de tension 230V peuvent être utilisés pour indiquer l'état de fonctionnement d'un équipement électrique, la présence de courant électrique dans un circuit, ou encore pour signaler une anomalie ou une panne électrique. Ils peuvent être raccordés à une source d'alimentation électrique en série avec un interrupteur ou un relais pour assurer leur fonctionnement.
+        </p>
+
+        <h3>Contacteur :</h3>
+        <p>
+        Le contacteur est un dispositif de commande qui permet de fermer ou d'ouvrir le passage de l'énergie électrique pour alimenter des moteurs et des récepteurs de forte puissance. Il est capable de supporter et d'interrompre des courants dans des conditions normales du circuit. Le contacteur peut être commandé à distance à partir des éléments du circuit de commande et peut être utilisé en milieu domestique comme télérupteur. La bobine du contacteur peut être alimentée en courant alternatif ou en courant continu et, lorsqu'elle est alimentée, un champ magnétique se forme, la partie mobile de l’armature est attirée contre la partie fixe et les contacts se ferment ou s’ouvrent en fonction du modèle.
+        En plus des contacts de puissance, il existe généralement des contacts pour le circuit de commande, tels qu’un contact Normalement Ouvert (NO) et un contact Normalement Fermé (NF). Si le nombre de contacts est insuffisant, des blocs auxiliaires peuvent être ajoutés pour fournir des fonctions supplémentaires telles que la temporisation. Un dispositif de verrouillage mécanique peut également être utilisé pour interdire la fermeture simultanée de deux contacteurs dans une installation.
+        </p>
+
+        <h3>Contacts auxiliaires d’un contacteur :</h3>
+        <p>
+        Les contacts auxiliaires d’un contacteur sont des éléments électromécaniques qui permettent de contrôler et de signaler l’état du contacteur à distance. Ils sont généralement constitués d’un contact normalement ouvert (NO) et d’un contact normalement fermé (NF), qui sont reliés électriquement au circuit de commande du contacteur.
+        Les contacts auxiliaires peuvent être utilisés pour contrôler un dispositif de signalisation ou pour activer d’autres équipements en fonction de l’état du contacteur. Ils peuvent également être utilisés pour réaliser des fonctions logiques complexes, telles que la temporisation, la commutation de modes ou la mise en cascade de plusieurs contacteurs. Les blocs auxiliaires de contacteurs peuvent être facilement installés et connectés aux bornes prévues à cet effet sur le contacteur principal.
+        </p>
+
+        <h3>Temporisateur de travail :</h3>
+        <p>
+        Un temporisateur de travail, également connu sous le nom de temporisateur à retard à l'enclenchement, est un dispositif électronique qui est utilisé pour retarder la mise en marche d’un contacteur après que le circuit de commande ait été activé. Le temporisateur de travail est monté sur le contacteur et est généralement utilisé pour éviter les surcharges lors de la mise en marche de machines ou de moteurs.
+        Lorsque le circuit de commande est activé, le temporisateur de travail retarde la fermeture des contacts du contacteur pendant une période de temps déterminée par l’utilisateur. Pendant ce temps de retard, le moteur ou la machine ne sera pas alimenté, ce qui permet aux systèmes mécaniques et électriques de s'initialiser et de s'ajuster avant que la charge ne soit appliquée. Une fois que le temps de retard est écoulé, le temporisateur de travail ferme les contacts du contacteur, permettant au courant de circuler vers le moteur ou la machine. Cela permet de réduire les surintensités et les perturbations qui pourraient se produire lors de la mise en marche.
+        </p>
+
+        <h3>Verrouillage mécanique :</h3>
+        <p>
+        Le verrouillage mécanique des contacteurs est un dispositif de sécurité qui empêche les contacts d’un contacteur de se fermer simultanément. Ce dispositif est généralement utilisé pour éviter les courts-circuits ou les changements de sens de rotation accidentels en cas d’appui simultané sur plusieurs boutons poussoirs.
+        Le verrouillage mécanique est généralement constitué d’un système de tiges et de verrous qui interdisent la fermeture des contacts de deux contacteurs en même temps. Ce système est activé par un verrouillage électromécanique, qui est activé lorsque l’un des contacteurs est sous tension.
+        Lorsque le contacteur est activé, le verrouillage mécanique empêche l’activation du deuxième contacteur. Pour activer le deuxième contacteur, il faut d’abord désactiver le premier contacteur en appuyant sur le bouton d’arrêt correspondant, ce qui libère le verrouillage mécanique et permet l’activation du deuxième contacteur.
+        </p>
+
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script src="../js/cookies.js"></script>
+    <script>
+        document.addEventListener("selectionchange", function () {
+            const selection = window.getSelection().toString();
+            if (selection.length >= 15) {
+                gtag('event', 'selection_texte', {
+                    event_category: 'interaction_sensible',
+                    event_label: 'Texte sélectionné sur la page Armoire Électrique',
+                    value: selection.length
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
