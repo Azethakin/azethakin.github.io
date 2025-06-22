@@ -99,7 +99,7 @@ if (contactForm) {
                 document.getElementById("resultMessage").style.display = "block";
                 document.getElementById("resultMessage").style.color = "green";
                 document.getElementById("resultMessage").textContent = "Message bien envoyé. Merci de m'avoir contacté!";
-                
+
                 // Réactive le bouton après 3 secondes (ou immédiatement si souhaité)
                 setTimeout(() => {
                     submitButton.disabled = false;
@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function changeImage() {
         // Enlève la classe 'active' de l'image actuelle
         images[currentIndex].classList.remove('active');
-        
+
         // Incrémente l'index pour passer à l'image suivante
         currentIndex = (currentIndex + 1) % totalImages;
-        
+
         // Ajoute la classe 'active' à la nouvelle image
         images[currentIndex].classList.add('active');
     }
@@ -198,9 +198,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Appelez la fonction pour chaque conteneur de loisir
-    
+
     setupImageRotationguitar('image-container-guitar');
-    
+
 });
 
 
@@ -327,7 +327,7 @@ const mobileNav = document.getElementById('mobile-nav');
 hamburger.addEventListener('click', function () {
     // Basculer la classe 'show' pour afficher/masquer le menu
     mobileNav.classList.toggle('show');
-    
+
     // Basculer une classe sur le body pour éviter le défilement quand le menu est ouvert
     document.body.classList.toggle('menu-open');
 
@@ -349,7 +349,7 @@ hamburger.addEventListener('click', function () {
 
 /* ================================================
   pour la page de cv
- 
+
    ================================================ */
 
 // ==================================================
@@ -372,14 +372,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const resetZoomButton = document.getElementById('reset-zoom'); // Bouton Réinitialiser
     const fullScreenButton = document.getElementById('fullscreen'); // Bouton Plein écran
     const cvImage = document.getElementById('cv-image'); // L'image du CV
-    
+    const cvLanguageSelector = document.getElementById('cv-language');
+
 
     // Permet de capturer uniquement le défilement vertical avec la roulette
     cvViewer.addEventListener('wheel', function (event) {
         const isAtTop = cvViewer.scrollTop === 0; // Vérifie si on est en haut de la zone du CV
         const isAtBottom =
             cvViewer.scrollTop + cvViewer.clientHeight >= cvViewer.scrollHeight; // Vérifie si on est en bas de la zone du CV
-    
+
         if ((event.deltaY < 0 && isAtTop) || (event.deltaY > 0 && isAtBottom)) {
             // Laisse le défilement se propager à la page
             cvViewer.blur(); // Perd le focus pour permettre le défilement global
@@ -392,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     });
-    
+
 
     let zoomLevel = 1; // Niveau de zoom initial
 
@@ -419,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateZoom(); // Met à jour l'affichage
         updateScrollBars(); // Met à jour les barres de défilement
     });
-    
+
 
     // Fonction pour passer en plein écran
     fullScreenButton.addEventListener('click', function () {
@@ -437,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cvImage.style.transform = `scale(${zoomLevel})`; // Applique le zoom
         cvImage.style.transition = 'transform 0.3s ease'; // Animation fluide du zoom
     }
-    
+
         // Ajoutez un événement pour empêcher l'image de dépasser les limites
     cvImage.addEventListener('wheel', (event) => {
         event.preventDefault(); // Empêche le défilement par défaut
@@ -446,32 +447,42 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateScrollBars() {
         const imageWidth = cvImage.offsetWidth * zoomLevel;
         const viewerWidth = cvViewer.clientWidth;
-    
+
         cvViewer.style.overflowX = imageWidth > viewerWidth ? 'scroll' : 'hidden';
         cvViewer.style.overflowY = 'auto';
-    
+
         // Centrage horizontal pour transform-origin: top center
         const scrollLeft = (imageWidth - viewerWidth) / 2;
         requestAnimationFrame(() => {
             cvViewer.scrollLeft = scrollLeft;
         });
     }
-    
-    
-    
-    
-    
-    
+
+
+    cvLanguageSelector.addEventListener('change', function () {
+        const selectedLang = this.value;
+
+        if (selectedLang === 'en') {
+            cvImage.src = '../images/CV_Aziz_MALLOUL_EN.webp';
+            gtag('event', 'switch_cv_lang', {
+                event_category: 'interaction',
+                event_label: 'Version anglaise'
+            });
+        } else {
+            cvImage.src = '../images/CV_Aziz_MALLOUL_FR.webp';
+            gtag('event', 'switch_cv_lang', {
+                event_category: 'interaction',
+                event_label: 'Version française'
+            });
+        }
+    });
+
+
     // Appelle cette fonction après chaque zoom
     zoomInButton.addEventListener('click', updateScrollBars);
     zoomOutButton.addEventListener('click', updateScrollBars);
     resetZoomButton.addEventListener('click', updateScrollBars);
 
-    
-    // Appeler lors du chargement initial
-    document.addEventListener('DOMContentLoaded', updateScrollBars);
-    
-    
 });
 
 
@@ -498,7 +509,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// cette partie pour le fichier redimmentionner_images 
+// cette partie pour le fichier redimmentionner_images
 
 // === MODULE Principal du site (exécute des comportements globaux) ===
 (function () {

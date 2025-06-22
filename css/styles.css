@@ -1084,6 +1084,9 @@ nav ul li input,
 
 
 
+
+
+
 /* ================================================
   pour la page de cv
 
@@ -1190,6 +1193,17 @@ nav ul li input,
     cursor: pointer; /* Curseur main */
     transition: background-color 0.3s ease;
 }
+
+.cv-controls select {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
 
 /* Change légèrement la couleur lors du survol des boutons */
 .cv-controls button:hover {
@@ -1387,6 +1401,11 @@ pour ajouter des espaces entre les lignes Formations dans cv.html
 ul.Formations li {
     margin-bottom: 3px; /* Ajout d'espace entre lignes Formations dans cv */
 }
+
+
+
+
+
 
 
 
