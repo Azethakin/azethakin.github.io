@@ -8,44 +8,44 @@
     <link rel="icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="https://azizmalloul.com/images/favicon.ico" type="image/x-icon">
 
-    <meta name="description" content="Découvrez le projet de fin de cycle L3 Électronique d'Aziz Malloul à l'UMMTO : création d'un circuit de contrôle à distance d'appareils secteur par télécommande infrarouge.">
+    <title>Arrosage Automatique Intelligent – Double ESP32 | Aziz Malloul</title>
 
-    <meta name="keywords" content="Aziz Malloul, Projet Fin d'Études, L3 Électronique, UMMTO, Télécommande Infrarouge, Contrôle d'appareils 230V, Circuit imprimé, ISIS Proteus, ARES, Électronique, CD4017, IR338A">
+    <meta name="description" content="Système d’arrosage multizone : double ESP32 (TFT tactile + web sécurisé), RTC DS3231, FreeRTOS, journalisation Google Sheets, programmation horaire, cycles ON/OFF et contrôle local/distant." />
+
+    <meta name="keywords" content="Aziz Malloul, Projet arrosage automatique, projet personnels, esp32, page web, Contrôle a distance, electrovannes, KiCad, Électronique, rtc module, ecran tft, joystick, relais, transistors, resistances, photocopleur, diode">
 
     <meta name="author" content="Aziz Malloul">
 
-    <link rel="canonical" href="https://azizmalloul.com/projet_L3_UMMTO/">
+    <link rel="canonical" href="https://azizmalloul.com/arrosage_automatique/" />
 
-    <meta property="og:title" content="Projet Fin de Cycle - L3 Électronique - Aziz Malloul">
-    <meta property="og:description" content="Découvrez comment Aziz Malloul a conçu un circuit intelligent pour contrôler des appareils secteur via télécommande infrarouge lors de son projet de fin d'études à l'UMMTO.">
-    <meta property="og:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
-    <meta property="og:url" content="https://azizmalloul.com/projet_L3_UMMTO/">
+    <meta property="og:title" content="Arrosage Automatique Intelligent – Double ESP32" />
+    <meta property="og:description" content="Interface TFT tactile + interface web sécurisée, RTC, logs vers Google Sheets, autonomie complète." />
+    <meta property="og:url" content="https://azizmalloul.com/arrosage_automatique/">
+		<meta property="og:image" content="https://azizmalloul.com/images/projets_realises/arrosage_automatique/pcb11.jpg">
     <meta property="og:type" content="website">
 
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Projet Fin de Cycle - L3 Électronique - Aziz Malloul">
-    <meta name="twitter:description" content="Découvrez comment Aziz Malloul a conçu un circuit de contrôle pour appareils secteur dans le cadre de son projet de fin de cycle à l'UMMTO.">
-    <meta name="twitter:image" content="https://azizmalloul.com/images/CV_Aziz_MALLOUL_Stage.webp">
+    <meta name="twitter:title" content="Arrosage Automatique Intelligent – Double ESP32 | Aziz Malloul">
+    <meta name="twitter:description" content="Interface TFT tactile + web sécurisé, RTC DS3231, FreeRTOS, Google Sheets, plannings et contrôle local/distant.">
+    <meta name="twitter:image" content="https://azizmalloul.com/images/projets_realises/arrosage_automatique/pcb11.jpg">
 
-    <title>Projet "Arrosage Automatique"</title>
-
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/arrosage_automatique.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');  <!-- Initialisation de l'outil de traduction Google -->
+            new google.translate.TranslateElement({ pageLanguage: 'fr' }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> <!-- Script pour charger Google Traduction -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
 <body oncontextmenu="gtag('event', 'clic_droit', {
     event_category: 'interaction_sensible',
-    event_label: 'Clic droit sur la page Projet L3'
+    event_label: 'Clic droit sur la page Arrosage Automatique'
 }); return true;">
 
 
@@ -64,122 +64,268 @@
         </div>
     </div>
 
-
-
     <div>
+			<header>
+				<!-- Menu desktop -->
+				<div class="desktop-header">
+					<nav>
+						<ul>
+							<li><a href="../Accueil/">Accueil</a></li>
+							<li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+							<li><a href="../projets_réalisés/" aria-current="page">Projets Réalisés</a></li>
+							<li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+							<li><a href="../cv/">CV</a></li>
+							<li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+							<li><a href="../Loisirs/">Loisirs</a></li>
+							<li><a href="../contact/">Contact</a></li>
+							<li><a href="../espace_interactif/">Espace Interactif</a></li>
+							<li id="google_translate_element"></li>
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Menu mobile -->
+				<div class="mobile-header">
+					<span class="logo">Aziz Malloul</span>
+					<div class="hamburger" id="hamburger-menu"><i class="fas fa-bars"></i></div>
+				</div>
+				<nav id="mobile-nav">
+					<ul>
+						<li><a href="../Accueil/">Accueil</a></li>
+						<li><a href="../parcours_universitaire/">Parcours Académique</a></li>
+						<li><a href="../projets_réalisés/">Projets Réalisés</a></li>
+						<li><a href="../mes_diplomes/">Mes Diplômes</a></li>
+						<li><a href="../cv/">CV</a></li>
+						<li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
+						<li><a href="../Loisirs/">Loisirs</a></li>
+						<li><a href="../contact/">Contact</a></li>
+						<li><a href="../espace_interactif/">Espace Interactif</a></li>
+						<li id="google_translate_element_mobile"></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- ====== CONTENU PROJET ====== -->
+			<section class="projet-details">
+				<h1></h1>
+
+				<h1 class="page-title">
+					🌿 Projet d’Arrosage Automatique Intelligent – Double ESP32
+					<img src="../images/projets_realises/arrosage_automatique/logo_berber_fleur.webp" alt="" class="title-logo" aria-hidden="true">
+				</h1>
 
 
+				<div class="lead">
+					<strong>Objectif :</strong> système multizone autonome et connecté, avec <b>U2 (ESP32-A)</b> pour l’interface locale
+					<em>TFT tactile + joystick</em> & configuration Wi-Fi, et <b>U1 (ESP32-B)</b> pour piloter
+					<em>jusqu’à 14 électrovannes</em>, servir une <em>interface Web sécurisée</em>, synchroniser l’heure
+					<em>NTP + RTC DS3231</em>, exécuter les <em>plannings</em> et <em>journaliser vers Google Sheets</em>.
+				</div>
 
-        <header>
+				<!-- Vidéo -->
+				<figure class="media">
+					<div class="videobox">
+						<video controls playsinline preload="metadata"
+									poster="../images/projets_realises/arrosage_automatique/arrosage1.webp">
+							<source src="../images/projets_realises/arrosage_automatique/video_arrosage.mp4" type="video/mp4">
+							Votre navigateur ne prend pas en charge la vidéo HTML5.
+						</video>
+					</div>
+					<figcaption>Démonstration&nbsp;: système d’arrosage en fonctionnement</figcaption>
 
-
-            <!-- Menu desktop -->
-            <div class="desktop-header">
-                <nav>
-                    <ul>
-                        <li><a href="../Accueil/">Accueil</a></li>
-                        <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                        <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                        <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                        <li><a href="../cv/">CV</a></li>
-                        <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                        <li><a href="../Loisirs/">Loisirs</a></li>
-                        <li><a href="../contact/">Contact</a></li>
-                        <li><a href="../espace_interactif/">Espace Interactif</a></li>
-
-                        <!--<li><input type="text" id="search" placeholder="Rechercher..."></li> --><!-- Champ de recherche pour la navigation -->
-                        <li id="google_translate_element"></li> <!-- Élément pour afficher l'outil de traduction Google -->
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- Menu mobile uniquement -->
-            <div class="mobile-header">
-            <span class="logo">Aziz Malloul</span> <!-- Logo pour mobile -->
-            <div class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i> <!-- Icône du menu hamburger -->
-            </div>
-            </div>
-
-            <!-- Navigation mobile -->
-            <nav id="mobile-nav">
-            <ul>
-                <li><a href="../Accueil/">Accueil</a></li>
-                <li><a href="../parcours_universitaire/">Parcours Académique</a></li>
-                <li><a href="../projets_réalisés/">Projets Réalisés</a></li>
-                <li><a href="../mes_diplomes/">Mes Diplômes</a></li>
-                <li><a href="../cv/">CV</a></li>
-                <li><a href="../Qui_suis_je/">Qui suis-je ?</a></li>
-                <li><a href="../Loisirs/">Loisirs</a></li>
-                <li><a href="../contact/">Contact</a></li>
-                <li><a href="../espace_interactif/">Espace Interactif</a></li>
-
-                <!--<li><input type="text" id="search-mobile" placeholder="Rechercher..."></li>  --><!-- Barre de recherche mobile -->
-                <li id="google_translate_element_mobile"></li> <!-- Traduction Google mobile -->
-            </ul>
-            </nav>
-
-        </header>
-
-        <!-- Section principale contenant les détails du projet -->
-        <section class="projet-details">
-            <h1 class="projetL3ummto">Projet "Arrosage Automatique"</h1>
+				</figure>
 
 
-            <h2>Présentation du Projet</h2>
-            <p>Les détails de ce projet seront bientôt disponibles. Revenez bientôt pour plus d'informations !</p>
-
-            <div class="images">
-                <img src="../images/projets_realises/arrosage_automatique/pcb1.webp" alt="couche cuivre dessus" loading="lazy"
-                    onclick="gtag('event', 'click_image_projet', {
-                        event_category: 'interaction',
-                        event_label: 'couche cuivre dessus'
-                    });">
-
-                <img src="../images/projets_realises/arrosage_automatique/pcb2.webp" alt="couche cuivre dessous" loading="lazy"
-                    onclick="gtag('event', 'click_image_projet', {
-                        event_category: 'interaction',
-                        event_label: 'couche cuivre dessous'
-                    });">
-
-                <img src="../images/projets_realises/arrosage_automatique/pcb3.webp" alt="Piste de la carte" loading="lazy"
-                    onclick="gtag('event', 'click_image_projet', {
-                        event_category: 'interaction',
-                        event_label: 'Piste de la carte'
-                    });">
-            </div>
-
-        </section>
-
-        <!-- Section Pied de page -->
-        <footer>
-            <p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p> <!-- Indication des droits d'auteur -->
-        </footer>
-
-    </div>
+				<!-- Sommaire -->
+				<nav class="toc-pro" aria-label="Plan de la page">
+					<span class="toc-heading"><i class="fa-solid fa-list-check"></i> Plan de la page</span>
+					<ul class="toc-links">
+						<li><a href="#archi"><i class="fa-solid fa-diagram-project"></i> Architecture générale</a></li>
+						<li><a href="#esp32b"><i class="fa-solid fa-wifi"></i> ESP32-B (web & arrosage)</a></li>
+						<li><a href="#pins-b"><i class="fa-solid fa-microchip"></i> Broches ESP32-B</a></li>
+						<li><a href="#esp32a"><i class="fa-solid fa-display"></i> ESP32-A (TFT & joystick)</a></li>
+						<li><a href="#pins-a"><i class="fa-solid fa-microchip"></i> Broches ESP32-A</a></li>
+						<li><a href="#modes"><i class="fa-solid fa-droplet"></i> Modes & vannes</a></li>
+						<li><a href="#rtos"><i class="fa-solid fa-layer-group"></i> FreeRTOS</a></li>
+						<li><a href="#persist"><i class="fa-regular fa-floppy-disk"></i> Persistance</a></li>
+						<li><a href="#remote"><i class="fa-solid fa-cloud-arrow-down"></i> Commandes distantes</a></li>
+						<li><a href="#logs"><i class="fa-solid fa-table"></i> Journalisation</a></li>
+						<li><a href="#galerie"><i class="fa-regular fa-images"></i> Galerie</a></li>
+					</ul>
+				</nav>
 
 
-    <!-- Lien vers le fichier JavaScript pour les interactions -->
-    <script src="../js/scripts.js"></script>
-    <script src="../js/cookies.js"></script>
+				<h2 id="archi" class="anchor-target"> Architecture générale – Double ESP32 (38 pins)</h2>
+				<div class="table-wrap">
+					<table class="specs">
+						<thead><tr><th>Module</th><th>Rôle</th><th>Détails</th></tr></thead>
+						<tbody>
+							<tr>
+								<td><strong>ESP32-A (U2) – Interface</strong></td>
+								<td>Affichage &amp; saisie locale</td>
+								<td>Écran TFT SPI ILI9341 240×320 + tactile XPT2046, joystick (X/Y/SW), portail AP “ESP32-Config” (192.168.4.1)
+										pour saisir SSID/PASS, envoi à U1 via UART, affichage des programmes/états reçus d’U1.</td>
+							</tr>
+							<tr>
+								<td><strong>ESP32-B (U1) – Arrosage &amp; Web</strong></td>
+								<td>Pilotage / réseau</td>
+								<td>Serveur HTTP local sécurisé, 14 électrovannes, RTC DS3231 (I2C), NTP, FreeRTOS, persistance,
+										journalisation Google Sheets, lecture périodique de <code>command.txt</code> et synchro UART avec U2.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
+				<h2 id="esp32b" class="anchor-target"> ESP32-B : Web sécurisé, 14 électrovannes, RTC &amp; NTP</h2>
+				<ul>
+					<li><strong>Wi-Fi</strong> : connexion au réseau domestique (SSID/PASS reçus d’U2). Interface web locale (port 80) protégée.</li>
+					<li><strong>RTC DS3231 + NTP</strong> : UTC+2 ; resynchronisation toutes les 24 h ; fonctionnement offline via RTC.</li>
+					<li><strong>Plannings par vanne</strong> : début/fin, jours (L→D), cycles ON/OFF, manuel/auto.</li>
+					<li><strong>Journalisation</strong> : envoi POST vers Google Apps Script → Google Sheets (vanne, heure, origine).</li>
+				</ul>
 
+				<h3 id="pins-b" class="anchor-target"> Affectation des broches – ESP32-B</h3>
+				<div class="table-wrap">
+					<table class="pins">
+						<thead><tr><th>Fonction</th><th>GPIO</th><th>Notes</th></tr></thead>
+						<tbody>
+							<tr><td>Électrovannes (14 sorties)</td><td>4,5,13,14,16,17,18,19,23,25,26,27,32,33</td><td>Bjt/relais (alims séparées, GND commun)</td></tr>
+							<tr><td>I2C – RTC DS3231</td><td>21 (SDA), 22 (SCL)</td><td>Horloge temps réel</td></tr>
+							<tr><td>UART inter-ESP</td><td>12 (RX), 15 (TX)</td><td>Liaison matérielle avec U2</td></tr>
+						</tbody>
+					</table>
+				</div>
 
+				<h2 id="esp32a" class="anchor-target"> ESP32-A : Interface locale TFT tactile + joystick</h2>
+				<ul>
+					<li><strong>TFT ILI9341</strong> (SPI) + <strong>tactile XPT2046</strong> (SPI partagé).</li>
+					<li><strong>Joystick</strong> : X/Y analogiques + bouton SW.</li>
+					<li><strong>Pages</strong> : sélection vanne, plages horaires, jours, cycles ON/OFF, ON/OFF/Enregistrer, IP locale de U1.</li>
+					<li><strong>Données reçues</strong> d’U1 via UART : programmes, états, heure RTC/NTP, logs.</li>
+				</ul>
 
+				<h3 id="pins-a" class="anchor-target"> Broches utilisées – ESP32-A</h3>
+				<div class="table-wrap">
+					<table class="pins">
+						<thead><tr><th>Sous-système</th><th>GPIO</th><th>Rôle</th></tr></thead>
+						<tbody>
+							<tr><td>TFT ILI9341</td><td>14 (CS), 4 (RESET), 2 (DC), 23 (MOSI), 18 (SCK)</td><td>Affichage SPI 240×320</td></tr>
+							<tr><td>Tactile XPT2046</td><td>5 (T_CS), 18 (T_CLK), 23 (T_DIN), 19 (T_DO), 27 (T_IRQ)</td><td>SPI partagé</td></tr>
+							<tr><td>Joystick</td><td>34 (X), 35 (Y), 25 (SW)</td><td>Navigation + sélection</td></tr>
+							<tr><td>UART vers U1</td><td>15 (TX), 12 (RX)</td><td>Synchronisation / commandes</td></tr>
+						</tbody>
+					</table>
+				</div>
 
-    <script>
-    document.addEventListener("selectionchange", function () {
-        const selection = window.getSelection().toString();
-        if (selection.length >= 15) {
-            gtag('event', 'selection_texte', {
-                event_category: 'interaction_sensible',
-                event_label: 'Texte sélectionné sur la page Projet L3',
-                value: selection.length
-            });
-        }
-    });
-    </script>
+				<h2 id="modes" class="anchor-target"> Gestion des électrovannes &amp; modes</h2>
+				<ul>
+					<li><strong>Jusqu’à 14 vannes</strong> indépendantes.</li>
+					<li><strong>Programmation</strong> : début/fin, délai, jours actifs, ON/OFF, manuel/auto.</li>
+					<li><strong>Commandes</strong> :
+						<ul>
+							<li><em>Manuel</em> : interface web sécurisée ou interface locale.</li>
+							<li><em>Automatique</em> : horaires persistants + lecture périodique de <code>command.txt</code> + synchro UART.</li>
+						</ul>
+					</li>
+				</ul>
 
-</body>
+				<h2 id="rtos" class="anchor-target"> Multitâche FreeRTOS (ESP32-B)</h2>
+				<div class="table-wrap">
+					<table class="specs">
+						<thead><tr><th>Tâche</th><th>Description</th></tr></thead>
+						<tbody>
+							<tr><td><code>ArrosageTask</code></td><td>Vérifie chaque seconde horaires &amp; cycles ON/OFF, applique timeouts.</td></tr>
+							<tr><td><code>TimeDisplayTask</code></td><td>Affiche l’heure RTC/NTP en continu (console / web).</td></tr>
+						</tbody>
+					</table>
+				</div>
 
-</html>
+				<h2 id="persist" class="anchor-target"> Stockage &amp; persistance (conservation des données après redémarrage)</h2>
+				<ul>
+					<li><strong>ESP32-B / Preferences</strong> : paramètres par vanne (début/fin, cycle, jours, état).</li>
+					<li><strong>ESP32-A / EEPROM</strong> : dernier planning sélectionné côté interface.</li>
+				</ul>
+
+				<h2 id="remote" class="anchor-target"> Commandes distantes via Internet</h2>
+				<ul>
+					<li><strong>ON1 →</strong> : Allume la vanne 1 immédiatement.</li>
+					<li><strong>OFF1 →</strong> : Éteint la vanne 1 immédiatement.</li>
+					<li><strong>SET2;06:00:00;06:10:00;60;1,3,5 →</strong> : Programme la vanne 2 (6h-6h10, cycle 60 s, jours Lundi, Mercredi, Vendredi).</li>
+				</ul>
+
+				<h2 id="logs" class="anchor-target"> Journalisation vers Google Sheets</h2>
+				<ul>
+					<li>Google Apps Script + Google Sheets.</li>
+					<li>Action, vanne, horodatage, origine (Web, tactile, auto, distante).</li>
+					<li>Page <em>journal.html</em> (alwaysdata) pour visualiser les logs.</li>
+				</ul>
+
+				<h2 id="galerie" class="anchor-target">Galerie – Rendus &amp; PCB</h2>
+
+				<div class="gallery-grid">
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/pcb1.webp" alt="Vue de face - 3D (KiCad)" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Vue de face - 3D (KiCad)</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/pcb2.webp" alt="Vue arrière - 3D (KiCad)" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Vue arrière - 3D (KiCad)</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/pcb.webp" alt="Routage de la carte (KiCad)" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Routage de la carte (KiCad)</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/schema.webp" alt="Schema de la carte" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Schema de la carte</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/arrosage1.webp" alt="Prototype d’arrosage, relais actifs, controle depuis l’interface web sur smartphone" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Prototype d’arrosage : relais actifs, contrôle via interface web (smartphone)</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/arrosage2.webp" alt="Écran TFT affichant l’adresse IP locale de l’ESP32, carte relais et smartphone" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Affichage de l’adresse IP locale sur l’écran TFT (accès à l’interface web)</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/arrosage3.webp" alt="Contrôle de l’électrovanne 2 via l’interface TFT ; carte relais et console web visibles" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Commande en temps réel de l’électrovanne 2 depuis l’écran TFT</figcaption>
+					</figure>
+
+					<figure class="card">
+						<div class="thumb">
+							<img src="../images/projets_realises/arrosage_automatique/electrovanne.webp" alt="Electrovanne" loading="lazy" decoding="async">
+						</div>
+						<figcaption>Électrovanne</figcaption>
+					</figure>
+				</div>
+
+			<footer>
+				<p>&copy; 2024 - Aziz Malloul. Tous droits réservés.</p>
+			</footer>
+		</div>
+
+		<script src="../js/scripts.js"></script>
+		<script src="../js/cookies.js"></script>
+	</body>
+	</html>

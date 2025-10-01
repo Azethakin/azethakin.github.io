@@ -1,0 +1,629 @@
+
+
+/* ==== Arrosage automatique – styles spécifiques ==== */
+.lead{
+  background:#fff;border-left:4px solid #27ae60;padding:12px 14px;margin:12px 0;border-radius:4px;
+}
+/* Cadre de la vidéo */
+.media{ margin:16px auto; max-width:1200px; }
+.media .videobox{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;         /* cadre propre; change si ta vidéo n'est pas 16:9 */
+  border-radius:10px;
+  overflow:hidden;           /* coupe tout débordement (contrôles et image) */
+  background:#000;           /* fond sous la vidéo (propre si “contain”) */
+}
+
+/* La vidéo occupe tout le cadre */
+.media .videobox video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;          /* = remplit le cadre (peut rogner un peu) */
+}
+
+/* Option mobile : hauteur maxi si tu veux limiter */
+@media (max-width:900px){
+  .media .videobox{ max-height:70vh; }
+}
+
+
+/* ===== Plan de la page (pro) ===== */
+.toc-pro{
+  display:flex;
+  flex-direction:column;       /* << titre au-dessus, liens en dessous */
+  align-items:left;          /* << left horizontal */
+  justify-content:center;
+  gap:12px;
+  background:#fff;
+  border:1px solid #e9ecef;
+  border-radius:12px;
+  padding:10px 12px;
+  margin:12px 0 18px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+
+.toc-heading{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  white-space:nowrap;
+  color:#111;
+  text-align:center;           /* << au cas où */
+}
+
+.toc-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;      /* << centre les “pills” */
+  gap:8px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  flex-wrap:wrap;              /* retour à la ligne si besoin */
+  width:100%;
+}
+
+.toc-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border:1px solid #e6e6e6;
+  border-radius:999px;
+  background:#fff;
+  text-decoration:none;
+  color:#2c3e50;
+  font-weight:500;
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.toc-links a:hover{
+  border-color:#cfd7df; transform:translateY(-1px);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+}
+.toc-links a i{ opacity:.9; }
+
+html{ scroll-behavior:smooth; }
+h2, h3{ scroll-margin-top:90px; }
+
+/* Décalage d’ancre uniquement pour cette page */
+.projet-details .anchor-target{
+  scroll-margin-top: 90px;     /* bureau */
+}
+
+
+/* Mobile */
+/* ===== Mobile : TOC non-sticky, comportement normal ===== */
+@media (max-width: 900px){
+  .toc-pro{
+    position: static; top:auto; z-index:auto;
+    max-height:none; overflow:visible; margin:12px 0 18px;
+  }
+  .toc-links{ flex-wrap:wrap; justify-content:center; }
+
+  /* Décalage d’ancre – uniquement ici, sur les titres cibles */
+  .projet-details .anchor-target{
+    scroll-margin-top: 70px;   /* ajuste selon la hauteur de ton header mobile */
+  }
+}
+
+
+/* --- Galerie cartes --- */
+/* --- Galerie cartes (version agrandie) --- */
+.gallery-grid{                                  /* Conteneur de la galerie en grille */
+  display: grid;                                /* Active le layout CSS Grid */
+  grid-template-columns:                       /* Définit les colonnes de la grille : */
+    repeat(auto-fill, minmax(320px, 1fr));      /* - Crée autant de colonnes que possible (auto-fill)
+                                                   - Chaque colonne a au minimum 320px
+                                                   - Et peut s’étendre jusqu’à occuper 1 fraction (1fr) de l’espace disponible */
+  gap: 1px;                                    /* Espace (marge) entre les cartes, horizontal et vertical */
+  max-width: 1400px;                            /* Largeur maximale du bloc galerie pour éviter qu’il s’étale trop sur très grands écrans */
+  margin: 0 auto 28px;                          /* Centre horizontalement le bloc (auto) + marge basse de 28px */
+}
+
+.card{                                          /* Style d’une carte (figure) */
+  padding: 16px;                                /* Espace interne autour de l’image et de la légende */
+  background: #fff;                             /* Fond blanc (carte sur fond gris clair) */
+  border: 1px solid #e9ecef;                    /* Fin liseré gris très léger pour délimiter la carte */
+  border-radius: 14px;                          /* Coins arrondis de la carte (look plus moderne) */
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);        /* Ombre douce pour donner du relief */
+}
+
+.thumb{                                         /* Conteneur de la vignette (l’image) */
+  aspect-ratio: 3 / 2;                          /* Ratio fixe (largeur:hauteur). 3:2 = un peu plus haut que 4:3 */
+  display: flex;                                /* Flex pour centrer l’image facilement */
+  align-items: center;                          /* Centre verticalement l’image dans la zone */
+  justify-content: center;                      /* Centre horizontalement l’image dans la zone */
+  background: #f8f9fa;                          /* Fond gris très clair derrière l’image (utile si fond transparent) */
+  border-radius: 12px;                          /* Coins arrondis de la zone image */
+  overflow: hidden;                             /* Coupe tout débordement (utile si l’image est plus grande) */
+}
+
+.thumb img{                                     /* L’image à l’intérieur de la vignette */
+  max-width: 100%;                              /* Ne jamais dépasser la largeur de la vignette */
+  max-height: 100%;                             /* Ne jamais dépasser la hauteur de la vignette */
+  width: auto;                                  /* Laisse le navigateur calculer la largeur en respectant le ratio */
+  height: auto;                                 /* Laisse le navigateur calculer la hauteur en respectant le ratio */
+  object-fit: contain;                          /* Fait rentrer l’image en entier dans la zone sans recadrage (peut laisser des bandes) */
+  display: block;                               /* Supprime l’espace blanc sous l’image inline */
+}
+
+.card figcaption{                               /* Légende sous l’image */
+  text-align: center;                           /* Centrage du texte de la légende */
+  margin-top: 10px;                             /* Espace entre l’image et la légende */
+  font-size: 1rem;                              /* Taille légèrement plus grande que la valeur par défaut */
+  color: #333;                                  /* Gris foncé pour un bon contraste sur fond blanc */
+}
+
+/* ===== Responsive : on réduit légèrement sur mobile ===== */
+@media (max-width: 900px){                      /* Règles appliquées aux écrans ≤ 900px de large */
+  .gallery-grid{
+    grid-template-columns:                      /* Colonnes plus petites pour tenir sur mobile */
+      repeat(auto-fill, minmax(260px, 1fr));    /* Minimum 260px par colonne (plus compact) */
+    gap: 20px;                                  /* Réduit l’espace entre cartes pour économiser de la place */
+    max-width: 100%;                            /* Autorise la galerie à prendre toute la largeur disponible */
+  }
+  .card{ padding: 12px; }                       /* Un padding un peu plus petit pour les petits écrans */
+  .thumb{ aspect-ratio: 4 / 3; }                /* Ratio plus “classique” sur mobile (plus carré, lit mieux sur étroit) */
+}
+
+
+
+/* Tableaux specs/pins */
+.table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
+.specs,.pins{width:100%;min-width:700px;max-width:1100px;margin:16px auto;border-collapse:collapse}
+.specs th,.specs td,.pins th,.pins td{border:1px solid #ddd;padding:10px;vertical-align:top}
+.specs th,.pins th{background:#f5f5f5;text-align:left}
+pre{background:#f7f7f7;padding:10px;border-radius:6px;overflow:auto}
+code,kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
+kbd{background:#f1f1f1;padding:2px 6px;border-radius:4px}
+
+/* conteneur de la page projet */
+.projet-details{
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 14px;
+}
+
+/* images/vidéos : toujours contenues */
+.projet-details img,
+.projet-details video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* vidéo : ne pas dépasser la hauteur d’écran */
+.media video{
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+
+/* Titre avec logo */
+.page-title{
+  display:flex;                 /* place le logo et le texte sur une ligne */
+  align-items:center;           /* aligne verticalement */
+  gap:10px;                     /* espace entre logo et texte */
+  margin:0 0 8px;               /* ajuste si besoin */
+}
+
+.page-title .title-logo{
+  width:40px;                   /* taille du logo (retina friendly si image HD) */
+  height:auto;
+  aspect-ratio:1/1;             /* garde le carré si l’image a de la transparence */
+  object-fit:contain;           /* pas de déformation */
+  display:block;
+}
+
+/* un poil plus petit sur mobile */
+@media (max-width: 900px){
+  .page-title .title-logo{ width:24px; }
+}
+
+
+
+
+
+
+
+
+
+/* pour les cookies */
+
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9998;
+    pointer-events: all;
+}
+
+.cookie-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 460px;
+  max-height: 200px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(20px);
+  opacity: 1;
+}
+
+.cookie-box h2 {
+  font-size: 1.1rem;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+.cookie-box .scroll-text {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 16px;
+  max-height: 100px;
+  padding-right: 8px;
+}
+
+.cookie-box a {
+  color: #0079d3;
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cookie-actions button {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#accept-all {
+  background-color: #0079d3;
+  color: white;
+}
+
+#accept-all:hover {
+  background-color: #005ea8; /* Bleu plus foncé (survol)*/
+}
+
+#reject-non-essential {
+  background-color: #dae0e6;
+  color: #0079d3;
+}
+
+#reject-non-essential:hover {
+  background-color: #c2cbd3; /* Gris plus foncé (survol) */
+}
+
+.cookie-actions button:focus {
+  outline: 2px solid #0079d3;
+  outline-offset: 2px;
+}
+
+
+.cookie-box:not(.hidden) {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+@media (max-width: 480px) {
+  .cookie-box {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    max-width: unset;
+    width: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   Styles pour l'en-tête du site
+   =========================================== */
+
+/* Style pour l'en-tête du site avec un dégradé */
+header {
+    background: linear-gradient(135deg, #034115, #88868657); /* Dégradé de bleu foncé à vert */
+    color: #ecf0f1; /* Couleur du texte (blanc) */
+    padding: 5px; /* Espace autour du contenu de l'en-tête */
+    text-align: center; /* Centrer le texte */
+    position: relative; /* Permet de positionner les éléments à l'intérieur de l'en-tête */
+    height: 120px; /* Hauteur de l'en-tête */
+    height: 120px;
+    min-height: 120px;
+}
+
+/* Style du titre principal de l'en-tête */
+header h1 {
+    margin: 0; /* Pas de marge autour du titre */
+    font-weight: 700; /* Texte en gras */
+
+}
+
+.desktop-header {
+    height: 120px; /* même que le header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Cacher le menu mobile par défaut */
+#mobile-nav {
+  display: none;
+}
+
+/* Sécurité : sur desktop, forcer le masquage */
+@media (min-width: 768px){
+  #mobile-nav {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+    /* Cache l'en-tête desktop sur les petits écrans */
+    .mobile-header {
+        display: none; /* L'en-tête desktop n'est pas affichée */
+    }
+	}
+
+
+/* Media query pour les écrans étroits (767px et moins) */
+/* Ces styles s'appliquent uniquement aux écrans de taille égale ou inférieure à 767px */
+@media only screen and (max-width: 767px) {
+    /* Cache l'en-tête desktop sur les petits écrans */
+    .desktop-header {
+        display: none; /* L'en-tête desktop n'est pas affichée */
+    }
+
+
+    /* Barre supérieure (logo et hamburger menu) sur mobile */
+    .mobile-header {
+        display: flex; /* Affiche la barre supérieure en mode flex */
+        justify-content: space-between; /* Place le logo à gauche et l'icône hamburger à droite */
+        align-items: center; /* Aligne les éléments verticalement */
+        padding: 10px 20px; /* Ajoute des espaces internes */
+        background-color: transparent; /* Fond transparent */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous la barre */
+    }
+
+    /* Champ de recherche dans l'en-tête mobile */
+    .mobile-header input[type="text"] {
+        flex-grow: 1; /* Permet au champ de recherche de s'étendre */
+        margin-right: 10px; /* Ajoute un espace à droite */
+        padding: 5px; /* Ajoute un espace interne */
+        border-radius: 5px; /* Arrondit les bords du champ */
+        border: 1px solid #ddd; /* Ajoute une bordure grise */
+        width: 70%; /* Définit la largeur à 70% */
+        height: 1px; /* Hauteur minimale */
+    }
+
+    /* Icône hamburger dans l'en-tête mobile */
+    .hamburger {
+        cursor: pointer; /* Curseur en main pour indiquer qu'il est cliquable */
+        font-size: 1.5em; /* Taille légèrement réduite par rapport au style global */
+        color: #000; /* Couleur noire pour se démarquer */
+    }
+
+    /* Conteneur du menu mobile */
+    #mobile-nav {
+        display: none; /* Par défaut, le menu est caché */
+        position: absolute; /* Position absolue pour superposer au contenu */
+        top: 50px; /* Positionné en dessous de la barre supérieure */
+        right: 0; /* Aligné à droite */
+        width: 100%; /* Occupe toute la largeur de l'écran */
+        background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
+        padding: 20px; /* Ajoute un espace interne */
+        z-index: 1000; /* Assure que le menu reste au-dessus des autres éléments */
+    }
+
+    /* Liste dans le menu mobile */
+    #mobile-nav ul {
+        display: flex; /* Affiche les éléments en flexbox */
+        flex-direction: column; /* Aligne les éléments verticalement */
+        list-style: none; /* Supprime les puces de la liste */
+        padding-left: 0; /* Supprime le padding gauche */
+    }
+
+    /* Élément de liste dans le menu mobile */
+    #mobile-nav ul li {
+        margin-bottom: 15px; /* Ajoute un espacement entre les éléments */
+        font-size: 18px; /* Taille de la police */
+        font-weight: bold; /* Rend le texte en gras */
+        text-align: center; /* Centre le texte */
+    }
+
+    /* Liens des éléments du menu */
+    #mobile-nav ul li a {
+        color: #c2c0c0; /* Couleur des liens du menu hamburgers ( accueil, parcours académique, proje, cv, qui suis je, loisirs, contact)  */
+        text-decoration: none; /* Supprime le soulignement */
+    }
+
+    /* Lien actif ou survolé */
+    #mobile-nav ul li a:hover {
+        color: #d64a4a; /* Change la couleur en rouge au survol */
+    }
+
+    /* Styles pour le menu affiché */
+    #mobile-nav.show {
+        display: block; /* Affiche le menu */
+        height: 100vh; /* Occupe toute la hauteur de l'écran */
+    }
+
+    /* Supprime le défilement du contenu lorsque le menu est ouvert */
+    body.menu-open {
+        overflow: hidden; /* Empêche le défilement */
+    }
+}
+
+
+
+
+
+
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   Styles pour le pied de page
+   =========================================== */
+
+/* Style pour le pied de page */
+footer {
+    background: #34495e; /* Couleur de fond bleu foncé */
+    color: #ecf0f1; /* Couleur blanche pour le texte */
+    text-align: center; /* Centre le texte dans le pied de page */
+    padding: 10px 0; /* Espacement interne */
+    position: relative; /* Permet de positionner le pied de page */
+    bottom: 0; /* Fixe le pied de page en bas */
+    width: 100%; /* Occupe toute la largeur de l'écran */
+    margin-top: auto; /* Permet de pousser le footer en bas */
+
+}
+
+.footer-compresser {
+    background-color: #1c1c1c;  /* Définit la couleur de fond du footer en gris foncé (#1c1c1c) */
+    color: white;  /* Définit la couleur du texte à blanc pour un bon contraste avec le fond sombre */
+    text-align: center; /* Centre le texte horizontalement dans le footer */
+    padding: 15px 0; /* Ajoute un espacement vertical (15px de haut et 15px de bas) autour du contenu du footer */
+    font-size: 14px;  /* Définit la taille de la police à 14 pixels pour un affichage clair mais compact */
+
+}
+
+/* Pied de page et Section des icônes des réseaux sociaux */
+
+
+/* Pied de page */
+footer {
+    text-align: center; /* Centrer le texte */
+    padding: 20px; /* Espacement intérieur du pied de page */
+    background-color: #333; /* Fond sombre */
+    color: white; /* Texte blanc */
+}
+
+/* Section des icônes des réseaux sociaux */
+.social-icons {
+    margin-top: 10px; /* Espace au-dessus des icônes */
+}
+
+/* Icônes des réseaux sociaux */
+.social-icons a {
+    margin: 0 10px; /* Espacement entre les icônes */
+    text-decoration: none; /* Supprime le soulignement */
+    color: white; /* Couleur par défaut des icônes */
+    font-size: 24px; /* Taille des icônes */
+    transition: color 0.3s; /* Transition pour le changement de couleur au survol */
+}
+
+/* Changement de couleur des icônes au survol */
+.social-icons a:hover {
+    color: #3498db; /* Change la couleur au survol (bleu clair) */
+}
+
+
+
+body.compress-file-page {
+    display: flex;
+    flex-direction: column; /* Dispose les éléments verticalement */
+    min-height: 100vh; /* Hauteur minimale = hauteur de l'écran */
+    margin: 0; /* Supprime les marges par défaut */
+}
+
+/* Le wrapper prend tout l'espace disponible entre le header et le footer */
+.compress-wrapper {
+    flex-grow: 1; /* Remplit l'espace restant */
+    display: flex;
+    flex-direction: column; /* Colonne pour empiler contenu et footer */
+    justify-content: flex-start; /* Alignement en haut */
+    align-items: center; /* Centre horizontalement */
+    padding: 30px 0; /* Espace optionnel */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/* ===========================================
+   Styles pour la navigation du site
+   =========================================== */
+
+/* Liste des liens de navigation */
+nav ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le padding */
+    text-align: center; /* Centre la liste des liens */
+}
+
+/* Style pour chaque élément de la liste */
+nav ul li {
+    display: inline-block; /* Les éléments sont affichés horizontalement */
+    margin: 0 15px; /* Espacement entre chaque lien */
+}
+
+/* Style pour les liens de navigation */
+nav ul li a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: #ecf0f1; /* Couleur blanche pour les liens */
+    font-weight: 500; /* Légèrement en gras */
+}
+
+/* Style lors du survol d'un lien */
+nav ul li a:hover {
+    border-bottom: 2px solid #e74c3c; /* Ajoute une ligne sous le lien lors du survol */
+    padding-bottom: 5px; /* Espace entre le lien et la ligne */
+}
+
