@@ -1,0 +1,133 @@
+<section id="robocup-msl">
+  <h2>Projet RoboCup MSL – Système de tir électromagnétique</h2>
+  <p>
+    Dans le cadre de la RoboCup Middle Size League (MSL), j'ai conçu et réalisé un système de tir électromagnétique à haute puissance, capable de propulser une balle de façon précise via un solénoïde. Ce projet complexe a nécessité une maîtrise avancée de l'électronique de puissance, de la commande PWM, et de la sécurité électrique.
+  </p>
+
+  <h3>Objectif</h3>
+  <p>
+    Concevoir un système de conversion et de stockage d'énergie permettant :<br>
+    → d'élever la tension d'une batterie 24 V jusqu'à 400 V,<br>
+    → de stocker cette énergie dans de gros condensateurs HT,<br>
+    → et de la décharger brutalement dans un solénoïde via un IGBT piloté de façon sécurisée.
+  </p>
+
+  <h3>Architecture du circuit</h3>
+  <ol>
+    <li>
+      <strong>Hacheur boost (convertisseur élévateur)</strong><br>
+      Utilise un circuit de contrôle PWM (UCC3802) pour commander un transistor MOSFET de puissance. Le hacheur transforme les 24 V d'entrée en une tension de 400 V pour charger les condensateurs.
+      <ul>
+        <li><strong>Inductance + diode rapide :</strong> Stockage d'énergie magnétique et redressement rapide.</li>
+        <li><strong>Condensateurs de filtrage :</strong> Stabilisent la sortie à 400 V.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Stockage d'énergie</strong><br>
+      Des condensateurs HT de forte capacité (~2200 à 4700 µF / 400 V) accumulent l'énergie jusqu'au moment du tir.
+    </li>
+    <li>
+      <strong>Système de tir</strong><br>
+      L'énergie est libérée par un IGBT haute puissance. Il est commandé par un driver isolé (2SD106A) alimenté via un régulateur 15 V (LM7815) à partir des 24 V batterie.
+      <ul>
+        <li><strong>IGBT :</strong> Interrupteur très rapide capable de commuter de fortes tensions et courants.</li>
+        <li><strong>Driver 2SD106A :</strong> Fournit le courant de grille nécessaire à l'IGBT tout en assurant l'isolation logique/puissance.</li>
+        <li><strong>Diode roue libre :</strong> Protège contre les surtensions induites par le solénoïde.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Solénoïde</strong><br>
+      Bobine de tir dans laquelle le champ magnétique est brutalement créé par la décharge des condensateurs pour propulser la balle.
+    </li>
+  </ol>
+
+  <h3>Fonctionnement global</h3>
+  <p>
+    Le circuit boost est activé via une commande logicielle (signal CMD) pour charger progressivement les condensateurs jusqu'à 400 V. Une fois la charge atteinte, un signal de tir active le driver isolé qui commande l'ouverture de l'IGBT. Ce dernier décharge les condensateurs dans le solénoïde, générant un champ magnétique intense et bref qui propulse la balle.
+  </p>
+
+  <h3>Compétences mises en oeuvre</h3>
+  <ul>
+    <li>Conversion d'énergie et électronique de puissance (MOSFET, IGBT, condensateurs HT).</li>
+    <li>Commande PWM et régulation à base de circuit UCC3802.</li>
+    <li>Protection électrique (diodes, régulation, isolation galvanique).</li>
+    <li>Implémentation, test et intégration sur robot MSL.</li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+🔧 Projet : Système de tir électromagnétique pour robot de football autonome – RoboCup MSL
+
+Dans le cadre de la RoboCup MSL, tu as participé à la conception complète d’un système de tir électromagnétique capable de propulser une balle avec force et précision à l’aide d’un solénoïde. Le système repose sur l'utilisation de condensateurs haute tension et d’un hacheur boost, ainsi que sur une commande de tir sécurisée via un IGBT piloté par un driver isolé.
+⚙️ Fonctionnement global
+
+    Source d’énergie – Batterie 24 V :
+
+        Deux batteries 12 V en série alimentent tout le système.
+
+        Cette tension est utilisée à la fois pour :
+        • Recharger des condensateurs à 400 V via un hacheur boost.
+        • Alimenter le circuit de commande (drivers, régulateurs, etc.).
+
+    Conversion de puissance – Hacheur Boost :
+
+        Un convertisseur boost élève la tension de la batterie 24 V jusqu’à 400 V.
+
+        Le hacheur est commandé par un circuit intégré UCC3802, qui génère un signal PWM ajusté dynamiquement pour réguler la tension de sortie.
+
+        Le MOSFET de puissance (ex. SPB17N80C3) agit comme interrupteur rapide, associé à :
+
+            Une inductance de stockage pour accumuler l’énergie magnétique.
+
+            Une diode rapide pour redresser la tension boostée vers les condensateurs.
+
+    Stockage – Condensateurs haute tension :
+
+        L’énergie est stockée dans plusieurs gros condensateurs électrolytiques HT (~2200 à 4700 µF / 400 V).
+
+        Ils sont capables de délivrer un fort courant en très peu de temps au moment du tir.
+
+    Commande de tir – IGBT + Driver isolé :
+
+        Le tir est déclenché via un IGBT de puissance, capable de commuter rapidement la haute tension sur le solénoïde.
+
+        L’IGBT est piloté par un driver isolé (type 2SD106A), alimenté en 15 V (via un régulateur LM7815).
+
+        La commande logique du tir (par le microcontrôleur ou la stratégie du robot) envoie une impulsion 3.3 V, isolée galvaniquement, pour activer le tir.
+
+    Solénoïde – Lancement de la balle :
+
+        Une bobine de fil de cuivre génère un champ magnétique intense lorsque les condensateurs se déchargent à travers elle.
+
+        La force magnétique ainsi générée propulse la balle avec grande vitesse, permettant un tir puissant.
+
+    Protection – Diode de roue libre :
+
+        Placée en parallèle du solénoïde, une diode rapide protège le circuit contre les surtensions de retour causées par l’inductance du solénoïde (effet de rupture de courant).
+
+🛠️ Ce que tu as fait
+
+    Dimensionnement complet du hacheur boost et des condensateurs.
+
+    Réalisation du schéma électrique sous Altium.
+
+    Choix des composants critiques (MOSFET, IGBT, diode, self, etc.).
+
+    Fabrication du PCB de la carte de tir.
+
+    Tests et intégration sur le robot réel RoboCup MSL.
+
+    Participation à la mise en place des stratégies de tir dans le système global.
+
+✅ Objectif atteint
+
+    Un système de tir robuste et performant, capable de tirer la balle à grande vitesse.
+
+    Commande sécurisée et isolée de la haute tension.
+
+    Intégration complète dans l'architecture électronique du robot.

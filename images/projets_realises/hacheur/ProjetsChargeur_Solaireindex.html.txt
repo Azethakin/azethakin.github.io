@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projet de chargeur de batterie solaire à hacheur abaisseur contrôlé par Arduino.">
+  <title>Chargeur Solaire - Aziz Malloul</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+    h1, h2, h3 { color: #1a237e; }
+    code { background-color: #eee; padding: 2px 6px; border-radius: 4px; }
+    .section { margin-bottom: 2rem; }
+    ul { margin: 0; padding-left: 1.2rem; }
+    .highlight { background-color: #fff8e1; border-left: 4px solid #ffca28; padding: 1rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <h1>🔋 Chargeur de Batterie Solaire à Hacheur Abaisseur</h1>
+
+  <div class="section">
+    <h2>📌 Contexte du projet</h2>
+    <p>Projet réalisé à l’Université Lyon 1 Claude Bernard (2021/2022) dans le cadre de la formation en électronique. Il vise à concevoir un système de recharge d’une batterie 12 V à partir d’un panneau solaire 18 V avec régulation active.</p>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ Principe de fonctionnement</h2>
+    <p>Le système repose sur un convertisseur <strong>hacheur abaisseur (buck)</strong> commandé par <strong>Arduino</strong> en PWM.</p>
+    <div class="highlight">
+      <strong>Problème :</strong> la tension du panneau varie avec la lumière (ensoleillement), ce qui rend la recharge instable.<br>
+      <strong>Solution :</strong> l’Arduino ajuste dynamiquement le rapport cyclique pour maintenir la sortie à 13 V, idéal pour recharger une batterie 12 V.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔁 Boucle de régulation Arduino</h2>
+    <ul>
+      <li>Lecture de la tension de sortie via un pont diviseur.</li>
+      <li>Comparaison à une consigne (13 V).</li>
+      <li>Ajustement automatique du PWM (rapport cyclique).</li>
+      <li>Répétition de la boucle toutes les 100 ms.</li>
+    </ul>
+
+    <pre><code>// Code simplifié Arduino
+float Vout;
+float consigne = 13.0;
+int pwm;
+
+void loop() {
+  int val = analogRead(A0);
+  Vout = val * (5.0 / 1023.0) * coef_diviseur;
+  if (Vout < consigne) pwm++;
+  else if (Vout > consigne) pwm--;
+  pwm = constrain(pwm, 0, 255);
+  analogWrite(9, pwm);
+  delay(100);
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🔌 Schéma de principe</h2>
+    <ul>
+      <li>Entrée : panneau solaire 18 V</li>
+      <li>Sortie : batterie 12 V</li>
+      <li>Commande : Arduino (PWM + régulation)</li>
+      <li>Éléments : MOSFET, diode, inductance, condensateur</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Résultats</h2>
+    <ul>
+      <li>Tension de sortie régulée à ~13 V malgré les variations de luminosité.</li>
+      <li>Recharge fiable, stable et efficace.</li>
+      <li>Système économique et facilement réplicable.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Environnement technique</h2>
+    <ul>
+      <li>MOSFET de puissance</li>
+      <li>Diode de roue libre</li>
+      <li>Convertisseur buck</li>
+      <li>Arduino Uno</li>
+      <li>Panneau solaire 18 V</li>
+      <li>Batterie 12 V</li>
+    </ul>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🔋 Chargeur de Batterie Solaire à Hacheur Abaisseur
+📌 Contexte du projet
+
+Ce projet a été réalisé dans le cadre de ma formation à l’Université Lyon 1 Claude Bernard (2021/2022). L’objectif était de concevoir un système de recharge efficace d’une batterie 12 V à partir d’un panneau solaire 18 V en utilisant un convertisseur abaisseur (buck) contrôlé par un Arduino.
+⚙️ Principe de fonctionnement
+
+Le système est basé sur un hacheur abaisseur (buck converter) commandé en PWM par un Arduino Uno.
+🟡 Problème à résoudre :
+
+La tension du panneau solaire n’est pas constante. Elle varie selon la luminosité ambiante (ensoleillement), ce qui rend la recharge directe inefficace, voire dangereuse pour la batterie.
+🟢 Solution :
+
+Le rapport cyclique (duty cycle) du signal PWM est ajusté dynamiquement par l’Arduino afin de stabiliser la tension de sortie à environ 13 V, valeur adaptée à la recharge d’une batterie 12 V.
+🔁 Boucle de régulation
+
+    Mesure de la tension de sortie via un pont diviseur résistif connecté à une entrée analogique de l’Arduino.
+
+    Comparaison avec la consigne (par exemple 13.0 V).
+
+    Ajustement du PWM : si la tension chute (ex. nuage), le duty cycle augmente pour compenser. Si la tension monte, il diminue.
+
+    La boucle se répète toutes les 50 à 100 ms.
+
+// Extrait simplifié du code Arduino
+float Vout;        // Tension de sortie mesurée
+float consigne = 13.0; // Tension cible (V)
+int pwm;           // Valeur PWM (0-255)
+
+void loop() {
+  int analogValue = analogRead(A0); // Lecture pont diviseur
+  Vout = analogValue * (5.0 / 1023.0) * coef_diviseur;
+  if (Vout < consigne) pwm += 1;
+  else if (Vout > consigne) pwm -= 1;
+  pwm = constrain(pwm, 0, 255);
+  analogWrite(9, pwm); // Commande MOSFET
+  delay(100);
+}
+
+🔌 Schéma de principe
+
+    Entrée : Panneau solaire 18 V
+
+    Sortie : Batterie 12 V
+
+    Composants principaux :
+
+        MOSFET de puissance
+
+        Diode de roue libre
+
+        Inductance de stockage
+
+        Condensateur de filtrage
+
+        Arduino Uno (PWM + mesure analogique)
+
+🧪 Résultats
+
+    Tension de sortie régulée à ~13 V malgré les variations de la lumière du jour.
+
+    Recharge efficace et sécurisée sans surchauffe ni surcharge.
+
+    Consommation optimisée selon les conditions réelles.
+
+🛠️ Environnement technique
+
+    MOSFET de puissance
+
+    Diode de roue libre rapide
+
+    Convertisseur Buck
+
+    Arduino Uno
+
+    Panneau solaire 18 V
+
+    Batterie 12 V (plomb ou LiFePO4)

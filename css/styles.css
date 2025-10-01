@@ -137,6 +137,10 @@ header h1 {
 }
 
 
+
+
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour la navigation du site
@@ -167,6 +171,10 @@ nav ul li a:hover {
     border-bottom: 2px solid #e74c3c; /* Ajoute une ligne sous le lien lors du survol */
     padding-bottom: 5px; /* Espace entre le lien et la ligne */
 }
+
+
+
+
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3001,6 +3009,10 @@ body.compress-file-page {
         padding: 0 10px;           /* Padding latéral pour éviter texte collé aux bords */
     }
 }
+
+
+
+
 
 
 
