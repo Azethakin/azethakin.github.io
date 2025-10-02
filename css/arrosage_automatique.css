@@ -514,18 +514,18 @@ header h1 {
    Styles pour le pied de page
    =========================================== */
 
-/* Style pour le pied de page */
-footer {
-    background: #34495e; /* Couleur de fond bleu foncé */
-    color: #ecf0f1; /* Couleur blanche pour le texte */
-    text-align: center; /* Centre le texte dans le pied de page */
-    padding: 10px 0; /* Espacement interne */
-    position: relative; /* Permet de positionner le pied de page */
-    bottom: 0; /* Fixe le pied de page en bas */
-    width: 100%; /* Occupe toute la largeur de l'écran */
-    margin-top: auto; /* Permet de pousser le footer en bas */
 
+/* Footer global, pleine largeur */
+footer{
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;        /* évite tout décalage horizontal */
 }
+
 
 .footer-compresser {
     background-color: #1c1c1c;  /* Définit la couleur de fond du footer en gris foncé (#1c1c1c) */
@@ -534,17 +534,6 @@ footer {
     padding: 15px 0; /* Ajoute un espacement vertical (15px de haut et 15px de bas) autour du contenu du footer */
     font-size: 14px;  /* Définit la taille de la police à 14 pixels pour un affichage clair mais compact */
 
-}
-
-/* Pied de page et Section des icônes des réseaux sociaux */
-
-
-/* Pied de page */
-footer {
-    text-align: center; /* Centrer le texte */
-    padding: 20px; /* Espacement intérieur du pied de page */
-    background-color: #333; /* Fond sombre */
-    color: white; /* Texte blanc */
 }
 
 /* Section des icônes des réseaux sociaux */
@@ -567,13 +556,6 @@ footer {
 }
 
 
-
-body.compress-file-page {
-    display: flex;
-    flex-direction: column; /* Dispose les éléments verticalement */
-    min-height: 100vh; /* Hauteur minimale = hauteur de l'écran */
-    margin: 0; /* Supprime les marges par défaut */
-}
 
 /* Le wrapper prend tout l'espace disponible entre le header et le footer */
 .compress-wrapper {
@@ -627,3 +609,126 @@ nav ul li a:hover {
     padding-bottom: 5px; /* Espace entre le lien et la ligne */
 }
 
+
+
+
+
+
+/* ====== AJOUT — Arrosage : améliorations mobile (<= 767px) ====== */
+@media (max-width: 767px){
+
+  /* Header plus compact sur mobile */
+  header{
+    min-height: 64px;
+    height: auto;
+    padding: 6px 0;
+  }
+  .desktop-header{ display:none; }
+
+  /* Contenu : largeur et respirations adaptées */
+  .projet-details{
+    max-width: 100%;
+    padding: 10px 14px;
+  }
+
+  /* Titre principal : taille fluide + alignement propre */
+  .page-title{
+    gap: 8px;
+    margin: 8px 0 14px;
+    line-height: 1.25;
+    font-size: clamp(22px, 5vw, 28px);
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .page-title .title-logo{
+    width: 22px;
+  }
+
+  /* Encadré “Objectif” plus lisible */
+  .lead{
+    padding: 10px 12px;
+    border-left-width: 3px;
+    font-size: clamp(14px, 3.7vw, 16px);
+    line-height: 1.5;
+    margin: 10px 0 16px;
+  }
+
+  /* Sommaire (pills) compact et multi-lignes */
+  .toc-pro{ gap: 8px; padding: 10px; }
+  .toc-heading{ font-size: 16px; }
+  .toc-links{
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .toc-links a{
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  /* Vidéo : hauteur raisonnable */
+  .media{ margin: 12px auto; }
+  .media .videobox{ max-height: 56vh; border-radius: 8px; }
+
+  /* Tables : scroll horizontal + typo un peu réduite */
+  .table-wrap{
+    margin: 10px -14px 14px;      /* “edge-to-edge” */
+    padding: 0 14px 6px;
+  }
+  .specs, .pins{
+    min-width: 560px;             /* évite la casse des colonnes */
+    font-size: 14px;
+  }
+  .specs th,.specs td,.pins th,.pins td{ padding: 8px; }
+
+  /* Intertitres ancres : tailles cohérentes */
+  h2.anchor-target{ font-size: 20px; margin: 18px 0 10px; }
+  h3.anchor-target{ font-size: 18px; margin: 16px 0 8px; }
+  .projet-details .anchor-target{ scroll-margin-top: 70px; }
+
+  /* Galerie : colonnes plus étroites et vrai gap */
+  .gallery-grid{
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    max-width: 100%;
+  }
+  .card{ padding: 10px; border-radius: 10px; }
+  .thumb{ aspect-ratio: 4/3; }
+
+  /* Listes : meilleure lisibilité */
+  .projet-details ul{ padding-left: 18px; }
+  .projet-details li{ margin-bottom: 6px; line-height: 1.5; }
+
+
+
+  /* Boîte cookies : format mobile */
+  .cookie-box{
+    left: 10px; right: 10px; bottom: 10px;
+    max-width: unset;
+  }
+}
+
+/* ====== AJOUT — Très petits écrans (<= 360px) ====== */
+@media (max-width: 360px){
+  .page-title{ font-size: 20px; }
+  .toc-links a{ font-size: 13px; padding: 5px 8px; }
+  .lead{ font-size: 14px; }
+}
+
+
+/* ===== Titre mobile : centré + icône collée à "ESP32" ===== */
+@media (max-width: 767px){
+  .page-title{
+    display: block !important;   /* écrase le display:flex défini plus haut */
+    text-align: center !important;
+    line-height: 1.25;
+    font-size: clamp(22px, 5vw, 28px);
+    margin: 8px auto 12px;
+  }
+  .page-title .title-logo{
+    display: inline-block;
+    width: 28px;
+    height: auto;
+    vertical-align: -2px;         /* aligne l’icône avec le texte */
+    margin-left: 6px;             /* petit espace après "ESP32" (en plus du &nbsp;) */
+  }
+}
