@@ -2,35 +2,41 @@
    Styles généraux pour l'ensemble du site
    =========================================== */
 
-/* Réinitialise les marges et paddings par défaut */
-body, html {
-    overflow: auto; /* Active les barres de défilement pour la page complète */
-    max-height: 100vh; /* Limite la hauteur au viewport */
-    margin: 0; /* Supprime les marges par défaut */
-    padding: 0; /* Supprime les marges internes */
-    font-family: 'Roboto', sans-serif; /* Utilise la police Roboto pour tout le site */
-    background-color: #f4f7f6; /* Couleur de fond du site */
-    overflow-x: hidden; /* Empêche le défilement horizontal */
-
-
-
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;              /* au lieu de max-height:100vh */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    overflow-x: hidden;            /* pas de scroll horizontal */
+		line-height: 1.6; /* Espacement entre les lignes de texte pour améliorer la lisibilité */
 }
 
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+img, canvas, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+:root{
+  --headA: 0.95; /* 0 = totalement transparent, 1 = opaque */
+}
+
+
+
 /* ===========================================
    Styles pour l'en-tête du site
    =========================================== */
 
 /* Style pour l'en-tête du site avec un dégradé */
 header {
-    background: linear-gradient(135deg, #034115, #88868657); /* Dégradé de bleu foncé à vert */
+    background: linear-gradient(135deg,rgba(3,65,21,var(--headA)),rgba(136,134,134,0.40)); /* on règle la transparence via --headA */
     color: #ecf0f1; /* Couleur du texte (blanc) */
     padding: 5px; /* Espace autour du contenu de l'en-tête */
     text-align: center; /* Centrer le texte */
     position: relative; /* Permet de positionner les éléments à l'intérieur de l'en-tête */
     height: 120px; /* Hauteur de l'en-tête */
-    height: 120px;
     min-height: 120px;
 }
 
@@ -203,19 +209,13 @@ nav ul li input {
 
 /* Conteneur principal de la section 'hero'.
    On lui donne une position relative et on cache les débordements des images en dehors du conteneur */
-   .hero {
+   .hero{
     position: relative;  /* Positionnement relatif pour permettre le positionnement des éléments enfants */
     overflow: hidden;    /* Cache tout ce qui dépasse de la zone de la section */
     width: 100%;         /* La section occupe toute la largeur disponible */
+		z-index: 0;           /* << important */
 }
 
-/* Styles pour les images à l'intérieur du conteneur 'image-container'.
-   Les images prennent toute la largeur disponible et sont ajustées pour ne pas déformer */
-.image-container img {
-    width: 100%;         /* L'image occupe 100% de la largeur de son conteneur */
-    object-fit: cover;   /* L'image est redimensionnée pour couvrir le conteneur tout en gardant ses proportions */
-    transition: opacity 1s ease-in-out, object-position 1s ease-in-out; /* Transition fluide pour le changement d'image et le déplacement de l'image */
-}
 
 /* Styles spécifiques pour les grands écrans (desktop et tablettes).
    Ces styles ne s'appliquent que si l'écran a une largeur de 768px ou plus */
@@ -391,6 +391,7 @@ nav ul li input {
     position: relative;
     width: 100%;
     height: 100%;
+		z-index: 0;           /* << important */
 }
 
 /* Images de la section qui doivent changer */
@@ -403,34 +404,12 @@ nav ul li input {
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out; /* Transition en fondu */
+		z-index: 0;
 }
 
 /* Classe pour l'image active */
 .image-container img.active {
     opacity: 1; /* L'image active est visible */
-}
-
-
-
-
-
-
-
-
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/* style pour les projets   */
-
-
-
-
-
-/* Stylisation globale pour le corps de la page */
-body {
-    font-family: Arial, sans-serif; /* Police générale du site */
-    line-height: 1.6; /* Espacement entre les lignes de texte pour améliorer la lisibilité */
-    margin: 0; /* Supprime les marges par défaut */
-    padding: 0; /* Supprime les espaces internes par défaut */
 }
 
 /* Stylisation pour la section principale du projet */
@@ -488,14 +467,18 @@ ul {
     background-color: #ecf0f1; /* Couleur de fond gris clair */
     padding: 40px 20px; /* Espacement interne */
     text-align: center; /* Texte centré */
-    max-height: 500px; /* Hauteur maximale de la section */
-    overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse la hauteur maximale */
 }
 
 /* Titre des sections (modules, CV, contact, etc.) */
 .modules h2, .cv h2, .contact h2, .about h2 {
     margin-bottom: 40px; /* Espace en dessous des titres */
     font-weight: 700; /* Texte en gras */
+}
+
+/* — Force les sections à passer au-dessus du hero si chevauchement — */
+.modules, .projets, .diplomes, .loisirs, .cv, .contact, .about{
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -674,23 +657,6 @@ pour ajouter ou supprimer des espaces verticales entre les lignes dans diplomes_
 /* ===========================================
    Styles pour le pied de page
    =========================================== */
-
-/* Style pour le pied de page */
-footer {
-    background: #34495e; /* Couleur de fond bleu foncé */
-    color: #ecf0f1; /* Couleur blanche pour le texte */
-    text-align: center; /* Centre le texte dans le pied de page */
-    padding: 10px 0; /* Espacement interne */
-    position: relative; /* Permet de positionner le pied de page */
-    bottom: 0; /* Fixe le pied de page en bas */
-    width: 100%; /* Occupe toute la largeur de l'écran */
-    margin-top: auto; /* Permet de pousser le footer en bas */
-
-}
-
-
-
-
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
@@ -886,7 +852,7 @@ nav ul li {
 nav ul li input,
 #google_translate_element {
     display: inline-block;
-    margin-left: right; /* Pousse le Google Traduction vers la droite */
+    margin-left: auto; /* Pousse le Google Traduction vers la droite */
 }
 
 #google_translate_element {
@@ -897,19 +863,42 @@ nav ul li input,
 
 
 
-/* Style pour centrer le titre h2 dans la section "parcours" */
-.parcours h2 {
-    text-align: center;
+
+/* --- Fix Google Translate widget icon --- */
+#google_translate_element img,
+.goog-te-gadget img,
+.goog-te-gadget-simple img {
+  max-width: none !important;   /* ne pas forcer à 100% */
+  width: auto !important;        /* garder la taille naturelle */
+  height: 14px !important;       /* taille propre du petit logo */
+  display: inline-block !important;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Alignement propre du sélecteur + texte "Fourni par Google" */
+#google_translate_element {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Optionnel : taille de police harmonisée (en gardant la mention) */
+#google_translate_element .goog-te-gadget {
+  line-height: 1;
+}
+#google_translate_element .goog-te-combo {
+  font-size: 14px;
 }
 
 
 
 
 
-
-
-
-
+/* Style pour centrer le titre h2 dans la section "parcours" */
+.parcours h2 {
+    text-align: center;
+}
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -936,31 +925,7 @@ nav ul li input,
     #mobile-nav {
         display: none; /* Le menu mobile est également caché */
     }
-}
 
-/* Conteneur principal du menu mobile */
-#mobile-nav {
-    position: fixed; /* Fixe le menu pour qu'il reste au même endroit même si on défile la page */
-    top: 0; /* Positionne le menu en haut de la page */
-    left: 0; /* Positionne le menu à gauche de la page */
-    width: 100%; /* Le menu occupe toute la largeur de l'écran */
-    height: 100%; /* Le menu occupe toute la hauteur de l'écran */
-    background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
-    display: flex; /* Utilise Flexbox pour organiser les éléments du menu */
-    flex-direction: column; /* Aligne les éléments en colonne */
-    justify-content: center; /* Centre les éléments verticalement */
-    align-items: center; /* Centre les éléments horizontalement */
-    z-index: 9999; /* Assure que le menu reste au-dessus des autres éléments */
-    opacity: 0; /* Par défaut, le menu est transparent (invisible) */
-    visibility: hidden; /* Par défaut, le menu est caché */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Ajoute une transition fluide pour l'affichage et la disparition */
-}
-
-/* Styles pour le menu mobile lorsqu'il est actif */
-/* Lorsque la classe "show" est ajoutée, le menu devient visible */
-#mobile-nav.show {
-    opacity: 1; /* Règle l'opacité à 1 pour rendre le menu visible */
-    visibility: visible; /* Rend le menu visible */
 }
 
 /* Liste dans le menu mobile */
@@ -1005,20 +970,22 @@ nav ul li input,
         justify-content: space-between; /* Place le logo à gauche et l'icône hamburger à droite */
         align-items: center; /* Aligne les éléments verticalement */
         padding: 10px 20px; /* Ajoute des espaces internes */
-        background-color: transparent; /* Fond transparent */
+        background: linear-gradient(135deg,rgba(3,65,21,var(--headA)),rgba(136,134,134,0.40)); /* Fond transparent */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous la barre */
     }
 
     /* Champ de recherche dans l'en-tête mobile */
     .mobile-header input[type="text"] {
-        flex-grow: 1; /* Permet au champ de recherche de s'étendre */
-        margin-right: 10px; /* Ajoute un espace à droite */
-        padding: 5px; /* Ajoute un espace interne */
-        border-radius: 5px; /* Arrondit les bords du champ */
-        border: 1px solid #ddd; /* Ajoute une bordure grise */
-        width: 70%; /* Définit la largeur à 70% */
-        height: 1px; /* Hauteur minimale */
-    }
+				flex-grow: 1;
+				margin-right: 10px;
+				padding: 8px 10px;
+				border-radius: 5px;
+				border: 1px solid #ddd;
+				width: 70%;
+				height: 36px;    /* taille normale */
+				box-sizing: border-box;
+		}
+
 
     /* Icône hamburger dans l'en-tête mobile */
     .hamburger {
@@ -1027,17 +994,7 @@ nav ul li input,
         color: #000; /* Couleur noire pour se démarquer */
     }
 
-    /* Conteneur du menu mobile */
-    #mobile-nav {
-        display: none; /* Par défaut, le menu est caché */
-        position: absolute; /* Position absolue pour superposer au contenu */
-        top: 50px; /* Positionné en dessous de la barre supérieure */
-        right: 0; /* Aligné à droite */
-        width: 100%; /* Occupe toute la largeur de l'écran */
-        background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
-        padding: 20px; /* Ajoute un espace interne */
-        z-index: 1000; /* Assure que le menu reste au-dessus des autres éléments */
-    }
+
 
     /* Liste dans le menu mobile */
     #mobile-nav ul {
@@ -1065,24 +1022,95 @@ nav ul li input,
     #mobile-nav ul li a:hover {
         color: #d64a4a; /* Change la couleur en rouge au survol */
     }
+}
 
-    /* Styles pour le menu affiché */
-    #mobile-nav.show {
-        display: block; /* Affiche le menu */
-        height: 100vh; /* Occupe toute la hauteur de l'écran */
-    }
 
-    /* Supprime le défilement du contenu lorsque le menu est ouvert */
-    body.menu-open {
-        overflow: hidden; /* Empêche le défilement */
-    }
+/* === MOBILE : header visible, menu sous le header (avec scroll interne) === */
+@media (max-width: 767px) {
+  :root { --mobile-header-h: 56px; }  /* hauteur de la barre du haut */
+
+
+	/* Descendre légèrement le nom Aziz Malloul + l’icône hamburger dans l'en tete mobile */
+  .mobile-header .logo{
+    transform: translateY(12px);  /* pour Aziz Malloul*/
+	}
+
+  .mobile-header .hamburger{
+    transform: translateY(10px);  /* pour le hamburger */
+	}
+
+  /* Barre du haut (Aziz Malloul + hamburger) toujours visible */
+    .mobile-header{
+			position: fixed;
+			top: -20px; left: 0; right: 0;
+			height: var(--mobile-header-h);
+			z-index: 10000;
+			/* même fond que le header desktop */
+			background: linear-gradient(135deg,rgba(3,65,21,var(--headA)),rgba(136,134,134,0.40)); /* petit ombrage pour détacher le header du contenu */
+			box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+			color: #ecf0f1; /* texte clair dans l’entête */
+		}
+
+		/* On garde <header> SANS hauteur ni fond pour ne pas créer de bande */
+		header {
+			background: transparent !important;
+			height: 0 !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			margin: 0 !important;
+			border: 0 !important;
+			overflow: visible !important; /* ne pas couper .mobile-header s'il est dedans */
+		}
+
+
+ 		/* On masque seulement la version desktop */
+		.desktop-header { display: none !important; }
+
+		/* On pousse le contenu sous la barre fixe */
+		body { padding-top: var(--mobile-header-h) !important; }
+
+		/* Sécurité : pas de marge en haut sur le 1er enfant des sections */
+		main > *:first-child,
+		section > *:first-child { margin-top: 0 !important; }
+
+
+  /* Panneau menu : prend tout l'espace sous le header, scrollable */
+  #mobile-nav{
+    position: fixed;
+    top: var(--mobile-header-h);
+    left: 0; right: 0;
+    height: calc(100vh - var(--mobile-header-h));
+    background: rgba(0,0,0,0.92);
+    overflow-y: auto;                      /* le menu scrolle */
+    display: none;                         /* caché par défaut */
+    z-index: 9999;                         /* sous le header */
+  }
+  #mobile-nav.show{ display: block; }
+
+  /* Taille/espacement raisonnables (évite l’effet “menu géant”) */
+  #mobile-nav ul{ padding: 20px 16px; }
+  #mobile-nav ul li{ margin: 10px 0; font-size: 18px; }
+  #mobile-nav ul li a{ color: #c2c0c0; text-decoration: none; }
+  #mobile-nav ul li a:hover{ color: #d64a4a; }
+
+  /* Option : empêcher le scroll de l’arrière-plan quand le menu est ouvert */
+  body.menu-open { overflow: hidden; }
 }
 
 
 
+/* 1) Empêche le "gap" sous le header : on annule la marge haute
+      du tout premier enfant de chaque section/main */
+main > *:first-child,
+section > *:first-child {
+  margin-top: 0;
+}
 
-
-
+/* 2) Sur desktop : pas de bande verte entre header et contenu */
+header { margin-bottom: 0; }
+.hero, .modules, .projets, .diplomes, .loisirs, .about, .contact, .cv {
+  margin-top: 0;
+}
 
 
 
@@ -1373,8 +1401,8 @@ nav ul li input,
     /* SECTION 3 — Centrage visuel du titre "Mes Diplômes" */
     .diplomes h2 {
         text-align: center; /* Centre le texte à l’intérieur du h2 */
+				font-weight: bold;
         width: 85vw;        /* Donne au h2 une largeur de 85% de la largeur visible de la fenêtre */
-        margin-left: calc((100vw - 100%) / -2);
         /*
            Cette ligne est une astuce de centrage horizontal :
            - 100vw = largeur totale de la fenêtre
@@ -2398,7 +2426,7 @@ body.compress-file-page {
     width: 100%;  /* Le conteneur prend 100% de la largeur disponible de son parent */
     max-width: 1200px; /* Limite la largeur maximale à 1200px, même sur les grands écrans */
     margin: 0 auto; /* Centre le conteneur horizontalement grâce aux marges automatiques (gauche et droite) */
-    padding: 100px; /* Ajoute un espace intérieur (padding) de 100px autour du contenu à l'intérieur du conteneur */
+    padding: 24px;
     background: white; /* Définit la couleur de fond du conteneur à blanc pour faire ressortir le contenu */
     border-radius: 12px;  /* Applique des coins arrondis de 12px pour un look moderne et doux */
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);  /* Ajoute une ombre légère autour du conteneur pour lui donner un effet de profondeur */
@@ -2716,6 +2744,21 @@ body.compress-file-page {
 
 
   }
+
+
+/* Correctif final : le header ne doit PAS recréer de hauteur sur mobile */
+@media (max-width: 767px) {
+  header {
+    display: contents !important;      /* garde les enfants sans créer de boîte */
+    background: transparent !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+  }
+}
+
 
 
   .file-info-wrapper {
