@@ -200,15 +200,6 @@ kbd{background:#f1f1f1;padding:2px 6px;border-radius:4px}
   object-fit: contain;
 }
 
-
-/* Titre avec logo */
-.page-title{
-  display:flex;                 /* place le logo et le texte sur une ligne */
-  align-items:center;           /* aligne verticalement */
-  gap:10px;                     /* espace entre logo et texte */
-  margin:0 0 8px;               /* ajuste si besoin */
-}
-
 .page-title .title-logo{
   width:40px;                   /* taille du logo (retina friendly si image HD) */
   height:auto;
@@ -217,16 +208,29 @@ kbd{background:#f1f1f1;padding:2px 6px;border-radius:4px}
   display:block;
 }
 
-/* un poil plus petit sur mobile */
-@media (max-width: 900px){
-  .page-title .title-logo{ width:24px; }
+/* Titre : l’icône suit "ESP32" au zoom */
+.page-title{
+  display:block;              /* plus de flex */
+  margin:0 0 8px;
+  line-height:1.15;
+  text-wrap:balance;          /* si supporté, équilibre les lignes */
 }
 
+.esp32-tag{
+  white-space:nowrap;         /* empêche de couper entre ESP32 et l’icône */
+}
 
+.page-title .title-logo{
+  display:inline-block;
+  width:32px;                 /* desktop */
+  height:auto;
+  vertical-align:-0.15em;     /* alignement sur la ligne de texte */
+  margin-left:.35em;          /* petit espace après "ESP32" */
+}
 
-
-
-
+@media (max-width:900px){
+  .page-title .title-logo{ width:24px; }
+}
 
 
 
@@ -354,6 +358,23 @@ kbd{background:#f1f1f1;padding:2px 6px;border-radius:4px}
 
 
 
+/* ===== Desktop : centrer le titre ===== */
+@media (min-width: 768px){
+  .page-title{
+    display: block !important;   /* remplace le flex */
+    text-align: center;          /* centre le texte */
+    line-height: 1.15;
+    margin: 8px auto 14px;       /* centre le bloc dans .projet-details */
+    text-wrap: balance;          /* césure plus jolie (navigateurs récents) */
+  }
+  .page-title .title-logo{
+    display: inline-block;
+    width: 32px;                 /* ajuste si besoin */
+    height: auto;
+    vertical-align: -0.18em;     /* aligne l’icône avec “ESP32” */
+    margin-left: .35em;
+  }
+}
 
 
 
@@ -451,55 +472,69 @@ header h1 {
         color: #000; /* Couleur noire pour se démarquer */
     }
 
-    /* Conteneur du menu mobile */
-    #mobile-nav {
-        display: none; /* Par défaut, le menu est caché */
-        position: absolute; /* Position absolue pour superposer au contenu */
-        top: 50px; /* Positionné en dessous de la barre supérieure */
-        right: 0; /* Aligné à droite */
-        width: 100%; /* Occupe toute la largeur de l'écran */
-        background-color: rgba(0, 0, 0, 0.9); /* Fond noir menu hamburger avec 90% d'opacité pour laisser une légère transparence */
-        padding: 20px; /* Ajoute un espace interne */
-        z-index: 1000; /* Assure que le menu reste au-dessus des autres éléments */
-    }
+    /* Conteneur du menu mobile – plein écran sous le header, pas de débordement */
+		#mobile-nav{
+			display: none;                /* caché par défaut */
+			position: fixed;              /* ancré au viewport */
+			inset: 64px 0 0 0;            /* top = hauteur du header mobile (64px), left/right/bottom = 0 */
+			width: 100vw;                 /* pleine largeur écran */
+			max-width: none;
+			margin: 0;
+			background-color: rgba(0,0,0,0.92);
+			padding: 24px 0; /* espace vertical */
+			z-index: 1000;
+		}
 
-    /* Liste dans le menu mobile */
-    #mobile-nav ul {
-        display: flex; /* Affiche les éléments en flexbox */
-        flex-direction: column; /* Aligne les éléments verticalement */
-        list-style: none; /* Supprime les puces de la liste */
-        padding-left: 0; /* Supprime le padding gauche */
-    }
+		/* Liste et items du menu */
+		#mobile-nav ul{
+			display: flex;
+			flex-direction: column;
+			list-style: none;
+			padding: 0 20px;              /* un peu d’air sur les côtés */
+			margin: 0;
+		}
 
-    /* Élément de liste dans le menu mobile */
-    #mobile-nav ul li {
-        margin-bottom: 15px; /* Ajoute un espacement entre les éléments */
-        font-size: 18px; /* Taille de la police */
-        font-weight: bold; /* Rend le texte en gras */
-        text-align: center; /* Centre le texte */
-    }
+		#mobile-nav ul li{
+			margin: 10px 0;
+			text-align: center;
+			font-weight: 700;
+			/* taille fluide comparable aux autres pages */
+			font-size: clamp(22px, 6vw, 36px);
+		}
 
-    /* Liens des éléments du menu */
-    #mobile-nav ul li a {
-        color: #c2c0c0; /* Couleur des liens du menu hamburgers ( accueil, parcours académique, proje, cv, qui suis je, loisirs, contact)  */
-        text-decoration: none; /* Supprime le soulignement */
-    }
+		#mobile-nav ul li a{
+			color: #eaeaea;
+			text-decoration: none;
+		}
 
-    /* Lien actif ou survolé */
-    #mobile-nav ul li a:hover {
-        color: #d64a4a; /* Change la couleur en rouge au survol */
-    }
+		#mobile-nav ul li a:hover{
+			color: #d64a4a;
+		}
 
-    /* Styles pour le menu affiché */
-    #mobile-nav.show {
-        display: block; /* Affiche le menu */
-        height: 100vh; /* Occupe toute la hauteur de l'écran */
-    }
+		/* Ouverture/fermeture du menu */
+		#mobile-nav.show{ display: block; }
+		body.menu-open{ overflow: hidden; }   /* empêche le scroll de la page derrière */
 
-    /* Supprime le défilement du contenu lorsque le menu est ouvert */
-    body.menu-open {
-        overflow: hidden; /* Empêche le défilement */
-    }
+		/* --- FORCE le menu mobile à prendre toute la largeur écran --- */
+	#mobile-nav{
+		position: fixed !important;      /* pas relatif au header */
+		inset: 64px 0 0 0 !important;    /* 64px = hauteur du header mobile */
+		width: 100vw !important;         /* pleine largeur viewport */
+		max-width: none !important;
+		margin: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+	}
+
+	/* Empêche un max-width hérité sur les éléments internes */
+	#mobile-nav ul{
+		max-width: none !important;
+		width: 100% !important;
+		margin: 0 !important;
+		padding: 0 20px;
+	}
+
+
 }
 
 
@@ -730,5 +765,47 @@ nav ul li a:hover {
     height: auto;
     vertical-align: -2px;         /* aligne l’icône avec le texte */
     margin-left: 6px;             /* petit espace après "ESP32" (en plus du &nbsp;) */
+  }
+}
+
+
+/* Full-bleed : le header prend 100% du viewport, même dans un conteneur centré */
+header{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Sécurité : aucun espace navigateur autour de la page */
+html, body { margin: 0; padding: 0; }
+
+/* Optionnel mais propre : l’overlay couvre vraiment tout l’écran */
+@media (max-width: 767px){
+  #mobile-nav{
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;  /* équiv. inset:0 */
+    width: 100vw; height: 100vh;
+  }
+}
+
+/* ===== Galerie : 1 seule colonne sur petit écran ===== */
+@media (max-width: 520px){
+  .gallery-grid{
+    grid-template-columns: 1fr !important;  /* force 1 colonne */
+    gap: 16px;                               /* un peu d'air entre les cartes */
+    max-width: 100%;
+  }
+  .card{
+    max-width: 520px;                        /* carte large et lisible */
+    margin: 0 auto;                          /* centrée */
+    padding: 14px;
+    border-radius: 12px;
+  }
+  .thumb{
+    aspect-ratio: 4 / 3;                     /* format confortable en mobile */
+  }
+  .card figcaption{
+    font-size: 1.05rem;                      /* texte un peu plus grand */
+    line-height: 1.35;
   }
 }
