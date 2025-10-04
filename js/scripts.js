@@ -315,24 +315,27 @@ document.addEventListener('DOMContentLoaded', function () {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // pour les smartphone
 // Gestion du menu hamburger pour smartphones
-// Fonction pour basculer le menu mobile
-// JavaScript pour afficher/masquer le menu mobile
-// Ajout de l'événement 'click' sur l'icône hamburger
-// Sélectionner l'élément de l'icône hamburger
-const hamburger = document.getElementById('hamburger-menu');
-// Sélectionner le menu mobile
-const mobileNav = document.getElementById('mobile-nav');
+// =====================
+// Menu mobile (hamburger)
+// =====================
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
 
-// Ajouter un écouteur d'événement au clic sur l'icône hamburger
-hamburger.addEventListener('click', function () {
-    // Basculer la classe 'show' pour afficher/masquer le menu
+  if (!hamburger || !mobileNav) return; // rien à faire si pas d'UI mobile
+
+  hamburger.addEventListener('click', () => {
     mobileNav.classList.toggle('show');
-
-    // Basculer une classe sur le body pour éviter le défilement quand le menu est ouvert
     document.body.classList.toggle('menu-open');
+  });
 
-    console.log(hamburger); // Doit afficher l'élément dans la console
-
+  // Ferme le menu quand on clique sur un lien
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      mobileNav.classList.remove('show');
+      document.body.classList.remove('menu-open');
+    }
+  });
 });
 
 
@@ -365,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sélection des éléments
 
     const cvViewer = document.querySelector('.cv-viewer'); // Conteneur de la photo de CV
-    if (!cvViewer) return; // ⛔ Si pas sur la page CV, on ne fait rien
+    if (!cvViewer) return; //  Si pas sur la page CV, on ne fait rien
 
     const zoomInButton = document.getElementById('zoom-in'); // Bouton Zoom +
     const zoomOutButton = document.getElementById('zoom-out'); // Bouton Zoom -
