@@ -444,15 +444,27 @@ header h1 {
     }
 
 
+		/* et aligne le défilement des ancres/titres avec la même marge */
+		h2, h3,
+		.projet-details .anchor-target{
+			scroll-margin-top: calc(var(--mobile-header-h) + var(--safe-top));
+		}
+
+
     /* Barre supérieure (logo et hamburger menu) sur mobile */
-    .mobile-header {
-        display: flex; /* Affiche la barre supérieure en mode flex */
-        justify-content: space-between; /* Place le logo à gauche et l'icône hamburger à droite */
-        align-items: center; /* Aligne les éléments verticalement */
-        padding: 10px 20px; /* Ajoute des espaces internes */
-        background-color: transparent; /* Fond transparent */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous la barre */
-    }
+    .mobile-header{
+			position: fixed;              /* barre collée en haut */
+			top: 0; left: 0; right: 0;
+			height: 64px;                     /*  fixe, stable */
+			display: flex;
+			align-items: center;          /* vertical centering du nom + hamburger */
+			justify-content: space-between;
+			padding: 0 20px;              /* pas de padding vertical, sinon la hauteur varie */
+			background: linear-gradient(135deg, rgba(3,65,21,var(--headA)), rgba(136,134,134,0.40));
+			box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+			z-index: 10000;
+		}
+
 
     /* Champ de recherche dans l'en-tête mobile */
     .mobile-header input[type="text"] {
@@ -472,18 +484,24 @@ header h1 {
         color: #000; /* Couleur noire pour se démarquer */
     }
 
-    /* Conteneur du menu mobile – plein écran sous le header, pas de débordement */
+
+
 		#mobile-nav{
-			display: none;                /* caché par défaut */
-			position: fixed;              /* ancré au viewport */
-			inset: 64px 0 0 0;            /* top = hauteur du header mobile (64px), left/right/bottom = 0 */
-			width: 100vw;                 /* pleine largeur écran */
-			max-width: none;
-			margin: 0;
-			background-color: rgba(0,0,0,0.92);
-			padding: 24px 0; /* espace vertical */
-			z-index: 1000;
+			position: fixed;
+			top: var(--mobile-header-h);
+			left: 0; right: 0;
+			height: calc(100vh - var(--mobile-header-h));
+			background: rgba(0,0,0,0.92);
+			overflow-y: auto;                      /* le menu scrolle */
+			display: none;                         /* caché par défaut */
+			z-index: 9999;                         /* sous le header */
 		}
+
+		#mobile-nav ul{
+			margin-top: 0;
+			padding-top: 12px;   /* petit espace interne si tu veux, mais pas avant */
+		}
+		#mobile-nav li:first-child{ margin-top: 0; }
 
 		/* Liste et items du menu */
 		#mobile-nav ul{
@@ -495,7 +513,7 @@ header h1 {
 		}
 
 		#mobile-nav ul li{
-			margin: 10px 0;
+			margin: 12px 0;
 			text-align: center;
 			font-weight: 700;
 			/* taille fluide comparable aux autres pages */
@@ -515,23 +533,14 @@ header h1 {
 		#mobile-nav.show{ display: block; }
 		body.menu-open{ overflow: hidden; }   /* empêche le scroll de la page derrière */
 
-		/* --- FORCE le menu mobile à prendre toute la largeur écran --- */
-	#mobile-nav{
-		position: fixed !important;      /* pas relatif au header */
-		inset: 64px 0 0 0 !important;    /* 64px = hauteur du header mobile */
-		width: 100vw !important;         /* pleine largeur viewport */
-		max-width: none !important;
-		margin: 0 !important;
-		left: 0 !important;
-		right: 0 !important;
-	}
+
 
 	/* Empêche un max-width hérité sur les éléments internes */
 	#mobile-nav ul{
 		max-width: none !important;
 		width: 100% !important;
 		margin: 0 !important;
-		padding: 0 20px;
+		padding: 20px 16px;
 	}
 
 
@@ -539,12 +548,13 @@ header h1 {
 
 
 
+/* Force un petit espace sous l'entête mobile */
+@media (max-width: 767px){
+  body{ padding-top: calc(var(--mobile-header-h,64px) + var(--safe-top,8px)) !important; }
+}
 
 
 
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /* ===========================================
    Styles pour le pied de page
    =========================================== */
@@ -646,17 +656,39 @@ nav ul li a:hover {
 
 
 
+@media (max-width: 767px) {
+  header {
+    display: contents !important;
+    background: transparent !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+  }
+}
 
+:root { --headA: 0.95; }   /* 0 = totalement transparent, 1 = opaque */
+:root {
+	--mobile-header-h: 64px;
+	--safe-top: 8px;
+}
 
 
 /* ====== AJOUT — Arrosage : améliorations mobile (<= 767px) ====== */
 @media (max-width: 767px){
+
+	/* Sécurité : pas de marge en haut ,pour enlevé la bande verte (l’espace/“bande” sous le header) */
+		main > *:first-child,
+		section > *:first-child { margin-top: 0 !important; }
 
   /* Header plus compact sur mobile */
   header{
     min-height: 64px;
     height: auto;
     padding: 6px 0;
+		background: linear-gradient(135deg, rgba(3,65,21,var(--headA)), rgba(136,134,134,0.40));
   }
   .desktop-header{ display:none; }
 
@@ -777,15 +809,14 @@ header{
 }
 
 /* Sécurité : aucun espace navigateur autour de la page */
-html, body { margin: 0; padding: 0; }
-
-/* Optionnel mais propre : l’overlay couvre vraiment tout l’écran */
-@media (max-width: 767px){
-  #mobile-nav{
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;  /* équiv. inset:0 */
-    width: 100vw; height: 100vh;
-  }
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;              /* au lieu de max-height:100vh */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    overflow-x: hidden;            /* pas de scroll horizontal */
+		line-height: 1.6; /* Espacement entre les lignes de texte pour améliorer la lisibilité */
 }
 
 /* ===== Galerie : 1 seule colonne sur petit écran ===== */

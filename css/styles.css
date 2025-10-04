@@ -1039,7 +1039,7 @@ nav ul li input,
     transform: translateY(10px);  /* pour le hamburger */
 	}
 
-  /* Barre du haut (Aziz Malloul + hamburger) toujours visible */
+  	/* Barre du haut (Aziz Malloul + hamburger) toujours visible */
     .mobile-header{
 			position: fixed;
 			top: -20px; left: 0; right: 0;
@@ -1069,7 +1069,7 @@ nav ul li input,
 		/* On pousse le contenu sous la barre fixe */
 		body { padding-top: var(--mobile-header-h) !important; }
 
-		/* Sécurité : pas de marge en haut sur le 1er enfant des sections */
+		/* Sécurité : pas de marge en haut ,pour enlevé la bande verte (l’espace/“bande” sous le header) */
 		main > *:first-child,
 		section > *:first-child { margin-top: 0 !important; }
 
