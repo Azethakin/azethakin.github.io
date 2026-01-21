@@ -305,7 +305,7 @@ document.getElementById("clearBtn").addEventListener("click", () => {
 });
 
 const MODELS = [
-  { label: "OpenAI: gpt-oss-120b (free)", id: "openai/gpt-oss-120b:free" },
+  
   { label: "Google: Gemma 3 4B (free)", id: "google/gemma-3-4b-it:free" },
   { label: "TNG: DeepSeek R1T2 Chimera (free)", id: "tngtech/deepseek-r1t2-chimera:free" },
   { label: "Qwen: Qwen2.5-VL 7B Instruct (free)", id: "qwen/qwen-2.5-vl-7b-instruct:free" },
@@ -314,7 +314,7 @@ const MODELS = [
 ];
 
 const descriptions = {
-  "openai/gpt-oss-120b:free": "🟦 OpenAI gpt-oss-120b (free) : gros modèle open-weight MoE, bon raisonnement, long contexte.",
+ 
   "google/gemma-3-4b-it:free": "🟩 Gemma 3 4B (free) : léger/rapide, bon assistant général, contexte ~32K.",
   "tngtech/deepseek-r1t2-chimera:free": "🟪 DeepSeek R1T2 Chimera (free) : orienté raisonnement/long contexte, selon providers.",
   "qwen/qwen-2.5-vl-7b-instruct:free": "🟨 Qwen2.5-VL 7B (free) : modèle multimodal (texte/vision selon support).",
