@@ -272,8 +272,7 @@ window.onload = function() {
     addCopyButtons();
     scrollToBottom();
   }
-  // Afficher la description du modèle sélectionné au démarrage
-  updateModelDescription();
+ 
 };
 
 
