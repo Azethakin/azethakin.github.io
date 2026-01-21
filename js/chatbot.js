@@ -148,17 +148,29 @@ async function sendMessage() {
       }),
       signal: controller.signal
     });
-
-    const data = await res.json();
-    console.log("Réponse brute du backend :", data);
-
-    let rawReply = "❌ Erreur : contenu vide.";
-
+    
+    let data = null;
     try {
-      rawReply = data.choices[0].message.content;
+      data = await res.json();
     } catch (e) {
-      console.error("Erreur d’accès au contenu :", e);
+      throw new Error(`Réponse backend non-JSON (HTTP ${res.status})`);
     }
+    
+    console.log("Réponse brute du backend :", data);
+    
+    if (!res.ok) {
+      // Affiche l’erreur réelle du backend
+      const msg = data?.error || `Erreur HTTP ${res.status}`;
+      const details = data?.details ? "\n\nDétails: " + JSON.stringify(data.details, null, 2) : "";
+      throw new Error(msg + details);
+    }
+    
+    // Ici seulement, on lit choices
+    const rawReply = data?.choices?.[0]?.message?.content;
+    if (!rawReply) {
+      throw new Error("Réponse OpenRouter invalide: aucun contenu dans choices[0].message.content");
+    }
+
 
     // ← mets le test ICI, maintenant rawReply a la vraie réponse
     if (rawReply.length < 120) {
@@ -237,6 +249,7 @@ document.getElementById("stopBtn").addEventListener("click", abortResponse);
 
 
 window.onload = function() {
+  populateModelSelect();
   // Afficher l'historique de la conversation
   const saved = localStorage.getItem('azizChatHistory');
   if (saved) {
@@ -292,15 +305,23 @@ document.getElementById("clearBtn").addEventListener("click", () => {
   userInput.focus();
 });
 
-const descriptions = {
-  "meta-llama/llama-4-scout:free": "🟪 Llama 4 Scout (free) : Nouvelle génération, ultra-puissant, polyvalent et adapté aux échanges complexes. 256K tokens, 17B actifs (MoE sur 109B). Idéal pour conversations, raisonnement et prompts très longs.",
-  "qwen/qwen2.5-vl-72b-instruct:free": "🟩 Qwen2.5 VL 72B Instruct (free) : Modèle texte avancé, très bon pour compréhension, raisonnement et longs contenus (131K tokens, 72B paramètres).",
-  "mistralai/mistral-small-3.1-24b-instruct:free": "🟧 Mistral Small 3.1 24B (free) : Modèle rapide et polyvalent, efficace pour de nombreuses tâches textuelles avec un large contexte (96K tokens, 24B paramètres). ",
-  "deepseek/deepseek-chat-v3-0324:free": "🟦 DeepSeek V3 0324 (free) : Modèle texte pur, très large contexte (164K tokens), logique avancée. 236B paramètres (MoE sur 686B). Idéal pour prompts longs, synthèse et raisonnement.",
-  "qwen/qwen3-235b-a22b:free": "🟩 Qwen3 235B A22B (free) : Modèle texte massif, multilingue, expert en raisonnement et analyse fine. 41K tokens, 235B (22B actifs, architecture MoE).",
-  "deepseek/deepseek-prover-v2:free": "🟦 DeepSeek Prover V2 (free) : Modèle dédié au raisonnement mathématique et logique. 164K tokens, 671B paramètres (MoE). Multilingue, idéal pour preuves formelles et calculs complexes."
-};
+const MODELS = [
+  { label: "OpenAI: gpt-oss-120b (free)", id: "openai/gpt-oss-120b:free" },
+  { label: "Google: Gemma 3 4B (free)", id: "google/gemma-3-4b-it:free" },
+  { label: "TNG: DeepSeek R1T2 Chimera (free)", id: "tngtech/deepseek-r1t2-chimera:free" },
+  { label: "Qwen: Qwen2.5-VL 7B Instruct (free)", id: "qwen/qwen-2.5-vl-7b-instruct:free" },
+  { label: "Qwen: Qwen3 Next 80B A3B Instruct (free)", id: "qwen/qwen3-next-80b-a3b-instruct:free" },
+  { label: "Meta: Llama 3.3 70B Instruct (free)", id: "meta-llama/llama-3.3-70b-instruct:free" },
+];
 
+const descriptions = {
+  "openai/gpt-oss-120b:free": "🟦 OpenAI gpt-oss-120b (free) : gros modèle open-weight MoE, bon raisonnement, long contexte.",
+  "google/gemma-3-4b-it:free": "🟩 Gemma 3 4B (free) : léger/rapide, bon assistant général, contexte ~32K.",
+  "tngtech/deepseek-r1t2-chimera:free": "🟪 DeepSeek R1T2 Chimera (free) : orienté raisonnement/long contexte, selon providers.",
+  "qwen/qwen-2.5-vl-7b-instruct:free": "🟨 Qwen2.5-VL 7B (free) : modèle multimodal (texte/vision selon support).",
+  "qwen/qwen3-next-80b-a3b-instruct:free": "🟧 Qwen3 Next 80B (free) : instruction-tuned, stable, bon pour tâches complexes.",
+  "meta-llama/llama-3.3-70b-instruct:free": "🟫 Llama 3.3 70B (free) : très bon modèle généraliste, multilingue.",
+};
 
 
 
@@ -314,6 +335,20 @@ document.getElementById('modelSelect').addEventListener('change', updateModelDes
 
 
 
+function populateModelSelect() {
+  const select = document.getElementById("modelSelect");
+  select.innerHTML = "";
+
+  MODELS.forEach(m => {
+    const opt = document.createElement("option");
+    opt.value = m.id;        // <-- c’est CET ID qui part au backend
+    opt.textContent = m.label;
+    select.appendChild(opt);
+  });
+
+  // optionnel: choisir un modèle par défaut
+  select.value = "mistralai/mistral-small-3.1-24b-instruct:free";
+}
 
 
 function addCopyButtons() {
