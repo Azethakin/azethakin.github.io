@@ -347,7 +347,11 @@ function populateModelSelect() {
   });
 
   // optionnel: choisir un modèle par défaut
-  select.value = "mistralai/mistral-small-3.1-24b-instruct:free";
+  select.value = "tngtech/deepseek-r1t2-chimera:free";
+
+  // affiche la description du modèle par défaut
+  updateModelDescription();
+
 }
 
 
