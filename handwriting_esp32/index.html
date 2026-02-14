@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piloter un ESP32 en écrivant sur une feuille : OCR + IA + IoT</title>
+
+  <!-- CSS global du site -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- CSS spécifique à ce projet (comme arrosage_automatique.css) -->
+  <link rel="stylesheet" href="../css/handwriting_esp32.css" />
+
+  <!-- Font Awesome si tu l’utilises déjà sur les autres pages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  <!-- HEADER : même logique que tes autres pages (desktop + mobile) -->
+  <header>
+    <!-- Desktop -->
+    <div class="desktop-header">
+      <h1 class="page-title">
+        Piloter un ESP32 en écrivant sur une feuille : OCR + IA + IoT
+        <span class="esp32-tag">
+          ESP32 <img class="title-logo" src="../images/logos/esp32.webp" alt="Logo ESP32">
+        </span>
+      </h1>
+    </div>
+
+    <!-- Mobile -->
+    <div class="mobile-header">
+      <div class="logo">Aziz Malloul</div>
+      <div id="hamburger-menu" class="hamburger" aria-label="Menu" aria-expanded="false">☰</div>
+    </div>
+
+    <nav id="mobile-nav" aria-label="Navigation mobile">
+      <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../parcours_academique.html">Parcours académique</a></li>
+        <li><a href="../projets_réalisés.html">Projets réalisés</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        <li><a href="../about.html">Qui suis-je</a></li>
+        <li><a href="../loisirs.html">Loisirs</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projet-details">
+
+      <!-- Intro “lead” (comme arrosage) -->
+      <div class="lead">
+        <strong>Objectif :</strong> contrôler un ESP32 en écrivant une commande manuscrite sur papier.
+        Une page web capture l’image via la caméra, un backend (OpenCV + EasyOCR) extrait du texte puis un LLM (OpenRouter)
+        génère une commande JSON stricte envoyée à l’ESP32. Le microcontrôleur exécute l’action (LEDs) et affiche un retour
+        sur écran TFT (cercles, compteurs, message).
+      </div>
+
+      <!-- Mini bio / auteur -->
+      <div class="author-card">
+        <div class="author-title">
+          <strong>Aziz Malloul</strong> — Ingénieur Systèmes Embarqués & Machine Learning | IA embarquée | IoT
+        </div>
+        <div class="author-links">
+          <a href="https://www.linkedin.com/in/aziz-malloul/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://azizmalloul.com/projets_r%C3%A9alis%C3%A9s/" target="_blank" rel="noopener">
+            <i class="fa-solid fa-link"></i> Projets réalisés
+          </a>
+        </div>
+      </div>
+
+      <!-- Sommaire “pills” comme arrosage -->
+      <nav class="toc-pro" aria-label="Sommaire">
+        <div class="toc-heading"><i class="fa-solid fa-list"></i> Sommaire</div>
+        <ul class="toc-links">
+          <li><a href="#overview"><i class="fa-solid fa-diagram-project"></i> Vue d’ensemble</a></li>
+          <li><a href="#hardware"><i class="fa-solid fa-microchip"></i> Matériel</a></li>
+          <li><a href="#esp32"><i class="fa-solid fa-wifi"></i> ESP32</a></li>
+          <li><a href="#backend"><i class="fa-solid fa-server"></i> Backend OCR+LLM</a></li>
+          <li><a href="#ui"><i class="fa-solid fa-camera"></i> UI Web</a></li>
+          <li><a href="#results"><i class="fa-solid fa-check"></i> Résultats</a></li>
+          <li><a href="#gallery"><i class="fa-regular fa-images"></i> Galerie</a></li>
+        </ul>
+      </nav>
+
+      <!-- Vidéo (comme arrosage) -->
+      <div class="media">
+        <div class="videobox">
+          <!-- Remplace le src par ton vrai fichier -->
+          <video controls preload="metadata" poster="../images/projets_realises/handwriting_esp32/cover.webp">
+            <source src="../images/projets_realises/handwriting_esp32/demo.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
+        <p class="media-caption">
+          Démo : “papier → caméra → OCR → LLM → JSON → ESP32 (LEDs + TFT)”.
+        </p>
+      </div>
+
+      <!-- 1) Overview -->
+      <h2 id="overview" class="anchor-target">1. Vue d’ensemble du système</h2>
+      <p>
+        Le projet se compose de trois blocs : <strong>front web</strong> (capture caméra), <strong>backend FastAPI</strong> (prétraitement + OCR + LLM),
+        et <strong>ESP32</strong> (serveur HTTP + exécution JSON + affichage TFT).
+      </p>
+
+      <ol>
+        <li>L’utilisateur écrit une commande sur papier.</li>
+        <li>Le navigateur capture l’image via la caméra (JPEG base64).</li>
+        <li>Le backend OCR extrait un texte puis le LLM génère une commande JSON stricte.</li>
+        <li>L’ESP32 reçoit ce JSON et exécute l’action + feedback TFT (cercles, compteurs, message).</li>
+      </ol>
+
+      <div class="callout">
+        <strong>Extensible :</strong> ajout facile d’actionneurs (relais, servo, buzzer), nouvelles actions JSON, amélioration OCR sans changer l’ESP32.
+      </div>
+
+      <!-- 2) Hardware -->
+      <h2 id="hardware" class="anchor-target">2. Matériel et câblage</h2>
+
+      <h3 class="anchor-target">2.1 Matériel</h3>
+      <ul>
+        <li>ESP32 Dev Module (Wi-Fi)</li>
+        <li>Écran TFT SPI (ILI9341) + librairie TFT_eSPI</li>
+        <li>3 LEDs (rouge, verte, bleue) + résistances (220–330 Ω)</li>
+        <li>Breadboard + fils Dupont</li>
+        <li>PC pour FastAPI + navigateur avec caméra (webcam PC / caméra téléphone)</li>
+      </ul>
+
+      <h3 class="anchor-target">2.2 LEDs (GPIO)</h3>
+      <div class="table-wrap">
+        <table class="specs">
+          <thead>
+            <tr><th>LED</th><th>GPIO</th><th>Montage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rouge</td><td>25</td><td>GPIO → résistance → anode ; cathode → GND</td></tr>
+            <tr><td>Verte</td><td>26</td><td>GPIO → résistance → anode ; cathode → GND</td></tr>
+            <tr><td>Bleue</td><td>27</td><td>GPIO → résistance → anode ; cathode → GND</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Important :</strong> GND commun entre ESP32, TFT et LEDs.</p>
+
+      <h3 class="anchor-target">2.3 TFT SPI (ILI9341)</h3>
+      <div class="table-wrap">
+        <table class="pins">
+          <thead>
+            <tr><th>Signal</th><th>GPIO (exemple)</th><th>Remarque</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MOSI</td><td>23</td><td>SPI data</td></tr>
+            <tr><td>SCLK</td><td>18</td><td>SPI clock</td></tr>
+            <tr><td>MISO</td><td>19</td><td>Optionnel selon module</td></tr>
+            <tr><td>CS</td><td>15</td><td>Chip select</td></tr>
+            <tr><td>DC</td><td>2</td><td>Data/Command</td></tr>
+            <tr><td>RST</td><td>4</td><td>Reset</td></tr>
+            <tr><td>BL</td><td>32 ou 3.3V</td><td>Backlight</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="anchor-target">2.4 Configuration TFT_eSPI</h3>
+      <pre><code>#define ILI9341_DRIVER
+
+#define TFT_MOSI 23
+#define TFT_SCLK 18
+#define TFT_MISO 19      // optionnel
+#define TFT_CS   15
+#define TFT_DC   2
+#define TFT_RST  4
+
+#define SPI_FREQUENCY 27000000   // 27 MHz</code></pre>
+
+      <!-- 3) ESP32 -->
+      <h2 id="esp32" class="anchor-target">3. ESP32 : serveur HTTP, JSON et affichage TFT</h2>
+
+      <h3 class="anchor-target">3.1 Rôle</h3>
+      <ul>
+        <li>Connexion Wi-Fi + affichage IP sur TFT</li>
+        <li>Serveur HTTP (port 80) avec endpoint <code>POST /command</code></li>
+        <li>Parsing JSON (ArduinoJson) et exécution d’une liste <code>actions[]</code></li>
+        <li>Feedback TFT : cercles RGB + compteurs + zone message</li>
+      </ul>
+
+      <h3 class="anchor-target">3.2 Format JSON attendu</h3>
+      <pre><code>{
+  "actions": [
+    {
+      "type": "set_led" | "display_text",
+      "colors": ["red","green","blue"] | [],
+      "state": "on" | "off" | "blink" | null,
+      "duration_s": number | null,
+      "delay_ms": number | null,
+      "blink_period_ms": number | null,
+      "message": string | null
+    }
+  ]
+}</code></pre>
+
+      <div class="callout">
+        <strong>Règle :</strong> si <code>colors</code> est absent ou vide → l’action s’applique aux 3 LEDs.
+      </div>
+
+      <h3 class="anchor-target">3.3 Non-bloquant (millis)</h3>
+      <p>
+        Pas de <code>delay()</code> : timers d’extinction + clignotement gérés via <code>millis()</code>, et rafraîchissement TFT périodique (~200 ms).
+        L’ESP32 reste réactif et peut recevoir une nouvelle commande pendant une action longue.
+      </p>
+
+      <!-- 4) Backend -->
+      <h2 id="backend" class="anchor-target">4. Backend FastAPI : OCR + interprétation LLM</h2>
+
+      <h3 class="anchor-target">4.1 Endpoints</h3>
+      <div class="table-wrap">
+        <table class="specs">
+          <thead>
+            <tr><th>Route</th><th>Méthode</th><th>Rôle</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>/</code></td><td>GET</td><td>Test : <code>{"status":"ok"}</code></td></tr>
+            <tr><td><code>/api/command</code></td><td>POST</td><td>Reçoit <code>image_base64</code> → OCR → LLM → JSON → envoi ESP32</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="anchor-target">4.2 Prétraitement OpenCV (scan-like)</h3>
+      <ul>
+        <li>Détection/redressement feuille (contour 4 points + warp perspective)</li>
+        <li>Contraste (ex : CLAHE), resize contrôlé</li>
+        <li>Seuillage adaptatif (plus robuste qu’Otsu si éclairage non uniforme)</li>
+        <li>Morphologie : close/open pour renforcer les lettres et réduire le bruit</li>
+      </ul>
+
+      <h3 class="anchor-target">4.3 OCR (EasyOCR) + nettoyage</h3>
+      <ul>
+        <li>Langues FR/EN, paramètres tolérants (beamsearch, seuils ajustés)</li>
+        <li>Nettoyage : minuscules + corrections (1→l, 0→o, 5→s, 7→t) + regex + espaces</li>
+      </ul>
+
+      <h3 class="anchor-target">4.4 Interprétation LLM via OpenRouter (JSON strict)</h3>
+      <p>
+        Le LLM transforme un texte OCR bruité en JSON strict :
+        couleurs, état (on/off/blink), durée, message TFT, et séparation en plusieurs actions (et/puis/ensuite).
+      </p>
+
+      <pre><code>Exemple :
+"clignote toutes les leds pendant 20 et affiche bonjour"
+
+→ actions[0] = set_led (blink, duration_s=20, blink_period_ms=500)
+→ actions[1] = display_text ("bonjour")</code></pre>
+
+      <!-- 5) UI -->
+      <h2 id="ui" class="anchor-target">5. Front Web : capture caméra et visualisation</h2>
+      <ul>
+        <li>Activation caméra (<code>getUserMedia</code>)</li>
+        <li>Capture via canvas → JPEG base64 → POST <code>/api/command</code></li>
+        <li>Affichage : texte OCR, JSON, statut d’envoi ESP32</li>
+        <li>Overlay “Analyse en cours…” si traitement long</li>
+      </ul>
+
+      <!-- 6) Results -->
+      <h2 id="results" class="anchor-target">6. Résultats, limites et améliorations</h2>
+
+      <h3 class="anchor-target">6.1 Résultats</h3>
+      <ul>
+        <li>Chaîne complète fonctionnelle : papier → caméra → OCR → LLM → ESP32</li>
+        <li>Feedback local clair sur TFT (état LEDs + compteurs + message)</li>
+        <li>Robuste face au bruit OCR grâce au LLM</li>
+      </ul>
+
+      <h3 class="anchor-target">6.2 Limites</h3>
+      <ul>
+        <li>OCR manuscrit sensible : éclairage, reflet, inclinaison, lisibilité (majuscule + feutre noir recommandé)</li>
+        <li>Dépendance réseau/LLM : latence, quotas, disponibilité</li>
+        <li>Réseau local : backend et ESP32 doivent être joignables (IP ESP32 variable si DHCP)</li>
+      </ul>
+
+      <h3 class="anchor-target">Conclusion</h3>
+      <p>
+        Ce projet illustre une interaction naturelle “papier → IA → action” reliant vision, NLP et IoT.
+        Grâce à une architecture modulaire (front / backend / ESP32), il est facile d’étendre les actions matérielles et
+        d’améliorer la robustesse de l’OCR.
+      </p>
+
+      <!-- Galerie -->
+      <h2 id="gallery" class="anchor-target">Galerie (figures)</h2>
+
+      <div class="gallery-grid">
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure1_montage.webp" alt="Figure 1 — Montage ESP32 + TFT sur breadboard">
+          </div>
+          <figcaption>Figure 1 — Montage ESP32 + TFT sur breadboard, état initial “Aucune commande.”</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure2_logs_backend.webp" alt="Figure 2 — Logs backend OCR/LLM et envoi ESP32">
+          </div>
+          <figcaption>Figure 2 — Logs backend : OCR/LLM, JSON final, envoi ESP32 et réponse {"status":"ok"}.</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure3_ui_papier.webp" alt="Figure 3 — UI web : feuille manuscrite capturée">
+          </div>
+          <figcaption>Figure 3 — UI web : feuille manuscrite (commande “clignote… et affiche bonjour”).</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure4_resultat_bonjour.webp" alt="Figure 4 — Résultat : LEDs + TFT bonjour">
+          </div>
+          <figcaption>Figure 4 — Résultat : LEDs actives + affichage TFT “bonjour” + compteurs.</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure5_resultat_blague.webp" alt="Figure 5 — Résultat : blague TFT">
+          </div>
+          <figcaption>Figure 5 — Résultat : affichage d’une blague sur le TFT + compteurs.</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure6_resultat_autre.webp" alt="Figure 6 — Autre état LEDs + compteur + texte">
+          </div>
+          <figcaption>Figure 6 — Autre état d’exécution (ex : LED rouge active) + compteur + message.</figcaption>
+        </figure>
+
+        <figure class="card">
+          <div class="thumb">
+            <img src="../images/projets_realises/handwriting_esp32/figure7_ui_analyse.webp" alt="Figure 7 — UI analyse en cours">
+          </div>
+          <figcaption>Figure 7 — UI web : overlay “Analyse en cours…” pendant OCR/LLM.</figcaption>
+        </figure>
+      </div>
+
+      <div class="backlink">
+        <a href="../projets_réalisés.html"><i class="fa-solid fa-arrow-left"></i> Retour aux projets réalisés</a>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- JS global (tu as déjà hamburger + autres logiques dedans) -->
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
