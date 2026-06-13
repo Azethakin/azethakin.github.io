@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Générateur de devis et factures PDF - Aziz Malloul</title>
+
+  <meta
+    name="description"
+    content="Créez gratuitement des devis et factures professionnels, ajoutez vos prestations, votre logo et téléchargez votre document au format PDF."
+  >
+
+  <meta
+    name="keywords"
+    content="générateur devis, générateur facture, devis PDF, facture PDF, devis artisan, facture auto-entrepreneur, Aziz Malloul"
+  >
+
+  <meta name="author" content="Aziz Malloul">
+  <meta name="robots" content="index, follow">
+
+  <link
+    rel="canonical"
+    href="https://azizmalloul.com/devis_factures/"
+  >
+
+  <link
+    rel="icon"
+    href="https://azizmalloul.com/images/favicon.ico"
+    type="image/x-icon"
+  >
+
+  <meta
+    property="og:title"
+    content="Générateur de devis et factures PDF"
+  >
+
+  <meta
+    property="og:description"
+    content="Créez facilement un devis ou une facture professionnelle et téléchargez votre document au format PDF."
+  >
+
+  <meta
+    property="og:image"
+    content="https://azizmalloul.com/images/image_devis_factures/apercu-generateur.webp"
+  >
+
+  <meta
+    property="og:url"
+    content="https://azizmalloul.com/devis_factures/"
+  >
+
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="../css/devis_factures.css">
+
+  <!-- Librairie pour générer le PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">DF</div>
+      <div>
+        <h1>Devis & Factures Pro</h1>
+
+        <p>
+          Créez un PDF professionnel en quelques minutes.
+        </p>
+
+        <p class="privacy-message">
+          Vos informations restent dans votre navigateur et ne sont envoyées vers aucun serveur.
+        </p>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <a
+        class="btn ghost back-home-btn"
+        href="../espace_interactif/"
+      >
+        ← Espace interactif
+      </a>
+
+      <a
+        class="btn ghost back-home-btn"
+        href="../Accueil/"
+      >
+        Accueil
+      </a>
+
+      <button class="btn ghost" id="exampleBtn">
+        Remplir un exemple
+      </button>
+
+      <button class="btn danger" id="resetBtn">
+        Réinitialiser
+      </button>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <!-- FORMULAIRE -->
+    <section class="form-panel">
+      <div class="section-card">
+        <div class="section-title">
+          <span>1</span>
+          <h2>Type de document</h2>
+        </div>
+
+        <div class="choice-grid">
+          <label class="choice active">
+            <input type="radio" name="documentType" value="Devis" checked />
+            <strong>Devis</strong>
+            <small>Pour proposer un prix au client</small>
+          </label>
+
+          <label class="choice">
+            <input type="radio" name="documentType" value="Facture" />
+            <strong>Facture</strong>
+            <small>Pour facturer une prestation</small>
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Numéro du document</label>
+            <input type="text" id="documentNumber" placeholder="Ex : DEV-2026-001" />
+          </div>
+
+          <div class="field">
+            <label>Date</label>
+            <input type="date" id="documentDate" />
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">
+          <span>2</span>
+          <h2>Votre entreprise</h2>
+        </div>
+
+        <div class="field">
+          <label>Nom de l’entreprise</label>
+          <input type="text" id="companyName" placeholder="Ex : Peinture Pro Service" />
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Nom / Responsable</label>
+            <input type="text" id="companyOwner" placeholder="Ex : Amar Benali" />
+          </div>
+
+          <div class="field">
+            <label>SIRET</label>
+            <input type="text" id="companySiret" placeholder="Ex : 123 456 789 00012" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Adresse</label>
+          <textarea id="companyAddress" rows="2" placeholder="Adresse complète"></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="companyEmail" placeholder="contact@email.com" />
+          </div>
+
+          <div class="field">
+            <label>Téléphone</label>
+            <input type="text" id="companyPhone" placeholder="06 00 00 00 00" />
+          </div>
+        </div>
+
+        <div class="field">
+        <label>Logo de l’entreprise</label>
+
+        <div class="logo-upload-row">
+            <input type="file" id="companyLogo" accept="image/*" />
+            <button class="btn small danger hidden" type="button" id="removeLogoBtn">
+            Retirer le logo
+            </button>
+        </div>
+
+        <small class="hint">Optionnel. Format conseillé : PNG ou JPG.</small>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">
+          <span>3</span>
+          <h2>Client</h2>
+        </div>
+
+        <div class="field">
+          <label>Nom du client</label>
+          <input type="text" id="clientName" placeholder="Ex : Avenir Immo" />
+        </div>
+
+        <div class="field">
+          <label>Adresse du client</label>
+          <textarea id="clientAddress" rows="2" placeholder="Adresse complète du client"></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Email client</label>
+            <input type="email" id="clientEmail" placeholder="client@email.com" />
+          </div>
+
+          <div class="field">
+            <label>Téléphone client</label>
+            <input type="text" id="clientPhone" placeholder="06 00 00 00 00" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Adresse du chantier / intervention</label>
+          <textarea id="workAddress" rows="2" placeholder="Optionnel"></textarea>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">
+          <span>4</span>
+          <h2>Prestations</h2>
+        </div>
+
+        <div class="items-head">
+          <p>Ajoutez les prestations, produits ou travaux à facturer.</p>
+          <button class="btn small" id="addItemBtn">+ Ajouter une ligne</button>
+        </div>
+
+        <div id="itemsContainer"></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">
+          <span>5</span>
+          <h2>Options et paiement</h2>
+        </div>
+
+        <div class="grid-2">
+            <div class="field">
+                <label>Remise globale (€)</label>
+                <input type="number" id="discount" value="0" min="0" step="0.01" />
+            </div>
+
+            <div class="field">
+                <label>Acompte payé (€)</label>
+                <input type="number" id="deposit" value="0" min="0" step="0.01" />
+            </div>
+            </div>
+
+            <div class="grid-2">
+            <div class="field">
+                <label>Titre de la condition</label>
+                <input 
+                type="text" 
+                id="paymentTitle" 
+                value="Conditions de paiement" 
+                placeholder="Ex : Conditions de paiement" 
+                />
+            </div>
+
+            <div class="field">
+                <label>Phrase de paiement</label>
+                <textarea
+                id="paymentDelay"
+                rows="2"
+                placeholder="Ex : Paiement à réception"
+                >Paiement à réception</textarea>
+            </div>
+            </div>
+
+            <div class="payment-quick-buttons">
+            <button class="btn small ghost" type="button" data-payment-text="Paiement à réception">
+                À réception
+            </button>
+
+            <button class="btn small ghost" type="button" data-payment-text="Paiement sous 7 jours">
+                Sous 7 jours
+            </button>
+
+            <button class="btn small ghost" type="button" data-payment-text="Paiement sous 30 jours">
+                Sous 30 jours
+            </button>
+
+            <button class="btn small ghost" type="button" data-payment-text="Acompte de 30% à la signature, solde à la fin des travaux">
+                Acompte 30%
+            </button>
+        </div>
+
+        <div class="checkbox-list">
+          <label>
+            <input type="checkbox" id="vatFranchise" />
+            TVA non applicable, article 293 B du CGI
+          </label>
+
+          <label>
+            <input type="checkbox" id="showLateFees" checked />
+            Afficher les pénalités de retard
+          </label>
+
+          <label>
+            <input type="checkbox" id="showSignature" />
+            Ajouter une zone signature
+          </label>
+        </div>
+
+        <div class="text-size-panel">
+  <h3>Ajuster la taille du texte du PDF</h3>
+  <p>
+    Réduisez les textes si le devis ou la facture prend trop de place.
+  </p>
+
+  <div class="grid-2">
+    <div class="field">
+      <label>Taille générale : <span id="globalSizeValue">100%</span></label>
+      <input type="range" id="globalTextSize" min="80" max="120" value="100" />
+    </div>
+
+    <div class="field">
+      <label>Entête : <span id="headerSizeValue">100%</span></label>
+      <input type="range" id="headerTextSize" min="75" max="125" value="100" />
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="field">
+      <label>Émetteur / Client : <span id="partySizeValue">100%</span></label>
+      <input type="range" id="partyTextSize" min="75" max="120" value="100" />
+    </div>
+
+    <div class="field">
+      <label>Tableau prestations : <span id="tableSizeValue">100%</span></label>
+      <input type="range" id="tableTextSize" min="65" max="115" value="100" />
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="field">
+      <label>Notes : <span id="notesSizeValue">100%</span></label>
+      <input type="range" id="notesTextSize" min="70" max="120" value="100" />
+    </div>
+
+    <div class="field">
+      <label>Totaux : <span id="totalsSizeValue">100%</span></label>
+      <input type="range" id="totalsTextSize" min="75" max="120" value="100" />
+    </div>
+  </div>
+
+  <div class="size-buttons">
+    <button class="btn small ghost" type="button" id="compactModeBtn">
+      Mode compact
+    </button>
+
+    <button class="btn small ghost" type="button" id="normalSizeBtn">
+      Taille normale
+    </button>
+  </div>
+</div>
+
+        <div class="grid-2">
+            <div class="field">
+                <label>Titre des notes</label>
+                <input
+                type="text"
+                id="notesTitle"
+                value="Notes"
+                placeholder="Ex : Notes"
+                />
+            </div>
+
+            <div class="field">
+                <label>Notes / Conditions particulières</label>
+                <textarea
+                id="notes"
+                rows="3"
+                placeholder="Ex : Devis valable 30 jours. Merci pour votre confiance."
+                ></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Zone libre en bas du document</label>
+
+            <div class="footer-tools">
+                <button class="btn small ghost" type="button" data-footer-format="bold">
+                Gras
+                </button>
+
+                <button class="btn small ghost" type="button" data-footer-format="normal">
+                Normal
+                </button>
+
+                <button class="btn small ghost" type="button" data-footer-format="dash">
+                Tirets
+                </button>
+
+                <button class="btn small ghost" type="button" data-footer-format="bullet">
+                Points
+                </button>
+
+                <button class="btn small ghost" type="button" data-footer-format="number">
+                Numéros
+                </button>
+            </div>
+
+            <textarea
+                id="customFooterText"
+                rows="5"
+                placeholder="Ex :
+            Bon pour accord
+            - Date :
+            - Nom :
+            - Signature :"
+            ></textarea>
+
+            
+          </div>
+      </div>
+    </section>
+
+    <!-- APERÇU -->
+    <aside class="preview-panel">
+      <div class="preview-actions">
+        <button class="btn primary full" id="downloadBtn">Télécharger le PDF</button>
+      </div>
+
+      <div class="pdf-wrapper">
+        <div id="pdfDocument" class="pdf-document">
+          <div class="pdf-header">
+            <div>
+              <img id="previewLogo" class="preview-logo hidden" alt="Logo" />
+              <h2 id="previewCompanyName">Nom de l’entreprise</h2>
+              <p id="previewCompanyInfo">
+                Adresse de l’entreprise<br />
+                Email · Téléphone<br />
+                SIRET
+              </p>
+            </div>
+
+            <div class="document-badge">
+              <h1 id="previewDocumentType">DEVIS</h1>
+              <p id="previewDocumentNumber">N° DEV-2026-001</p>
+              <p id="previewDocumentDate">Date : --/--/----</p>
+            </div>
+          </div>
+
+          <div class="pdf-parties">
+            <div>
+              <h3>Émetteur</h3>
+              <p id="previewEmitter">
+                Nom entreprise<br />
+                Adresse<br />
+                Contact
+              </p>
+            </div>
+
+            <div>
+              <h3>Client</h3>
+              <p id="previewClient">
+                Nom client<br />
+                Adresse client<br />
+                Contact client
+              </p>
+            </div>
+          </div>
+
+          <div id="previewWorkAddressBlock" class="work-address hidden">
+            <h3>Adresse du chantier / intervention</h3>
+            <p id="previewWorkAddress"></p>
+          </div>
+
+          <table class="pdf-table">
+            <thead>
+              <tr>
+                <th>Désignation</th>
+                <th>Qté</th>
+                <th>Unité</th>
+                <th>PU HT</th>
+                <th>TVA</th>
+                <th>Total HT</th>
+              </tr>
+            </thead>
+            <tbody id="previewItems"></tbody>
+          </table>
+
+          <div class="totals-zone">
+            <div class="pdf-notes">
+              <h3 id="previewNotesTitle">Notes</h3>
+              <p id="previewNotes">Aucune note particulière.</p>
+
+              <p id="previewVatFranchise" class="legal-note hidden">
+                TVA non applicable, article 293 B du CGI.
+              </p>
+
+              <p id="previewLateFees" class="legal-note">
+                En cas de retard de paiement, des pénalités pourront être appliquées conformément aux conditions légales en vigueur.
+              </p>
+            </div>
+
+            <div class="totals-box">
+              <div>
+                <span>Total HT</span>
+                <strong id="previewTotalHT">0,00 €</strong>
+              </div>
+
+              <div>
+                <span>Total TVA</span>
+                <strong id="previewTotalVAT">0,00 €</strong>
+              </div>
+
+              <div>
+                <span>Remise</span>
+                <strong id="previewDiscount">0,00 €</strong>
+              </div>
+
+              <div>
+                <span>Total TTC</span>
+                <strong id="previewTotalTTC">0,00 €</strong>
+              </div>
+
+              <div>
+                <span>Acompte</span>
+                <strong id="previewDeposit">0,00 €</strong>
+              </div>
+
+              <div class="net">
+                <span>Net à payer</span>
+                <strong id="previewNet">0,00 €</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-info">
+            <strong id="previewPaymentTitle">Conditions de paiement :</strong>
+            <span id="previewPaymentDelay">Paiement à réception</span>
+          </div>
+
+          <div id="signatureBlock" class="signature-zone hidden">
+            <div>
+              <p>Signature de l’entreprise</p>
+              <div class="signature-line"></div>
+            </div>
+
+            <div>
+              <p>Signature du client</p>
+              <div class="signature-line"></div>
+            </div>
+          </div>
+
+          <footer class="pdf-footer custom-footer hidden" id="previewCustomFooter"></footer>
+
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal-overlay hidden" id="exampleModal">
+    <div class="example-modal">
+        <div class="modal-header">
+        <div>
+            <h2>Choisir un exemple</h2>
+            <p>Sélectionnez un modèle de devis pour remplir automatiquement le formulaire.</p>
+        </div>
+
+        <button class="modal-close" type="button" id="closeExampleModal">
+            ×
+        </button>
+        </div>
+
+        <div class="example-grid">
+        <button class="example-card" type="button" data-example="peinture">
+            <span class="example-icon">🎨</span>
+            <strong>Peinture</strong>
+            <small>Murs, plafonds, enduit, finition</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="maconnerie">
+            <span class="example-icon">🧱</span>
+            <strong>Maçonnerie</strong>
+            <small>Démolition, parpaings, enduit</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="renovation">
+            <span class="example-icon">🏗️</span>
+            <strong>Rénovation bâtiment</strong>
+            <small>Placo, sol, peinture, finitions</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="plomberie">
+            <span class="example-icon">🚿</span>
+            <strong>Plomberie</strong>
+            <small>Fuite, raccords, robinetterie</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="electricien_batiment">
+            <span class="example-icon">💡</span>
+            <strong>Électricien bâtiment</strong>
+            <small>Prises, tableau, mise aux normes</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="electricien_auto">
+            <span class="example-icon">🚗</span>
+            <strong>Électricien auto</strong>
+            <small>Batterie, faisceau, diagnostic</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="jardinage">
+            <span class="example-icon">🌿</span>
+            <strong>Jardinage</strong>
+            <small>Tonte, haies, déchets verts</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="electronicien">
+            <span class="example-icon">🔧</span>
+            <strong>Électronicien</strong>
+            <small>Carte électronique, soudure, tests</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="nettoyage">
+            <span class="example-icon">🧼</span>
+            <strong>Nettoyage</strong>
+            <small>Sols, vitres, désinfection</small>
+        </button>
+
+        <button class="example-card" type="button" data-example="informatique">
+            <span class="example-icon">💻</span>
+            <strong>Informatique</strong>
+            <small>Diagnostic, installation, réseau</small>
+        </button>
+        </div>
+    </div>
+  </div>
+
+  <script src="../js/devis_factures.js"></script>
+</body>
+</html>
