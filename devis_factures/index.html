@@ -66,12 +66,9 @@
         <h1>Devis & Factures Pro</h1>
 
         <p>
-          Créez un PDF professionnel en quelques minutes.
+          Générez vos devis et factures en toute simplicité
         </p>
 
-        <p class="privacy-message">
-          Vos informations restent dans votre navigateur et ne sont envoyées vers aucun serveur.
-        </p>
       </div>
     </div>
 
@@ -313,57 +310,134 @@
         </div>
 
         <div class="text-size-panel">
-  <h3>Ajuster la taille du texte du PDF</h3>
-  <p>
-    Réduisez les textes si le devis ou la facture prend trop de place.
-  </p>
+          <h3>Ajuster la taille du texte du PDF</h3>
 
-  <div class="grid-2">
-    <div class="field">
-      <label>Taille générale : <span id="globalSizeValue">100%</span></label>
-      <input type="range" id="globalTextSize" min="80" max="120" value="100" />
-    </div>
+          <p>
+            Choisissez une taille prédéfinie ou ajustez chaque partie manuellement.
+          </p>
 
-    <div class="field">
-      <label>Entête : <span id="headerSizeValue">100%</span></label>
-      <input type="range" id="headerTextSize" min="75" max="125" value="100" />
-    </div>
-  </div>
+          <div class="pdf-size-presets">
+            <button
+              class="btn small ghost"
+              type="button"
+              id="smallSizeBtn"
+            >
+              Petite
+            </button>
 
-  <div class="grid-2">
-    <div class="field">
-      <label>Émetteur / Client : <span id="partySizeValue">100%</span></label>
-      <input type="range" id="partyTextSize" min="75" max="120" value="100" />
-    </div>
+            <button
+              class="btn small ghost"
+              type="button"
+              id="mediumSizeBtn"
+            >
+              Moyenne
+            </button>
 
-    <div class="field">
-      <label>Tableau prestations : <span id="tableSizeValue">100%</span></label>
-      <input type="range" id="tableTextSize" min="65" max="115" value="100" />
-    </div>
-  </div>
+            <button
+              class="btn small ghost"
+              type="button"
+              id="largeSizeBtn"
+            >
+              Grande
+            </button>
+          </div>
 
-  <div class="grid-2">
-    <div class="field">
-      <label>Notes : <span id="notesSizeValue">100%</span></label>
-      <input type="range" id="notesTextSize" min="70" max="120" value="100" />
-    </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>
+                Taille générale :
+                <span id="globalSizeValue">100%</span>
+              </label>
 
-    <div class="field">
-      <label>Totaux : <span id="totalsSizeValue">100%</span></label>
-      <input type="range" id="totalsTextSize" min="75" max="120" value="100" />
-    </div>
-  </div>
+              <input
+                type="range"
+                id="globalTextSize"
+                min="55"
+                max="120"
+                value="100"
+              >
+            </div>
 
-  <div class="size-buttons">
-    <button class="btn small ghost" type="button" id="compactModeBtn">
-      Mode compact
-    </button>
+            <div class="field">
+              <label>
+                Entête :
+                <span id="headerSizeValue">100%</span>
+              </label>
 
-    <button class="btn small ghost" type="button" id="normalSizeBtn">
-      Taille normale
-    </button>
-  </div>
-</div>
+              <input
+                type="range"
+                id="headerTextSize"
+                min="50"
+                max="125"
+                value="100"
+              >
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>
+                Émetteur / Client :
+                <span id="partySizeValue">100%</span>
+              </label>
+
+              <input
+                type="range"
+                id="partyTextSize"
+                min="50"
+                max="120"
+                value="100"
+              >
+            </div>
+
+            <div class="field">
+              <label>
+                Tableau prestations :
+                <span id="tableSizeValue">100%</span>
+              </label>
+
+              <input
+                type="range"
+                id="tableTextSize"
+                min="40"
+                max="115"
+                value="100"
+              >
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>
+                Notes :
+                <span id="notesSizeValue">100%</span>
+              </label>
+
+              <input
+                type="range"
+                id="notesTextSize"
+                min="45"
+                max="120"
+                value="100"
+              >
+            </div>
+
+            <div class="field">
+              <label>
+                Totaux :
+                <span id="totalsSizeValue">100%</span>
+              </label>
+
+              <input
+                type="range"
+                id="totalsTextSize"
+                min="50"
+                max="120"
+                value="100"
+              >
+            </div>
+          </div>
+        </div>
 
         <div class="grid-2">
             <div class="field">

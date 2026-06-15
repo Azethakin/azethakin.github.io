@@ -441,11 +441,22 @@ textarea {
   vertical-align: top;
 }
 
+.pdf-table th:first-child,
+.pdf-table td:first-child {
+  text-align: left;
+}
+
+.pdf-table th:nth-child(2),
 .pdf-table td:nth-child(2),
+.pdf-table th:nth-child(3),
+.pdf-table td:nth-child(3),
+.pdf-table th:nth-child(4),
 .pdf-table td:nth-child(4),
+.pdf-table th:nth-child(5),
 .pdf-table td:nth-child(5),
+.pdf-table th:nth-child(6),
 .pdf-table td:nth-child(6) {
-  text-align: right;
+  text-align: center;
 }
 
 .totals-zone {
@@ -632,16 +643,27 @@ textarea {
   font-size: 13px;
 }
 
+.pdf-size-presets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.pdf-size-presets .btn {
+  width: 100%;
+}
+
+.pdf-size-presets .size-preset-active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+}
+
 .field input[type="range"] {
   padding: 0;
   box-shadow: none;
   cursor: pointer;
-}
-
-.size-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
 }
 
 /* Variables de taille du PDF */
@@ -1129,4 +1151,10 @@ textarea {
   color: #166534;
   font-size: 12px;
   font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .pdf-size-presets {
+    grid-template-columns: 1fr;
+  }
 }

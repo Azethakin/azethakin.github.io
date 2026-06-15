@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTodayDate();
   addItem();
   bindEvents();
-  updatePreview();
+  applyPdfSizePreset("medium");
 });
 
 function bindEvents() {
@@ -52,6 +52,23 @@ function bindEvents() {
 
     element.addEventListener("input", updatePreview);
     element.addEventListener("change", updatePreview);
+  });
+
+  [
+    "globalTextSize",
+    "headerTextSize",
+    "partyTextSize",
+    "tableTextSize",
+    "notesTextSize",
+    "totalsTextSize"
+  ].forEach((id) => {
+    const input = $(id);
+
+    if (!input) return;
+
+    input.addEventListener("input", () => {
+      updateSizePresetButtons(null);
+    });
   });
 
   document.querySelectorAll("input[name='documentType']").forEach((radio) => {
@@ -72,8 +89,17 @@ function bindEvents() {
   $("closeExampleModal").addEventListener("click", closeExampleModal);
   $("resetBtn").addEventListener("click", resetForm);
 
-  $("compactModeBtn").addEventListener("click", setCompactMode);
-  $("normalSizeBtn").addEventListener("click", setNormalTextSize);
+  $("smallSizeBtn").addEventListener("click", () => {
+    applyPdfSizePreset("small");
+  });
+
+  $("mediumSizeBtn").addEventListener("click", () => {
+    applyPdfSizePreset("medium");
+  });
+
+  $("largeSizeBtn").addEventListener("click", () => {
+    applyPdfSizePreset("large");
+  });
 
   $("companyLogo").addEventListener("change", handleLogoUpload);
 
@@ -924,8 +950,7 @@ function resetForm() {
   setTodayDate();
   addItem();
   updateChoiceStyle();
-  setNormalTextSize();
-  updatePreview();
+  applyPdfSizePreset("medium");
 }
 
 function getDefaultDocumentNumber(type) {
@@ -1019,29 +1044,67 @@ function updateSizeLabels(sizes) {
   if ($("totalsSizeValue")) $("totalsSizeValue").textContent = `${sizes.totalsSize}%`;
 }
 
-function setCompactMode() {
-  $("globalTextSize").value = 90;
-  $("headerTextSize").value = 85;
-  $("partyTextSize").value = 85;
-  $("tableTextSize").value = 75;
-  $("notesTextSize").value = 80;
-  $("totalsTextSize").value = 85;
+function applyPdfSizePreset(size) {
+  const presets = {
+    small: {
+      global: 70,
+      header: 65,
+      party: 65,
+      table: 55,
+      notes: 60,
+      totals: 65
+    },
 
+    medium: {
+      global: 85,
+      header: 80,
+      party: 80,
+      table: 72,
+      notes: 75,
+      totals: 80
+    },
+
+    large: {
+      global: 100,
+      header: 100,
+      party: 100,
+      table: 100,
+      notes: 100,
+      totals: 100
+    }
+  };
+
+  const selectedPreset = presets[size];
+
+  if (!selectedPreset) return;
+
+  $("globalTextSize").value = selectedPreset.global;
+  $("headerTextSize").value = selectedPreset.header;
+  $("partyTextSize").value = selectedPreset.party;
+  $("tableTextSize").value = selectedPreset.table;
+  $("notesTextSize").value = selectedPreset.notes;
+  $("totalsTextSize").value = selectedPreset.totals;
+
+  updateSizePresetButtons(size);
   updatePreview();
 }
 
-function setNormalTextSize() {
-  $("globalTextSize").value = 100;
-  $("headerTextSize").value = 100;
-  $("partyTextSize").value = 100;
-  $("tableTextSize").value = 100;
-  $("notesTextSize").value = 100;
-  $("totalsTextSize").value = 100;
+function updateSizePresetButtons(activeSize) {
+  const buttons = {
+    small: $("smallSizeBtn"),
+    medium: $("mediumSizeBtn"),
+    large: $("largeSizeBtn")
+  };
 
-  updatePreview();
+  Object.entries(buttons).forEach(([size, button]) => {
+    if (!button) return;
+
+    button.classList.toggle(
+      "size-preset-active",
+      size === activeSize
+    );
+  });
 }
-
-
 
 function updateCustomFooter(text) {
   const footer = $("previewCustomFooter");
