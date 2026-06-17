@@ -162,13 +162,13 @@ function updateDocumentNumberPlaceholder() {
 function addItem(data = {}) {
   const item = {
     id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
-    title: data.title || "Nouvelle prestation",
+    title: data.title || "",
     subItems: data.subItems || [
       {
         id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + "-sub"),
         description: "",
         quantity: 1,
-        unit: "unité",
+        unit: "",
         price: 0,
         vat: 20
       }
@@ -189,7 +189,7 @@ function addSubItem(itemId) {
     id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
     description: "",
     quantity: 1,
-    unit: "unité",
+    unit: "",
     price: 0,
     vat: 20
   });
@@ -219,12 +219,14 @@ function updateSubItem(itemId, subItemId, key, value) {
 
   if (!item) return;
 
-  const subItem = item.subItems.find((subItem) => subItem.id === subItemId);
+  const subItem = item.subItems.find(
+    (subItem) => subItem.id === subItemId
+  );
 
   if (!subItem) return;
 
   if (key === "quantity" || key === "price" || key === "vat") {
-    subItem[key] = Number(value) || 0;
+    subItem[key] = value === "" ? "" : Number(value);
   } else {
     subItem[key] = value;
   }
@@ -293,7 +295,7 @@ function renderItems() {
             <label>Unité</label>
             <input 
               type="text" 
-              value="${escapeHtml(subItem.unit || "unité")}" 
+              value="${escapeHtml(subItem.unit || "")}"
               placeholder="m², h, unité"
               data-item-id="${item.id}"
               data-subitem-id="${subItem.id}"
@@ -443,17 +445,17 @@ function updatePreview() {
   const documentNumber = $("documentNumber").value || getDefaultDocumentNumber(documentType);
   const documentDate = formatDate($("documentDate").value);
 
-  const companyName = $("companyName").value || "Nom de l’entreprise";
-  const companyOwner = $("companyOwner").value || "";
-  const companySiret = $("companySiret").value || "";
-  const companyAddress = $("companyAddress").value || "Adresse de l’entreprise";
-  const companyEmail = $("companyEmail").value || "";
-  const companyPhone = $("companyPhone").value || "";
+  const companyName = $("companyName").value.trim();
+  const companyOwner = $("companyOwner").value.trim();
+  const companySiret = $("companySiret").value.trim();
+  const companyAddress = $("companyAddress").value.trim();
+  const companyEmail = $("companyEmail").value.trim();
+  const companyPhone = $("companyPhone").value.trim();
 
-  const clientName = $("clientName").value || "Nom du client";
-  const clientAddress = $("clientAddress").value || "Adresse du client";
-  const clientEmail = $("clientEmail").value || "";
-  const clientPhone = $("clientPhone").value || "";
+  const clientName = $("clientName").value.trim();
+  const clientAddress = $("clientAddress").value.trim();
+  const clientEmail = $("clientEmail").value.trim();
+  const clientPhone = $("clientPhone").value.trim();
 
   const workAddress = $("workAddress").value.trim();
   const paymentTitle = $("paymentTitle").value.trim();
@@ -470,26 +472,82 @@ function updatePreview() {
   $("previewDocumentDate").textContent = `Date : ${documentDate}`;
 
   $("previewCompanyName").textContent = companyName;
+  $("previewCompanyName").classList.toggle("hidden", !companyName);
 
-  $("previewCompanyInfo").innerHTML = `
-    ${nl2br(companyAddress)}<br>
-    ${joinContact(companyEmail, companyPhone)}<br>
-    ${companySiret ? "SIRET : " + escapeHtml(companySiret) : ""}
-  `;
+  const companyInfoLines = [];
 
-  $("previewEmitter").innerHTML = `
-    <strong>${escapeHtml(companyName)}</strong><br>
-    ${companyOwner ? escapeHtml(companyOwner) + "<br>" : ""}
-    ${nl2br(companyAddress)}<br>
-    ${joinContact(companyEmail, companyPhone)}<br>
-    ${companySiret ? "SIRET : " + escapeHtml(companySiret) : ""}
-  `;
+  if (companyAddress) {
+    companyInfoLines.push(nl2br(companyAddress));
+  }
 
-  $("previewClient").innerHTML = `
-    <strong>${escapeHtml(clientName)}</strong><br>
-    ${nl2br(clientAddress)}<br>
-    ${joinContact(clientEmail, clientPhone)}
-  `;
+  const companyContact = joinContact(companyEmail, companyPhone);
+
+  if (companyContact) {
+    companyInfoLines.push(companyContact);
+  }
+
+  if (companySiret) {
+    companyInfoLines.push(`SIRET : ${escapeHtml(companySiret)}`);
+  }
+
+  $("previewCompanyInfo").innerHTML = companyInfoLines.join("<br>");
+
+  $("previewCompanyInfo").classList.toggle(
+    "hidden",
+    companyInfoLines.length === 0
+  );
+
+  const emitterLines = [];
+
+  if (companyName) {
+    emitterLines.push(`<strong>${escapeHtml(companyName)}</strong>`);
+  }
+
+  if (companyOwner) {
+    emitterLines.push(escapeHtml(companyOwner));
+  }
+
+  if (companyAddress) {
+    emitterLines.push(nl2br(companyAddress));
+  }
+
+  if (companyContact) {
+    emitterLines.push(companyContact);
+  }
+
+  if (companySiret) {
+    emitterLines.push(`SIRET : ${escapeHtml(companySiret)}`);
+  }
+
+  $("previewEmitter").innerHTML = emitterLines.join("<br>");
+
+  $("previewEmitterBlock").classList.toggle(
+    "hidden",
+    emitterLines.length === 0
+  );
+
+  const clientLines = [];
+
+  if (clientName) {
+    clientLines.push(`<strong>${escapeHtml(clientName)}</strong>`);
+  }
+
+  if (clientAddress) {
+    clientLines.push(nl2br(clientAddress));
+  }
+
+  const clientContact = joinContact(clientEmail, clientPhone);
+
+  if (clientContact) {
+    clientLines.push(clientContact);
+  }
+
+  $("previewClient").innerHTML = clientLines.join("<br>");
+
+  $("previewClientBlock").classList.toggle(
+    "hidden",
+    clientLines.length === 0
+  );
 
   if (workAddress) {
     $("previewWorkAddressBlock").classList.remove("hidden");
@@ -519,8 +577,11 @@ function updatePreview() {
   $("previewDeposit").textContent = formatMoney(deposit);
   $("previewNet").textContent = formatMoney(totals.netToPay);
 
-  $("previewNotesTitle").textContent = notesTitle || "Notes";
-  $("previewNotes").innerHTML = notes ? nl2br(notes) : "Aucune note particulière.";
+  $("previewNotesTitle").textContent = notesTitle;
+  $("previewNotes").innerHTML = notes ? nl2br(notes) : "";
+
+  $("previewNotesTitle").classList.toggle("hidden", !notesTitle);
+  $("previewNotes").classList.toggle("hidden", !notes);
   
   const paymentInfo = document.querySelector(".payment-info");
 
@@ -555,32 +616,60 @@ function renderPreviewItems() {
   tbody.innerHTML = "";
 
   state.items.forEach((item) => {
-    const groupRow = document.createElement("tr");
-    groupRow.className = "group-row";
+    if (item.title.trim()) {
+      const groupRow = document.createElement("tr");
+      groupRow.className = "group-row";
 
-    groupRow.innerHTML = `
+      groupRow.innerHTML = `
         <td colspan="6">
-            <strong>${nl2br(item.title || "Prestation")}</strong>
+          <strong class="group-title-preview">
+            ${formatGroupTitle(item.title)}
+          </strong>
         </td>
-    `;
+      `;
 
-    tbody.appendChild(groupRow);
+      tbody.appendChild(groupRow);
+    }
 
     item.subItems.forEach((subItem) => {
-      const lineHT = subItem.quantity * subItem.price;
+      const hasContent =
+        subItem.description.trim() ||
+        subItem.unit.trim() ||
+        Number(subItem.price) > 0;
+
+      if (!hasContent) return;
+
+      const quantity = Number(subItem.quantity) || 0;
+      const price = Number(subItem.price) || 0;
+      const lineHT = quantity * price;
 
       const tr = document.createElement("tr");
       tr.className = "subitem-row-preview";
 
       tr.innerHTML = `
         <td class="subitem-description-preview">
-          - ${escapeHtml(subItem.description || "Détail")}
+          ${subItem.description ? `- ${escapeHtml(subItem.description)}` : ""}
         </td>
-        <td>${formatNumber(subItem.quantity)}</td>
-        <td>${escapeHtml(subItem.unit || "unité")}</td>
-        <td>${formatMoney(subItem.price)}</td>
-        <td>${formatNumber(subItem.vat)} %</td>
-        <td>${formatMoney(lineHT)}</td>
+
+        <td>
+          ${subItem.quantity !== "" ? formatNumber(subItem.quantity) : ""}
+        </td>
+
+        <td>
+          ${subItem.unit ? escapeHtml(subItem.unit) : ""}
+        </td>
+
+        <td>
+          ${Number(subItem.price) > 0 ? formatMoney(subItem.price) : ""}
+        </td>
+
+        <td>
+          ${subItem.vat !== "" ? `${formatNumber(subItem.vat)} %` : ""}
+        </td>
+
+        <td>
+          ${Number(subItem.price) > 0 ? formatMoney(lineHT) : ""}
+        </td>
       `;
 
       tbody.appendChild(tr);
@@ -598,8 +687,14 @@ function calculateTotals() {
 
   state.items.forEach((item) => {
     item.subItems.forEach((subItem) => {
-      const lineHT = subItem.quantity * subItem.price;
-      const lineVAT = vatFranchise ? 0 : lineHT * (subItem.vat / 100);
+      const quantity = Number(subItem.quantity) || 0;
+      const price = Number(subItem.price) || 0;
+      const vat = Number(subItem.vat) || 0;
+
+      const lineHT = quantity * price;
+      const lineVAT = vatFranchise
+        ? 0
+        : lineHT * (vat / 100);
 
       totalHT += lineHT;
       totalVAT += lineVAT;
@@ -704,7 +799,7 @@ function fillExample(type = "peinture") {
 
   $("documentNumber").value = "DEV-2026-001";
   $("companyName").value = "Entreprise Exemple Pro";
-  $("companyOwner").value = "Amar Benali";
+  $("companyOwner").value = "Nom Prénom";
   $("companySiret").value = "928 730 878 00016";
   $("companyAddress").value = "9 rue Neuve Sainte Catherine\n13007 Marseille";
   $("companyEmail").value = "contact@entreprisepro.fr";
@@ -990,11 +1085,30 @@ function joinContact(email, phone) {
   if (email) parts.push(escapeHtml(email));
   if (phone) parts.push(escapeHtml(phone));
 
-  return parts.length ? parts.join(" · ") : "Contact non renseigné";
+  return parts.join(" · ");
 }
 
 function nl2br(text) {
   return escapeHtml(text).replace(/\n/g, "<br>");
+}
+
+function formatGroupTitle(text) {
+  const escapedText = escapeHtml(text);
+
+  return escapedText
+    .split("\n")
+    .map((line) => {
+      return line.replace(/\S{30,}/g, (longWord) => {
+        const parts = [];
+
+        for (let i = 0; i < longWord.length; i += 30) {
+          parts.push(longWord.slice(i, i + 30));
+        }
+
+        return parts.join("<wbr>");
+      });
+    })
+    .join("<br>");
 }
 
 function escapeHtml(text) {

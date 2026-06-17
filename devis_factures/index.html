@@ -42,7 +42,7 @@
 
   <meta
     property="og:image"
-    content="https://azizmalloul.com/images/image_devis_factures/apercu-generateur.webp"
+    content="https://azizmalloul.com/images/image_espace_interactif/image_devis_factures/apercu-generateur.webp"
   >
 
   <meta
@@ -147,7 +147,7 @@
         <div class="grid-2">
           <div class="field">
             <label>Nom / Responsable</label>
-            <input type="text" id="companyOwner" placeholder="Ex : Amar Benali" />
+            <input type="text" id="companyOwner" placeholder="Ex : Nom Prénom" />
           </div>
 
           <div class="field">
@@ -309,6 +309,27 @@
           </label>
         </div>
 
+        <div class="grid-2">
+            <div class="field">
+                <label>Titre des notes</label>
+                <input
+                type="text"
+                id="notesTitle"
+                value="Notes"
+                placeholder="Ex : Notes"
+                />
+            </div>
+
+            <div class="field">
+                <label>Notes / Conditions particulières</label>
+                <textarea
+                id="notes"
+                rows="3"
+                placeholder="Ex : Devis valable 30 jours. Merci pour votre confiance."
+                ></textarea>
+            </div>
+        </div>
+
         <div class="text-size-panel">
           <h3>Ajuster la taille du texte du PDF</h3>
 
@@ -439,26 +460,7 @@
           </div>
         </div>
 
-        <div class="grid-2">
-            <div class="field">
-                <label>Titre des notes</label>
-                <input
-                type="text"
-                id="notesTitle"
-                value="Notes"
-                placeholder="Ex : Notes"
-                />
-            </div>
-
-            <div class="field">
-                <label>Notes / Conditions particulières</label>
-                <textarea
-                id="notes"
-                rows="3"
-                placeholder="Ex : Devis valable 30 jours. Merci pour votre confiance."
-                ></textarea>
-            </div>
-        </div>
+        
 
         <div class="field">
             <label>Zone libre en bas du document</label>
@@ -489,10 +491,8 @@
                 id="customFooterText"
                 rows="5"
                 placeholder="Ex :
-            Bon pour accord
-            - Date :
-            - Nom :
-            - Signature :"
+  Titulaire de compte : Nom Prenom 
+  Banque: xxxxxx iban: FRxx xxxx xxxx xxxx xxxx xxxx xxx  Bic: xxxxxx "
             ></textarea>
 
             
@@ -511,12 +511,8 @@
           <div class="pdf-header">
             <div>
               <img id="previewLogo" class="preview-logo hidden" alt="Logo" />
-              <h2 id="previewCompanyName">Nom de l’entreprise</h2>
-              <p id="previewCompanyInfo">
-                Adresse de l’entreprise<br />
-                Email · Téléphone<br />
-                SIRET
-              </p>
+              <h2 id="previewCompanyName" class="hidden"></h2>
+              <p id="previewCompanyInfo" class="hidden"></p>
             </div>
 
             <div class="document-badge">
@@ -527,22 +523,14 @@
           </div>
 
           <div class="pdf-parties">
-            <div>
+            <div id="previewEmitterBlock">
               <h3>Émetteur</h3>
-              <p id="previewEmitter">
-                Nom entreprise<br />
-                Adresse<br />
-                Contact
-              </p>
+              <p id="previewEmitter"></p>
             </div>
 
-            <div>
+            <div id="previewClientBlock">
               <h3>Client</h3>
-              <p id="previewClient">
-                Nom client<br />
-                Adresse client<br />
-                Contact client
-              </p>
+              <p id="previewClient"></p>
             </div>
           </div>
 
@@ -567,8 +555,8 @@
 
           <div class="totals-zone">
             <div class="pdf-notes">
-              <h3 id="previewNotesTitle">Notes</h3>
-              <p id="previewNotes">Aucune note particulière.</p>
+              <h3 id="previewNotesTitle" class="hidden"></h3>
+              <p id="previewNotes" class="hidden"></p>
 
               <p id="previewVatFranchise" class="legal-note hidden">
                 TVA non applicable, article 293 B du CGI.

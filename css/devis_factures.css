@@ -1158,3 +1158,52 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Champs numériques sans flèches */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Meilleure lisibilité des petits champs */
+.subitem-grid input[type="number"] {
+  text-align: center;
+  padding: 10px 6px;
+}
+
+/* Empêcher les titres de groupe de déborder dans le PDF */
+.pdf-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.group-row td {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.group-title-preview {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  line-height: 1.4;
+}
+
+.group-row,
+.group-row td,
+.group-title-preview {
+  box-sizing: border-box;
+}
